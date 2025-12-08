@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 
+import heroVideo from "@assets/Untitled_design_(3)_1765178051900.mp4";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
 import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
@@ -103,62 +104,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <motion.div 
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 10, ease: "linear" }}
-            className="w-full h-full"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
           >
-            <div 
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroImage})` }}
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80 z-10" />
+            <source src={heroVideo} type="video/mp4" />
+          </video>
         </div>
-
-        <div className="container relative z-20 px-4 text-center pt-24 md:pt-32">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="max-w-5xl mx-auto space-y-8"
-          >
-            <motion.div variants={fadeInUp}>
-               <span className="inline-block py-2 px-6 border border-primary/50 rounded-full text-primary text-sm font-bold tracking-widest uppercase mb-6 bg-black/60 backdrop-blur-md shadow-[0_0_15px_rgba(255,0,0,0.3)]">
-                Premium Auto Care Studio
-              </span>
-            </motion.div>
-            
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-tight tracking-tighter text-glow">
-              THE EXQUISITE ART OF<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">AUTO DETAILING</span>
-            </motion.h1>
-            
-            <motion.h2 variants={fadeInUp} className="text-xl md:text-2xl text-gray-300 font-light tracking-wide max-w-3xl mx-auto">
-              Done to Perfection. Experience the ultimate transformation for your vehicle.
-            </motion.h2>
-            
-            <motion.div variants={fadeInUp} className="pt-8">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-8 h-auto skew-x-[-10deg] group shadow-[0_0_20px_rgba(255,0,0,0.4)] hover:shadow-[0_0_40px_rgba(255,0,0,0.6)] transition-all duration-300">
-                <span className="skew-x-[10deg] flex items-center gap-2">
-                  Book an Appointment <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-white/50 uppercase tracking-widest">Scroll</span>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-primary to-transparent"></div>
-        </motion.div>
       </section>
 
       {/* What They Offer */}
