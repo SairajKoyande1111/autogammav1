@@ -125,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* Our Services Catalogue */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="pt-10 pb-24 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
         
         <div className="container px-4 mx-auto relative z-10">
@@ -139,12 +139,7 @@ export default function Home() {
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
               OUR <span className="text-primary">SERVICES</span>
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg max-w-2xl mx-auto">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
-            <motion.div variants={fadeInUp} className="pt-4">
-              <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white">
-                <Link href="/services">View All Services</Link>
-              </Button>
-            </motion.div>
+            <motion.p variants={fadeInUp} className="text-white text-xl font-semibold md:whitespace-nowrap">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
           </motion.div>
 
           <motion.div 
