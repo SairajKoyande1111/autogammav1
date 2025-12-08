@@ -231,19 +231,14 @@ export default function Home() {
       </section>
 
       {/* You, Your Vehicle & Auto Gamma Section - Redesigned */}
-      <section className="py-24 bg-gradient-to-b from-neutral-900 via-black to-black relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        </div>
-        
+      <section className="py-24 bg-black relative overflow-hidden">
         <div className="container px-4 mx-auto relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="text-center mb-20 space-y-6"
+            className="text-center mb-16 space-y-6"
           >
             <motion.div variants={fadeInUp} className="inline-block">
               <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase">Why Choose Us</span>
@@ -267,62 +262,49 @@ export default function Home() {
             {[
               { 
                 title: "Pickup & Drop-off", 
-                icon: pickupIcon, 
-                description: "We come to you! Free pickup and drop-off service from your doorstep for a hassle-free experience.",
+                img: galleryImage1,
+                description: "Free doorstep pickup & delivery",
                 highlight: "FREE SERVICE"
               },
               { 
                 title: "Diverse Offerings", 
-                icon: diverseIcon, 
-                description: "From basic wash to premium PPF coating, we offer 50+ specialized services for every automotive need.",
+                img: detailingImage,
+                description: "50+ specialized auto services",
                 highlight: "50+ SERVICES"
               },
               { 
                 title: "Economical Choices", 
-                icon: economicalIcon, 
-                description: "Premium quality at competitive prices. Multiple packages designed to fit every budget.",
+                img: galleryImage2,
+                description: "Premium quality, best prices",
                 highlight: "BEST VALUE"
               },
               { 
                 title: "Skilled Crew", 
-                icon: skilledIcon, 
-                description: "Our certified technicians bring 10+ years of experience to deliver flawless results every time.",
+                img: ppfImage,
+                description: "10+ years of expertise",
                 highlight: "10+ YEARS EXP"
               },
             ].map((feature, i) => (
               <motion.div 
                 key={i} 
                 variants={fadeInUp}
-                className="group relative"
                 data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                <div className="relative bg-gradient-to-b from-white/10 to-white/5 border border-white/10 p-8 h-full transition-all duration-500 group-hover:border-primary/50 group-hover:bg-white/10">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="group block h-[350px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift">
+                  <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${feature.img})` }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 opacity-90 group-hover:opacity-80 transition-opacity" />
                   
-                  <div className="mb-2">
-                    <span className="text-[10px] font-bold tracking-wider text-primary bg-primary/10 px-2 py-1">
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[10px] font-bold tracking-wider text-white bg-primary px-3 py-1.5">
                       {feature.highlight}
                     </span>
                   </div>
                   
-                  <div className="w-20 h-20 mb-6 relative mx-auto">
-                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <img 
-                      src={feature.icon} 
-                      alt={feature.title}
-                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110"
-                    />
+                  <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-2xl font-orbitron font-bold text-white mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
+                    <div className="w-12 h-1 bg-primary mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <p className="text-sm text-white/80">{feature.description}</p>
                   </div>
-                  
-                  <h3 className="text-xl font-orbitron font-bold text-white mb-4 text-center group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  
-                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                    {feature.description}
-                  </p>
-                  
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-1/2 transition-all duration-500" />
                 </div>
               </motion.div>
             ))}
