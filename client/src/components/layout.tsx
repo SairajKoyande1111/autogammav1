@@ -239,21 +239,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
-      {/* Custom SVG Tire Scrollbar */}
-      <div className="fixed right-2 md:right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center h-[40vh] md:h-[60vh] pointer-events-none">
-        <div className="relative h-full w-1 bg-white/10 rounded-full">
-          <div 
-            className="absolute left-1/2 w-10 h-10 md:w-14 md:h-14"
-            style={{ 
-              top: `${scrollProgress * 100}%`,
-              transform: `translateX(-50%) translateY(-50%) rotate(${tireRotation}deg)`,
-              filter: 'drop-shadow(0 0 10px rgba(255, 0, 0, 0.4))'
-            }}
-          >
-            <TireSVG className="w-full h-full" />
-          </div>
-        </div>
-      </div>
 
 
       {/* Navigation */}

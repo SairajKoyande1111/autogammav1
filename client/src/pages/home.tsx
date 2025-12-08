@@ -122,19 +122,6 @@ export default function Home() {
           </video>
         </div>
         
-        <motion.div
-          className="absolute right-[2%] md:right-[5%] lg:right-[8%] top-1/2 -translate-y-1/2 z-10 pointer-events-none"
-          style={{
-            rotate: tireRotation,
-            y: tireY,
-          }}
-        >
-          <img 
-            src={tireImage} 
-            alt="Tire" 
-            className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] lg:w-[280px] lg:h-[280px] object-contain"
-          />
-        </motion.div>
       </section>
 
       {/* What They Offer */}
