@@ -123,7 +123,7 @@ export default function Home() {
         </div>
         
         <motion.div
-          className="absolute right-[-10%] md:right-[-5%] lg:right-[5%] top-1/2 -translate-y-1/2 z-10 pointer-events-none"
+          className="absolute right-[2%] md:right-[5%] lg:right-[8%] top-1/2 -translate-y-1/2 z-10 pointer-events-none"
           style={{
             rotate: tireRotation,
             y: tireY,
@@ -132,7 +132,7 @@ export default function Home() {
           <img 
             src={tireImage} 
             alt="Tire" 
-            className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] object-contain"
+            className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] lg:w-[280px] lg:h-[280px] object-contain"
           />
         </motion.div>
       </section>
