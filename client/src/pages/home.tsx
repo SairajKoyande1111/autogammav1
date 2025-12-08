@@ -124,70 +124,7 @@ export default function Home() {
         
       </section>
 
-      {/* What They Offer */}
-      <section className="py-24 bg-black relative">
-        <div className="container px-4 mx-auto">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-16 space-y-4"
-          >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
-              YOU, YOUR VEHICLE & <span className="text-primary">AUTO GAMMA</span>
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-muted-foreground">
-              Taking extra care of your vehicle with precision and passion.
-            </motion.p>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {[
-              { img: pickupIcon, title: "Pickup & Drop-off", desc: "Hassle-free service right at your doorstep." },
-              { img: diverseIcon, title: "Diverse Offerings", desc: "Everything from wash to full paint protection." },
-              { img: economicalIcon, title: "Economical Choices", desc: "Premium quality at competitive pricing." },
-              { img: skilledIcon, title: "Skilled Crew", desc: "Certified experts handling your machine." },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={scaleIn}
-                className="p-8 bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 group hover:bg-white/[0.07] hover:-translate-y-2 rounded-xl hover-lift"
-              >
-                <div className="w-20 h-20 mb-6 mx-auto relative group-hover:scale-110 transition-transform duration-300">
-                  <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <img src={feature.img} alt={feature.title} className="w-full h-full object-contain relative z-10" />
-                </div>
-                <h3 className="text-xl font-orbitron font-bold text-white mb-3 text-center">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-center">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Marquee */}
-      <div className="py-12 bg-neutral-950 border-y border-white/10 overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
-        <div className="flex whitespace-nowrap animate-marquee items-center gap-12 min-w-full">
-          {[...brands, ...brands, ...brands].map((brand, i) => (
-            <div key={i} className="flex items-center gap-4 group cursor-default shrink-0">
-              <span className="text-3xl md:text-4xl font-orbitron font-bold text-white/80 group-hover:text-white group-hover:text-glow transition-all duration-300 uppercase tracking-widest">
-                {brand}
-              </span>
-              <Star size={16} className="text-primary group-hover:text-primary transition-colors" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Catalogue Section */}
+      {/* Our Services Catalogue */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
         
@@ -200,9 +137,9 @@ export default function Home() {
             className="text-center mb-16 space-y-4"
           >
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
-              EXPLORE THE <span className="text-primary">CATALOGUE</span>
+              OUR <span className="text-primary">SERVICES</span>
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">Definitely yes, that's what we do!</motion.p>
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg max-w-2xl mx-auto">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
             <motion.div variants={fadeInUp} className="pt-4">
               <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white">
                 <Link href="/services">View All Services</Link>
@@ -222,6 +159,10 @@ export default function Home() {
               { title: "Paint Protection", img: ppfImage, link: "/ppf" },
               { title: "Body Wrap", img: heroImage, link: "/services" },
               { title: "Sun Control Film", img: interiorImage, link: "/services" },
+              { title: "Ceramic Coating", img: galleryImage1, link: "/services" },
+              { title: "Car Accessories", img: galleryImage2, link: "/services" },
+              { title: "Interior Steam Wash", img: galleryImage4, link: "/services" },
+              { title: "Mechanical", img: galleryImage3, link: "/services" },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeInUp}>
                 <Link href={item.link} className="group block h-[400px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift">
