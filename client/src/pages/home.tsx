@@ -208,6 +208,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* You, Your Vehicle & Auto Gamma Section */}
+      <section className="py-20 bg-black relative overflow-hidden">
+        <div className="container px-4 mx-auto">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+            className="text-center mb-16 space-y-4"
+          >
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
+              YOU, YOUR VEHICLE & <span className="text-primary">AUTO GAMMA</span>
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-xl">
+              Taking extra care of your vehicle.
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerFast}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {[
+              { title: "Pickup & Drop-off", icon: pickupIcon, description: "Convenient doorstep service" },
+              { title: "Diverse Offerings", icon: diverseIcon, description: "Wide range of services" },
+              { title: "Economical Choices", icon: economicalIcon, description: "Value for your money" },
+              { title: "Skilled Crew", icon: skilledIcon, description: "Expert professionals" },
+            ].map((feature, i) => (
+              <motion.div 
+                key={i} 
+                variants={scaleIn}
+                className="flex flex-col items-center text-center p-6 group"
+                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                <div className="w-24 h-24 mb-6 relative">
+                  <img 
+                    src={feature.icon} 
+                    alt={feature.title}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-lg md:text-xl font-orbitron font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Brand Partners Logo Strip */}
       <section className="py-12 bg-neutral-900 relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
