@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ArrowRight, Star, Shield, Zap, Trophy, CheckCircle2, Play, MapPin, Phone, Mail, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +16,7 @@ import { apiRequest } from "@/lib/queryClient";
 
 import heroVideo from "@assets/Untitled_design_(3)_1765178051900.mp4";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
+import tireImage from "@assets/pngegg_1765179057976.png";
 import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
 import interiorImage from "@assets/generated_images/luxury_car_interior_leather_detailing.png";
@@ -99,6 +101,11 @@ export default function Home() {
     mutation.mutate(data);
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+  const tireRotation = useTransform(scrollYProgress, [0, 1], [0, 720]);
+  const tireY = useTransform(scrollYProgress, [0, 0.3], [0, 400]);
+
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
@@ -114,6 +121,20 @@ export default function Home() {
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
+        
+        <motion.div
+          className="absolute right-[-10%] md:right-[-5%] lg:right-[5%] top-1/2 -translate-y-1/2 z-10 pointer-events-none"
+          style={{
+            rotate: tireRotation,
+            y: tireY,
+          }}
+        >
+          <img 
+            src={tireImage} 
+            alt="Tire" 
+            className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] object-contain"
+          />
+        </motion.div>
       </section>
 
       {/* What They Offer */}
