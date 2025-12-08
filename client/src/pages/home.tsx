@@ -223,7 +223,7 @@ export default function Home() {
               <img 
                 src={brand.logo} 
                 alt={brand.name} 
-                className="h-16 md:h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </div>
           ))}
