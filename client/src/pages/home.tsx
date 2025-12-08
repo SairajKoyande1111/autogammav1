@@ -29,6 +29,23 @@ import galleryImage2 from "@assets/stock_images/luxury_car_interior__d9a8634a.jp
 import galleryImage3 from "@assets/stock_images/suv_off-road_desert__38198823.jpg";
 import galleryImage4 from "@assets/stock_images/car_interior_detaili_b4d46e1c.jpg";
 
+import logoPolk from "@assets/image_1765180647538.png";
+import logoHertz from "@assets/image_1765180659355.png";
+import logoCrosslink from "@assets/image_1765180665333.png";
+import logoKochChemie from "@assets/image_1765180674823.png";
+import logoNippon from "@assets/image_1765180690668.png";
+import logoPioneer from "@assets/image_1765180699887.png";
+import logoBlaupunkt from "@assets/image_1765180711219.png";
+import logoMaxxlink from "@assets/image_1765180720687.png";
+import logoGarware from "@assets/image_1765180761821.png";
+import logoQubo from "@assets/image_1765180776395.png";
+import logoAvery from "@assets/image_1765180796870.png";
+import logoSunkool from "@assets/image_1765180803554.png";
+import logoLlumar from "@assets/image_1765180809382.png";
+import logo3M from "@assets/image_1765180836267.png";
+import logoCardi from "@assets/image_1765180859879.png";
+import logoCerwin from "@assets/image_1765180872400.png";
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -57,10 +74,23 @@ const staggerFast = {
   visible: { transition: { staggerChildren: 0.05 } }
 } as const;
 
-const brands = [
-  "GARWARE", "QUBO", "POLK AUDIO", "HERTZ", "CROSSLINK WHEELS", 
-  "BLAUPUNKT", "MAXXLINK", "AVERY DENNISON", "SUN KOOL", 
-  "LLUMAR", "KOCH CHEMIE", "NIPPON", "PIONEER", "3M"
+const brandLogos = [
+  { name: "Polk Audio", logo: logoPolk },
+  { name: "Hertz", logo: logoHertz },
+  { name: "Crosslink Wheels", logo: logoCrosslink },
+  { name: "Koch Chemie", logo: logoKochChemie },
+  { name: "Nippon", logo: logoNippon },
+  { name: "Pioneer", logo: logoPioneer },
+  { name: "Blaupunkt", logo: logoBlaupunkt },
+  { name: "Maxxlink", logo: logoMaxxlink },
+  { name: "Garware", logo: logoGarware },
+  { name: "Qubo", logo: logoQubo },
+  { name: "Avery Dennison", logo: logoAvery },
+  { name: "Sunkool", logo: logoSunkool },
+  { name: "Llumar", logo: logoLlumar },
+  { name: "3M", logo: logo3M },
+  { name: "Cardi", logo: logoCardi },
+  { name: "Cerwin Vega", logo: logoCerwin },
 ];
 
 export default function Home() {
@@ -175,6 +205,28 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Brand Partners Logo Strip */}
+      <section className="py-12 bg-neutral-900 relative overflow-hidden">
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none" />
+        
+        <div className="flex animate-marquee-brands">
+          {[...brandLogos, ...brandLogos].map((brand, i) => (
+            <div 
+              key={i} 
+              className="flex-shrink-0 mx-8 flex items-center justify-center"
+              data-testid={`logo-brand-${i}`}
+            >
+              <img 
+                src={brand.logo} 
+                alt={brand.name} 
+                className="h-16 md:h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
