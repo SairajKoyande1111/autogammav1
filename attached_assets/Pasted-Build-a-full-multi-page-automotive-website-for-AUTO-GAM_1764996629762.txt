@@ -1,0 +1,227 @@
+Build a full multi-page automotive website for **AUTO GAMMA**.
+
+The business is an auto-garage & detailing studio.  
+Theme: Premium • Dark • Metallic • Automotive Energy  
+Style Inspiration: Carbon fiber • Chrome shine • Red/black aesthetic.  
+Animations must be bold, smooth, “WOW-factor” quality — parallax, GSAP transitions, scroll animations, reveal effects.
+
+========================================
+PAGES TO GENERATE
+========================================
+
+1) HOME PAGE  
+Hero Section:
+Headline —  
+"The Exquisite Art of  
+Auto Detailing Done to Perfection"
+
+CTA Button → "Book an Appointment"
+
+What They Offer Section:
+Heading: "You, your vehicle & Auto Gamma"
+Subtext: "Taking extra care of your vehicle."
+
+Four highlight features (with icons):
+• Pickup & Drop-off  
+• Diverse Offerings  
+• Economical Choices  
+• Skilled Crew  
+
+Brand Logo Scrolling Animation  
+(Continuous marquee)
+
+Catalogue Section:
+Heading: "Explore the Detailing Catalogue"
+Subline: "Definitely yes, that’s what we do!"
+Cards:
+– Auto Detailing
+– Paint Protection Film
+– Body Wrap
+– Sun Control Film
+
+Services Section:
+Heading: "Discover the Services"
+Subline: "The essence of automotive excellence with our expert services"
+Show expandable service preview boxes.
+(Click → leads to Services Page)
+
+Transformations Section:
+Heading — "The Auto Glimpses"
+Subline — "View the latest transformations!"
+Use slider or before/after reveal animation.
+
+Contact Section:
+Heading: "Contact us to know more."
+Address:
+Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc.,  
+Prasad Hotel Road, Badlapur, Maharashtra - 421503  
+
+Phone: +91 92268 82024  
+Email: info@autogamma.in  
+Form Fields:
+Name, Email, Contact Number, Message → Submit Button
+
+Footer:
+“The realm of automotive luxury and the transformative power of precision detailing, where every detail matters..”
+Links:
+Services • About Us • Register Warranty • Download Brochure
+Button → GET DIRECTIONS
+
+========================================
+2) ABOUT US PAGE
+========================================
+
+Headline: "Who we are & what we do!"
+Subheadline: "Crafting Excellence in Car Detailing and Services"
+
+About Text:
+Auto Gamma is the first professional auto detailing studio in Badlapur.  
+Offers services for cars + bikes.  
+Budget friendly + highly skilled crew.  
+
+Stats (animated Counter):
+650+ Vehicles Detailed  
+900+ Happy Customers  
+22+ Associated Brands  
+10 Skilled Crew Members  
+
+Repeat Offers Highlight (icon blocks):
+Pickup & Drop Off • Diverse Offerings • Economical Choices • Skilled Crew  
+
+Contact Footer (Same as Home Page)
+
+========================================
+3) PPF (Paint Protection Film) PAGE
+========================================
+
+Header Banner:
+"Protect Your Car, Preserve Its Shine!"
+"Guard Your Car’s Paint with Our Advanced PPF Technology"
+
+Description:
+Transparent urethane film
+Protects from debris, chips, scratches
+Gloss enhancement  
+Acts as sacrificial protection layer  
+
+Benefits of PPF:
+Ultimate Protection  
+Preserving Resale Value  
+Easy Maintenance  
+Enhanced Aesthetics  
+
+Show package pricing tables EXACTLY as below:
+
+ELITE PACKAGE  
+Small Cars
+TPU 5 Years ₹55,000  
+TPU 5 Years Matt ₹60,000  
+TPU 7 Years ₹80,000  
+TPU 10 Years ₹95,000  
+
+Hatchback/Small Sedan  
+TPU 5Y ₹60,000 • Matt ₹70,000 • 7Y ₹85,000 • 10Y ₹1,05,000  
+
+Mid Sedan/Compact SUV/MUV  
+5Y ₹70,000 • Matt ₹75,000 • 7Y ₹90,000 • 10Y ₹1,12,000  
+
+SUV/MPV  
+5Y ₹80,000 • Matt ₹85,000 • 7Y ₹95,000 • 10Y ₹1,20,000  
+
+GARWARE PLUS PACKAGE  
+Small Cars — ₹62,000  
+Hatchback — ₹65,000  
+Mid Sedans/SUV — ₹65,000  
+Full SUV — ₹85,000  
+
+GARWARE PREMIUM PACKAGE (8Y Warranty)
+Small — ₹80,000  
+Hatchback — ₹85,000  
+Mid — ₹90,000  
+SUV — ₹95,000  
+
+GARWARE MATT PACKAGE (5Y Warranty)
+Small ₹1,05,000  
+Hatchback ₹1,10,000  
+Mid ₹1,15,000  
+SUV ₹1,20,000  
+
+========================================
+4) SERVICES PAGE
+========================================
+
+Title: "Discover the Services"
+Subtitle: "The essence of expert services!"
+
+Show packages in dropdown (like screenshot provided).
+
+Service Package List:
+
+FOAM WASHING — ₹400  
+Includes:
+Tyre/arch clean, alloys cleaning, foam wash,
+foot mats vacuum, paper mats placed.
+
+PREMIUM WASHING — ₹600  
+Includes:
+Underbody wash, tyre polish, exterior plastic polish,
+mats vacuum, dashboard cleaning, full interior vacuum.
+
+INTERIOR CLEANING — ₹2,500  
+Deep interior vacuuming, roof cleaning, upholstery,
+dash cleaning, vents, boots, carpets, console.
+
+INTERIOR STEAM CLEANING — ₹3,500  
+Steam clean + sanitization + AC duct treatment + leather waxing.
+
+LEATHER TREATMENT — ₹5,000  
+Interior steam + leather waxing + conditioning.
+
+DETAILING — ₹5,000  
+Multi-stage compounding + clay decontam + rub/marks removal.
+
+========================================
+5) REGISTER WARRANTY PAGE
+========================================
+
+Header:  
+"Revive & Refresh Your Ride — Register Warranty Today!"
+
+Form Fields Required:
+Customer Name  
+Contact Number  
+Email  
+City  
+State  
+Choose Service (Dropdown)  
+Vehicle Brand  
+Vehicle Model  
+Registration No.  
+Upload Invoice  
+Submit Button
+
+========================================
+ANIMATION REQUIREMENTS
+========================================
+
+USE MODERN MOTION EFFECTS:
+• GSAP scroll animations  
+• Tire-track wipe transitions between sections  
+• Parallax image depth  
+• Headlight glow reveal in hero section  
+• Hover lift + shine effects on cards  
+• Logo marquee continuous scrolling  
+• Testimonial & transformation slider  
+• Counters animate 0 → full count  
+• Smooth micro-interactions everywhere  
+
+This website should look PREMIUM, HEAVY, AUTOMOTIVE, IMPACTFUL.
+
+========================================
+DELIVERABLE FORMAT
+========================================
+→ Generate full working code  
+→ index.html + about.html + ppf.html + services.html + warranty.html  
+→ style.css + script.js  
+→ Fully responsive mobile + desktop  
+→ One-click deployable on Replit  
