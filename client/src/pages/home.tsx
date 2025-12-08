@@ -208,60 +208,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* You, Your Vehicle & Auto Gamma Section */}
-      <section className="py-20 bg-black relative overflow-hidden">
-        <div className="container px-4 mx-auto">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-16 space-y-4"
-          >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
-              YOU, YOUR VEHICLE & <span className="text-primary">AUTO GAMMA</span>
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-xl">
-              Taking extra care of your vehicle.
-            </motion.p>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerFast}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
-          >
-            {[
-              { title: "Pickup & Drop-off", icon: pickupIcon, description: "Convenient doorstep service" },
-              { title: "Diverse Offerings", icon: diverseIcon, description: "Wide range of services" },
-              { title: "Economical Choices", icon: economicalIcon, description: "Value for your money" },
-              { title: "Skilled Crew", icon: skilledIcon, description: "Expert professionals" },
-            ].map((feature, i) => (
-              <motion.div 
-                key={i} 
-                variants={scaleIn}
-                className="flex flex-col items-center text-center p-6 group"
-                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <div className="w-24 h-24 mb-6 relative">
-                  <img 
-                    src={feature.icon} 
-                    alt={feature.title}
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-                <h3 className="text-lg md:text-xl font-orbitron font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Brand Partners Logo Strip */}
       <section className="py-12 bg-neutral-900 relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
@@ -281,6 +227,106 @@ export default function Home() {
               />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* You, Your Vehicle & Auto Gamma Section - Redesigned */}
+      <section className="py-24 bg-gradient-to-b from-neutral-900 via-black to-black relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container px-4 mx-auto relative z-10">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+            className="text-center mb-20 space-y-6"
+          >
+            <motion.div variants={fadeInUp} className="inline-block">
+              <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase">Why Choose Us</span>
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-orbitron font-bold text-white leading-tight">
+              YOU, YOUR VEHICLE &<br />
+              <span className="text-primary">AUTO GAMMA</span>
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-xl max-w-2xl mx-auto">
+              Taking extra care of your vehicle with premium services, expert craftsmanship, and unmatched convenience.
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerFast}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              { 
+                title: "Pickup & Drop-off", 
+                icon: pickupIcon, 
+                description: "We come to you! Free pickup and drop-off service from your doorstep for a hassle-free experience.",
+                highlight: "FREE SERVICE"
+              },
+              { 
+                title: "Diverse Offerings", 
+                icon: diverseIcon, 
+                description: "From basic wash to premium PPF coating, we offer 50+ specialized services for every automotive need.",
+                highlight: "50+ SERVICES"
+              },
+              { 
+                title: "Economical Choices", 
+                icon: economicalIcon, 
+                description: "Premium quality at competitive prices. Multiple packages designed to fit every budget.",
+                highlight: "BEST VALUE"
+              },
+              { 
+                title: "Skilled Crew", 
+                icon: skilledIcon, 
+                description: "Our certified technicians bring 10+ years of experience to deliver flawless results every time.",
+                highlight: "10+ YEARS EXP"
+              },
+            ].map((feature, i) => (
+              <motion.div 
+                key={i} 
+                variants={fadeInUp}
+                className="group relative"
+                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                <div className="relative bg-gradient-to-b from-white/10 to-white/5 border border-white/10 p-8 h-full transition-all duration-500 group-hover:border-primary/50 group-hover:bg-white/10">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="mb-2">
+                    <span className="text-[10px] font-bold tracking-wider text-primary bg-primary/10 px-2 py-1">
+                      {feature.highlight}
+                    </span>
+                  </div>
+                  
+                  <div className="w-20 h-20 mb-6 relative mx-auto">
+                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <img 
+                      src={feature.icon} 
+                      alt={feature.title}
+                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  
+                  <h3 className="text-xl font-orbitron font-bold text-white mb-4 text-center group-hover:text-primary transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                    {feature.description}
+                  </p>
+                  
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-1/2 transition-all duration-500" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
