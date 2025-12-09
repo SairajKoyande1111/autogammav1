@@ -150,15 +150,14 @@ export default function Home() {
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/40" />
         </div>
         
-        <div className="relative z-10 container px-4 mx-auto">
+        <div className="relative z-10 container px-4 mx-auto flex items-center justify-center">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-3xl"
+            className="text-center"
           >
             <motion.p 
               variants={fadeInUp}
@@ -177,14 +176,14 @@ export default function Home() {
             
             <motion.p 
               variants={fadeInUp}
-              className="text-white/80 text-lg md:text-xl mb-10 max-w-xl"
+              className="text-white/80 text-lg md:text-xl mb-10 max-w-xl mx-auto"
             >
               Transform your vehicle with our expert detailing, PPF coating, and ceramic protection services.
             </motion.p>
             
             <motion.div 
               variants={fadeInUp}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 justify-center"
             >
               <Button 
                 asChild 
