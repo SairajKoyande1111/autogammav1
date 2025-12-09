@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Star, Shield, Zap, Trophy, CheckCircle2, Play, MapPin, Phone, Mail, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -137,7 +137,8 @@ export default function Home() {
   const tireRotation = useTransform(scrollYProgress, [0, 1], [0, 720]);
   const tireY = useTransform(scrollYProgress, [0, 0.3], [0, 400]);
   
-  const carX = useTransform(scrollYProgress, [0, 1], ["0%", "calc(100vw - 200px)"]);
+  const smoothScrollProgress = useSpring(scrollYProgress, { stiffness: 50, damping: 20, mass: 0.5 });
+  const carX = useTransform(smoothScrollProgress, [0, 1], ["0vw", "85vw"]);
 
   return (
     <div className="w-full overflow-x-hidden">
