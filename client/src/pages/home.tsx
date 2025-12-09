@@ -706,7 +706,7 @@ export default function Home() {
         className="fixed z-50 pointer-events-none"
         style={{ 
           x: carX,
-          bottom: '-60px',
+          bottom: '-45px',
           left: 0,
         }}
         data-testid="scroll-car"
