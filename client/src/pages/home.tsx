@@ -703,14 +703,19 @@ export default function Home() {
 
       {/* Scroll-based animated car at bottom */}
       <motion.div
-        className="fixed bottom-0 left-0 z-50 pointer-events-none"
-        style={{ x: carX }}
+        className="fixed z-50 pointer-events-none"
+        style={{ 
+          x: carX,
+          bottom: 0,
+          left: 0,
+        }}
         data-testid="scroll-car"
       >
         <img 
           src={scrollCarImage} 
           alt="Scrolling car" 
-          className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+          className="h-20 md:h-28 lg:h-36 w-auto object-contain object-bottom"
+          style={{ marginBottom: '-5px' }}
         />
       </motion.div>
     </div>
