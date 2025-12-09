@@ -706,7 +706,7 @@ export default function Home() {
         className="fixed z-50 pointer-events-none"
         style={{ 
           x: carX,
-          bottom: 0,
+          bottom: '-60px',
           left: 0,
         }}
         data-testid="scroll-car"
@@ -714,8 +714,7 @@ export default function Home() {
         <img 
           src={scrollCarImage} 
           alt="Scrolling car" 
-          className="h-20 md:h-28 lg:h-36 w-auto object-contain object-bottom"
-          style={{ marginBottom: '-5px' }}
+          className="h-28 md:h-36 lg:h-44 w-auto object-contain"
         />
       </motion.div>
     </div>
