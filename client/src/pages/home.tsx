@@ -17,7 +17,7 @@ import { apiRequest } from "@/lib/queryClient";
 import heroVideo from "@assets/Untitled_design_(3)_1765178051900.mp4";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
 import tireImage from "@assets/pngegg_1765179057976.png";
-import scrollCarImage from "@assets/pngegg_(1)_1765263076157.png";
+import scrollCarImage from "@assets/Untitled_design_(18)_1765263423018.png";
 import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
 import interiorImage from "@assets/generated_images/luxury_car_interior_leather_detailing.png";
@@ -137,7 +137,7 @@ export default function Home() {
   const tireRotation = useTransform(scrollYProgress, [0, 1], [0, 720]);
   const tireY = useTransform(scrollYProgress, [0, 0.3], [0, 400]);
   
-  const carX = useTransform(scrollYProgress, [0, 1], ["-100%", "100vw"]);
+  const carX = useTransform(scrollYProgress, [0, 1], ["0%", "calc(100vw - 200px)"]);
 
   return (
     <div className="w-full overflow-x-hidden">
