@@ -139,7 +139,7 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -150,8 +150,63 @@ export default function Home() {
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         
+        <div className="relative z-10 container px-4 mx-auto">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-3xl"
+          >
+            <motion.p 
+              variants={fadeInUp}
+              className="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4"
+            >
+              Premium Auto Care
+            </motion.p>
+            
+            <motion.h1 
+              variants={fadeInUp}
+              className="text-4xl md:text-6xl lg:text-7xl font-orbitron font-bold text-white leading-tight mb-6"
+            >
+              Auto Detailing<br />
+              <span className="text-primary">Done to Perfection</span>
+            </motion.h1>
+            
+            <motion.p 
+              variants={fadeInUp}
+              className="text-white/80 text-lg md:text-xl mb-10 max-w-xl"
+            >
+              Transform your vehicle with our expert detailing, PPF coating, and ceramic protection services.
+            </motion.p>
+            
+            <motion.div 
+              variants={fadeInUp}
+              className="flex flex-wrap gap-4"
+            >
+              <Button 
+                asChild 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg"
+                data-testid="button-hero-consult"
+              >
+                <Link href="#contact">Book Consultation</Link>
+              </Button>
+              
+              <Button 
+                asChild 
+                variant="outline"
+                size="lg"
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-6 text-lg"
+                data-testid="button-hero-services"
+              >
+                <Link href="/services">Explore Services</Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Our Services Catalogue */}
