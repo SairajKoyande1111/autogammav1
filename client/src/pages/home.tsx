@@ -711,37 +711,85 @@ export default function Home() {
         }}
         data-testid="scroll-car"
       >
-        <div className="relative">
-          {/* Smoke/dust effect behind the car */}
-          <div className="absolute -left-8 bottom-2 flex items-end gap-1">
-            <motion.div 
-              className="w-16 h-8 bg-gradient-to-r from-white/40 to-transparent rounded-full blur-md"
-              animate={{ 
-                opacity: [0.4, 0.2, 0.4],
-                scaleX: [1, 1.3, 1],
-                x: [-10, -30, -10]
+        <div className="relative" style={{ overflow: 'visible' }}>
+          {/* Main exhaust smoke cloud */}
+          <motion.div
+            className="absolute"
+            style={{
+              left: '15px',
+              bottom: '52px',
+              width: '70px',
+              height: '45px',
+              background: 'radial-gradient(ellipse at right, rgba(255, 255, 255, 0.95) 0%, rgba(220, 210, 190, 0.6) 40%, transparent 75%)',
+              borderRadius: '50%',
+              filter: 'blur(6px)',
+              zIndex: 4,
+            }}
+            animate={{
+              x: [0, -60, -140],
+              opacity: [1, 0.5, 0],
+              scaleX: [1, 1.8, 2.5],
+              scaleY: [1, 1.2, 0.7],
+            }}
+            transition={{
+              duration: 0.9,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+          />
+          {/* Puff clouds trailing behind */}
+          {[0, 1, 2, 3].map((i) => (
+            <motion.div
+              key={i}
+              className="absolute"
+              style={{
+                left: `${25 - i * 5}px`,
+                bottom: `${50 + (i % 2) * 10}px`,
+                width: `${45 + i * 12}px`,
+                height: `${28 + i * 6}px`,
+                background: `radial-gradient(ellipse at right, rgba(255, 255, 255, ${0.9 - i * 0.15}) 0%, rgba(240, 230, 210, ${0.5 - i * 0.1}) 45%, transparent 80%)`,
+                borderRadius: '50%',
+                filter: `blur(${5 + i * 2}px)`,
+                zIndex: 4,
               }}
-              transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div 
-              className="w-12 h-6 bg-gradient-to-r from-white/30 to-transparent rounded-full blur-md"
-              animate={{ 
-                opacity: [0.3, 0.15, 0.3],
-                scaleX: [1, 1.4, 1],
-                x: [-5, -25, -5]
+              animate={{
+                x: [0, -50 - i * 20, -100 - i * 40],
+                y: [0, (-5 + i * 2), (5 - i * 2)],
+                opacity: [0.85 - i * 0.1, 0.35, 0],
+                scale: [0.85, 1.3, 1.9],
               }}
-              transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-            />
-            <motion.div 
-              className="w-10 h-5 bg-gradient-to-r from-white/25 to-transparent rounded-full blur-lg"
-              animate={{ 
-                opacity: [0.25, 0.1, 0.25],
-                scaleX: [1, 1.5, 1],
-                x: [-3, -20, -3]
+              transition={{
+                duration: 0.7 + i * 0.15,
+                repeat: Infinity,
+                ease: "easeOut",
+                delay: i * 0.12,
               }}
-              transition={{ duration: 0.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
             />
-          </div>
+          ))}
+          {/* Low ground dust streak */}
+          <motion.div
+            className="absolute"
+            style={{
+              left: '20px',
+              bottom: '48px',
+              width: '90px',
+              height: '18px',
+              background: 'linear-gradient(to left, rgba(255, 255, 255, 0.9) 0%, rgba(200, 190, 170, 0.4) 50%, transparent 100%)',
+              borderRadius: '50%',
+              filter: 'blur(4px)',
+              zIndex: 4,
+            }}
+            animate={{
+              x: [0, -80],
+              opacity: [0.9, 0],
+              scaleX: [1, 2.8],
+            }}
+            transition={{
+              duration: 0.55,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+          />
           <img 
             src={scrollCarImage} 
             alt="Scrolling car" 
