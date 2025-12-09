@@ -714,7 +714,7 @@ export default function Home() {
         data-testid="scroll-car"
       >
         <div className="relative" style={{ overflow: 'visible' }}>
-          {/* Main exhaust smoke cloud with red tint */}
+          {/* Main exhaust fire cloud - yellow/red like flames */}
           <motion.div
             className="absolute"
             style={{
@@ -722,7 +722,7 @@ export default function Home() {
               bottom: '52px',
               width: '70px',
               height: '45px',
-              background: 'radial-gradient(ellipse at right, rgba(255, 200, 180, 0.95) 0%, rgba(180, 80, 60, 0.6) 40%, transparent 75%)',
+              background: 'radial-gradient(ellipse at right, rgba(255, 255, 100, 0.95) 0%, rgba(255, 150, 0, 0.8) 30%, rgba(255, 50, 0, 0.6) 60%, transparent 85%)',
               borderRadius: '50%',
               filter: 'blur(6px)',
               zIndex: 4,
@@ -739,7 +739,7 @@ export default function Home() {
               ease: "easeOut",
             }}
           />
-          {/* Puff clouds trailing behind with red tint */}
+          {/* Fire puffs trailing behind - yellow to orange to red */}
           {[0, 1, 2, 3].map((i) => (
             <motion.div
               key={i}
@@ -749,7 +749,7 @@ export default function Home() {
                 bottom: `${50 + (i % 2) * 10}px`,
                 width: `${45 + i * 12}px`,
                 height: `${28 + i * 6}px`,
-                background: `radial-gradient(ellipse at right, rgba(255, 180, 160, ${0.9 - i * 0.15}) 0%, rgba(200, 100, 80, ${0.5 - i * 0.1}) 45%, transparent 80%)`,
+                background: `radial-gradient(ellipse at right, rgba(255, 230, 50, ${0.9 - i * 0.15}) 0%, rgba(255, 120, 0, ${0.7 - i * 0.1}) 40%, rgba(220, 30, 0, ${0.4 - i * 0.08}) 70%, transparent 90%)`,
                 borderRadius: '50%',
                 filter: `blur(${5 + i * 2}px)`,
                 zIndex: 4,
@@ -768,7 +768,7 @@ export default function Home() {
               }}
             />
           ))}
-          {/* Low ground dust streak with red tint */}
+          {/* Low ground fire streak - yellow/orange/red */}
           <motion.div
             className="absolute"
             style={{
@@ -776,7 +776,7 @@ export default function Home() {
               bottom: '48px',
               width: '90px',
               height: '18px',
-              background: 'linear-gradient(to left, rgba(255, 180, 160, 0.9) 0%, rgba(180, 80, 60, 0.4) 50%, transparent 100%)',
+              background: 'linear-gradient(to left, rgba(255, 220, 50, 0.95) 0%, rgba(255, 100, 0, 0.7) 40%, rgba(200, 30, 0, 0.4) 70%, transparent 100%)',
               borderRadius: '50%',
               filter: 'blur(4px)',
               zIndex: 4,
