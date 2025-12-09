@@ -711,11 +711,43 @@ export default function Home() {
         }}
         data-testid="scroll-car"
       >
-        <img 
-          src={scrollCarImage} 
-          alt="Scrolling car" 
-          className="h-28 md:h-36 lg:h-44 w-auto object-contain"
-        />
+        <div className="relative">
+          {/* Smoke/dust effect behind the car */}
+          <div className="absolute -left-8 bottom-2 flex items-end gap-1">
+            <motion.div 
+              className="w-16 h-8 bg-gradient-to-r from-white/40 to-transparent rounded-full blur-md"
+              animate={{ 
+                opacity: [0.4, 0.2, 0.4],
+                scaleX: [1, 1.3, 1],
+                x: [-10, -30, -10]
+              }}
+              transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="w-12 h-6 bg-gradient-to-r from-white/30 to-transparent rounded-full blur-md"
+              animate={{ 
+                opacity: [0.3, 0.15, 0.3],
+                scaleX: [1, 1.4, 1],
+                x: [-5, -25, -5]
+              }}
+              transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+            />
+            <motion.div 
+              className="w-10 h-5 bg-gradient-to-r from-white/25 to-transparent rounded-full blur-lg"
+              animate={{ 
+                opacity: [0.25, 0.1, 0.25],
+                scaleX: [1, 1.5, 1],
+                x: [-3, -20, -3]
+              }}
+              transition={{ duration: 0.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+            />
+          </div>
+          <img 
+            src={scrollCarImage} 
+            alt="Scrolling car" 
+            className="h-28 md:h-36 lg:h-44 w-auto object-contain relative z-10"
+          />
+        </div>
       </motion.div>
     </div>
   );
