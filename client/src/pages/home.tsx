@@ -154,6 +154,8 @@ export default function Home() {
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
+          {/* Dark red tint overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-red-950/30 to-black/70" />
         </div>
         
         <div className="relative z-10 container px-4 mx-auto flex items-center justify-center">
@@ -712,7 +714,7 @@ export default function Home() {
         data-testid="scroll-car"
       >
         <div className="relative" style={{ overflow: 'visible' }}>
-          {/* Main exhaust smoke cloud */}
+          {/* Main exhaust smoke cloud with red tint */}
           <motion.div
             className="absolute"
             style={{
@@ -720,7 +722,7 @@ export default function Home() {
               bottom: '52px',
               width: '70px',
               height: '45px',
-              background: 'radial-gradient(ellipse at right, rgba(255, 255, 255, 0.95) 0%, rgba(220, 210, 190, 0.6) 40%, transparent 75%)',
+              background: 'radial-gradient(ellipse at right, rgba(255, 200, 180, 0.95) 0%, rgba(180, 80, 60, 0.6) 40%, transparent 75%)',
               borderRadius: '50%',
               filter: 'blur(6px)',
               zIndex: 4,
@@ -737,7 +739,7 @@ export default function Home() {
               ease: "easeOut",
             }}
           />
-          {/* Puff clouds trailing behind */}
+          {/* Puff clouds trailing behind with red tint */}
           {[0, 1, 2, 3].map((i) => (
             <motion.div
               key={i}
@@ -747,7 +749,7 @@ export default function Home() {
                 bottom: `${50 + (i % 2) * 10}px`,
                 width: `${45 + i * 12}px`,
                 height: `${28 + i * 6}px`,
-                background: `radial-gradient(ellipse at right, rgba(255, 255, 255, ${0.9 - i * 0.15}) 0%, rgba(240, 230, 210, ${0.5 - i * 0.1}) 45%, transparent 80%)`,
+                background: `radial-gradient(ellipse at right, rgba(255, 180, 160, ${0.9 - i * 0.15}) 0%, rgba(200, 100, 80, ${0.5 - i * 0.1}) 45%, transparent 80%)`,
                 borderRadius: '50%',
                 filter: `blur(${5 + i * 2}px)`,
                 zIndex: 4,
@@ -766,7 +768,7 @@ export default function Home() {
               }}
             />
           ))}
-          {/* Low ground dust streak */}
+          {/* Low ground dust streak with red tint */}
           <motion.div
             className="absolute"
             style={{
@@ -774,7 +776,7 @@ export default function Home() {
               bottom: '48px',
               width: '90px',
               height: '18px',
-              background: 'linear-gradient(to left, rgba(255, 255, 255, 0.9) 0%, rgba(200, 190, 170, 0.4) 50%, transparent 100%)',
+              background: 'linear-gradient(to left, rgba(255, 180, 160, 0.9) 0%, rgba(180, 80, 60, 0.4) 50%, transparent 100%)',
               borderRadius: '50%',
               filter: 'blur(4px)',
               zIndex: 4,
