@@ -5,25 +5,6 @@ import { Menu, X, MapPin, Phone, Mail, ChevronRight, Facebook, Instagram, Youtub
 import { Button } from "@/components/ui/button";
 import autoGammaLogo from "@assets/image_1765169951823.png";
 
-interface SmokeParticle {
-  id: number;
-  x: number;
-  y: number;
-  opacity: number;
-  scale: number;
-  velocityX: number;
-  velocityY: number;
-}
-
-interface StopSmokeParticle {
-  id: number;
-  x: number;
-  y: number;
-  opacity: number;
-  scale: number;
-  velocityX: number;
-  velocityY: number;
-}
 
 function XIcon({ className, size = 14 }: { className?: string; size?: number }) {
   return (
@@ -71,142 +52,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [carX, setCarX] = useState(0);
-  const [tireRotation, setTireRotation] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [smokeParticles, setSmokeParticles] = useState<SmokeParticle[]>([]);
-  const [stopSmokeParticles, setStopSmokeParticles] = useState<StopSmokeParticle[]>([]);
-  const [isMoving, setIsMoving] = useState(false);
-  const [justStopped, setJustStopped] = useState(false);
   const prevScrollY = useRef(0);
-  const smokeIdRef = useRef(0);
-  const stopSmokeIdRef = useRef(0);
-  const movingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 50);
-      
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-      const maxScroll = docHeight - windowHeight;
-      const progress = maxScroll > 0 ? currentScrollY / maxScroll : 0;
-      setScrollProgress(progress);
-      
-      const scrollDelta = currentScrollY - prevScrollY.current;
-      
-      setTireRotation(prev => prev + scrollDelta * 0.8);
-      
-      const carWidth = window.innerWidth < 768 ? 160 : 280;
-      const maxCarX = window.innerWidth - carWidth;
-      
-      setCarX(prev => {
-        const newX = prev + scrollDelta * 0.6;
-        return Math.max(0, Math.min(maxCarX, newX));
-      });
-      
-      if (Math.abs(scrollDelta) > 0) {
-        setIsMoving(true);
-        setJustStopped(false);
-        if (movingTimeoutRef.current) {
-          clearTimeout(movingTimeoutRef.current);
-        }
-        movingTimeoutRef.current = setTimeout(() => {
-          setIsMoving(false);
-          setJustStopped(true);
-          
-          const burstParticles: StopSmokeParticle[] = [];
-          for (let i = 0; i < 6; i++) {
-            burstParticles.push({
-              id: stopSmokeIdRef.current++,
-              x: Math.random() * 40 - 20,
-              y: Math.random() * 25 - 12,
-              opacity: 0.5 + Math.random() * 0.2,
-              scale: 0.6 + Math.random() * 0.8,
-              velocityX: -2 - Math.random() * 3,
-              velocityY: (Math.random() - 0.5) * 2,
-            });
-          }
-          setStopSmokeParticles(burstParticles);
-          
-          setTimeout(() => setJustStopped(false), 1500);
-        }, 150);
-        
-        if (Math.abs(scrollDelta) > 2) {
-          const particleCount = Math.min(2, Math.floor(Math.abs(scrollDelta) / 5));
-          const newParticles: SmokeParticle[] = [];
-          
-          for (let i = 0; i < particleCount; i++) {
-            newParticles.push({
-              id: smokeIdRef.current++,
-              x: Math.random() * 20 - 10,
-              y: Math.random() * 15 - 7,
-              opacity: 0.4 + Math.random() * 0.2,
-              scale: 0.5 + Math.random() * 0.4,
-              velocityX: -2 - Math.random() * 2,
-              velocityY: (Math.random() - 0.5) * 1.5,
-            });
-          }
-          setSmokeParticles(prev => [...prev.slice(-15), ...newParticles]);
-        }
-      }
-      
       prevScrollY.current = currentScrollY;
     };
     
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (movingTimeoutRef.current) {
-        clearTimeout(movingTimeoutRef.current);
-      }
     };
   }, []);
   
-  useEffect(() => {
-    if (smokeParticles.length === 0) return;
-    
-    const fadeInterval = setInterval(() => {
-      setSmokeParticles(prev => 
-        prev
-          .map(p => ({ 
-            ...p, 
-            opacity: p.opacity - 0.03,
-            scale: p.scale + 0.15,
-            x: p.x + p.velocityX,
-            y: p.y + p.velocityY,
-            velocityX: p.velocityX * 0.95,
-            velocityY: p.velocityY * 0.95,
-          }))
-          .filter(p => p.opacity > 0)
-      );
-    }, 40);
-    
-    return () => clearInterval(fadeInterval);
-  }, [smokeParticles.length > 0]);
-
-  useEffect(() => {
-    if (stopSmokeParticles.length === 0) return;
-    
-    const fadeInterval = setInterval(() => {
-      setStopSmokeParticles(prev => 
-        prev
-          .map(p => ({ 
-            ...p, 
-            opacity: p.opacity - 0.02,
-            scale: p.scale + 0.2,
-            x: p.x + p.velocityX,
-            y: p.y + p.velocityY,
-            velocityX: p.velocityX * 0.92,
-            velocityY: p.velocityY * 0.92,
-          }))
-          .filter(p => p.opacity > 0)
-      );
-    }, 40);
-    
-    return () => clearInterval(fadeInterval);
-  }, [stopSmokeParticles.length > 0]);
 
   const navLinks = [
     { name: "Home", href: "/" },

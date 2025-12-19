@@ -166,7 +166,7 @@ export default function Home() {
           >
             <motion.p 
               variants={fadeInUp}
-              className="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4"
+              className="text-primary font-black tracking-[0.3em] uppercase text-sm mb-4"
             >
               Premium Auto Care
             </motion.p>
@@ -181,7 +181,7 @@ export default function Home() {
             
             <motion.p 
               variants={fadeInUp}
-              className="text-white/80 text-lg md:text-xl mb-10 max-w-xl mx-auto"
+              className="text-white/80 text-lg md:text-xl mb-10 max-w-xl mx-auto font-semibold"
             >
               Transform your vehicle with our expert detailing, PPF coating, and ceramic protection services.
             </motion.p>
