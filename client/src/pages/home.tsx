@@ -254,7 +254,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
                     
-                    <div className="relative z-10 w-full p-3 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="relative z-10 w-full p-3 md:p-8">
                       <h3 className="text-base md:text-2xl font-sora font-bold text-white mb-1 md:mb-2 group-hover:text-primary transition-colors line-clamp-2">{item.title}</h3>
                       <p className="text-xs md:text-sm text-white mb-2 md:mb-3 line-clamp-2">{item.desc}</p>
                       <div className="w-12 h-1 bg-primary mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
