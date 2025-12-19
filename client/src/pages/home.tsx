@@ -411,103 +411,150 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 bg-black relative">
+      <section id="contact" className="py-16 bg-black relative">
         <div className="container px-4 mx-auto">
+          {/* Header */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            className="text-center mb-12"
           >
-            <motion.div variants={fadeInLeft} className="space-y-4 lg:col-span-1">
-              <h2 className="text-3xl md:text-4xl font-sora font-bold text-white leading-tight">
-                CONTACT US TO <br /><span className="text-primary">KNOW MORE.</span>
-              </h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Ready to give your vehicle the treatment it deserves? Reach out to us for appointments, quotes, or any queries.
-              </p>
-              
-              <div className="space-y-3 pt-2">
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
-                    <MapPin size={18} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-0.5">Visit Us</h4>
-                    <p className="text-muted-foreground text-xs">Shop no. 16 & 17, Shreeji Parasio, Badlapur, MH 421503</p>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
-                    <Phone size={18} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-0.5">Call Us</h4>
-                    <p className="text-muted-foreground text-xs">+91 92268 82024</p>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
-                    <Mail size={18} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-0.5">Email Us</h4>
-                    <p className="text-muted-foreground text-xs">info@autogamma.in</p>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                  className="pt-2"
-                >
-                  <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-2">Follow Us</h4>
-                  <div className="flex gap-2">
-                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-facebook">
-                      <Facebook size={16} />
-                    </a>
-                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-instagram">
-                      <Instagram size={16} />
-                    </a>
-                    <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-twitter">
-                      <Twitter size={16} />
-                    </a>
-                    <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-linkedin">
-                      <Linkedin size={16} />
-                    </a>
-                  </div>
-                </motion.div>
+            <motion.div variants={fadeInUp} className="inline-block mb-4">
+              <div className="bg-primary/20 rounded-full px-6 py-2 border border-primary/30">
+                <h2 className="text-2xl md:text-3xl font-sora font-bold text-white">
+                  CONTACT US TO <span className="text-primary">KNOW MORE</span>
+                </h2>
               </div>
+            </motion.div>
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-base max-w-2xl mx-auto">
+              Ready to give your vehicle the treatment it deserves? Reach out to us for appointments, quotes, or any queries.
+            </motion.p>
+          </motion.div>
 
+          {/* Content Grid */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          >
+            {/* Left: Form */}
+            <motion.div variants={fadeInLeft} className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
+              <h3 className="text-xl font-sora font-bold text-white mb-6">Send Us a Message</h3>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm text-white/70 font-sora mb-2">Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your full name" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg" data-testid="input-contact-name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm text-white/70 font-sora mb-2">Contact Number</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your mobile number" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg" data-testid="input-contact-phone" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm text-white/70 font-sora mb-2">Email Address</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="your.email@example.com" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg" data-testid="input-contact-email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="service"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm text-white/70 font-sora mb-2">Service Interested In</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-black/50 border-white/10 text-white h-11 text-sm rounded-lg" data-testid="select-contact-service">
+                              <SelectValue placeholder="Select a service..." />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-neutral-900 border-white/10">
+                            <SelectItem value="auto-detailing">Auto Detailing</SelectItem>
+                            <SelectItem value="ppf">Paint Protection Film</SelectItem>
+                            <SelectItem value="ceramic-coating">Ceramic Coating</SelectItem>
+                            <SelectItem value="body-wrap">Body Wrap</SelectItem>
+                            <SelectItem value="sun-control">Sun Control Film</SelectItem>
+                            <SelectItem value="interior-cleaning">Interior Cleaning</SelectItem>
+                            <SelectItem value="mechanical">Mechanical Services</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm text-white/70 font-sora mb-2">Message</FormLabel>
+                        <FormControl>
+                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white text-sm rounded-lg" data-testid="input-contact-message" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <Button 
+                    type="submit"
+                    disabled={mutation.isPending}
+                    className="w-full bg-primary hover:bg-primary/90 text-white font-sora font-bold h-11 text-base uppercase tracking-widest rounded-full mt-6"
+                    data-testid="button-submit-contact"
+                  >
+                    {mutation.isPending ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending...
+                      </>
+                    ) : (
+                      "Submit Inquiry"
+                    )}
+                  </Button>
+                </form>
+              </Form>
+            </motion.div>
+
+            {/* Right: Contact Info & Map */}
+            <motion.div variants={fadeInRight} className="space-y-6">
+              {/* Map */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="rounded-xl overflow-hidden border border-white/10 h-48 mt-4"
+                variants={fadeInUp}
+                className="rounded-2xl overflow-hidden border border-white/10 h-64"
               >
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0961146405354!2d73.30156332346936!3d19.17484898204387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1c1c1c1c1c1%3A0x0!2sShop%20no.%2016%20%26%2017%2C%20Shreeji%20Parasio%2C%20Badlapur!5e0!3m2!1sen!2sin!4v1234567890123"
@@ -520,113 +567,76 @@ export default function Home() {
                   data-testid="map-location"
                 />
               </motion.div>
-            </motion.div>
 
-            <motion.div 
-              variants={fadeInRight}
-              className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover-glow lg:col-span-2"
-            >
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-xs text-white/60 uppercase tracking-wider font-sora">Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="John Doe" className="bg-black/50 border-white/10 focus:border-primary h-10 text-white text-sm" data-testid="input-contact-name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-xs text-white/60 uppercase tracking-wider font-sora">Contact Number</FormLabel>
-                          <FormControl>
-                            <Input placeholder="+91 98765 43210" className="bg-black/50 border-white/10 focus:border-primary h-10 text-white text-sm" data-testid="input-contact-phone" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+              {/* Address */}
+              <motion.div 
+                variants={fadeInUp}
+                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary shrink-0">
+                    <MapPin size={20} />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-xs text-white/60 uppercase tracking-wider font-sora">Email</FormLabel>
-                          <FormControl>
-                            <Input type="email" placeholder="john@example.com" className="bg-black/50 border-white/10 focus:border-primary h-10 text-white text-sm" data-testid="input-contact-email" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="service"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-xs text-white/60 uppercase tracking-wider font-sora">Service</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="bg-black/50 border-white/10 text-white h-10 text-sm" data-testid="select-contact-service">
-                                <SelectValue placeholder="Select service..." />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="bg-neutral-900 border-white/10">
-                              <SelectItem value="auto-detailing">Auto Detailing</SelectItem>
-                              <SelectItem value="ppf">Paint Protection Film</SelectItem>
-                              <SelectItem value="ceramic-coating">Ceramic Coating</SelectItem>
-                              <SelectItem value="body-wrap">Body Wrap</SelectItem>
-                              <SelectItem value="sun-control">Sun Control Film</SelectItem>
-                              <SelectItem value="interior-cleaning">Interior Cleaning</SelectItem>
-                              <SelectItem value="mechanical">Mechanical</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                  <div>
+                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-1">Address</h4>
+                    <p className="text-muted-foreground text-sm">Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</p>
                   </div>
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-xs text-white/60 uppercase tracking-wider font-sora">Message</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[80px] text-white text-sm" data-testid="input-contact-message" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button 
-                    type="submit"
-                    disabled={mutation.isPending}
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-sora font-bold h-10 text-sm uppercase tracking-widest"
-                    data-testid="button-submit-contact"
-                  >
-                    {mutation.isPending ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
-                      </>
-                    ) : (
-                      "Submit Inquiry"
-                    )}
-                  </Button>
-                </form>
-              </Form>
+                </div>
+              </motion.div>
+
+              {/* Phone */}
+              <motion.div 
+                variants={fadeInUp}
+                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary shrink-0">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-1">Phone</h4>
+                    <p className="text-muted-foreground text-sm">+91 92268 82024</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Email */}
+              <motion.div 
+                variants={fadeInUp}
+                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary shrink-0">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-1">Email</h4>
+                    <p className="text-muted-foreground text-sm">info@autogamma.in</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Social Media */}
+              <motion.div 
+                variants={fadeInUp}
+                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+              >
+                <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-4">Connect With Us</h4>
+                <div className="flex gap-3">
+                  <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-facebook">
+                    <Facebook size={18} />
+                  </a>
+                  <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-instagram">
+                    <Instagram size={18} />
+                  </a>
+                  <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-twitter">
+                    <Twitter size={18} />
+                  </a>
+                  <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-linkedin">
+                    <Linkedin size={18} />
+                  </a>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
