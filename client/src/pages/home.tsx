@@ -309,7 +309,7 @@ export default function Home() {
                 </motion.h2>
               </div>
               
-              <motion.div variants={fadeInUp} className="space-y-4 text-muted-foreground text-lg font-sora">
+              <motion.div variants={fadeInUp} className="space-y-4 text-white text-lg font-sora">
                 <p>
                   Paint Protection Film (PPF) is a transparent urethane film applied to your vehicle's painted surfaces to protect your car from stone chips, bug splatters, and minor abrasions.
                 </p>
@@ -346,8 +346,8 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            <motion.div variants={fadeInRight} className="relative flex items-center justify-end">
-              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full max-w-sm">
+            <motion.div variants={fadeInRight} className="relative">
+              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full">
                 <video 
                   src={ppfVideo} 
                   autoPlay 
