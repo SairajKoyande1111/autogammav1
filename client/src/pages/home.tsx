@@ -387,18 +387,18 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={stagger}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+              className="grid grid-cols-3 lg:grid-cols-5 gap-4"
             >
               {[videoGlimpse1, videoGlimpse2, videoGlimpse3, videoGlimpse4, videoGlimpse5, videoGlimpse6].map((video, i) => (
                 <motion.div key={i} variants={fadeInUp}>
-                  <div className="relative w-full aspect-square group overflow-hidden rounded-lg hover-lift">
+                  <div className="relative w-full bg-black group overflow-hidden rounded-lg hover-lift">
                     <video 
                       src={video}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-auto object-contain transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
