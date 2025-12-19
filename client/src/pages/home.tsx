@@ -21,6 +21,12 @@ import detailingImage from "@assets/generated_images/car_detailing_polishing_act
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
 import ppfVideo from "@assets/Untitled_design_(4)_1766130916239.mp4";
 import interiorImage from "@assets/generated_images/luxury_car_interior_leather_detailing.png";
+import videoGlimpse1 from "@assets/SaveVid.Net_AQMUpHxmxuNGcHwkfVjOZ0Mkr1NrOCG6OIhZeH-eqN1FJTSHf-_1766132377158.mp4";
+import videoGlimpse2 from "@assets/SaveVid.Net_AQPH07f6oeLwF1rITfpGkiIfbeYZ6l8fG46D8tmEg0if0HS0qe_1766132427707.mp4";
+import videoGlimpse3 from "@assets/SaveVid.Net_AQOsV5pDj_W087f3UYP9VhECz3UgKbQ1xIiqsT0ZT3t8uOfysd_1766132465924.mp4";
+import videoGlimpse4 from "@assets/SaveVid.Net_AQOYHI_R4snfehrTDo_tJJSmk7uEZK6nP9rnbYOT6mkEH4IuXJ_1766132518974.mp4";
+import videoGlimpse5 from "@assets/SaveVid.Net_AQP82_8gVpK5rtDdyY5gRX-zzuC3vza-INl2HmFNIQjmRs1gNe_1766132590627.mp4";
+import videoGlimpse6 from "@assets/SaveVid.Net_AQNDoeYV9HVDcEuo094Cyb5Mv_nf3CKBUNi238yrQ_m-wWVngl_1766132646182.mp4";
 import pickupIcon from "@assets/generated_images/3d_glossy_red_location_pin_and_car_key.png";
 import diverseIcon from "@assets/generated_images/3d_glossy_red_star_badge.png";
 import economicalIcon from "@assets/generated_images/3d_glossy_red_shield.png";
@@ -362,7 +368,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Auto Glimpses Gallery */}
+      {/* Auto Glimpses Videos */}
       <section className="py-24 bg-neutral-900 relative">
          <div className="container px-4 mx-auto">
             <motion.div 
@@ -381,39 +387,23 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={stagger}
-              className="grid grid-cols-1 md:grid-cols-3 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
             >
-              <motion.div variants={fadeInUp} className="md:row-span-2">
-                <div className="relative h-full min-h-[300px] md:min-h-full group overflow-hidden rounded-lg hover-lift">
-                  <img src={galleryImage1} alt="Luxury car in showroom" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </motion.div>
-              
-              <motion.div variants={fadeInUp}>
-                <div className="relative aspect-[4/3] group overflow-hidden rounded-lg hover-lift">
-                  <img src={galleryImage2} alt="Car interior detailing" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </motion.div>
-              
-              <motion.div variants={fadeInUp} className="md:row-span-2">
-                <div className="relative h-full min-h-[300px] md:min-h-full group overflow-hidden rounded-lg hover-lift">
-                  <img src={galleryImage4} alt="Steam cleaning interior" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </motion.div>
-              
-              <motion.div variants={fadeInUp}>
-                <div className="relative aspect-[4/3] group overflow-hidden rounded-lg hover-lift cursor-pointer">
-                  <img src={galleryImage3} alt="SUV adventure" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center hover:scale-110 transition-transform">
-                      <Play size={28} className="text-white ml-1" fill="white" />
-                    </div>
+              {[videoGlimpse1, videoGlimpse2, videoGlimpse3, videoGlimpse4, videoGlimpse5, videoGlimpse6].map((video, i) => (
+                <motion.div key={i} variants={fadeInUp}>
+                  <div className="relative w-full aspect-square group overflow-hidden rounded-lg hover-lift">
+                    <video 
+                      src={video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              ))}
             </motion.div>
          </div>
       </section>
