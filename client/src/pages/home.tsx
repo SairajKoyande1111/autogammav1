@@ -346,17 +346,16 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            <motion.div variants={fadeInRight} className="relative">
-              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift">
+            <motion.div variants={fadeInRight} className="relative flex items-center justify-end">
+              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full max-w-sm">
                 <video 
                   src={ppfVideo} 
                   autoPlay 
                   loop 
                   muted 
                   playsInline
-                  className="w-full h-auto"
+                  className="w-full h-auto block"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </motion.div>
