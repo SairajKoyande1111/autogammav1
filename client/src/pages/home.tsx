@@ -387,7 +387,7 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={stagger}
-              className="grid grid-cols-3 lg:grid-cols-6 gap-2"
+              className="grid grid-cols-3 lg:grid-cols-3 gap-4"
             >
               {[videoGlimpse1, videoGlimpse2, videoGlimpse3, videoGlimpse4, videoGlimpse5, videoGlimpse6].map((video, i) => (
                 <motion.div key={i} variants={fadeInUp}>
