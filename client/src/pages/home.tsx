@@ -55,6 +55,13 @@ import logo3M from "@assets/image_1765180836267.png";
 import logoCardi from "@assets/image_1765180859879.png";
 import logoCerwin from "@assets/image_1765180872400.png";
 
+import testimonialImage1 from "@assets/generated_images/professional_male_bmw_owner_headshot.png";
+import testimonialImage2 from "@assets/generated_images/professional_female_mercedes_owner_headshot.png";
+import testimonialImage3 from "@assets/generated_images/professional_male_audi_owner_headshot.png";
+import testimonialImage4 from "@assets/generated_images/professional_female_range_rover_owner_headshot.png";
+import testimonialImage5 from "@assets/generated_images/professional_male_porsche_owner_headshot.png";
+import testimonialImage6 from "@assets/generated_images/professional_female_jaguar_owner_headshot.png";
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -643,72 +650,99 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-neutral-950 relative overflow-hidden">
+      <section className="py-16 bg-neutral-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50" />
         <div className="container px-4 mx-auto relative z-10">
+          {/* Header */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="text-center mb-16 space-y-4"
+            className="text-center mb-12 space-y-4"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-sora font-bold text-white">
               WHAT OUR <span className="text-primary">CUSTOMERS SAY</span>
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
-              Trusted by car enthusiasts across India
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-base">
+              Real testimonials from satisfied clients across India
             </motion.p>
           </motion.div>
 
-          <div className="relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-950 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-neutral-950 to-transparent z-10 pointer-events-none" />
-            <div className="flex gap-6 animate-marquee-testimonials">
-              {[
-                { name: "Rajesh Sharma", role: "BMW Owner", location: "Mumbai", rating: 5, text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
-                { name: "Priya Patel", role: "Mercedes Owner", location: "Pune", rating: 5, text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
-                { name: "Amit Kumar", role: "Audi Owner", location: "Thane", rating: 5, text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
-                { name: "Sneha Deshmukh", role: "Range Rover Owner", location: "Navi Mumbai", rating: 5, text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
-                { name: "Vikram Singh", role: "Porsche Owner", location: "Badlapur", rating: 5, text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
-                { name: "Ananya Reddy", role: "Jaguar Owner", location: "Kalyan", rating: 5, text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
-                { name: "Suresh Nair", role: "Toyota Owner", location: "Dombivli", rating: 5, text: "Even my daily driver looks like a showroom car now. Great value for money and excellent service." },
-                { name: "Kavita Joshi", role: "Honda Owner", location: "Ulhasnagar", rating: 5, text: "Professional team, clean facility, and amazing results. They explained every step of the process." },
-                { name: "Rohan Mehta", role: "Tata Safari Owner", location: "Ambernath", rating: 5, text: "The steam sanitization service was exactly what I needed. My car feels brand new and hygienic." },
-                { name: "Deepika Iyer", role: "Hyundai Owner", location: "Karjat", rating: 5, text: "From booking to delivery, everything was smooth. The paint protection film is simply perfect!" },
-                { name: "Rajesh Sharma", role: "BMW Owner", location: "Mumbai", rating: 5, text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
-                { name: "Priya Patel", role: "Mercedes Owner", location: "Pune", rating: 5, text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
-                { name: "Amit Kumar", role: "Audi Owner", location: "Thane", rating: 5, text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
-                { name: "Sneha Deshmukh", role: "Range Rover Owner", location: "Navi Mumbai", rating: 5, text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
-                { name: "Vikram Singh", role: "Porsche Owner", location: "Badlapur", rating: 5, text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
-              ].map((testimonial, i) => (
-                <div 
-                  key={i}
-                  className="flex-shrink-0 w-[350px]"
-                >
-                  <Card className="bg-white/5 border-white/10 hover:border-primary/30 transition-all duration-300 h-full">
-                    <CardContent className="p-8">
-                      <div className="flex gap-1 mb-4">
-                        {[...Array(testimonial.rating)].map((_, j) => (
-                          <Star key={j} size={18} className="text-primary fill-primary" />
-                        ))}
-                      </div>
-                      <p className="text-white/80 mb-6 leading-relaxed italic">"{testimonial.text}"</p>
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-red-700 flex items-center justify-center text-white font-bold text-lg">
-                          {testimonial.name.charAt(0)}
-                        </div>
-                        <div>
-                          <h4 className="text-white font-bold">{testimonial.name}</h4>
-                          <p className="text-muted-foreground text-sm">{testimonial.role} • {testimonial.location}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Testimonials Grid */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {[
+              { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, service: "Ceramic Coating", text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched.", image: testimonialImage1 },
+              { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, service: "PPF Installation", text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional.", image: testimonialImage2 },
+              { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, service: "Auto Detailing", text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!", image: testimonialImage3 },
+              { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, service: "Interior Steam Cleaning", text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside.", image: testimonialImage4 },
+              { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, service: "Premium Detailing", text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before.", image: testimonialImage5 },
+              { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, service: "Paint Protection", text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return.", image: testimonialImage6 },
+            ].map((testimonial, i) => (
+              <motion.div key={i} variants={fadeInUp}>
+                <Card className="bg-white/5 border-white/10 hover:border-primary/30 transition-all duration-300 h-full hover-lift overflow-hidden">
+                  <CardContent className="p-6 flex flex-col h-full">
+                    {/* Customer Image */}
+                    <div className="mb-4 relative overflow-hidden rounded-xl w-full aspect-square">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                        data-testid={`img-testimonial-${i}`}
+                      />
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex gap-1 mb-3">
+                      {[...Array(testimonial.rating)].map((_, j) => (
+                        <Star key={j} size={16} className="text-primary fill-primary" />
+                      ))}
+                    </div>
+
+                    {/* Service Badge */}
+                    <div className="inline-block mb-3">
+                      <span className="text-xs font-sora font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        {testimonial.service}
+                      </span>
+                    </div>
+
+                    {/* Testimonial Text */}
+                    <p className="text-white/80 text-sm mb-4 leading-relaxed italic flex-grow">"{testimonial.text}"</p>
+
+                    {/* Customer Info */}
+                    <div className="border-t border-white/10 pt-4">
+                      <h4 className="text-white font-sora font-bold text-sm mb-1">{testimonial.name}</h4>
+                      <p className="text-muted-foreground text-xs mb-1">{testimonial.vehicle}</p>
+                      <p className="text-muted-foreground text-xs">📍 {testimonial.location}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* View All Reviews Button */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="text-center mt-12"
+          >
+            <Button 
+              asChild
+              className="bg-primary hover:bg-primary/90 text-white font-sora font-bold px-8 py-6 text-base rounded-full"
+              data-testid="button-view-all-reviews"
+            >
+              <div>View All Reviews</div>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
