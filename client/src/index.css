@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -32,6 +33,7 @@
   --font-orbitron: "Orbitron", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
   --font-rajdhani: "Rajdhani", sans-serif;
+  --font-sora: "Sora", sans-serif;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -85,7 +87,7 @@
     -ms-overflow-style: none;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-orbitron tracking-wider uppercase;
+    @apply font-sora tracking-wider uppercase;
   }
 }
 

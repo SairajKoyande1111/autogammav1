@@ -17,7 +17,6 @@ import { apiRequest } from "@/lib/queryClient";
 import heroVideo from "@assets/Untitled_design_(3)_1765178051900.mp4";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
 import tireImage from "@assets/pngegg_1765179057976.png";
-import scrollCarImage from "@assets/Untitled_design_(18)_1765263423018.png";
 import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
 import interiorImage from "@assets/generated_images/luxury_car_interior_leather_detailing.png";
@@ -174,7 +173,7 @@ export default function Home() {
             
             <motion.h1 
               variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-orbitron font-bold text-white leading-tight mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl font-sora font-bold text-white leading-tight mb-6"
             >
               Auto Detailing<br />
               <span className="text-primary">Done to Perfection</span>
@@ -791,11 +790,6 @@ export default function Home() {
               repeat: Infinity,
               ease: "easeOut",
             }}
-          />
-          <img 
-            src={scrollCarImage} 
-            alt="Scrolling car" 
-            className="h-28 md:h-36 lg:h-44 w-auto object-contain relative z-10"
           />
         </div>
       </motion.div>

@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MapPin, Phone, Mail, ChevronRight, Facebook, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import futuristicCarImage from "@assets/futuristic-racing-car-isolated-on-transparent-background-png-r_1765005692951.png";
 import autoGammaLogo from "@assets/image_1765169951823.png";
 
 interface SmokeParticle {
@@ -299,7 +298,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href={link.href}
                   className="relative group cursor-pointer py-2"
                 >
-                  <span className="text-base font-semibold tracking-wide transition-colors text-white">
+                  <span className="text-base font-semibold tracking-wide transition-colors text-white font-sora">
                     {link.name}
                   </span>
                   {/* Sliding red underline on hover */}
