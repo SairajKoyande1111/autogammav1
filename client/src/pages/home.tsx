@@ -237,7 +237,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerFast}
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6"
           >
             {[
               { title: "Auto Detailing", img: detailingImage, link: "/services" },
@@ -250,12 +250,12 @@ export default function Home() {
               { title: "Mechanical", img: galleryImage3, link: "/services" },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeInUp}>
-                <Link href={item.link} className="group block h-[280px] md:h-[400px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift">
+                <Link href={item.link} className="group block h-[320px] md:h-[400px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift flex flex-col justify-end">
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
                     
-                    <div className="absolute bottom-0 left-0 w-full p-4 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-lg md:text-2xl font-sora font-bold text-white mb-2 group-hover:text-primary transition-colors line-clamp-2">{item.title}</h3>
+                    <div className="relative z-10 w-full p-3 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-base md:text-2xl font-sora font-bold text-white mb-1 md:mb-2 group-hover:text-primary transition-colors line-clamp-2">{item.title}</h3>
                       <div className="w-12 h-1 bg-primary mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex items-center gap-2">
                         Explore <ArrowRight size={14} />
