@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Star, Shield, Zap, Trophy, CheckCircle2, Play, MapPin, Phone, Mail, Loader2 } from "lucide-react";
+import { ArrowRight, Star, Shield, Zap, Trophy, CheckCircle2, Play, MapPin, Phone, Mail, Loader2, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from "wouter";
 import { useToast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData } from "@shared/schema";
@@ -110,6 +111,7 @@ export default function Home() {
       name: "",
       phone: "",
       email: "",
+      service: "",
       message: "",
     },
   });
@@ -416,7 +418,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
             <motion.div variants={fadeInLeft} className="space-y-8">
               <h2 className="text-5xl font-orbitron font-bold text-white">
@@ -474,7 +476,50 @@ export default function Home() {
                     <p className="text-muted-foreground">info@autogamma.in</p>
                   </div>
                 </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="pt-4"
+                >
+                  <h4 className="text-white font-bold uppercase tracking-wide mb-4">Follow Us</h4>
+                  <div className="flex gap-4">
+                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-facebook">
+                      <Facebook size={20} />
+                    </a>
+                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-instagram">
+                      <Instagram size={20} />
+                    </a>
+                    <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-twitter">
+                      <Twitter size={20} />
+                    </a>
+                    <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary/20 transition-colors" data-testid="link-linkedin">
+                      <Linkedin size={20} />
+                    </a>
+                  </div>
+                </motion.div>
               </div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="rounded-xl overflow-hidden border border-white/10 h-80 mt-8"
+              >
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0961146405354!2d73.30156332346936!3d19.17484898204387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1c1c1c1c1c1%3A0x0!2sShop%20no.%2016%20%26%2017%2C%20Shreeji%20Parasio%2C%20Badlapur!5e0!3m2!1sen!2sin!4v1234567890123"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  data-testid="map-location"
+                />
+              </motion.div>
             </motion.div>
 
             <motion.div 
@@ -526,12 +571,39 @@ export default function Home() {
                   />
                   <FormField
                     control={form.control}
+                    name="service"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm text-white/60 uppercase tracking-wider">Service Interested In</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-black/50 border-white/10 text-white h-12" data-testid="select-contact-service">
+                              <SelectValue placeholder="Select a service..." />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-neutral-900 border-white/10">
+                            <SelectItem value="auto-detailing" className="hover:bg-primary/20">Auto Detailing</SelectItem>
+                            <SelectItem value="ppf" className="hover:bg-primary/20">Paint Protection Film</SelectItem>
+                            <SelectItem value="ceramic-coating" className="hover:bg-primary/20">Ceramic Coating</SelectItem>
+                            <SelectItem value="body-wrap" className="hover:bg-primary/20">Body Wrap</SelectItem>
+                            <SelectItem value="sun-control" className="hover:bg-primary/20">Sun Control Film</SelectItem>
+                            <SelectItem value="interior-cleaning" className="hover:bg-primary/20">Interior Cleaning</SelectItem>
+                            <SelectItem value="mechanical" className="hover:bg-primary/20">Mechanical Services</SelectItem>
+                            <SelectItem value="other" className="hover:bg-primary/20">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
                     name="message"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-sm text-white/60 uppercase tracking-wider">Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[150px] text-white" data-testid="input-contact-message" {...field} />
+                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white" data-testid="input-contact-message" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -540,7 +612,7 @@ export default function Home() {
                   <Button 
                     type="submit"
                     disabled={mutation.isPending}
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg uppercase tracking-widest"
+                    className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 text-base uppercase tracking-widest"
                     data-testid="button-submit-contact"
                   >
                     {mutation.isPending ? (
