@@ -19,6 +19,7 @@ import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_b
 import tireImage from "@assets/pngegg_1765179057976.png";
 import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
+import ppfVideo from "@assets/Untitled_design_(4)_1766130916239.mp4";
 import interiorImage from "@assets/generated_images/luxury_car_interior_leather_detailing.png";
 import pickupIcon from "@assets/generated_images/3d_glossy_red_location_pin_and_car_key.png";
 import diverseIcon from "@assets/generated_images/3d_glossy_red_star_badge.png";
@@ -301,14 +302,14 @@ export default function Home() {
             <motion.div variants={fadeInLeft} className="space-y-8">
               <div className="space-y-4">
                 <motion.div variants={fadeInUp} className="inline-block">
-                  <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase">Paint Protection</span>
+                  <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase font-sora">Paint Protection</span>
                 </motion.div>
                 <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold">
                   DISCOVER <span className="text-primary">PPF PROTECTION</span>
                 </motion.h2>
               </div>
               
-              <motion.div variants={fadeInUp} className="space-y-4 text-muted-foreground text-lg">
+              <motion.div variants={fadeInUp} className="space-y-4 text-muted-foreground text-lg font-sora">
                 <p>
                   Paint Protection Film (PPF) is a transparent urethane film applied to your vehicle's painted surfaces to protect your car from stone chips, bug splatters, and minor abrasions.
                 </p>
@@ -333,7 +334,7 @@ export default function Home() {
                     className="flex items-center gap-3"
                   >
                     <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
-                    <span className="text-white font-medium">{benefit}</span>
+                    <span className="text-white font-medium font-sora">{benefit}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -347,8 +348,15 @@ export default function Home() {
 
             <motion.div variants={fadeInRight} className="relative">
               <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift">
-                <img src={ppfImage} alt="PPF Protection" className="w-full h-auto" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <video 
+                  src={ppfVideo} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </motion.div>
