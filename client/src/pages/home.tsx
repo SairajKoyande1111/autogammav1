@@ -218,7 +218,7 @@ export default function Home() {
       <section className="pt-10 pb-24 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
         
-        <div className="container px-4 mx-auto relative z-10">
+        <div className="container px-2 sm:px-4 mx-auto relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -237,7 +237,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerFast}
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
           >
             {[
               { title: "Auto Detailing", img: detailingImage, link: "/services" },
