@@ -240,14 +240,14 @@ export default function Home() {
             className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
           >
             {[
-              { title: "Auto Detailing", img: detailingImage, link: "/services" },
-              { title: "Paint Protection", img: ppfImage, link: "/ppf" },
-              { title: "Body Wrap", img: heroImage, link: "/services" },
-              { title: "Sun Control Film", img: interiorImage, link: "/services" },
-              { title: "Ceramic Coating", img: ceramicCoatingImage, link: "/services" },
-              { title: "Car Accessories", img: galleryImage2, link: "/services" },
-              { title: "Interior Steam Wash", img: galleryImage4, link: "/services" },
-              { title: "Mechanical", img: galleryImage3, link: "/services" },
+              { title: "Auto Detailing", desc: "Expert washing, waxing & polish for pristine shine", img: detailingImage, link: "/services" },
+              { title: "Paint Protection", desc: "Shield your paint from damage & weathering", img: ppfImage, link: "/ppf" },
+              { title: "Body Wrap", desc: "Custom vinyl wraps for style & protection", img: heroImage, link: "/services" },
+              { title: "Sun Control Film", desc: "UV protection & interior cooling", img: interiorImage, link: "/services" },
+              { title: "Ceramic Coating", desc: "Long-lasting hydrophobic protection layer", img: ceramicCoatingImage, link: "/services" },
+              { title: "Car Accessories", desc: "Premium add-ons & upgrades for your vehicle", img: galleryImage2, link: "/services" },
+              { title: "Interior Steam Wash", desc: "Deep cleaning for pristine interiors", img: galleryImage4, link: "/services" },
+              { title: "Mechanical", desc: "Professional maintenance & repairs", img: galleryImage3, link: "/services" },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeInUp}>
                 <Link href={item.link} className="group block h-[320px] md:h-[400px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift flex flex-col justify-end">
@@ -256,6 +256,7 @@ export default function Home() {
                     
                     <div className="relative z-10 w-full p-3 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <h3 className="text-base md:text-2xl font-sora font-bold text-white mb-1 md:mb-2 group-hover:text-primary transition-colors line-clamp-2">{item.title}</h3>
+                      <p className="text-xs md:text-sm text-white mb-2 md:mb-3 line-clamp-2">{item.desc}</p>
                       <div className="w-12 h-1 bg-primary mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex items-center gap-2">
                         Explore <ArrowRight size={14} />
