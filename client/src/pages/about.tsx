@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Users, Car, Star, Trophy } from "lucide-react";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
+import galleryImage1 from "@assets/stock_images/luxury_car_in_dark_g_18d4fc70.jpg";
+import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
+import galleryImage2 from "@assets/stock_images/luxury_car_interior__d9a8634a.jpg";
+import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -24,6 +28,10 @@ const scaleIn = {
 
 const stagger = {
   visible: { transition: { staggerChildren: 0.1 } }
+} as const;
+
+const staggerFast = {
+  visible: { transition: { staggerChildren: 0.05 } }
 } as const;
 
 export default function About() {
@@ -125,42 +133,86 @@ export default function About() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="container px-4 mx-auto">
-         <motion.h2 
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           className="text-3xl font-orbitron font-bold text-center text-white mb-12"
-         >
-           WHY CHOOSE AUTO GAMMA
-         </motion.h2>
-         <motion.div 
-           initial="hidden"
-           whileInView="visible"
-           viewport={{ once: true, margin: "-50px" }}
-           variants={stagger}
-           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-         >
+      {/* Why Choose Us - You, Your Vehicle & Auto Gamma Section */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        <div className="container px-4 mx-auto relative z-10">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+            className="text-center mb-16 space-y-6"
+          >
+            <motion.div variants={fadeInUp} className="inline-block">
+              <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase">Why Choose Us</span>
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-orbitron font-bold text-white leading-tight">
+              YOU, YOUR VEHICLE &<br />
+              <span className="text-primary">AUTO GAMMA</span>
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-xl max-w-2xl mx-auto">
+              Taking extra care of your vehicle with premium services, expert craftsmanship, and unmatched convenience.
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerFast}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {[
-              { title: "Pickup & Drop Off", desc: "Convenience at your doorstep" },
-              { title: "Diverse Offerings", desc: "One stop solution for all needs" },
-              { title: "Economical Choices", desc: "Premium quality, fair pricing" },
-              { title: "Skilled Crew", desc: "Experts you can trust" },
-            ].map((item, i) => (
+              { 
+                title: "Pickup & Drop-off", 
+                img: galleryImage1,
+                description: "Free doorstep pickup & delivery",
+                highlight: "FREE SERVICE"
+              },
+              { 
+                title: "Diverse Offerings", 
+                img: detailingImage,
+                description: "50+ specialized auto services",
+                highlight: "50+ SERVICES"
+              },
+              { 
+                title: "Economical Choices", 
+                img: galleryImage2,
+                description: "Premium quality, best prices",
+                highlight: "BEST VALUE"
+              },
+              { 
+                title: "Skilled Crew", 
+                img: ppfImage,
+                description: "10+ years of expertise",
+                highlight: "10+ YEARS EXP"
+              },
+            ].map((feature, i) => (
               <motion.div 
                 key={i} 
-                variants={scaleIn}
-                className="p-8 border border-white/10 rounded-lg bg-black hover:border-primary transition-colors text-center group hover-lift"
+                variants={fadeInUp}
+                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                <div className="w-12 h-12 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Star size={20} />
+                <div className="group block h-[350px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift">
+                  <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${feature.img})` }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 opacity-90 group-hover:opacity-80 transition-opacity" />
+                  
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[10px] font-bold tracking-wider text-white bg-primary px-3 py-1.5">
+                      {feature.highlight}
+                    </span>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-2xl font-orbitron font-bold text-white mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
+                    <div className="w-12 h-1 bg-primary mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <p className="text-sm text-white/80">{feature.description}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
               </motion.div>
             ))}
-         </motion.div>
+          </motion.div>
+        </div>
       </section>
     </div>
   );
