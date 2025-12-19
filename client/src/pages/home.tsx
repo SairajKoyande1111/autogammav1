@@ -28,6 +28,7 @@ import galleryImage1 from "@assets/stock_images/luxury_car_in_dark_g_18d4fc70.jp
 import galleryImage2 from "@assets/stock_images/luxury_car_interior__d9a8634a.jpg";
 import galleryImage3 from "@assets/stock_images/suv_off-road_desert__38198823.jpg";
 import galleryImage4 from "@assets/stock_images/car_interior_detaili_b4d46e1c.jpg";
+import ceramicCoatingImage from "@assets/image_1766127336814.png";
 
 import logoPolk from "@assets/image_1765180647538.png";
 import logoHertz from "@assets/image_1765180659355.png";
@@ -188,7 +189,7 @@ export default function Home() {
             
             <motion.div 
               variants={fadeInUp}
-              className="flex flex-wrap gap-4 justify-center"
+              className="flex flex-col md:flex-row flex-wrap gap-4 justify-center"
             >
               <Button 
                 asChild 
@@ -225,7 +226,7 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-16 space-y-4"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold text-white">
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-sora font-bold text-white">
               OUR <span className="text-primary">SERVICES</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-white text-xl font-semibold md:whitespace-nowrap">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
@@ -236,14 +237,14 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerFast}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
               { title: "Auto Detailing", img: detailingImage, link: "/services" },
               { title: "Paint Protection", img: ppfImage, link: "/ppf" },
               { title: "Body Wrap", img: heroImage, link: "/services" },
               { title: "Sun Control Film", img: interiorImage, link: "/services" },
-              { title: "Ceramic Coating", img: galleryImage1, link: "/services" },
+              { title: "Ceramic Coating", img: ceramicCoatingImage, link: "/services" },
               { title: "Car Accessories", img: galleryImage2, link: "/services" },
               { title: "Interior Steam Wash", img: galleryImage4, link: "/services" },
               { title: "Mechanical", img: galleryImage3, link: "/services" },

@@ -119,7 +119,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             
             {/* Social Media Icons */}
-            <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
                 <Facebook size={16} className="text-black" />
               </a>
