@@ -181,7 +181,7 @@ export default function Home() {
             
             <motion.p 
               variants={fadeInUp}
-              className="text-white/80 text-lg md:text-xl mb-10 max-w-xl mx-auto font-semibold"
+              className="text-white text-lg md:text-xl mb-10 max-w-xl mx-auto font-semibold"
             >
               Transform your vehicle with our expert detailing, PPF coating, and ceramic protection services.
             </motion.p>
@@ -702,97 +702,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Scroll-based animated car at bottom */}
-      <motion.div
-        className="fixed z-50 pointer-events-none"
-        style={{ 
-          x: carX,
-          bottom: '-45px',
-          left: 0,
-        }}
-        data-testid="scroll-car"
-      >
-        <div className="relative" style={{ overflow: 'visible' }}>
-          {/* Main exhaust fire cloud - yellow/red like flames */}
-          <motion.div
-            className="absolute"
-            style={{
-              left: '15px',
-              bottom: '52px',
-              width: '70px',
-              height: '45px',
-              background: 'radial-gradient(ellipse at right, rgba(255, 255, 100, 0.95) 0%, rgba(255, 150, 0, 0.8) 30%, rgba(255, 50, 0, 0.6) 60%, transparent 85%)',
-              borderRadius: '50%',
-              filter: 'blur(6px)',
-              zIndex: 4,
-            }}
-            animate={{
-              x: [0, -60, -140],
-              opacity: [1, 0.5, 0],
-              scaleX: [1, 1.8, 2.5],
-              scaleY: [1, 1.2, 0.7],
-            }}
-            transition={{
-              duration: 0.9,
-              repeat: Infinity,
-              ease: "easeOut",
-            }}
-          />
-          {/* Fire puffs trailing behind - yellow to orange to red */}
-          {[0, 1, 2, 3].map((i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${25 - i * 5}px`,
-                bottom: `${50 + (i % 2) * 10}px`,
-                width: `${45 + i * 12}px`,
-                height: `${28 + i * 6}px`,
-                background: `radial-gradient(ellipse at right, rgba(255, 230, 50, ${0.9 - i * 0.15}) 0%, rgba(255, 120, 0, ${0.7 - i * 0.1}) 40%, rgba(220, 30, 0, ${0.4 - i * 0.08}) 70%, transparent 90%)`,
-                borderRadius: '50%',
-                filter: `blur(${5 + i * 2}px)`,
-                zIndex: 4,
-              }}
-              animate={{
-                x: [0, -50 - i * 20, -100 - i * 40],
-                y: [0, (-5 + i * 2), (5 - i * 2)],
-                opacity: [0.85 - i * 0.1, 0.35, 0],
-                scale: [0.85, 1.3, 1.9],
-              }}
-              transition={{
-                duration: 0.7 + i * 0.15,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: i * 0.12,
-              }}
-            />
-          ))}
-          {/* Low ground fire streak - yellow/orange/red */}
-          <motion.div
-            className="absolute"
-            style={{
-              left: '20px',
-              bottom: '48px',
-              width: '90px',
-              height: '18px',
-              background: 'linear-gradient(to left, rgba(255, 220, 50, 0.95) 0%, rgba(255, 100, 0, 0.7) 40%, rgba(200, 30, 0, 0.4) 70%, transparent 100%)',
-              borderRadius: '50%',
-              filter: 'blur(4px)',
-              zIndex: 4,
-            }}
-            animate={{
-              x: [0, -80],
-              opacity: [0.9, 0],
-              scaleX: [1, 2.8],
-            }}
-            transition={{
-              duration: 0.55,
-              repeat: Infinity,
-              ease: "easeOut",
-            }}
-          />
-        </div>
-      </motion.div>
     </div>
   );
 }
