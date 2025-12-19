@@ -288,7 +288,7 @@ export default function Home() {
       </section>
 
 
-      {/* Services Preview */}
+      {/* PPF Details Preview */}
       <section className="py-24 bg-black text-white">
         <div className="container px-4 mx-auto">
           <motion.div 
@@ -296,49 +296,61 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold mb-4">DISCOVER THE SERVICES</motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground">The essence of automotive excellence with our expert services</motion.p>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerFast}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
-          >
-            {[
-              "Foam Washing", "Premium Washing", "Interior Deep Cleaning", 
-              "Steam Sanitization", "Leather Treatment", "Ceramic Coating"
-            ].map((service, i) => (
-              <motion.div 
-                key={i}
-                variants={i % 2 === 0 ? fadeInLeft : fadeInRight}
-                className="flex items-center justify-between p-6 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all cursor-pointer group"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  <span className="text-xl font-medium font-rajdhani uppercase tracking-wide group-hover:text-primary transition-colors">{service}</span>
-                </div>
-                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
-                  <ArrowRight size={14} className="text-white" />
-                </div>
+            <motion.div variants={fadeInLeft} className="space-y-8">
+              <div className="space-y-4">
+                <motion.div variants={fadeInUp} className="inline-block">
+                  <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase">Paint Protection</span>
+                </motion.div>
+                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold">
+                  DISCOVER <span className="text-primary">PPF PROTECTION</span>
+                </motion.h2>
+              </div>
+              
+              <motion.div variants={fadeInUp} className="space-y-4 text-muted-foreground text-lg">
+                <p>
+                  Paint Protection Film (PPF) is a transparent urethane film applied to your vehicle's painted surfaces to protect your car from stone chips, bug splatters, and minor abrasions.
+                </p>
+                <p>
+                  Our advanced PPF technology provides a sacrificial protection layer, keeping your paint looking showroom-fresh while adding a deep, glossy wet-look finish.
+                </p>
               </motion.div>
-            ))}
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-12 text-center"
-          >
-            <Button asChild className="bg-white text-black hover:bg-gray-200 px-8 py-6 text-lg font-bold">
-              <Link href="/services">VIEW FULL MENU</Link>
-            </Button>
+
+              <motion.div 
+                variants={stagger}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4"
+              >
+                {[
+                  "Ultimate Protection",
+                  "Enhanced Gloss",
+                  "Resale Value",
+                  "Easy Maintenance"
+                ].map((benefit, i) => (
+                  <motion.div 
+                    key={i}
+                    variants={fadeInUp}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
+                    <span className="text-white font-medium">{benefit}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg">
+                  <Link href="/ppf">LEARN MORE ABOUT PPF</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            <motion.div variants={fadeInRight} className="relative">
+              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift">
+                <img src={ppfImage} alt="PPF Protection" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
