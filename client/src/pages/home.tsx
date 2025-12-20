@@ -156,7 +156,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative w-full flex flex-col justify-between" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-12 md:py-16">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16">
           {/* Tagline */}
           <motion.div 
             initial="hidden"
@@ -165,7 +165,7 @@ export default function Home() {
             transition={{ delay: 0 }}
             className="text-center mb-6 md:mb-8"
           >
-            <div className="text-white text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase font-sora" style={{ letterSpacing: "0.15em" }}>
+            <div className="text-white text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Poppins', sans-serif" }}>
               PREMIUM AUTO CARE
             </div>
           </motion.div>
@@ -178,10 +178,10 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6 md:mb-10 max-w-4xl"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2" style={{ fontFamily: "var(--font-sora)" }}>
-              <span style={{ color: "#FFFFFF" }}>AUTO DETAILING</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Poppins', sans-serif" }}>
+              AUTO DETAILING
             </h1>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "var(--font-sora)" }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Poppins', sans-serif" }}>
               DONE TO PERFECTION
             </h1>
           </motion.div>
@@ -194,7 +194,7 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8 md:mb-12 max-w-2xl"
           >
-            <p className="text-base md:text-lg text-white" style={{ opacity: 0.9 }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+            <p className="text-base md:text-lg text-white" style={{ opacity: 0.9, fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
           </motion.div>
 
           {/* Buttons Section */}
