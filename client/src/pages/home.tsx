@@ -170,9 +170,9 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0 }}
-            className="text-center mb-8 md:mb-12"
+            className="text-center mb-6 md:mb-8"
           >
-            <div className="text-white text-lg md:text-2xl lg:text-3xl font-semibold tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Poppins', sans-serif" }}>
+            <div className="text-white text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Poppins', sans-serif" }}>
               PREMIUM AUTO CARE
             </div>
           </motion.div>
@@ -183,12 +183,12 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.1 }}
-            className="text-center mb-8 md:mb-14 max-w-5xl"
+            className="text-center mb-6 md:mb-10 max-w-4xl"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-tight mb-3" style={{ color: "#FFFFFF", fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Poppins', sans-serif" }}>
               AUTO DETAILING
             </h1>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Poppins', sans-serif" }}>
               DONE TO PERFECTION
             </h1>
           </motion.div>
@@ -199,9 +199,9 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
-            className="text-center mb-10 md:mb-16 max-w-3xl"
+            className="text-center mb-8 md:mb-12 max-w-2xl"
           >
-            <p className="text-lg md:text-2xl text-white font-medium" style={{ opacity: 0.9, fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+            <p className="text-base md:text-lg text-white" style={{ opacity: 0.9, fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
           </motion.div>
 
           {/* Buttons Section */}
@@ -210,11 +210,11 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-8 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <Button 
               asChild 
-              className="bg-primary hover:bg-primary/90 text-white font-semibold px-10 py-4 text-lg md:text-xl skew-x-[-15deg] min-h-14"
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 text-base md:text-lg skew-x-[-15deg] min-h-12"
               data-testid="button-hero-consult"
             >
               <Link href="#contact">Book Consultation</Link>
@@ -223,7 +223,7 @@ export default function Home() {
             <Button 
               asChild 
               variant="outline"
-              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-10 py-4 text-lg md:text-xl skew-x-[-15deg] min-h-14"
+              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-3 text-base md:text-lg skew-x-[-15deg] min-h-12"
               data-testid="button-hero-services"
             >
               <Link href="/services">Explore Services</Link>
