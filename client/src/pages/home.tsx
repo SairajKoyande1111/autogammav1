@@ -161,8 +161,7 @@ export default function Home() {
           height: "100vh",
         }}
       >
-        {/* Minimal Dark Overlay for Text Readability - Bottom Only */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
+        {/* No overlay - image displays without tint */}
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16 relative z-10">
           {/* Tagline */}
