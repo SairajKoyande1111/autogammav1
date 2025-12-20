@@ -163,22 +163,19 @@ export default function Home() {
             className="flex flex-col items-center text-center space-y-6 w-full"
           >
             {/* Content */}
-            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-3">
+            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-2">
               <div className="inline-block">
-                <span className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
+                <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
-                AUTO DETAILING
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-primary leading-tight">
+                AUTO DETAILING DONE TO PERFECTION
               </h2>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-primary leading-tight">
-                DONE TO PERFECTION
-              </h3>
-              <p className="text-sm md:text-base text-white/80">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+              <p className="text-xs md:text-sm text-white/70">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
             </motion.div>
 
             {/* Car Image */}
-            <motion.div variants={fadeInUp} className="w-full max-w-2xl mx-auto">
-              <div className="relative rounded-lg overflow-hidden shadow-2xl hover-lift w-full">
+            <motion.div variants={fadeInUp} className="w-full max-w-xl mx-auto py-2">
+              <div className="relative rounded-lg overflow-hidden w-full">
                 <img 
                   src={carDisplayImage} 
                   alt="Auto Gamma Luxury Car Display" 
@@ -190,12 +187,12 @@ export default function Home() {
             {/* Buttons */}
             <motion.div 
               variants={fadeInUp}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center"
+              className="flex flex-col sm:flex-row flex-wrap gap-2 justify-center"
             >
               <Button 
                 asChild 
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg"
+                size="sm"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-5 py-3 text-sm skew-x-[-15deg]"
                 data-testid="button-hero-consult"
               >
                 <Link href="#contact">Book Consultation</Link>
@@ -204,8 +201,8 @@ export default function Home() {
               <Button 
                 asChild 
                 variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-6 text-lg"
+                size="sm"
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-5 py-3 text-sm skew-x-[-15deg]"
                 data-testid="button-hero-services"
               >
                 <Link href="/services">Explore Services</Link>
