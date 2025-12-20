@@ -10,6 +10,7 @@ import Home from "@/pages/home";
 import About from "@/pages/about";
 import PPF from "@/pages/ppf";
 import Services from "@/pages/services";
+import ServiceDetail from "@/pages/service-detail";
 import Warranty from "@/pages/warranty";
 import { useEffect } from "react";
 
@@ -80,6 +81,9 @@ function Router() {
           </Route>
           <Route path="/services">
             <AnimatedRoute component={Services} />
+          </Route>
+          <Route path="/service/:slug">
+            <AnimatedRoute component={ServiceDetail} />
           </Route>
           <Route path="/warranty">
             <AnimatedRoute component={Warranty} />
