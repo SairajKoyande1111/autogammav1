@@ -154,36 +154,37 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative py-16 flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#151515" }}>
-        <div className="relative z-10 container px-4 mx-auto">
+      <section className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden" style={{ backgroundColor: "#151515" }}>
+        <div className="relative z-10 container px-4 mx-auto py-8 flex-1 flex flex-col items-center justify-center">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="flex flex-col items-center text-center space-y-10"
+            className="flex flex-col items-center text-center space-y-6 w-full"
           >
+            {/* Content */}
+            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-3">
+              <div className="inline-block">
+                <span className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
+                AUTO DETAILING
+              </h2>
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-primary leading-tight">
+                DONE TO PERFECTION
+              </h3>
+              <p className="text-sm md:text-base text-white/80">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+            </motion.div>
+
             {/* Car Image */}
-            <motion.div variants={fadeInUp} className="w-full max-w-3xl mx-auto">
-              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full">
+            <motion.div variants={fadeInUp} className="w-full max-w-2xl mx-auto">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl hover-lift w-full">
                 <img 
                   src={carDisplayImage} 
                   alt="Auto Gamma Luxury Car Display" 
                   className="w-full h-auto object-contain"
                 />
               </div>
-            </motion.div>
-
-            {/* Content Below Image */}
-            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-3">
-              <div className="inline-block">
-                <span className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-                AUTO DETAILING
-              </h2>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary leading-tight">
-                DONE TO PERFECTION
-              </h3>
             </motion.div>
 
             {/* Buttons */}
