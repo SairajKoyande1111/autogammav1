@@ -124,7 +124,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             
             {/* Social Media Icons */}
             <div className="hidden md:flex items-center gap-5">
-              <a href="#" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
+              <a href="#" className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
                 <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
               </a>
               <a href="#" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
@@ -189,7 +189,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="hidden lg:block">
               <Button 
                 onClick={handleBookNow} 
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 uppercase tracking-wider text-base font-poppins"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-2 uppercase tracking-wider text-xs font-poppins -skew-x-12"
               >
                 SERVICE ENQUIRY
               </Button>
