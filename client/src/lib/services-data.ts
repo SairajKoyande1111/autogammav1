@@ -1,11 +1,17 @@
+export interface PricingTier {
+  carType: string;
+  price: string;
+}
+
 export interface ServiceData {
   id: string;
   title: string;
   slug: string;
-  price: string;
+  price?: string; // For backwards compatibility, some services may still use single price
+  pricing?: PricingTier[]; // New pricing by car type
   description: string;
   features: string[];
-  carTypes: string[];
+  carTypes?: string[]; // Deprecated, use pricing instead
   variants?: string[];
   warranty?: string;
   highlight?: boolean;
@@ -16,7 +22,6 @@ export const servicesData: ServiceData[] = [
     id: "1",
     slug: "foam-washing",
     title: "FOAM WASHING",
-    price: "₹400",
     description: "Complete exterior foam wash with attention to detail.",
     features: [
       "Tyre & Arches Cleaning",
@@ -25,7 +30,12 @@ export const servicesData: ServiceData[] = [
       "All 4 Wheels / Alloys Cleaning",
       "Laying paper mats"
     ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]
+    pricing: [
+      { carType: "Small Cars", price: "₹400" },
+      { carType: "Hatch Back / Small Sedan", price: "₹500" },
+      { carType: "Mid-size Sedans / Compact SUV / MUV", price: "₹600" },
+      { carType: "SUV / MPV", price: "₹700" }
+    ]
   },
   {
     id: "2",
