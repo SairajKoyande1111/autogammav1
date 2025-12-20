@@ -161,10 +161,10 @@ export default function Home() {
           minHeight: "calc(100vh - 80px)",
         }}
       >
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60 pointer-events-none" />
+        {/* Minimal Dark Overlay for Text Readability - Bottom Only */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16 relative z-10">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-32 md:pt-40 pb-12 md:pb-16 relative z-10">
           {/* Tagline */}
           <motion.div 
             initial="hidden"
