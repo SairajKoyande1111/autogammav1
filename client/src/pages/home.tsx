@@ -154,60 +154,66 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden" style={{ backgroundColor: "#151515" }}>
-        <div className="relative z-10 w-full px-4 py-8 flex-1 flex flex-col items-center justify-center">
+      <section className="relative w-full flex flex-col items-center overflow-hidden" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
+        <div className="relative z-10 w-full px-4 flex flex-col items-center justify-start pt-6 pb-6">
           <motion.div 
             initial="hidden"
             animate="visible"
-            variants={stagger}
-            className="flex flex-col items-center text-center space-y-4 w-full h-full justify-center"
+            variants={fadeInUp}
+            className="text-center space-y-2"
           >
-            {/* Content */}
-            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-1">
-              <div className="inline-block">
-                <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
-              </div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-primary leading-tight">
-                AUTO DETAILING DONE TO PERFECTION
-              </h2>
-              <p className="text-xs md:text-sm text-white/70">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
-            </motion.div>
+            <span className="text-primary text-sm md:text-base font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-primary leading-tight max-w-4xl">
+              AUTO DETAILING DONE TO PERFECTION
+            </h2>
+            <p className="text-sm md:text-base text-white/70 max-w-3xl mx-auto">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+          </motion.div>
+        </div>
 
-            {/* Car Image */}
-            <motion.div variants={fadeInUp} className="w-full max-w-2xl mx-auto flex-1 flex items-center justify-center">
-              <div className="relative rounded-lg overflow-hidden w-full">
-                <img 
-                  src={carDisplayImage} 
-                  alt="Auto Gamma Luxury Car Display" 
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </motion.div>
+        <div className="relative z-10 flex-1 w-full px-4 flex flex-col items-center justify-center min-h-0">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ delay: 0.2 }}
+            className="w-full max-w-4xl"
+          >
+            <div className="relative rounded-lg overflow-hidden w-full">
+              <img 
+                src={carDisplayImage} 
+                alt="Auto Gamma Luxury Car Display" 
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+        </div>
 
-            {/* Buttons */}
-            <motion.div 
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center mt-4"
+        <div className="relative z-10 w-full px-4 flex flex-col items-center justify-center pb-6">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
+          >
+            <Button 
+              asChild 
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 text-base skew-x-[-15deg]"
+              data-testid="button-hero-consult"
             >
-              <Button 
-                asChild 
-                size="sm"
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 text-sm skew-x-[-15deg]"
-                data-testid="button-hero-consult"
-              >
-                <Link href="#contact">Book Consultation</Link>
-              </Button>
-              
-              <Button 
-                asChild 
-                variant="outline"
-                size="sm"
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-6 py-3 text-sm skew-x-[-15deg]"
-                data-testid="button-hero-services"
-              >
-                <Link href="/services">Explore Services</Link>
-              </Button>
-            </motion.div>
+              <Link href="#contact">Book Consultation</Link>
+            </Button>
+            
+            <Button 
+              asChild 
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-3 text-base skew-x-[-15deg]"
+              data-testid="button-hero-services"
+            >
+              <Link href="/services">Explore Services</Link>
+            </Button>
           </motion.div>
         </div>
 
