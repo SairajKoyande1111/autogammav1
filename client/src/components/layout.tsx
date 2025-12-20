@@ -110,27 +110,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="bg-black">
           <div className="max-w-[1400px] mx-auto px-6 py-1.5 flex justify-between items-center">
             {/* Contact Info */}
-            <div className="hidden md:flex items-center gap-4 text-white text-sm font-medium">
+            <div className="hidden md:flex items-center gap-4 text-white text-base font-medium">
               <a href="mailto:info@autogamma.in" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Mail size={16} className="text-white" />
+                <Mail size={18} className="text-white" />
                 <span>info@autogamma.in</span>
               </a>
               <span className="text-white">|</span>
               <a href="tel:+919226882024" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Phone size={16} className="text-white" />
+                <Phone size={18} className="text-white" />
                 <span>+91 92268 82024</span>
               </a>
             </div>
             
             {/* Social Media Icons */}
             <div className="hidden md:flex items-center gap-5">
-              <a href="#" className="w-7 h-7 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
+              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
                 <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
+              <a href="#" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
                 <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="YouTube">
+              <a href="#" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="YouTube">
                 <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
               </a>
             </div>
@@ -145,7 +145,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <img 
                 src={autoGammaLogo} 
                 alt="Auto Gamma" 
-                className="h-10 md:h-11 w-auto object-contain"
+                className="h-12 md:h-13 w-auto object-contain"
               />
             </Link>
 
@@ -157,10 +157,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     href={link.href}
                     className="relative group cursor-pointer py-3 flex items-center gap-1"
                   >
-                    <span className="text-base font-semibold tracking-wide transition-colors text-white font-poppins">
+                    <span className="text-lg font-semibold tracking-wide transition-colors text-white font-poppins">
                       {link.name}
                     </span>
-                    {link.submenu && <ChevronDown size={14} className="text-white" />}
+                    {link.submenu && <ChevronDown size={16} className="text-white" />}
                   </Link>
                   {/* Sliding red underline on hover */}
                   <span className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-300 ease-out ${
