@@ -162,21 +162,6 @@ export default function Home() {
             variants={stagger}
             className="text-center"
           >
-            <motion.p 
-              variants={fadeInUp}
-              className="text-primary font-black tracking-[0.3em] uppercase text-sm mb-4"
-            >
-              Premium Auto Care
-            </motion.p>
-            
-            <motion.h1 
-              variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-sora font-bold text-white leading-tight mb-6"
-            >
-              Auto Detailing<br />
-              <span className="text-primary">Done to Perfection</span>
-            </motion.h1>
-            
             <motion.div 
               variants={fadeInUp}
               className="w-full max-w-4xl mx-auto"
