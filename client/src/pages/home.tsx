@@ -153,8 +153,8 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[900px] flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#73656B" }}>
-        <div className="relative z-10 container px-4 mx-auto flex items-center justify-center flex-1 pt-32">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#73656B" }}>
+        <div className="relative z-10 container px-4 mx-auto flex items-center justify-center flex-1 py-16">
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -216,9 +216,9 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative z-10 w-full mb-0"
         >
-          <div className="bg-black/90 border-t border-b border-white/10 py-6 md:py-7">
-            <div className="px-6 md:px-8 lg:px-12">
-              <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 text-white text-xs md:text-sm font-semibold uppercase tracking-widest">
+          <div className="bg-black/90 border-t border-b border-white/10 py-6 md:py-8">
+            <div className="w-full px-0 md:px-0">
+              <div className="flex flex-nowrap justify-center items-center gap-3 md:gap-4 text-white text-sm md:text-base lg:text-lg font-semibold uppercase tracking-widest">
                 <span className="text-primary shrink-0">PAINT PROTECTION FILM</span>
                 <span className="text-white text-base md:text-lg font-bold shrink-0">|</span>
                 <span className="shrink-0">SUN CONTROL FILM</span>
