@@ -172,6 +172,21 @@ export default function Home() {
                 className="w-full h-auto object-contain"
               />
             </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              className="mt-20 max-w-4xl mx-auto"
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 uppercase tracking-tight">
+                PRECISION <span className="text-primary">DETAILING</span>
+              </h2>
+              <h3 className="text-3xl md:text-4xl font-bold text-white/90 mb-8 leading-relaxed">
+                Premium Protection & Perfection for Your Prized Possession
+              </h3>
+              <p className="text-lg md:text-xl text-white/80 font-semibold max-w-2xl mx-auto">
+                Experience the pinnacle of automotive craftsmanship with our expert team of certified specialists. From protective coatings to meticulous detailing, we deliver excellence that lasts.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
 
