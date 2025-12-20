@@ -154,29 +154,60 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full flex flex-col" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
-        {/* Header - Top Section */}
-        <div className="w-full px-4 py-8 text-center flex-shrink-0 space-y-3" style={{ backgroundColor: "#151515" }}>
-          <div className="text-primary text-sm md:text-base font-bold tracking-[0.3em] uppercase font-sora" style={{ color: "hsl(var(--primary))" }}>PREMIUM AUTO CARE</div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-primary leading-tight" style={{ color: "hsl(var(--primary))" }}>
-            AUTO DETAILING DONE TO PERFECTION
-          </h2>
-          <p className="text-sm md:text-base text-white/70">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
-        </div>
+      <section className="relative w-full flex flex-col justify-between" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
+        {/* Main Content Container */}
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-12 md:py-16">
+          {/* Tagline */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ delay: 0 }}
+            className="text-center mb-6 md:mb-8"
+          >
+            <div className="text-white text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase font-sora" style={{ letterSpacing: "0.15em" }}>
+              PREMIUM AUTO CARE
+            </div>
+          </motion.div>
 
-        {/* Buttons Section */}
-        <div className="relative z-10 flex-1 w-full px-4 flex flex-col items-center justify-center py-8">
+          {/* Main Heading */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ delay: 0.1 }}
+            className="text-center mb-6 md:mb-10 max-w-4xl"
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2" style={{ fontFamily: "var(--font-sora)" }}>
+              <span style={{ color: "#FFFFFF" }}>AUTO DETAILING</span>
+            </h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "var(--font-sora)" }}>
+              DONE TO PERFECTION
+            </h1>
+          </motion.div>
+
+          {/* Description */}
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
+            className="text-center mb-8 md:mb-12 max-w-2xl"
+          >
+            <p className="text-base md:text-lg text-white" style={{ opacity: 0.9 }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+          </motion.div>
+
+          {/* Buttons Section */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <Button 
               asChild 
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-2 text-xs md:text-sm skew-x-[-15deg]"
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 text-base md:text-lg skew-x-[-15deg] min-h-12"
               data-testid="button-hero-consult"
             >
               <Link href="#contact">Book Consultation</Link>
@@ -185,8 +216,7 @@ export default function Home() {
             <Button 
               asChild 
               variant="outline"
-              size="sm"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-6 py-2 text-xs md:text-sm skew-x-[-15deg]"
+              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-3 text-base md:text-lg skew-x-[-15deg] min-h-12"
               data-testid="button-hero-services"
             >
               <Link href="/services">Explore Services</Link>
