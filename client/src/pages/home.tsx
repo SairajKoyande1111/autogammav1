@@ -38,6 +38,7 @@ import galleryImage3 from "@assets/stock_images/suv_off-road_desert__38198823.jp
 import galleryImage4 from "@assets/stock_images/car_interior_detaili_b4d46e1c.jpg";
 import ceramicCoatingImage from "@assets/image_1766127336814.png";
 import carDisplayImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_(1)_1766227724821.png";
+import heroBgImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_(2)_1766236484545.png";
 
 import logoPolk from "@assets/image_1765180647538.png";
 import logoHertz from "@assets/image_1765180659355.png";
@@ -154,9 +155,21 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full flex flex-col justify-between" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
+      <section 
+        className="relative w-full flex flex-col justify-between" 
+        style={{ 
+          backgroundColor: "#151515", 
+          minHeight: "calc(100vh - 80px)",
+          backgroundImage: `url(${heroBgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60 pointer-events-none" />
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16 relative z-10">
           {/* Tagline */}
           <motion.div 
             initial="hidden"
@@ -229,7 +242,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-10 w-full mb-0"
+          className="relative z-20 w-full mb-0"
         >
           <div className="bg-black/90 border-t border-b border-white/10 py-4 md:py-5">
             <div className="w-full px-4 md:px-8 lg:px-12 overflow-x-auto">
