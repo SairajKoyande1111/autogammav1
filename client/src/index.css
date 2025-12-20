@@ -71,6 +71,15 @@
   --chart-5: 0 0% 90%;
 }
 
+@layer components {
+  .hero-bg {
+    background-image: url(@/../../attached_assets/Black_and_Red_Modern_Car_Dealer_Presentation_\(2\)_1766236484545.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

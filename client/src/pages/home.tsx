@@ -156,14 +156,9 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <section 
-        className="relative w-full flex flex-col justify-between" 
+        className="hero-bg relative w-full flex flex-col justify-between" 
         style={{ 
-          backgroundColor: "#151515", 
           minHeight: "calc(100vh - 80px)",
-          backgroundImage: `url(${heroBgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
         }}
       >
         {/* Dark Overlay for Text Readability */}
