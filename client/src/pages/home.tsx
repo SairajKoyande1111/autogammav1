@@ -155,15 +155,15 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden" style={{ backgroundColor: "#151515" }}>
-        <div className="relative z-10 container px-4 mx-auto py-8 flex-1 flex flex-col items-center justify-center">
+        <div className="relative z-10 w-full px-4 py-8 flex-1 flex flex-col items-center justify-center">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="flex flex-col items-center text-center space-y-6 w-full"
+            className="flex flex-col items-center text-center space-y-4 w-full h-full justify-center"
           >
             {/* Content */}
-            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-2">
+            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-1">
               <div className="inline-block">
                 <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
               </div>
@@ -174,7 +174,7 @@ export default function Home() {
             </motion.div>
 
             {/* Car Image */}
-            <motion.div variants={fadeInUp} className="w-full max-w-xl mx-auto py-2">
+            <motion.div variants={fadeInUp} className="w-full max-w-2xl mx-auto flex-1 flex items-center justify-center">
               <div className="relative rounded-lg overflow-hidden w-full">
                 <img 
                   src={carDisplayImage} 
@@ -187,12 +187,12 @@ export default function Home() {
             {/* Buttons */}
             <motion.div 
               variants={fadeInUp}
-              className="flex flex-col sm:flex-row flex-wrap gap-2 justify-center"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center mt-4"
             >
               <Button 
                 asChild 
                 size="sm"
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-5 py-3 text-sm skew-x-[-15deg]"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 text-sm skew-x-[-15deg]"
                 data-testid="button-hero-consult"
               >
                 <Link href="#contact">Book Consultation</Link>
@@ -202,7 +202,7 @@ export default function Home() {
                 asChild 
                 variant="outline"
                 size="sm"
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-5 py-3 text-sm skew-x-[-15deg]"
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-6 py-3 text-sm skew-x-[-15deg]"
                 data-testid="button-hero-services"
               >
                 <Link href="/services">Explore Services</Link>
