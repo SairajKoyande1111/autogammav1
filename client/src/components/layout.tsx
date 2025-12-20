@@ -1,24 +1,12 @@
 import { Link, useLocation, useRoute } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MapPin, Phone, Mail, ChevronRight, Facebook, Instagram, Youtube } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail, ChevronRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import autoGammaLogo from "@assets/image_1765169951823.png";
-
-
-function XIcon({ className, size = 14 }: { className?: string; size?: number }) {
-  return (
-    <svg 
-      viewBox="0 0 24 24" 
-      width={size} 
-      height={size} 
-      className={className}
-      fill="currentColor"
-    >
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
+import facebookIcon from "@assets/communication_(4)_1766216226828.png";
+import instagramIcon from "@assets/—Pngtree—instagram_icon_instagram_logo_vector_3584852_1766216113430.png";
+import youtubeIcon from "@assets/youtube_1766216255122.png";
 
 function TireSVG({ className }: { className?: string }) {
   return (
@@ -69,13 +57,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "PPF", href: "/ppf" },
-    { name: "Blogs", href: "/blogs" },
-    { name: "Careers", href: "/careers" },
-    { name: "Warranty", href: "/warranty" },
+    { name: "HOME", href: "/" },
+    { name: "ABOUT US", href: "/about" },
+    { 
+      name: "SERVICES", 
+      href: "/services",
+      submenu: [
+        { name: "FOAM WASHING", href: "/services" },
+        { name: "PREMIUM WASHING", href: "/services" },
+        { name: "INTERIOR CLEANING", href: "/services" },
+        { name: "INTERIOR STEAM CLEANING", href: "/services" },
+        { name: "LEATHER TREATMENT", href: "/services" },
+        { name: "DETAILING", href: "/services" },
+        { name: "PAINT SEALANT COATING(TEFLON)", href: "/services" },
+        { name: "CERAMIC COATING", href: "/services" },
+        { name: "CORROSION TREATMENT", href: "/services" },
+        { name: "WINDSHIELD COATING", href: "/services" },
+        { name: "SUN CONTROL FILM", href: "/services" },
+        { name: "PAINT PROTECTION FILM", href: "/ppf" },
+      ]
+    },
+    { name: "BLOGS", href: "/blogs" },
+    { name: "CAREERS", href: "/careers" },
+    { name: "WARRANTY", href: "/warranty" },
   ];
 
   const handleBookNow = () => {
@@ -103,69 +107,81 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50">
         {/* Top Bar - Contact & Social */}
-        <div className={`transition-all duration-300 ${isScrolled ? "bg-black" : "bg-black/80"}`}>
-          <div className="max-w-[1400px] mx-auto px-6 py-1.5 flex justify-between items-center">
+        <div className="bg-black">
+          <div className="max-w-[1400px] mx-auto px-6 py-3 flex justify-between items-center">
             {/* Contact Info */}
-            <div className="hidden md:flex items-center gap-5 text-white">
-              <a href="mailto:info@autogamma.in" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="hidden md:flex items-center gap-8 text-white text-sm font-medium">
+              <a href="mailto:info@autogamma.in" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail size={16} className="text-white" />
-                <span className="text-white font-medium">info@autogamma.in</span>
+                <span>INFO@AUTOGAMMA.IN</span>
               </a>
-              <span className="text-white/50">|</span>
-              <a href="tel:+919226882024" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <span className="text-white/30">|</span>
+              <a href="tel:+919226882024" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} className="text-white" />
-                <span className="text-white font-medium">+91 92268 82024</span>
+                <span>+91 92268 82024</span>
               </a>
             </div>
             
             {/* Social Media Icons */}
             <div className="hidden md:flex items-center gap-3">
-              <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
-                <Facebook size={16} className="text-black" />
+              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
+                <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="X">
-                <XIcon size={16} className="text-black" />
+              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
+                <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
-                <Instagram size={16} className="text-black" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="YouTube">
-                <Youtube size={16} className="text-black" />
+              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="YouTube">
+                <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Main Navigation Bar */}
-        <div className={`transition-all duration-300 ${
-          isScrolled ? "bg-black/95 backdrop-blur-md border-b border-white/10" : "bg-black/60 backdrop-blur-sm"
-        }`}>
-          <div className="max-w-[1400px] mx-auto px-6 py-2 flex justify-between items-center">
+        <div className="bg-black border-b border-white/10">
+          <div className="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
             {/* Logo */}
             <Link href="/" className="cursor-pointer shrink-0">
               <img 
                 src={autoGammaLogo} 
                 alt="Auto Gamma" 
-                className="h-9 md:h-10 w-auto object-contain"
+                className="h-10 md:h-11 w-auto object-contain"
               />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-10">
+            <nav className="hidden lg:flex items-center gap-12">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href}
-                  className="relative group cursor-pointer py-2"
-                >
-                  <span className="text-base font-semibold tracking-wide transition-colors text-white font-sora">
-                    {link.name}
-                  </span>
+                <div key={link.name} className="relative group">
+                  <Link 
+                    href={link.href}
+                    className="relative group cursor-pointer py-3 flex items-center gap-1"
+                  >
+                    <span className="text-sm font-bold tracking-wide transition-colors text-white font-poppins">
+                      {link.name}
+                    </span>
+                    {link.submenu && <ChevronDown size={14} className="text-white" />}
+                  </Link>
                   {/* Sliding red underline on hover */}
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${
+                  <span className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-300 ease-out ${
                     location === link.href ? "w-full" : "w-0 group-hover:w-full"
                   }`}></span>
-                </Link>
+                  
+                  {/* Services Dropdown */}
+                  {link.submenu && (
+                    <div className="absolute left-0 mt-0 w-56 bg-black border border-white/20 rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 group-hover:mt-2 z-50">
+                      {link.submenu.map((item) => (
+                        <Link 
+                          key={item.name}
+                          href={item.href}
+                          className="block px-4 py-3 text-sm font-medium text-white hover:bg-primary/20 hover:text-primary border-b border-white/10 last:border-b-0 transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
@@ -173,9 +189,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="hidden lg:block">
               <Button 
                 onClick={handleBookNow} 
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-2.5 uppercase tracking-wide"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 uppercase tracking-wider text-sm font-poppins"
               >
-                Service Enquiry
+                SERVICE ENQUIRY
               </Button>
             </div>
 
@@ -204,44 +220,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="relative group text-xl font-medium text-white cursor-pointer py-1"
+                className="relative group text-lg font-bold text-white cursor-pointer py-2 font-poppins"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${
+                <span className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-300 ease-out ${
                   location === link.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}></span>
               </Link>
             ))}
-            <Button className="bg-primary w-full max-w-xs mt-4" onClick={handleBookNow}>
-              Service Enquiry
+            <Button className="bg-primary w-full max-w-xs mt-6 font-bold text-white font-poppins uppercase" onClick={handleBookNow}>
+              SERVICE ENQUIRY
             </Button>
             
             {/* Mobile Contact Info */}
-            <div className="mt-6 text-center text-white/80 text-sm space-y-2">
-              <a href="mailto:info@autogamma.in" className="flex items-center justify-center gap-2">
+            <div className="mt-8 text-center text-white/80 text-sm space-y-3 font-poppins">
+              <a href="mailto:info@autogamma.in" className="flex items-center justify-center gap-2 font-medium uppercase">
                 <Mail size={14} />
-                <span>info@autogamma.in</span>
+                <span>INFO@AUTOGAMMA.IN</span>
               </a>
-              <a href="tel:+919226882024" className="flex items-center justify-center gap-2">
+              <a href="tel:+919226882024" className="flex items-center justify-center gap-2 font-medium">
                 <Phone size={14} />
                 <span>+91 92268 82024</span>
               </a>
             </div>
             
             {/* Mobile Social Icons */}
-            <div className="flex items-center gap-3 mt-4">
-              <a href="#" className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity">
-                <Facebook size={18} className="text-black" />
+            <div className="flex items-center gap-4 mt-6">
+              <a href="#" className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity">
-                <XIcon size={18} className="text-black" />
+              <a href="#" className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity">
-                <Instagram size={18} className="text-black" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:opacity-80 transition-opacity">
-                <Youtube size={18} className="text-black" />
+              <a href="#" className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
               </a>
             </div>
           </motion.div>
@@ -268,24 +281,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="h-8 w-auto object-contain"
               />
               <p className="text-muted-foreground italic leading-relaxed">
-                "The realm of automotive luxury and the transformative power of precision detailing, where every detail matters."
+                "THE REALM OF AUTOMOTIVE LUXURY AND THE TRANSFORMATIVE POWER OF PRECISION DETAILING, WHERE EVERY DETAIL MATTERS."
               </p>
               <div className="flex gap-4">
-                {[Facebook, Instagram, Youtube].map((Icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
-                    <Icon size={18} />
-                  </a>
-                ))}
+                <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity">
+                  <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
+                </a>
+                <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity">
+                  <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
+                </a>
+                <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity">
+                  <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
+                </a>
               </div>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-6">
-              <h4 className="text-lg font-orbitron font-bold text-white">Quick Links</h4>
+              <h4 className="text-lg font-poppins font-bold text-white uppercase">QUICK LINKS</h4>
               <ul className="space-y-3">
-                {navLinks.map((link) => (
+                {navLinks.filter(link => !link.submenu).map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer">
+                    <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer font-poppins text-sm">
                       <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform text-primary" />
                       {link.name}
                     </Link>
@@ -302,7 +319,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <h4 className="text-lg font-orbitron font-bold text-white">Contact Us</h4>
+              <h4 className="text-lg font-poppins font-bold text-white uppercase">CONTACT US</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="text-primary shrink-0 mt-1" size={18} />
@@ -321,7 +338,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Directions */}
             <div className="space-y-6">
-              <h4 className="text-lg font-orbitron font-bold text-white">Find Us</h4>
+              <h4 className="text-lg font-poppins font-bold text-white uppercase">FIND US</h4>
               <div className="rounded-lg overflow-hidden h-32 border border-white/10">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.123456789!2d73.2585!3d19.1665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA5JzU5LjQiTiA3M8KwMTUnMzAuNiJF!5e0!3m2!1sen!2sin!4v1700000000000"
@@ -340,18 +357,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold">
+                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold font-poppins uppercase">
                   <MapPin className="mr-2 h-4 w-4" /> GET DIRECTIONS
                 </Button>
               </a>
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Auto Gamma. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Terms of Service</a>
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-poppins">
+            <p>© {new Date().getFullYear()} AUTO GAMMA. ALL RIGHTS RESERVED.</p>
+            <div className="flex gap-6 uppercase text-xs font-medium">
+              <a href="#" className="hover:text-white">PRIVACY POLICY</a>
+              <a href="#" className="hover:text-white">TERMS OF SERVICE</a>
             </div>
           </div>
         </div>
