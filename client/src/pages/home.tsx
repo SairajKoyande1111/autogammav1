@@ -153,7 +153,7 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#73656B" }}>
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#212529" }}>
         <div className="relative z-10 container px-4 mx-auto flex items-center justify-center flex-1 py-16">
           <motion.div 
             initial="hidden"
