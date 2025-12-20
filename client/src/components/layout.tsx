@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MapPin, Phone, Mail, ChevronRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import autoGammaLogo from "@assets/image_1765169951823.png";
-import facebookIcon from "@assets/communication_(4)_1766216226828.png";
+import facebookIcon from "@assets/facebook_1766217005798.png";
 import instagramIcon from "@assets/—Pngtree—instagram_icon_instagram_logo_vector_3584852_1766216113430.png";
 import youtubeIcon from "@assets/youtube_1766216255122.png";
 
@@ -110,12 +110,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="bg-black">
           <div className="max-w-[1400px] mx-auto px-6 py-1.5 flex justify-between items-center">
             {/* Contact Info */}
-            <div className="hidden md:flex items-center gap-8 text-white text-sm font-medium">
+            <div className="hidden md:flex items-center gap-4 text-white text-sm font-medium">
               <a href="mailto:info@autogamma.in" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail size={16} className="text-white" />
                 <span>info@autogamma.in</span>
               </a>
-              <span className="text-white/30">|</span>
+              <span className="text-white">|</span>
               <a href="tel:+919226882024" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} className="text-white" />
                 <span>+91 92268 82024</span>
@@ -139,7 +139,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Main Navigation Bar */}
         <div className="bg-black border-b border-white/10">
-          <div className="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="max-w-[1400px] mx-auto px-6 py-2.5 flex justify-between items-center">
             {/* Logo */}
             <Link href="/" className="cursor-pointer shrink-0">
               <img 
@@ -189,7 +189,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="hidden lg:block">
               <Button 
                 onClick={handleBookNow} 
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 uppercase tracking-wider text-sm font-poppins"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 uppercase tracking-wider text-base font-poppins"
               >
                 SERVICE ENQUIRY
               </Button>
