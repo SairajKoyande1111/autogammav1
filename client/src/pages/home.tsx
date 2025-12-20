@@ -37,6 +37,7 @@ import galleryImage2 from "@assets/stock_images/luxury_car_interior__d9a8634a.jp
 import galleryImage3 from "@assets/stock_images/suv_off-road_desert__38198823.jpg";
 import galleryImage4 from "@assets/stock_images/car_interior_detaili_b4d46e1c.jpg";
 import ceramicCoatingImage from "@assets/image_1766127336814.png";
+import carDisplayImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_1766227103781.png";
 
 import logoPolk from "@assets/image_1765180647538.png";
 import logoHertz from "@assets/image_1765180659355.png";
@@ -176,35 +177,15 @@ export default function Home() {
               <span className="text-primary">Done to Perfection</span>
             </motion.h1>
             
-            <motion.p 
-              variants={fadeInUp}
-              className="text-white text-lg md:text-xl mb-10 max-w-xl mx-auto font-semibold"
-            >
-              Transform your vehicle with our expert detailing, PPF coating, and ceramic protection services.
-            </motion.p>
-            
             <motion.div 
               variants={fadeInUp}
-              className="flex flex-col md:flex-row flex-wrap gap-4 justify-center"
+              className="w-full max-w-4xl mx-auto"
             >
-              <Button 
-                asChild 
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg"
-                data-testid="button-hero-consult"
-              >
-                <Link href="#contact">Book Consultation</Link>
-              </Button>
-              
-              <Button 
-                asChild 
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-6 text-lg"
-                data-testid="button-hero-services"
-              >
-                <Link href="/services">Explore Services</Link>
-              </Button>
+              <img 
+                src={carDisplayImage} 
+                alt="Auto Gamma Luxury Car Display" 
+                className="w-full h-auto object-contain"
+              />
             </motion.div>
           </motion.div>
         </div>
