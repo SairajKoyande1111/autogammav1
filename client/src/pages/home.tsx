@@ -153,22 +153,8 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-          {/* Dark red tint overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-red-950/30 to-black/70" />
-        </div>
-        
-        <div className="relative z-10 container px-4 mx-auto flex items-center justify-center">
+      <section className="relative min-h-[900px] flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#73656B" }}>
+        <div className="relative z-10 container px-4 mx-auto flex items-center justify-center flex-1 pt-32">
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -222,6 +208,36 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Services Card at Bottom of Hero */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative z-10 w-full mb-0"
+        >
+          <div className="bg-black/90 border-t border-b border-white/10 py-6 md:py-8">
+            <div className="container px-4 mx-auto">
+              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white text-xs md:text-sm font-semibold uppercase tracking-wider">
+                <span className="text-primary">PAINT PROTECTION FILM</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span>SUN CONTROL FILM</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span className="text-primary">BODY WRAP</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span>CERAMIC COATING</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span className="text-primary">STEAM WASH</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span>DETAILING</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span className="text-primary">CAR ACCESSORIES</span>
+                <span className="hidden md:inline text-white/30">|</span>
+                <span>MECHANICAL</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Our Services Catalogue */}
