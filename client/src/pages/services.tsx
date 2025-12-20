@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
@@ -19,7 +20,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Loader2, Calendar } from "lucide-react";
+import { Loader2, Calendar, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { bookingFormSchema, type BookingFormData } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
@@ -127,13 +128,14 @@ export default function Services() {
                 title="FOAM WASHING"
                 price="₹400"
                 description="Complete exterior foam wash with attention to detail."
-                includes={[
-                  "Tyre & Arch Cleaning",
-                  "Alloys Cleaning",
-                  "Premium Foam Wash",
-                  "Foot Mats Vacuum",
-                  "Paper Mats Placed"
+                features={[
+                  "Tyre & Arches Cleaning",
+                  "Foam Wash",
+                  "All foot mats will be washed & vacuumed",
+                  "All 4 Wheels / Alloys Cleaning",
+                  "Laying paper mats"
                 ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
                 onBook={openBookingModal}
               />
             </motion.div>
@@ -144,14 +146,18 @@ export default function Services() {
                 title="PREMIUM WASHING"
                 price="₹600"
                 description="Enhanced washing service including underbody and interior vacuum."
-                includes={[
-                  "Underbody Wash",
-                  "Tyre Polish",
-                  "Exterior Plastic Polish",
-                  "All Mats Vacuum",
-                  "Dashboard Cleaning",
-                  "Full Interior Vacuum"
+                features={[
+                  "Underbody Wash Tyre & Arches Cleaning",
+                  "All 4 Wheels / Alloys Cleaning",
+                  "All Tyre Polishing",
+                  "Exterior Plastic Parts Polishing",
+                  "Foam Wash",
+                  "All Foot mats will be washed & vacuumed",
+                  "All 4 Doors & Dashboard Cleaned and Polished from inside",
+                  "Full Car vacuumed including seats & boots",
+                  "Laying paper mats"
                 ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
                 highlight
                 onBook={openBookingModal}
               />
@@ -163,14 +169,18 @@ export default function Services() {
                 title="INTERIOR CLEANING"
                 price="₹2,500"
                 description="Deep cleaning for a fresh, hygienic cabin."
-                includes={[
-                  "Deep Interior Vacuuming",
+                features={[
+                  "Washing + Interior Vacuuming",
+                  "Deep Cleaning the Interior Dash",
+                  "Center Console & Door Panels",
+                  "Interior Dressing (Glossy Finish / Satin Finish)",
                   "Roof Cleaning",
-                  "Upholstery Cleaning",
-                  "Dashboard & Console Detailing",
+                  "Upholstery & Carpet Cleaning",
                   "AC Vents Cleaning",
-                  "Boot Space Cleaning"
+                  "Seat belt & Boots Cleaning",
+                  "Glass Cleaning from inside"
                 ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
                 onBook={openBookingModal}
               />
             </motion.div>
@@ -181,13 +191,13 @@ export default function Services() {
                 title="INTERIOR STEAM CLEANING"
                 price="₹3,500"
                 description="The ultimate interior sanitation and detailing package."
-                includes={[
-                  "Full Steam Cleaning",
-                  "Complete Sanitization",
-                  "AC Duct Treatment",
-                  "Leather Waxing & Conditioning",
-                  "Stain Removal"
+                features={[
+                  "Washing + Interior Cleaning + AC Duct Cleaning",
+                  "Steam Cleaning",
+                  "Sanitization of Car using steam",
+                  "Leather Waxing"
                 ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
                 onBook={openBookingModal}
               />
             </motion.div>
@@ -198,13 +208,12 @@ export default function Services() {
                 title="LEATHER TREATMENT"
                 price="₹5,000"
                 description="Restore and protect your premium leather interiors."
-                includes={[
+                features={[
+                  "Washing",
                   "Interior Steam Cleaning",
-                  "Deep Leather Cleaning",
-                  "Premium Leather Waxing",
-                  "Leather Conditioning",
-                  "UV Protection Application"
+                  "Leather Waxing and Conditioning"
                 ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
                 onBook={openBookingModal}
               />
             </motion.div>
@@ -212,17 +221,101 @@ export default function Services() {
             <motion.div variants={fadeInUp}>
               <ServiceItem 
                 value="item-6"
-                title="COMPLETE DETAILING"
+                title="DETAILING"
                 price="₹5,000"
                 description="Paint correction and restoration for showroom shine."
-                includes={[
-                  "Multi-stage Compounding",
-                  "Clay Bar Decontamination",
-                  "Rubbing & Swirl Mark Removal",
-                  "Glaze Application",
-                  "Paint Sealant / Wax"
+                features={[
+                  "Washing + Interior Cleaning + Decontamination Using Clay Mitt",
+                  "Masking Multiple stages of compounding, Machine Compounding (rubbing)",
+                  "Removal of hard water marks & mineral deposits from all edges"
                 ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
                 highlight
+                onBook={openBookingModal}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <ServiceItem 
+                value="item-7"
+                title="PAINT SEALANT COATING (TEFLON)"
+                price="₹5,500"
+                description="Premium protection with 1 year warranty included."
+                features={[
+                  "Washing + Interior Cleaning + Detailing + Glazing and Swirl marks removal using D.A.",
+                  "Polisher, Application of wax",
+                  "Premium external glass cleaning & protection, Alloy protection",
+                  "1 Year Warranty"
+                ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
+                warranty="1 Year Warranty"
+                onBook={openBookingModal}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <ServiceItem 
+                value="item-8"
+                title="CERAMIC COATING"
+                price="₹11,000"
+                description="Ultimate protection with variants and 2-year warranty."
+                features={[
+                  "Washing + Interior Cleaning",
+                  "Detailing + Paint Sealant Coating",
+                  "Application of Ceramic Coating",
+                  "1 Top up coat Free within a year"
+                ]}
+                variants={["9H", "MAFRA", "MENZA PRO", "KOCH CHEMIE"]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
+                warranty="2 Year Warranty - Made in India"
+                highlight
+                onBook={openBookingModal}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <ServiceItem 
+                value="item-9"
+                title="CORROSION TREATMENT"
+                price="₹3,500"
+                description="Protect your underbody from rust and corrosion."
+                features={[
+                  "Washing + Underbody Rubberized Coating",
+                  "Silencer coating"
+                ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]}
+                onBook={openBookingModal}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <ServiceItem 
+                value="item-10"
+                title="WINDSHIELD COATING"
+                price="₹2,500 - ₹5,000"
+                description="Premium glass coating protection with water beading."
+                features={[
+                  "Washing + Machine Compounding (rubbing)",
+                  "Application of Glass Coating"
+                ]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV", "All Glasses"]}
+                onBook={openBookingModal}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <ServiceItem 
+                value="item-11"
+                title="SUN CONTROL FILM"
+                price="₹5,200"
+                description="Heat rejection film with multiple variants available."
+                features={[
+                  "Professional Installation",
+                  "Premium Quality Film",
+                  "Heat Rejection Technology"
+                ]}
+                variants={["Economy (Heat Rejection 20%-30%)", "Standard (Heat Rejection 30%-40%)", "Premium (Heat Rejection 40%-50%)", "Ceramic (Heat Rejection 50%-60%)"]}
+                carTypes={["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV / MUV", "SUV / MPV"]}
                 onBook={openBookingModal}
               />
             </motion.div>
@@ -374,12 +467,15 @@ interface ServiceItemProps {
   title: string;
   price: string;
   description: string;
-  includes: string[];
+  features: string[];
+  carTypes: string[];
+  variants?: string[];
+  warranty?: string;
   highlight?: boolean;
   onBook: (serviceName: string) => void;
 }
 
-function ServiceItem({ value, title, price, description, includes, highlight = false, onBook }: ServiceItemProps) {
+function ServiceItem({ value, title, price, description, features, carTypes, variants, warranty, highlight = false, onBook }: ServiceItemProps) {
   return (
     <AccordionItem value={value} className={`border ${highlight ? 'border-primary/50 bg-primary/5' : 'border-white/10 bg-white/5'} rounded-lg px-6 overflow-hidden transition-all duration-300 hover:border-primary/30`}>
       <AccordionTrigger className="hover:no-underline py-6">
@@ -392,24 +488,62 @@ function ServiceItem({ value, title, price, description, includes, highlight = f
         </div>
       </AccordionTrigger>
       <AccordionContent className="pb-6">
-        <div className="pt-4 border-t border-white/10">
-          <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Includes:</h4>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {includes.map((item: string, i: number) => (
-              <li key={i} className="flex items-center gap-2 text-muted-foreground">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6">
-             <Button 
-               onClick={() => onBook(title)} 
-               className="bg-white text-black hover:bg-gray-200 font-bold w-full sm:w-auto"
-               data-testid={`button-book-${value}`}
-             >
-               Book This Service
-             </Button>
+        <div className="pt-4 border-t border-white/10 space-y-6">
+          {/* Features Section */}
+          <div>
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Key Features:</h4>
+            <ul className="space-y-2">
+              {features.map((item: string, i: number) => (
+                <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                  <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Car Types Section */}
+          <div>
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Available For:</h4>
+            <div className="flex flex-wrap gap-2">
+              {carTypes.map((type: string, i: number) => (
+                <Badge key={i} variant="outline" className="text-xs bg-primary/10 border-primary/30 text-primary">
+                  {type}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Variants Section */}
+          {variants && variants.length > 0 && (
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Available Variants:</h4>
+              <div className="flex flex-wrap gap-2">
+                {variants.map((variant: string, i: number) => (
+                  <Badge key={i} className="bg-white/10 text-white border-white/20 text-xs">
+                    {variant}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Warranty Section */}
+          {warranty && (
+            <div className="bg-primary/10 border-l-4 border-primary px-4 py-2 rounded">
+              <p className="text-sm text-primary font-semibold">{warranty}</p>
+            </div>
+          )}
+
+          {/* Book Button */}
+          <div>
+            <Button 
+              onClick={() => onBook(title)} 
+              className="bg-white text-black hover:bg-gray-200 font-bold w-full sm:w-auto"
+              data-testid={`button-book-${value}`}
+            >
+              Book This Service
+            </Button>
           </div>
         </div>
       </AccordionContent>
