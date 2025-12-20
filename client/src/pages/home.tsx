@@ -175,17 +175,38 @@ export default function Home() {
 
             <motion.div 
               variants={fadeInUp}
-              className="mt-20 max-w-4xl mx-auto"
+              className="mt-16 max-w-4xl mx-auto"
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 uppercase tracking-tight">
                 PRECISION <span className="text-primary">DETAILING</span>
               </h2>
-              <h3 className="text-3xl md:text-4xl font-bold text-white/90 mb-8 leading-relaxed">
+              <h3 className="text-2xl md:text-3xl font-bold text-white/90 mb-10 leading-relaxed">
                 Premium Protection & Perfection for Your Prized Possession
               </h3>
-              <p className="text-lg md:text-xl text-white/80 font-semibold max-w-2xl mx-auto">
-                Experience the pinnacle of automotive craftsmanship with our expert team of certified specialists. From protective coatings to meticulous detailing, we deliver excellence that lasts.
-              </p>
+              
+              <motion.div 
+                variants={fadeInUp}
+                className="flex flex-col md:flex-row flex-wrap gap-4 justify-center"
+              >
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg"
+                  data-testid="button-hero-consult"
+                >
+                  <Link href="#contact">Book Consultation</Link>
+                </Button>
+                
+                <Button 
+                  asChild 
+                  variant="outline"
+                  size="lg"
+                  className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-6 text-lg"
+                  data-testid="button-hero-services"
+                >
+                  <Link href="/services">Explore Services</Link>
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
