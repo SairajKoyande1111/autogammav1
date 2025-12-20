@@ -216,23 +216,23 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative z-10 w-full mb-0"
         >
-          <div className="bg-black/90 border-t border-b border-white/10 py-4 md:py-6">
-            <div className="w-full px-4 md:px-0 overflow-x-auto">
-              <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 text-white text-xs md:text-sm lg:text-base font-semibold uppercase tracking-tight whitespace-nowrap">
+          <div className="bg-black/90 border-t border-b border-white/10 py-5 md:py-7">
+            <div className="w-full px-8 md:px-16 lg:px-20 overflow-x-auto">
+              <div className="flex flex-nowrap justify-center items-center gap-3 md:gap-4 lg:gap-5 text-white text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wide whitespace-nowrap">
                 <span className="text-primary shrink-0">PAINT PROTECTION FILM</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="shrink-0">SUN CONTROL FILM</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="text-primary shrink-0">BODY WRAP</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="shrink-0">CERAMIC COATING</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="text-primary shrink-0">STEAM WASH</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="shrink-0">DETAILING</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="text-primary shrink-0">CAR ACCESSORIES</span>
-                <span className="text-white text-xs md:text-sm font-bold shrink-0">|</span>
+                <span className="text-white text-sm md:text-base font-bold shrink-0">|</span>
                 <span className="shrink-0">MECHANICAL</span>
               </div>
             </div>
