@@ -154,82 +154,16 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#151515" }}>
-        <div className="relative z-10 container px-4 mx-auto py-16">
+      <section className="relative py-16 flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#151515" }}>
+        <div className="relative z-10 container px-4 mx-auto">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+            className="flex flex-col items-center text-center space-y-10"
           >
-            {/* Content Left Side */}
-            <motion.div variants={fadeInLeft} className="space-y-8">
-              <div className="space-y-4">
-                <motion.div variants={fadeInUp} className="inline-block">
-                  <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
-                </motion.div>
-                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-                  PRECISION <span className="text-primary">DETAILING</span>
-                </motion.h2>
-              </div>
-              
-              <motion.div variants={fadeInUp} className="space-y-4 text-white text-lg font-sora">
-                <p>
-                  Experience the pinnacle of automotive craftsmanship with our expert team of certified specialists. We specialize in premium protection and meticulous detailing services that keep your vehicle looking showroom-fresh.
-                </p>
-                <p>
-                  From advanced ceramic coatings to precision paint protection, we deliver excellence that lasts and adds lasting value to your prized possession.
-                </p>
-              </motion.div>
-
-              <motion.div 
-                variants={stagger}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4"
-              >
-                {[
-                  "Expert Protection",
-                  "Premium Quality",
-                  "Lasting Results",
-                  "Professional Care"
-                ].map((benefit, i) => (
-                  <motion.div 
-                    key={i}
-                    variants={fadeInUp}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
-                    <span className="text-white font-medium font-sora">{benefit}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div 
-                variants={fadeInUp}
-                className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4"
-              >
-                <Button 
-                  asChild 
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg"
-                  data-testid="button-hero-consult"
-                >
-                  <Link href="#contact">Book Consultation</Link>
-                </Button>
-                
-                <Button 
-                  asChild 
-                  variant="outline"
-                  size="lg"
-                  className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-6 text-lg"
-                  data-testid="button-hero-services"
-                >
-                  <Link href="/services">Explore Services</Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            {/* Car Image Right Side */}
-            <motion.div variants={fadeInRight} className="relative">
+            {/* Car Image */}
+            <motion.div variants={fadeInUp} className="w-full max-w-3xl mx-auto">
               <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full">
                 <img 
                   src={carDisplayImage} 
@@ -237,6 +171,44 @@ export default function Home() {
                   className="w-full h-auto object-contain"
                 />
               </div>
+            </motion.div>
+
+            {/* Content Below Image */}
+            <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-3">
+              <div className="inline-block">
+                <span className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
+                AUTO DETAILING
+              </h2>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary leading-tight">
+                DONE TO PERFECTION
+              </h3>
+            </motion.div>
+
+            {/* Buttons */}
+            <motion.div 
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center"
+            >
+              <Button 
+                asChild 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg"
+                data-testid="button-hero-consult"
+              >
+                <Link href="#contact">Book Consultation</Link>
+              </Button>
+              
+              <Button 
+                asChild 
+                variant="outline"
+                size="lg"
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-6 text-lg"
+                data-testid="button-hero-services"
+              >
+                <Link href="/services">Explore Services</Link>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
