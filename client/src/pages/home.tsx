@@ -37,7 +37,7 @@ import galleryImage2 from "@assets/stock_images/luxury_car_interior__d9a8634a.jp
 import galleryImage3 from "@assets/stock_images/suv_off-road_desert__38198823.jpg";
 import galleryImage4 from "@assets/stock_images/car_interior_detaili_b4d46e1c.jpg";
 import ceramicCoatingImage from "@assets/image_1766127336814.png";
-import carDisplayImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_1766227103781.png";
+import carDisplayImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_(1)_1766227724821.png";
 
 import logoPolk from "@assets/image_1765180647538.png";
 import logoHertz from "@assets/image_1765180659355.png";
