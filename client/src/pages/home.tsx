@@ -155,39 +155,23 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative w-full flex flex-col" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
-        {/* Header - Top Fixed */}
-        <div className="w-full px-4 pt-3 pb-2 text-center flex-shrink-0 bg-black" style={{ backgroundColor: "#151515" }}>
-          <div className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary leading-tight">
+        {/* Header - Top Section */}
+        <div className="w-full px-4 py-8 text-center flex-shrink-0 space-y-3" style={{ backgroundColor: "#151515" }}>
+          <div className="text-primary text-sm md:text-base font-bold tracking-[0.3em] uppercase font-sora" style={{ color: "hsl(var(--primary))" }}>PREMIUM AUTO CARE</div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-primary leading-tight" style={{ color: "hsl(var(--primary))" }}>
             AUTO DETAILING DONE TO PERFECTION
           </h2>
-          <p className="text-xs md:text-sm text-white/70 leading-tight">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+          <p className="text-sm md:text-base text-white/70">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
         </div>
 
-        {/* Image and Buttons - Scrollable */}
-        <div className="relative z-10 flex-1 w-full px-4 flex flex-col items-center justify-center py-3 overflow-y-auto">
+        {/* Buttons Section */}
+        <div className="relative z-10 flex-1 w-full px-4 flex flex-col items-center justify-center py-8">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
-            className="w-full max-w-3xl mb-3"
-          >
-            <div className="relative rounded-lg overflow-hidden w-full">
-              <img 
-                src={carDisplayImage} 
-                alt="Auto Gamma Luxury Car Display" 
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
           >
             <Button 
               asChild 
