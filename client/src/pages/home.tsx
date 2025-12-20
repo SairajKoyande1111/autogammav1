@@ -154,29 +154,24 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full flex flex-col items-center bg-black" style={{ backgroundColor: "#151515" }}>
-        <div className="relative z-10 w-full px-4 pt-3 pb-2">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            className="text-center space-y-0"
-          >
-            <div className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary leading-none">
-              AUTO DETAILING DONE TO PERFECTION
-            </h2>
-            <p className="text-xs md:text-sm text-white/70 leading-tight pt-1">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
-          </motion.div>
+      <section className="relative w-full flex flex-col" style={{ backgroundColor: "#151515", minHeight: "calc(100vh - 80px)" }}>
+        {/* Header - Top Fixed */}
+        <div className="w-full px-4 pt-3 pb-2 text-center flex-shrink-0 bg-black" style={{ backgroundColor: "#151515" }}>
+          <div className="text-primary text-xs md:text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary leading-tight">
+            AUTO DETAILING DONE TO PERFECTION
+          </h2>
+          <p className="text-xs md:text-sm text-white/70 leading-tight">All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
         </div>
 
-        <div className="relative z-10 w-full px-4 flex flex-col items-center justify-center py-3" style={{ minHeight: "300px" }}>
+        {/* Image and Buttons - Scrollable */}
+        <div className="relative z-10 flex-1 w-full px-4 flex flex-col items-center justify-center py-3 overflow-y-auto">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
-            className="w-full max-w-4xl"
+            className="w-full max-w-3xl mb-3"
           >
             <div className="relative rounded-lg overflow-hidden w-full">
               <img 
@@ -186,9 +181,7 @@ export default function Home() {
               />
             </div>
           </motion.div>
-        </div>
 
-        <div className="relative z-10 w-full px-4 pb-3 flex flex-col items-center justify-center">
           <motion.div 
             initial="hidden"
             animate="visible"
