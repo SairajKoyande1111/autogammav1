@@ -154,39 +154,58 @@ export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#151515" }}>
-        <div className="relative z-10 container px-4 mx-auto flex items-center justify-center flex-1 py-16">
+      <section className="relative py-24 flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#151515" }}>
+        <div className="relative z-10 container px-4 mx-auto py-16">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="text-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
-            <motion.div 
-              variants={fadeInUp}
-              className="w-full max-w-4xl mx-auto"
-            >
-              <img 
-                src={carDisplayImage} 
-                alt="Auto Gamma Luxury Car Display" 
-                className="w-full h-auto object-contain"
-              />
-            </motion.div>
-
-            <motion.div 
-              variants={fadeInUp}
-              className="mt-16 max-w-4xl mx-auto"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 uppercase tracking-tight">
-                PRECISION <span className="text-primary">DETAILING</span>
-              </h2>
-              <h3 className="text-2xl md:text-3xl font-bold text-white/90 mb-10 leading-relaxed">
-                Premium Protection & Perfection for Your Prized Possession
-              </h3>
+            {/* Content Left Side */}
+            <motion.div variants={fadeInLeft} className="space-y-8">
+              <div className="space-y-4">
+                <motion.div variants={fadeInUp} className="inline-block">
+                  <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase font-sora">Premium Auto Care</span>
+                </motion.div>
+                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                  PRECISION <span className="text-primary">DETAILING</span>
+                </motion.h2>
+              </div>
               
+              <motion.div variants={fadeInUp} className="space-y-4 text-white text-lg font-sora">
+                <p>
+                  Experience the pinnacle of automotive craftsmanship with our expert team of certified specialists. We specialize in premium protection and meticulous detailing services that keep your vehicle looking showroom-fresh.
+                </p>
+                <p>
+                  From advanced ceramic coatings to precision paint protection, we deliver excellence that lasts and adds lasting value to your prized possession.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                variants={stagger}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4"
+              >
+                {[
+                  "Expert Protection",
+                  "Premium Quality",
+                  "Lasting Results",
+                  "Professional Care"
+                ].map((benefit, i) => (
+                  <motion.div 
+                    key={i}
+                    variants={fadeInUp}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
+                    <span className="text-white font-medium font-sora">{benefit}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+
               <motion.div 
                 variants={fadeInUp}
-                className="flex flex-col md:flex-row flex-wrap gap-4 justify-center"
+                className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4"
               >
                 <Button 
                   asChild 
@@ -207,6 +226,17 @@ export default function Home() {
                   <Link href="/services">Explore Services</Link>
                 </Button>
               </motion.div>
+            </motion.div>
+
+            {/* Car Image Right Side */}
+            <motion.div variants={fadeInRight} className="relative">
+              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full">
+                <img 
+                  src={carDisplayImage} 
+                  alt="Auto Gamma Luxury Car Display" 
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>
