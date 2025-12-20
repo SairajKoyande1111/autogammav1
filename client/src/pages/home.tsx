@@ -162,9 +162,9 @@ export default function Home() {
         }}
       >
         {/* Minimal Dark Overlay for Text Readability - Bottom Only */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-32 md:pt-40 pb-12 md:pb-16 relative z-10">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-12 md:pt-14 pb-12 md:pb-16 relative z-10">
           {/* Tagline */}
           <motion.div 
             initial="hidden"
