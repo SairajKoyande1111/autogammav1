@@ -565,7 +565,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               <span className="text-primary">CONTACT</span> <span className="text-white">US</span>
             </h2>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto font-poppins">
+            <p className="text-white text-lg max-w-2xl mx-auto font-poppins">
               Ready to give your vehicle the treatment it deserves? Reach out to us for appointments, quotes, or any queries.
             </p>
           </motion.div>
@@ -687,7 +687,7 @@ export default function Home() {
             </motion.div>
 
             {/* Right: Contact Info & Map */}
-            <motion.div variants={fadeInRight} className="space-y-6">
+            <motion.div variants={fadeInRight} className="space-y-6 flex flex-col h-full">
               {/* Map */}
               <motion.div 
                 variants={fadeInUp}
@@ -705,12 +705,13 @@ export default function Home() {
                 />
               </motion.div>
 
-              {/* Address */}
+              {/* Contact Info Container */}
               <motion.div 
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm flex-1"
               >
-                <div className="flex items-start gap-4">
+                {/* Address */}
+                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
                     <MapPin size={18} />
                   </div>
@@ -719,14 +720,9 @@ export default function Home() {
                     <p className="text-white/60 text-sm leading-relaxed">Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</p>
                   </div>
                 </div>
-              </motion.div>
 
-              {/* Phone */}
-              <motion.div 
-                variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
-              >
-                <div className="flex items-start gap-4">
+                {/* Phone */}
+                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
                     <Phone size={18} />
                   </div>
@@ -735,14 +731,9 @@ export default function Home() {
                     <p className="text-white/60 text-sm">+91 92268 82024</p>
                   </div>
                 </div>
-              </motion.div>
 
-              {/* Email */}
-              <motion.div 
-                variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
-              >
-                <div className="flex items-start gap-4">
+                {/* Email */}
+                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
                     <Mail size={18} />
                   </div>
@@ -751,27 +742,24 @@ export default function Home() {
                     <p className="text-white/60 text-sm">info@autogamma.in</p>
                   </div>
                 </div>
-              </motion.div>
 
-              {/* Social Media */}
-              <motion.div 
-                variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
-              >
-                <h4 className="text-white font-poppins font-bold text-sm mb-4">Connect With Us</h4>
-                <div className="flex gap-3">
-                  <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-facebook">
-                    <Facebook size={16} />
-                  </a>
-                  <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-instagram">
-                    <Instagram size={16} />
-                  </a>
-                  <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-twitter">
-                    <Twitter size={16} />
-                  </a>
-                  <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-linkedin">
-                    <Linkedin size={16} />
-                  </a>
+                {/* Social Media */}
+                <div>
+                  <h4 className="text-white font-poppins font-bold text-sm mb-4">Connect With Us</h4>
+                  <div className="flex gap-3">
+                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-facebook">
+                      <Facebook size={16} />
+                    </a>
+                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-instagram">
+                      <Instagram size={16} />
+                    </a>
+                    <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-twitter">
+                      <Twitter size={16} />
+                    </a>
+                    <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-linkedin">
+                      <Linkedin size={16} />
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
