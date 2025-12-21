@@ -171,16 +171,16 @@ export default function Home() {
         />
         {/* No overlay - image displays without tint */}
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16 relative z-10">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-32 lg:pt-40 pb-12 md:pb-16 relative z-10">
           {/* Tagline */}
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0 }}
-            className="text-center mb-6 md:mb-8"
+            className="text-center mb-6 md:mb-12 lg:mb-16"
           >
-            <div className="text-white text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Poppins', sans-serif" }}>
+            <div className="text-white text-base md:text-xl lg:text-2xl font-bold tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Poppins', sans-serif" }}>
               PREMIUM AUTO CARE
             </div>
           </motion.div>
@@ -191,12 +191,12 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.1 }}
-            className="text-center mb-6 md:mb-10 max-w-4xl"
+            className="text-center mb-8 md:mb-14 lg:mb-16 max-w-5xl"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-black leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Poppins', sans-serif" }}>
               AUTO DETAILING
             </h1>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Poppins', sans-serif" }}>
               DONE TO PERFECTION
             </h1>
           </motion.div>
@@ -207,9 +207,9 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
-            className="text-center mb-8 md:mb-12 max-w-2xl"
+            className="text-center mb-10 md:mb-16 max-w-3xl"
           >
-            <p className="text-base md:text-lg text-white" style={{ opacity: 0.9, fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+            <p className="text-base md:text-xl lg:text-2xl text-white" style={{ opacity: 0.9, fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
           </motion.div>
 
           {/* Buttons Section */}
@@ -222,7 +222,7 @@ export default function Home() {
           >
             <Button 
               asChild 
-              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 text-base md:text-lg skew-x-[-15deg] min-h-12"
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 text-base md:text-lg lg:text-xl md:px-10 md:py-4 lg:px-12 lg:py-5 skew-x-[-15deg] min-h-12 md:min-h-14 lg:min-h-16"
               data-testid="button-hero-consult"
             >
               <Link href="#contact">Book Consultation</Link>
@@ -231,7 +231,7 @@ export default function Home() {
             <Button 
               asChild 
               variant="outline"
-              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-3 text-base md:text-lg skew-x-[-15deg] min-h-12"
+              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-3 text-base md:text-lg lg:text-xl md:px-10 md:py-4 lg:px-12 lg:py-5 skew-x-[-15deg] min-h-12 md:min-h-14 lg:min-h-16"
               data-testid="button-hero-services"
             >
               <Link href="/services">Explore Services</Link>
