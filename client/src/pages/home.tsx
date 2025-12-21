@@ -541,14 +541,14 @@ export default function Home() {
             >
               {[videoGlimpse1, videoGlimpse2, videoGlimpse3, videoGlimpse4, videoGlimpse5, videoGlimpse6].map((video, i) => (
                 <motion.div key={i} variants={fadeInUp}>
-                  <div className="relative w-full bg-black/50 group overflow-hidden rounded-2xl border border-white/10 hover-lift h-64 md:h-80">
+                  <div className="relative w-full bg-black/50 group overflow-hidden rounded-2xl border border-white/10 hover-lift flex items-center justify-center min-h-96">
                     <video 
                       src={video}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-contain transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100 group-hover:opacity-80 transition-opacity duration-300" />
                   </div>
