@@ -552,26 +552,22 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-black relative">
+      <section id="contact" className="py-24 bg-neutral-900 relative">
         <div className="container px-4 mx-auto">
           {/* Header */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-12"
+            variants={fadeInUp}
+            className="text-center mb-16 space-y-4"
           >
-            <motion.div variants={fadeInUp} className="inline-block mb-4">
-              <div className="bg-primary/20 rounded-full px-6 py-2 border border-primary/30">
-                <h2 className="text-2xl md:text-3xl font-sora font-bold text-white">
-                  CONTACT US TO <span className="text-primary">KNOW MORE</span>
-                </h2>
-              </div>
-            </motion.div>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-base max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <span className="text-primary">CONTACT</span> <span className="text-white">US</span>
+            </h2>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto font-poppins">
               Ready to give your vehicle the treatment it deserves? Reach out to us for appointments, quotes, or any queries.
-            </motion.p>
+            </p>
           </motion.div>
 
           {/* Content Grid */}
@@ -580,11 +576,11 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={stagger}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
           >
             {/* Left: Form */}
-            <motion.div variants={fadeInLeft} className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-              <h3 className="text-xl font-sora font-bold text-white mb-6">Send Us a Message</h3>
+            <motion.div variants={fadeInLeft} className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm h-full">
+              <h3 className="text-xl font-poppins font-bold text-white mb-6">Send Us a Message</h3>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -593,9 +589,9 @@ export default function Home() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm text-white/70 font-sora mb-2">Name</FormLabel>
+                          <FormLabel className="text-sm text-white/70 font-poppins mb-2">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your full name" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg" data-testid="input-contact-name" {...field} />
+                            <Input placeholder="Your full name" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg font-poppins" data-testid="input-contact-name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -606,9 +602,9 @@ export default function Home() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm text-white/70 font-sora mb-2">Contact Number</FormLabel>
+                          <FormLabel className="text-sm text-white/70 font-poppins mb-2">Contact Number</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your mobile number" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg" data-testid="input-contact-phone" {...field} />
+                            <Input placeholder="Your mobile number" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg font-poppins" data-testid="input-contact-phone" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -621,9 +617,9 @@ export default function Home() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-white/70 font-sora mb-2">Email Address</FormLabel>
+                        <FormLabel className="text-sm text-white/70 font-poppins mb-2">Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg" data-testid="input-contact-email" {...field} />
+                          <Input type="email" placeholder="your.email@example.com" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg font-poppins" data-testid="input-contact-email" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -635,10 +631,10 @@ export default function Home() {
                     name="service"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-white/70 font-sora mb-2">Service Interested In</FormLabel>
+                        <FormLabel className="text-sm text-white/70 font-poppins mb-2">Service Interested In</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-black/50 border-white/10 text-white h-11 text-sm rounded-lg" data-testid="select-contact-service">
+                            <SelectTrigger className="bg-black/50 border-white/10 text-white h-11 text-sm rounded-lg font-poppins" data-testid="select-contact-service">
                               <SelectValue placeholder="Select a service..." />
                             </SelectTrigger>
                           </FormControl>
@@ -663,9 +659,9 @@ export default function Home() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-white/70 font-sora mb-2">Message</FormLabel>
+                        <FormLabel className="text-sm text-white/70 font-poppins mb-2">Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white text-sm rounded-lg" data-testid="input-contact-message" {...field} />
+                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white text-sm rounded-lg font-poppins" data-testid="input-contact-message" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -675,7 +671,7 @@ export default function Home() {
                   <Button 
                     type="submit"
                     disabled={mutation.isPending}
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-sora font-bold h-11 text-base uppercase tracking-widest rounded-full mt-6"
+                    className="w-full bg-primary hover:bg-primary/90 text-white font-poppins font-bold h-11 text-base uppercase tracking-widest rounded-full mt-6"
                     data-testid="button-submit-contact"
                   >
                     {mutation.isPending ? (
@@ -695,7 +691,7 @@ export default function Home() {
               {/* Map */}
               <motion.div 
                 variants={fadeInUp}
-                className="rounded-2xl overflow-hidden border border-white/10 h-64"
+                className="rounded-lg overflow-hidden border border-white/10 h-72"
               >
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0961146405354!2d73.30156332346936!3d19.17484898204387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1c1c1c1c1c1%3A0x0!2sShop%20no.%2016%20%26%2017%2C%20Shreeji%20Parasio%2C%20Badlapur!5e0!3m2!1sen!2sin!4v1234567890123"
@@ -712,15 +708,15 @@ export default function Home() {
               {/* Address */}
               <motion.div 
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary shrink-0">
-                    <MapPin size={20} />
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
+                    <MapPin size={18} />
                   </div>
-                  <div>
-                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-1">Address</h4>
-                    <p className="text-muted-foreground text-sm">Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</p>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-white font-poppins font-bold text-sm mb-2">Address</h4>
+                    <p className="text-white/60 text-sm leading-relaxed">Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</p>
                   </div>
                 </div>
               </motion.div>
@@ -728,15 +724,15 @@ export default function Home() {
               {/* Phone */}
               <motion.div 
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary shrink-0">
-                    <Phone size={20} />
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
+                    <Phone size={18} />
                   </div>
                   <div>
-                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-1">Phone</h4>
-                    <p className="text-muted-foreground text-sm">+91 92268 82024</p>
+                    <h4 className="text-white font-poppins font-bold text-sm mb-2">Phone</h4>
+                    <p className="text-white/60 text-sm">+91 92268 82024</p>
                   </div>
                 </div>
               </motion.div>
@@ -744,15 +740,15 @@ export default function Home() {
               {/* Email */}
               <motion.div 
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary shrink-0">
-                    <Mail size={20} />
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
+                    <Mail size={18} />
                   </div>
                   <div>
-                    <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-1">Email</h4>
-                    <p className="text-muted-foreground text-sm">info@autogamma.in</p>
+                    <h4 className="text-white font-poppins font-bold text-sm mb-2">Email</h4>
+                    <p className="text-white/60 text-sm">info@autogamma.in</p>
                   </div>
                 </div>
               </motion.div>
@@ -760,21 +756,21 @@ export default function Home() {
               {/* Social Media */}
               <motion.div 
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm"
               >
-                <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wide mb-4">Connect With Us</h4>
+                <h4 className="text-white font-poppins font-bold text-sm mb-4">Connect With Us</h4>
                 <div className="flex gap-3">
-                  <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-facebook">
-                    <Facebook size={18} />
+                  <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-facebook">
+                    <Facebook size={16} />
                   </a>
-                  <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-instagram">
-                    <Instagram size={18} />
+                  <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-instagram">
+                    <Instagram size={16} />
                   </a>
-                  <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-twitter">
-                    <Twitter size={18} />
+                  <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-twitter">
+                    <Twitter size={16} />
                   </a>
-                  <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors" data-testid="link-linkedin">
-                    <Linkedin size={18} />
+                  <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-linkedin">
+                    <Linkedin size={16} />
                   </a>
                 </div>
               </motion.div>
