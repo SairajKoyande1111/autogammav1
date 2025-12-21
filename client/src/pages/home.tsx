@@ -58,11 +58,16 @@ import logo3M from "@assets/image_1765180836267.png";
 import logoCardi from "@assets/image_1765180859879.png";
 import logoCerwin from "@assets/image_1765180872400.png";
 
-import profile1 from "@assets/stock_images/professional_headsho_651fc8f0.jpg";
-import profile2 from "@assets/stock_images/professional_headsho_5abd2615.jpg";
-import profile3 from "@assets/stock_images/professional_headsho_af32f665.jpg";
-import profile4 from "@assets/stock_images/professional_headsho_9469d8ce.jpg";
-import profile5 from "@assets/stock_images/professional_headsho_bd6c4962.jpg";
+import profile1 from "@assets/stock_images/indian_professional__10ae0555.jpg";
+import profile2 from "@assets/stock_images/indian_professional__b766b1cd.jpg";
+import profile3 from "@assets/stock_images/indian_professional__c83cbdcf.jpg";
+import profile4 from "@assets/stock_images/indian_professional__06af6b2b.jpg";
+import profile5 from "@assets/stock_images/indian_professional__c76f3810.jpg";
+import profile6 from "@assets/stock_images/indian_professional__5a134d93.jpg";
+import profile7 from "@assets/stock_images/indian_professional__d8bfb386.jpg";
+import profile8 from "@assets/stock_images/indian_professional__0f632df0.jpg";
+import profile9 from "@assets/stock_images/indian_professional__1a8573a3.jpg";
+import profile10 from "@assets/stock_images/indian_professional__5fa5daa6.jpg";
 
 
 const fadeInUp = {
@@ -121,11 +126,11 @@ function CarouselContent() {
     { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!", image: profile3 },
     { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside.", image: profile4 },
     { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before.", image: profile5 },
-    { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
-    { name: "Rohan Gupta", vehicle: "Audi A6", location: "Delhi", rating: 5, text: "Fantastic experience! The PPF application was perfect and the attention to detail was outstanding." },
-    { name: "Kavya Sharma", vehicle: "BMW X5", location: "Bangalore", rating: 5, text: "The ceramic coating makes my car look showroom fresh. Highly professional team and excellent service." },
-    { name: "Arjun Singh", vehicle: "Mercedes E-Class", location: "Hyderabad", rating: 5, text: "Best auto detailing service I've ever used. The interior steam cleaning was thorough and professional." },
-    { name: "Pooja Nair", vehicle: "Range Rover Evoque", location: "Kochi", rating: 5, text: "Outstanding work! The paint protection film has given me peace of mind. Great team and great results." },
+    { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return.", image: profile6 },
+    { name: "Rohan Gupta", vehicle: "Audi A6", location: "Delhi", rating: 5, text: "Fantastic experience! The PPF application was perfect and the attention to detail was outstanding.", image: profile7 },
+    { name: "Kavya Sharma", vehicle: "BMW X5", location: "Bangalore", rating: 5, text: "The ceramic coating makes my car look showroom fresh. Highly professional team and excellent service.", image: profile8 },
+    { name: "Arjun Singh", vehicle: "Mercedes E-Class", location: "Hyderabad", rating: 5, text: "Best auto detailing service I've ever used. The interior steam cleaning was thorough and professional.", image: profile9 },
+    { name: "Pooja Nair", vehicle: "Range Rover Evoque", location: "Kochi", rating: 5, text: "Outstanding work! The paint protection film has given me peace of mind. Great team and great results.", image: profile10 },
   ];
 
   useEffect(() => {
@@ -151,27 +156,27 @@ function CarouselContent() {
             transition={{ delay: idx * 0.1 }}
           >
             <Card className="bg-white/5 border border-white/10 h-full">
-              <CardContent className="p-5 flex flex-col h-full">
+              <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
-                  <Avatar className="w-12 h-12 border-2 border-primary">
+                  <Avatar className="w-14 h-14 border-2 border-primary flex-shrink-0">
                     {review.image && <AvatarImage src={review.image} alt={review.name} />}
-                    <AvatarFallback className="bg-primary text-white font-bold text-xs">
+                    <AvatarFallback className="bg-primary text-white font-bold text-sm">
                       {review.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
                   </Avatar>
-                  <div className="min-w-0">
-                    <h4 className="text-white font-semibold text-sm truncate">{review.name}</h4>
-                    <p className="text-white/60 text-xs truncate">{review.vehicle}</p>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-white font-semibold text-sm">{review.name}</h4>
+                    <p className="text-white/60 text-xs">{review.vehicle}</p>
                   </div>
                 </div>
                 <div className="flex gap-1 mb-3">
                   {[...Array(review.rating)].map((_, j) => (
-                    <Star key={j} size={12} className="text-amber-400 fill-amber-400" />
+                    <Star key={j} size={13} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <p className="text-white/80 text-xs leading-relaxed flex-grow mb-3">"{review.text}"</p>
+                <p className="text-white/80 text-sm leading-relaxed flex-grow mb-3">"{review.text}"</p>
                 <p className="text-white/50 text-xs flex items-center gap-1">
-                  <MapPin size={10} /> {review.location}
+                  <MapPin size={11} /> {review.location}
                 </p>
               </CardContent>
             </Card>
