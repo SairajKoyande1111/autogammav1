@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from "wouter";
@@ -57,6 +57,12 @@ import logoLlumar from "@assets/image_1765180809382.png";
 import logo3M from "@assets/image_1765180836267.png";
 import logoCardi from "@assets/image_1765180859879.png";
 import logoCerwin from "@assets/image_1765180872400.png";
+
+import profile1 from "@assets/stock_images/professional_headsho_651fc8f0.jpg";
+import profile2 from "@assets/stock_images/professional_headsho_5abd2615.jpg";
+import profile3 from "@assets/stock_images/professional_headsho_af32f665.jpg";
+import profile4 from "@assets/stock_images/professional_headsho_9469d8ce.jpg";
+import profile5 from "@assets/stock_images/professional_headsho_bd6c4962.jpg";
 
 
 const fadeInUp = {
@@ -110,11 +116,11 @@ const brandLogos = [
 function CarouselContent() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const reviewsData = [
-    { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
-    { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
-    { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
-    { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
-    { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
+    { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched.", image: profile1 },
+    { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional.", image: profile2 },
+    { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!", image: profile3 },
+    { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside.", image: profile4 },
+    { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before.", image: profile5 },
     { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
     { name: "Rohan Gupta", vehicle: "Audi A6", location: "Delhi", rating: 5, text: "Fantastic experience! The PPF application was perfect and the attention to detail was outstanding." },
     { name: "Kavya Sharma", vehicle: "BMW X5", location: "Bangalore", rating: 5, text: "The ceramic coating makes my car look showroom fresh. Highly professional team and excellent service." },
@@ -147,7 +153,8 @@ function CarouselContent() {
             <Card className="bg-white/5 border border-white/10 h-full">
               <CardContent className="p-5 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
-                  <Avatar className="w-12 h-12">
+                  <Avatar className="w-12 h-12 border-2 border-primary">
+                    {review.image && <AvatarImage src={review.image} alt={review.name} />}
                     <AvatarFallback className="bg-primary text-white font-bold text-xs">
                       {review.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
@@ -787,7 +794,7 @@ export default function Home() {
             <motion.h2 className="text-3xl md:text-5xl font-bold text-white">
               <span className="text-primary">Customer</span> <span className="text-white">Reviews</span>
             </motion.h2>
-            <motion.p className="text-muted-foreground text-base">
+            <motion.p className="text-white text-base">
               Real testimonials from satisfied clients across India
             </motion.p>
           </motion.div>
