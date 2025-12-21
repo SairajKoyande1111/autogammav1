@@ -207,9 +207,9 @@ export default function Home() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
-            className="text-center mb-8 md:mb-12 max-w-2xl"
+            className="text-center mb-8 md:mb-12 max-w-5xl"
           >
-            <p className="text-base md:text-lg lg:text-xl text-white" style={{ opacity: 0.9, fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+            <p className="text-base md:text-lg lg:text-xl text-white font-bold md:whitespace-nowrap" style={{ fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
           </motion.div>
 
           {/* Buttons Section */}
