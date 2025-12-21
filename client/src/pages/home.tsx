@@ -442,26 +442,26 @@ export default function Home() {
 
 
       {/* PPF Details Preview */}
-      <section className="py-24 bg-black text-white">
+      <section className="py-24 bg-neutral-900 text-white relative">
         <div className="container px-4 mx-auto">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           >
             <motion.div variants={fadeInLeft} className="space-y-8">
               <div className="space-y-4">
-                <motion.div variants={fadeInUp} className="inline-block">
-                  <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase font-sora">Paint Protection</span>
+                <motion.div variants={fadeInUp}>
+                  <span className="text-primary text-sm font-bold tracking-wider uppercase font-poppins">Paint Protection Film</span>
                 </motion.div>
-                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-orbitron font-bold">
-                  DISCOVER <span className="text-primary">PPF PROTECTION</span>
+                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold font-poppins">
+                  <span className="text-white">DISCOVER</span> <span className="text-primary">PPF</span> <span className="text-white">PROTECTION</span>
                 </motion.h2>
               </div>
               
-              <motion.div variants={fadeInUp} className="space-y-4 text-white text-lg font-sora">
+              <motion.div variants={fadeInUp} className="space-y-6 text-white/90 text-lg leading-relaxed font-poppins">
                 <p>
                   Paint Protection Film (PPF) is a transparent urethane film applied to your vehicle's painted surfaces to protect your car from stone chips, bug splatters, and minor abrasions.
                 </p>
@@ -472,7 +472,7 @@ export default function Home() {
 
               <motion.div 
                 variants={stagger}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4"
               >
                 {[
                   "Ultimate Protection",
@@ -485,28 +485,28 @@ export default function Home() {
                     variants={fadeInUp}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
-                    <span className="text-white font-medium font-sora">{benefit}</span>
+                    <div className="w-3 h-3 bg-primary rounded-full shrink-0" />
+                    <span className="text-white/90 font-medium font-poppins">{benefit}</span>
                   </motion.div>
                 ))}
               </motion.div>
 
               <motion.div variants={fadeInUp}>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg">
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-base font-poppins">
                   <Link href="/ppf">LEARN MORE ABOUT PPF</Link>
                 </Button>
               </motion.div>
             </motion.div>
 
             <motion.div variants={fadeInRight} className="relative">
-              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl hover-lift w-full">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl hover-lift w-full bg-black/50 flex items-center justify-center min-h-96">
                 <video 
                   src={ppfVideo} 
                   autoPlay 
                   loop 
                   muted 
                   playsInline
-                  className="w-full h-auto block"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </motion.div>
