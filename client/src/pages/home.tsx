@@ -585,8 +585,8 @@ export default function Home() {
             <motion.div variants={fadeInLeft} className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm h-full">
               <h3 className="text-xl font-poppins font-bold text-white mb-8">Send Us a Message</h3>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
                       name="name"
