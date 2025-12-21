@@ -693,128 +693,88 @@ export default function Home() {
       <section className="py-16 bg-neutral-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50" />
 
-        {/* Diagonal accent lines */}
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
-          <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-primary to-transparent transform rotate-12" />
-          <div className="absolute top-0 right-20 w-px h-full bg-gradient-to-b from-transparent via-primary to-transparent transform rotate-12" />
-        </div>
-
         <div className="container px-4 mx-auto relative z-10">
           {/* Header */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-12 space-y-4"
+            variants={fadeInUp}
+            className="text-center mb-12 space-y-3"
           >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-sora font-bold text-white">
-              WHAT OUR <span className="text-primary">CUSTOMERS SAY</span>
+            <motion.h2 className="text-3xl md:text-4xl font-sora font-bold text-white">
+              What Our <span className="text-white">Customers Say</span>
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-base">
+            <motion.p className="text-muted-foreground text-base">
               Real testimonials from satisfied clients across India
             </motion.p>
           </motion.div>
 
-          {/* Testimonials Grid */}
+          {/* Horizontal Scrolling Testimonials */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            transition={{ duration: 0.6 }}
+            className="relative"
           >
-            {[
-              { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, service: "Ceramic Coating", text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
-              { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, service: "PPF Installation", text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
-              { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, service: "Auto Detailing", text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
-              { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, service: "Interior Steam Cleaning", text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
-              { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, service: "Premium Detailing", text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
-              { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, service: "Paint Protection", text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
-            ].map((testimonial, i) => (
-              <motion.div key={i} variants={fadeInUp}>
-                <Card className="bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 hover:border-primary/30 transition-all duration-300 h-full hover-lift overflow-hidden group relative">
-                  <CardContent className="p-6 flex flex-col h-full relative z-10">
-
-                    {/* Decorative quote mark background */}
-                    <div className="absolute top-4 right-4 text-primary/10 text-7xl font-serif leading-none select-none pointer-events-none">"</div>
-
-                    {/* Top section with vehicle badge */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-6 pb-4 min-w-max px-2">
+                {[
+                  { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, service: "Ceramic Coating", text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
+                  { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, service: "PPF Installation", text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
+                  { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, service: "Auto Detailing", text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
+                  { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, service: "Interior Steam Cleaning", text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
+                  { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, service: "Premium Detailing", text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
+                  { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, service: "Paint Protection", text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
+                ].map((testimonial, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex-shrink-0 w-80"
+                  >
+                    <Card className="bg-white/5 border border-white/10 h-full overflow-hidden hover:border-white/20 transition-colors">
+                      <CardContent className="p-5 flex flex-col h-full">
                         {/* Rating */}
                         <div className="flex gap-1 mb-3">
                           {[...Array(testimonial.rating)].map((_, j) => (
-                            <Star key={j} size={16} className="text-primary fill-primary" />
+                            <Star key={j} size={14} className="text-amber-400 fill-amber-400" />
                           ))}
                         </div>
 
                         {/* Service Badge */}
-                        <div className="inline-block">
-                          <span className="text-xs font-sora font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-sm uppercase tracking-wider">
+                        <div className="inline-block mb-3 w-fit">
+                          <span className="text-xs font-medium text-white/70 bg-white/5 px-2 py-1 rounded border border-white/10">
                             {testimonial.service}
                           </span>
                         </div>
-                      </div>
-                    </div>
 
-                    {/* Testimonial Text */}
-                    <div className="flex-grow mb-6">
-                      <p className="text-white/90 text-base leading-relaxed italic relative">
-                        <span className="text-primary text-xl mr-1">"</span>
-                        {testimonial.text}
-                        <span className="text-primary text-xl ml-1">"</span>
-                      </p>
-                    </div>
+                        {/* Testimonial Text */}
+                        <p className="text-white/80 text-sm leading-relaxed mb-4 flex-grow">
+                          "{testimonial.text}"
+                        </p>
 
-                    {/* Customer Info */}
-                    <div className="border-t border-white/10 pt-4 mt-auto">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h4 className="text-white font-sora font-bold text-sm mb-1 tracking-wide">{testimonial.name}</h4>
-                          <div className="flex items-center gap-2 text-muted-foreground text-xs">
-                            <Trophy size={12} className="text-primary" />
-                            <span className="font-medium">{testimonial.vehicle}</span>
-                          </div>
-                          <div className="flex items-center gap-1 text-muted-foreground text-xs mt-1">
-                            <MapPin size={12} className="text-primary" />
-                            <span>{testimonial.location}</span>
-                          </div>
+                        {/* Customer Info */}
+                        <div className="border-t border-white/10 pt-4 mt-auto">
+                          <h4 className="text-white font-medium text-sm mb-1">{testimonial.name}</h4>
+                          <p className="text-white/60 text-xs">{testimonial.vehicle}</p>
+                          <p className="text-white/60 text-xs">{testimonial.location}</p>
                         </div>
-
-                        {/* Decorative verified badge */}
-                        <div className="bg-primary/10 border border-primary/30 rounded-full p-2">
-                          <CheckCircle2 size={16} className="text-primary" />
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-
-                  {/* Subtle gradient hover effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* View All Reviews Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="text-center mt-12"
-          >
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-white font-sora font-bold px-8 py-6 text-base rounded-sm uppercase tracking-widest"
-              data-testid="button-view-all-reviews"
-            >
-              <div className="flex items-center gap-2">
-                <span>View All Reviews</span>
-                <ArrowRight size={18} />
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
-            </Button>
+            </div>
+
+            {/* Auto-scroll indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              <div className="w-2 h-2 rounded-full bg-white/30 animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-white/20" />
+              <div className="w-2 h-2 rounded-full bg-white/20" />
+            </div>
           </motion.div>
         </div>
       </section>
