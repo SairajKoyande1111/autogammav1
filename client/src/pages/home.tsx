@@ -521,11 +521,15 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              variants={stagger}
-              className="text-center mb-12 space-y-4"
+              variants={fadeInUp}
+              className="text-center mb-16 space-y-4"
             >
-              <motion.h2 variants={fadeInUp} className="text-4xl font-orbitron font-bold text-white">THE AUTO GLIMPSES</motion.h2>
-              <motion.p variants={fadeInUp} className="text-muted-foreground">View our latest work and transformations!</motion.p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                <span className="text-primary">TRANSFORMATION</span> <span className="text-white">GALLERY</span>
+              </h2>
+              <p className="text-white text-lg max-w-2xl mx-auto font-poppins">
+                Witness the stunning transformations we've created for our valued clients. Premium detailing that elevates every vehicle to perfection.
+              </p>
             </motion.div>
 
             <motion.div 
@@ -533,20 +537,20 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={stagger}
-              className="grid grid-cols-3 lg:grid-cols-3 gap-4"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {[videoGlimpse1, videoGlimpse2, videoGlimpse3, videoGlimpse4, videoGlimpse5, videoGlimpse6].map((video, i) => (
                 <motion.div key={i} variants={fadeInUp}>
-                  <div className="relative w-full bg-black group overflow-hidden rounded-lg hover-lift">
+                  <div className="relative w-full bg-black/50 group overflow-hidden rounded-2xl border border-white/10 hover-lift h-64 md:h-80">
                     <video 
                       src={video}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-auto object-contain transition-transform duration-700"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100 group-hover:opacity-80 transition-opacity duration-300" />
                   </div>
                 </motion.div>
               ))}
