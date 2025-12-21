@@ -40,6 +40,9 @@ import galleryImage4 from "@assets/stock_images/car_interior_detaili_b4d46e1c.jp
 import ceramicCoatingImage from "@assets/image_1766127336814.png";
 import carDisplayImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_(1)_1766227724821.png";
 import heroBgImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_(2)_1766236484545.png";
+import facebookIcon from "@assets/facebook_1766217005798.png";
+import instagramIcon from "@assets/—Pngtree—instagram_icon_instagram_logo_vector_3584852_1766216113430.png";
+import youtubeIcon from "@assets/youtube_1766216255122.png";
 
 import logoPolk from "@assets/image_1765180647538.png";
 import logoHertz from "@assets/image_1765180659355.png";
@@ -691,7 +694,7 @@ export default function Home() {
               {/* Map */}
               <motion.div 
                 variants={fadeInUp}
-                className="rounded-lg overflow-hidden border border-white/10 h-72"
+                className="rounded-2xl overflow-hidden border border-white/10 h-72"
               >
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0961146405354!2d73.30156332346936!3d19.17484898204387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1c1c1c1c1c1%3A0x0!2sShop%20no.%2016%20%26%2017%2C%20Shreeji%20Parasio%2C%20Badlapur!5e0!3m2!1sen!2sin!4v1234567890123"
@@ -708,56 +711,53 @@ export default function Home() {
               {/* Contact Info Container */}
               <motion.div 
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm flex-1"
+                className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm flex-1"
               >
-                {/* Address */}
+                {/* Shop Address */}
                 <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shrink-0">
                     <MapPin size={18} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-white font-poppins font-bold text-sm mb-2">Address</h4>
-                    <p className="text-white/60 text-sm leading-relaxed">Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</p>
+                    <h4 className="text-white font-poppins font-bold text-base mb-2">SHOP ADDRESS</h4>
+                    <p className="text-white text-sm leading-relaxed">Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</p>
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* Contact Number */}
                 <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shrink-0">
                     <Phone size={18} />
                   </div>
                   <div>
-                    <h4 className="text-white font-poppins font-bold text-sm mb-2">Phone</h4>
-                    <p className="text-white/60 text-sm">+91 92268 82024</p>
+                    <h4 className="text-white font-poppins font-bold text-base mb-2">CONTACT NUMBER</h4>
+                    <p className="text-white text-sm">+91 92268 82024</p>
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 shrink-0">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shrink-0">
                     <Mail size={18} />
                   </div>
                   <div>
-                    <h4 className="text-white font-poppins font-bold text-sm mb-2">Email</h4>
-                    <p className="text-white/60 text-sm">info@autogamma.in</p>
+                    <h4 className="text-white font-poppins font-bold text-base mb-2">Email</h4>
+                    <p className="text-white text-sm">info@autogamma.in</p>
                   </div>
                 </div>
 
                 {/* Social Media */}
                 <div>
-                  <h4 className="text-white font-poppins font-bold text-sm mb-4">Connect With Us</h4>
-                  <div className="flex gap-3">
-                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-facebook">
-                      <Facebook size={16} />
+                  <h4 className="text-white font-poppins font-bold text-base mb-4">Connect With Us</h4>
+                  <div className="flex gap-4">
+                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-facebook">
+                      <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
                     </a>
-                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-instagram">
-                      <Instagram size={16} />
+                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-instagram">
+                      <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
                     </a>
-                    <a href="https://twitter.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-twitter">
-                      <Twitter size={16} />
-                    </a>
-                    <a href="https://linkedin.com/company/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:bg-primary/20 hover:text-primary transition-colors" data-testid="link-linkedin">
-                      <Linkedin size={16} />
+                    <a href="https://youtube.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-youtube">
+                      <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
                     </a>
                   </div>
                 </div>
