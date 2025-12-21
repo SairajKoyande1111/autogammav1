@@ -592,7 +592,7 @@ export default function Home() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-base text-white font-poppins mb-4">Name</FormLabel>
+                          <FormLabel className="text-base text-white font-poppins mb-8">Name</FormLabel>
                           <FormControl>
                             <Input placeholder="Your full name" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-name" {...field} />
                           </FormControl>
@@ -605,7 +605,7 @@ export default function Home() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-base text-white font-poppins mb-4">Contact Number</FormLabel>
+                          <FormLabel className="text-base text-white font-poppins mb-8">Contact Number</FormLabel>
                           <FormControl>
                             <Input placeholder="Your mobile number" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-phone" {...field} />
                           </FormControl>
@@ -620,7 +620,7 @@ export default function Home() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base text-white font-poppins mb-4">Email Address</FormLabel>
+                        <FormLabel className="text-base text-white font-poppins mb-8">Email Address</FormLabel>
                         <FormControl>
                           <Input type="email" placeholder="your.email@example.com" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-email" {...field} />
                         </FormControl>
@@ -634,7 +634,7 @@ export default function Home() {
                     name="service"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base text-white font-poppins mb-4">Service Interested In</FormLabel>
+                        <FormLabel className="text-base text-white font-poppins mb-8">Service Interested In</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-black/50 border-white/10 text-white h-11 text-base rounded-lg font-poppins" data-testid="select-contact-service">
@@ -662,7 +662,7 @@ export default function Home() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base text-white font-poppins mb-4">Message</FormLabel>
+                        <FormLabel className="text-base text-white font-poppins mb-8">Message</FormLabel>
                         <FormControl>
                           <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-message" {...field} />
                         </FormControl>
