@@ -585,7 +585,7 @@ export default function Home() {
             <motion.div variants={fadeInLeft} className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm h-full">
               <h3 className="text-xl font-poppins font-bold text-white mb-8">Send Us a Message</h3>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onContactSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
@@ -685,7 +685,7 @@ export default function Home() {
                       "Submit Inquiry"
                     )}
                   </Button>
-                  <p className="text-center text-white/60 italic text-sm mt-6 -skew-x-6">
+                  <p className="text-center text-white italic text-sm mt-6 -skew-x-6">
                     "Your car deserves perfection, and we deliver it with precision."
                   </p>
                 </form>
@@ -754,7 +754,7 @@ export default function Home() {
                   <h4 className="text-white font-poppins font-bold text-base mb-4">Connect With Us</h4>
                   <div className="flex gap-3">
                     <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-facebook">
-                      <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
+                      <img src={facebookIcon} alt="Facebook" className="w-8 h-8 object-contain" />
                     </a>
                     <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-instagram">
                       <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
