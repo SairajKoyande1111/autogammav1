@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Star, Shield, Zap, Trophy, CheckCircle2, Play, MapPin, Phone, Mail, Loader2, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from "wouter";
@@ -104,6 +105,87 @@ const brandLogos = [
   { name: "Cardi", logo: logoCardi },
   { name: "Cerwin Vega", logo: logoCerwin },
 ];
+
+// Carousel Component
+function CarouselContent() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const reviewsData = [
+    { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
+    { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
+    { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
+    { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
+    { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
+    { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
+    { name: "Rohan Gupta", vehicle: "Audi A6", location: "Delhi", rating: 5, text: "Fantastic experience! The PPF application was perfect and the attention to detail was outstanding." },
+    { name: "Kavya Sharma", vehicle: "BMW X5", location: "Bangalore", rating: 5, text: "The ceramic coating makes my car look showroom fresh. Highly professional team and excellent service." },
+    { name: "Arjun Singh", vehicle: "Mercedes E-Class", location: "Hyderabad", rating: 5, text: "Best auto detailing service I've ever used. The interior steam cleaning was thorough and professional." },
+    { name: "Pooja Nair", vehicle: "Range Rover Evoque", location: "Kochi", rating: 5, text: "Outstanding work! The paint protection film has given me peace of mind. Great team and great results." },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % reviewsData.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const itemsPerView = 4;
+  const visibleReviews = Array.from({ length: itemsPerView }, (_, i) => 
+    reviewsData[(currentIndex + i) % reviewsData.length]
+  );
+
+  return (
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {visibleReviews.map((review, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.1 }}
+          >
+            <Card className="bg-white/5 border border-white/10 h-full">
+              <CardContent className="p-5 flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <Avatar className="w-12 h-12">
+                    <AvatarFallback className="bg-primary text-white font-bold text-xs">
+                      {review.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="min-w-0">
+                    <h4 className="text-white font-semibold text-sm truncate">{review.name}</h4>
+                    <p className="text-white/60 text-xs truncate">{review.vehicle}</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-3">
+                  {[...Array(review.rating)].map((_, j) => (
+                    <Star key={j} size={12} className="text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <p className="text-white/80 text-xs leading-relaxed flex-grow mb-3">"{review.text}"</p>
+                <p className="text-white/50 text-xs flex items-center gap-1">
+                  <MapPin size={10} /> {review.location}
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+      <div className="flex justify-center gap-2">
+        {reviewsData.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentIndex(idx)}
+            className={`h-2 rounded-full transition-all ${
+              idx === currentIndex ? 'bg-primary w-6' : 'bg-white/30 w-2'
+            }`}
+            data-testid={`carousel-dot-${idx}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const { toast } = useToast();
@@ -700,82 +782,18 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center mb-12 space-y-3"
+            className="text-center mb-12 space-y-2"
           >
-            <motion.h2 className="text-3xl md:text-4xl font-sora font-bold text-white">
-              What Our <span className="text-white">Customers Say</span>
+            <motion.h2 className="text-3xl md:text-5xl font-bold text-white">
+              <span className="text-primary">Customer</span> <span className="text-white">Reviews</span>
             </motion.h2>
             <motion.p className="text-muted-foreground text-base">
               Real testimonials from satisfied clients across India
             </motion.p>
           </motion.div>
 
-          {/* Horizontal Scrolling Testimonials */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex gap-6 pb-4 min-w-max px-2">
-                {[
-                  { name: "Rajesh Sharma", vehicle: "BMW 7 Series", location: "Mumbai", rating: 5, service: "Ceramic Coating", text: "Absolutely incredible service! My BMW looks brand new after the ceramic coating. The attention to detail is unmatched." },
-                  { name: "Priya Patel", vehicle: "Mercedes C-Class", location: "Pune", rating: 5, service: "PPF Installation", text: "Auto Gamma transformed my car completely. The PPF installation was flawless and the team was very professional." },
-                  { name: "Amit Kumar", vehicle: "Audi Q5", location: "Thane", rating: 5, service: "Auto Detailing", text: "Best detailing service in the region. They treat every car like it's their own. Highly recommended!" },
-                  { name: "Sneha Deshmukh", vehicle: "Range Rover", location: "Navi Mumbai", rating: 5, service: "Interior Steam Cleaning", text: "The interior deep cleaning service is outstanding. My car smells fresh and looks pristine inside." },
-                  { name: "Vikram Singh", vehicle: "Porsche 911", location: "Badlapur", rating: 5, service: "Premium Detailing", text: "Premium service at reasonable prices. The ceramic coating has made my car shine like never before." },
-                  { name: "Ananya Reddy", vehicle: "Jaguar XF", location: "Kalyan", rating: 5, service: "Paint Protection", text: "Exceptional craftsmanship! The team at Auto Gamma really knows their work. Will definitely return." },
-                ].map((testimonial, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex-shrink-0 w-80"
-                  >
-                    <Card className="bg-white/5 border border-white/10 h-full overflow-hidden hover:border-white/20 transition-colors">
-                      <CardContent className="p-5 flex flex-col h-full">
-                        {/* Rating */}
-                        <div className="flex gap-1 mb-3">
-                          {[...Array(testimonial.rating)].map((_, j) => (
-                            <Star key={j} size={14} className="text-amber-400 fill-amber-400" />
-                          ))}
-                        </div>
-
-                        {/* Service Badge */}
-                        <div className="inline-block mb-3 w-fit">
-                          <span className="text-xs font-medium text-white/70 bg-white/5 px-2 py-1 rounded border border-white/10">
-                            {testimonial.service}
-                          </span>
-                        </div>
-
-                        {/* Testimonial Text */}
-                        <p className="text-white/80 text-sm leading-relaxed mb-4 flex-grow">
-                          "{testimonial.text}"
-                        </p>
-
-                        {/* Customer Info */}
-                        <div className="border-t border-white/10 pt-4 mt-auto">
-                          <h4 className="text-white font-medium text-sm mb-1">{testimonial.name}</h4>
-                          <p className="text-white/60 text-xs">{testimonial.vehicle}</p>
-                          <p className="text-white/60 text-xs">{testimonial.location}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Auto-scroll indicator */}
-            <div className="flex justify-center gap-2 mt-6">
-              <div className="w-2 h-2 rounded-full bg-white/30 animate-pulse" />
-              <div className="w-2 h-2 rounded-full bg-white/20" />
-              <div className="w-2 h-2 rounded-full bg-white/20" />
-            </div>
-          </motion.div>
+          {/* Auto-Rotating Carousel */}
+          <CarouselContent />
         </div>
       </section>
 
