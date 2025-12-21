@@ -592,9 +592,9 @@ export default function Home() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm text-white/70 font-poppins mb-2">Name</FormLabel>
+                          <FormLabel className="text-base text-white font-poppins mb-2">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your full name" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg font-poppins" data-testid="input-contact-name" {...field} />
+                            <Input placeholder="Your full name" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -605,9 +605,9 @@ export default function Home() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm text-white/70 font-poppins mb-2">Contact Number</FormLabel>
+                          <FormLabel className="text-base text-white font-poppins mb-2">Contact Number</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your mobile number" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg font-poppins" data-testid="input-contact-phone" {...field} />
+                            <Input placeholder="Your mobile number" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-phone" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -620,9 +620,9 @@ export default function Home() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-white/70 font-poppins mb-2">Email Address</FormLabel>
+                        <FormLabel className="text-base text-white font-poppins mb-2">Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-sm rounded-lg font-poppins" data-testid="input-contact-email" {...field} />
+                          <Input type="email" placeholder="your.email@example.com" className="bg-black/50 border-white/10 focus:border-primary h-11 text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-email" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -634,10 +634,10 @@ export default function Home() {
                     name="service"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-white/70 font-poppins mb-2">Service Interested In</FormLabel>
+                        <FormLabel className="text-base text-white font-poppins mb-2">Service Interested In</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-black/50 border-white/10 text-white h-11 text-sm rounded-lg font-poppins" data-testid="select-contact-service">
+                            <SelectTrigger className="bg-black/50 border-white/10 text-white h-11 text-base rounded-lg font-poppins" data-testid="select-contact-service">
                               <SelectValue placeholder="Select a service..." />
                             </SelectTrigger>
                           </FormControl>
@@ -662,9 +662,9 @@ export default function Home() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-white/70 font-poppins mb-2">Message</FormLabel>
+                        <FormLabel className="text-base text-white font-poppins mb-2">Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white text-sm rounded-lg font-poppins" data-testid="input-contact-message" {...field} />
+                          <Textarea placeholder="Tell us about your vehicle..." className="bg-black/50 border-white/10 focus:border-primary min-h-[120px] text-white text-base placeholder:text-white/50 rounded-lg font-poppins" data-testid="input-contact-message" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -685,6 +685,9 @@ export default function Home() {
                       "Submit Inquiry"
                     )}
                   </Button>
+                  <p className="text-center text-white/60 italic text-sm mt-6 -skew-x-6">
+                    "Your car deserves perfection, and we deliver it with precision."
+                  </p>
                 </form>
               </Form>
             </motion.div>
@@ -714,8 +717,8 @@ export default function Home() {
                 className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm flex-1"
               >
                 {/* Shop Address */}
-                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shrink-0">
+                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white">
+                  <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center text-white shrink-0">
                     <MapPin size={18} />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -725,8 +728,8 @@ export default function Home() {
                 </div>
 
                 {/* Contact Number */}
-                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shrink-0">
+                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white">
+                  <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center text-white shrink-0">
                     <Phone size={18} />
                   </div>
                   <div>
@@ -736,8 +739,8 @@ export default function Home() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white/10">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shrink-0">
+                <div className="flex items-start gap-4 mb-6 pb-6 border-b border-white">
+                  <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center text-white shrink-0">
                     <Mail size={18} />
                   </div>
                   <div>
@@ -749,14 +752,14 @@ export default function Home() {
                 {/* Social Media */}
                 <div>
                   <h4 className="text-white font-poppins font-bold text-base mb-4">Connect With Us</h4>
-                  <div className="flex gap-4">
-                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-facebook">
+                  <div className="flex gap-3">
+                    <a href="https://facebook.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-facebook">
                       <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
                     </a>
-                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-instagram">
+                    <a href="https://instagram.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-instagram">
                       <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
                     </a>
-                    <a href="https://youtube.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-youtube">
+                    <a href="https://youtube.com/autogamma" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" data-testid="link-youtube">
                       <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
                     </a>
                   </div>
