@@ -161,6 +161,14 @@ export default function Home() {
           height: "100vh",
         }}
       >
+        <video 
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hero-bg-video"
+        />
         {/* No overlay - image displays without tint */}
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-24 pb-12 md:pb-16 relative z-10">
