@@ -50,13 +50,13 @@ export default function PPF() {
           </motion.p>
           <motion.h1 
             variants={fadeInUp}
-            className="text-2xl md:text-3xl font-poppins font-bold text-white leading-tight mb-1 uppercase"
+            className="text-xl md:text-3xl font-poppins font-bold text-white leading-tight mb-1 uppercase px-4 md:px-0"
           >
             Guard Your Car's Paint with Our Advanced
           </motion.h1>
           <motion.h2
             variants={fadeInUp}
-            className="text-2xl md:text-3xl font-poppins font-bold text-primary leading-tight uppercase"
+            className="text-xl md:text-3xl font-poppins font-bold text-primary leading-tight uppercase px-4 md:px-0"
           >
             PPF Technology for a Perfect, Glossy Finish
           </motion.h2>
