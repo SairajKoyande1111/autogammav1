@@ -44,19 +44,19 @@ export default function PPF() {
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-white text-lg font-semibold mb-2 font-poppins"
+            className="text-white text-lg font-medium mb-2 font-sora"
           >
             Protect Your Car, Preserve Its Shine!
           </motion.p>
           <motion.h1 
             variants={fadeInUp}
-            className="text-xl md:text-3xl font-poppins font-bold text-white leading-tight mb-1 uppercase px-4 md:px-0"
+            className="text-xl md:text-3xl font-sora font-semibold text-white leading-tight mb-1 uppercase px-4 md:px-0"
           >
             Guard Your Car's Paint with Our Advanced
           </motion.h1>
           <motion.h2
             variants={fadeInUp}
-            className="text-xl md:text-3xl font-poppins font-bold text-primary leading-tight uppercase px-4 md:px-0"
+            className="text-xl md:text-3xl font-sora font-semibold text-primary leading-tight uppercase px-4 md:px-0"
           >
             PPF Technology for a Perfect, Glossy Finish
           </motion.h2>
@@ -79,7 +79,7 @@ export default function PPF() {
           
           <motion.div variants={fadeInRight} className="space-y-6 pt-2">
             <div className="space-y-4">
-              <p className="text-white text-sm md:text-base leading-relaxed font-poppins font-normal">
+              <p className="text-white text-sm md:text-base leading-relaxed font-sora font-normal">
                 Paint Protection Film (PPF) is a transparent, urethane film applied 
                 to a vehicle's painted surface to protect it from scratches, chips, 
                 and other forms of damage. This durable film acts as a sacrificial 
@@ -88,7 +88,7 @@ export default function PPF() {
                 original paint but also enhances its appearance by adding a 
                 glossy, protective layer.
               </p>
-              <p className="text-white text-sm md:text-base leading-relaxed font-poppins font-normal">
+              <p className="text-white text-sm md:text-base leading-relaxed font-sora font-normal">
                 PPF creates a protective barrier between your vehicle's paint and 
                 the outside world. When a rock chip or other debris strikes the 
                 film, it absorbs the impact, preventing damage to the underlying 
@@ -257,7 +257,7 @@ export default function PPF() {
               variants={fadeInUp}
               className="border border-white/10 bg-[#111111] p-10 rounded-[2rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift shadow-xl"
             >
-               <h3 className="text-2xl font-poppins font-semibold text-white mb-8 text-center uppercase tracking-wide">GARWARE PLUS</h3>
+               <h3 className="text-2xl font-sora font-medium text-white mb-8 text-center uppercase tracking-wide">GARWARE PLUS</h3>
                <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹62,000" />
                  <PriceRow label="Hatchback" price="₹65,000" />
@@ -271,7 +271,7 @@ export default function PPF() {
               className="border-2 border-primary bg-white/5 p-10 rounded-[2rem] relative overflow-hidden shadow-[0_0_40px_rgba(255,0,0,0.15)] hover-glow scale-105 z-10"
             >
                <div className="absolute top-0 right-0 bg-primary text-white text-sm font-bold px-4 py-1.5 rounded-bl-xl">POPULAR</div>
-               <h3 className="text-2xl font-poppins font-semibold text-white mb-2 text-center uppercase tracking-wide">GARWARE PREMIUM</h3>
+               <h3 className="text-2xl font-sora font-medium text-white mb-2 text-center uppercase tracking-wide">GARWARE PREMIUM</h3>
                <p className="text-center text-primary text-sm mb-8 font-bold tracking-widest">8 YEAR WARRANTY</p>
                <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹80,000" highlight />
@@ -285,8 +285,8 @@ export default function PPF() {
               variants={fadeInUp}
               className="border border-white/10 bg-[#111111] p-10 rounded-[2rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift shadow-xl"
             >
-               <h3 className="text-2xl font-poppins font-semibold text-white mb-2 text-center uppercase tracking-wide">GARWARE MATT</h3>
-               <p className="text-center text-white/60 text-sm mb-8 font-poppins tracking-widest">5 YEAR WARRANTY</p>
+               <h3 className="text-2xl font-sora font-medium text-white mb-2 text-center uppercase tracking-wide">GARWARE MATT</h3>
+               <p className="text-center text-white/60 text-sm mb-8 font-sora tracking-widest">5 YEAR WARRANTY</p>
                <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹1,05,000" />
                  <PriceRow label="Hatchback" price="₹1,10,000" />
@@ -304,11 +304,11 @@ export default function PPF() {
 function PricingCard({ title, items }: { title: string, items: {label: string, price: string}[] }) {
   return (
     <div className="bg-[#111111] rounded-[1.5rem] p-8 border border-white/10 hover:bg-[#1a1a1a] transition-all duration-300 hover-lift h-full flex flex-col shadow-lg">
-      <h4 className="text-xl font-semibold text-white mb-8 border-b border-white/10 pb-4 font-poppins uppercase tracking-wider">{title}</h4>
+      <h4 className="text-xl font-medium text-white mb-8 border-b border-white/10 pb-4 font-sora uppercase tracking-wider">{title}</h4>
       <div className="space-y-6 flex-grow">
         {items.map((item, i) => (
-          <div key={i} className="flex justify-between items-center text-base font-poppins">
-            <span className="text-white/90 font-medium">{item.label}</span>
+          <div key={i} className="flex justify-between items-center text-base font-sora">
+            <span className="text-white/90 font-normal">{item.label}</span>
             <span className="font-semibold text-white font-mono text-lg">{item.price}</span>
           </div>
         ))}
@@ -319,8 +319,8 @@ function PricingCard({ title, items }: { title: string, items: {label: string, p
 
 function PriceRow({ label, price, highlight = false }: { label: string, price: string, highlight?: boolean }) {
   return (
-    <div className="flex justify-between items-center border-b border-white/10 py-3 last:border-0 last:pb-0 font-poppins">
-      <span className={`${highlight ? 'text-white font-semibold' : 'text-white font-medium'} text-base`}>{label}</span>
+    <div className="flex justify-between items-center border-b border-white/10 py-3 last:border-0 last:pb-0 font-sora">
+      <span className={`${highlight ? 'text-white font-semibold' : 'text-white font-normal'} text-base`}>{label}</span>
       <span className={`font-semibold font-mono text-lg ${highlight ? 'text-primary' : 'text-white'}`}>{price}</span>
     </div>
   );
