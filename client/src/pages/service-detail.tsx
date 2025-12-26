@@ -120,7 +120,7 @@ export default function ServiceDetail() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-red-600 text-lg font-medium max-w-2xl mx-auto uppercase tracking-wide"
+          className="text-white/60 text-lg font-normal max-w-2xl mx-auto"
         >
           Premium deep cleaning and foam protection for a showroom finish.
         </motion.p>
@@ -177,32 +177,24 @@ export default function ServiceDetail() {
             initial="hidden"
             animate="visible"
             variants={fadeInRight}
-            className="flex-1 bg-gradient-to-br from-zinc-900/90 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_60px_-15px_rgba(220,38,38,0.2)] relative overflow-hidden group"
+            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,0,0,0.15)] relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-40 h-40 bg-red-600/10 blur-[80px] -mr-20 -mt-20 rounded-full group-hover:bg-red-600/20 transition-all duration-700" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-red-600/5 blur-[60px] -ml-16 -mb-16 rounded-full" />
-            
-            <h3 className="text-xl font-sora font-semibold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3 relative z-10">
-              <span className="w-1.5 h-6 bg-red-600 rounded-full block shadow-[0_0_10px_rgba(220,38,38,0.8)]" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl -mr-16 -mt-16 rounded-full" />
+            <h3 className="text-xl font-sora font-semibold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
+              <span className="w-1.5 h-6 bg-red-600 rounded-full block" />
               Pricing
             </h3>
-            
             <div className="space-y-4 flex-grow relative z-10">
               {service.pricing && service.pricing.length > 0 ? (
                 service.pricing.map((tier, i) => (
                   <div 
                     key={i}
-                    className="flex items-center justify-between px-6 py-6 bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-2xl hover:from-red-600/10 hover:to-red-600/5 hover:border-red-600/40 transition-all duration-500 group/item relative overflow-hidden shadow-lg"
+                    className="flex items-center justify-between px-6 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-red-600/10 hover:border-red-600/30 transition-all duration-300 group"
                   >
-                    <div className="absolute inset-y-0 left-0 w-1 bg-red-600 transform -translate-x-full group-hover/item:translate-x-0 transition-transform duration-300" />
-                    <span className="text-white text-sm uppercase font-semibold tracking-widest group-hover/item:text-red-400 transition-colors">
-                      {tier.carType}
+                    <span className="text-white text-sm uppercase font-semibold tracking-widest">{tier.carType}</span>
+                    <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors">
+                      {tier.price}
                     </span>
-                    <div className="text-right">
-                      <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover/item:text-red-500 transition-colors">
-                        {tier.price}
-                      </span>
-                    </div>
                   </div>
                 ))
               ) : (
@@ -210,12 +202,6 @@ export default function ServiceDetail() {
                   <p className="text-4xl font-semibold text-white">{displayPrice}</p>
                 </div>
               )}
-            </div>
-            
-            <div className="mt-6 pt-4 border-t border-white/10 relative z-10">
-              <p className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-medium text-center">
-                * Prices may vary based on vehicle condition
-              </p>
             </div>
           </motion.div>
         </div>
