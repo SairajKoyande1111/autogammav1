@@ -14,7 +14,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Loader2, Calendar, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { bookingFormSchema, type BookingFormData } from "@shared/schema";
@@ -23,21 +30,21 @@ import { getServiceBySlug } from "@/lib/services-data";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 } as const;
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 } as const;
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 } as const;
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.1 } }
+  visible: { transition: { staggerChildren: 0.1 } },
 } as const;
 
 export default function ServiceDetail() {
@@ -88,7 +95,9 @@ export default function ServiceDetail() {
     return (
       <div className="pt-24 pb-20">
         <div className="container px-4 mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Service Not Found</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">
+            Service Not Found
+          </h1>
           <Link href="/services">
             <Button className="bg-primary hover:bg-primary/90 text-white">
               Back to Services
@@ -100,19 +109,19 @@ export default function ServiceDetail() {
   }
 
   // Get the lowest price for the header
-  const displayPrice = service.pricing 
-    ? service.pricing[0].price 
+  const displayPrice = service.pricing
+    ? service.pricing[0].price
     : service.price;
 
   return (
     <div className="pt-24 pb-12 bg-black min-h-screen flex flex-col font-sora text-[16px]">
       {/* Centered Header */}
-      <section className="container px-4 mx-auto max-w-7xl pt-16 pb-12 text-center">
-        <motion.h1 
+      <section className="container px-4 mx-auto max-w-7xl pt-8 md:pt-16 pb-8 md:pb-12 text-center">
+        <motion.h1
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-4xl md:text-5xl font-sora font-medium text-white uppercase tracking-tight mb-2"
+          className="text-3xl md:text-5xl font-sora font-medium text-white uppercase tracking-tight mb-2"
         >
           {service.title}
         </motion.h1>
@@ -120,10 +129,10 @@ export default function ServiceDetail() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="inline-block bg-red-600 px-4 py-1.5 mt-2"
+          className="inline-block bg-red-600 px-4 py-1.5 mt-2 max-w-[90vw] md:max-w-full"
         >
-          <p className="text-white text-lg font-medium whitespace-nowrap">
-            Premium deep cleaning and foam protection for a showroom finish.
+          <p className="text-white text-xs sm:text-sm md:text-lg font-medium md:whitespace-nowrap break-words leading-tight">
+            Premium deep cleaning and foam protection for a showroom finish
           </p>
         </motion.div>
       </section>
@@ -132,13 +141,13 @@ export default function ServiceDetail() {
         {/* Main Content Area - 3 Vertical Cards side by side */}
         <div className="flex flex-col lg:flex-row gap-8 items-stretch mb-12 flex-grow min-h-[500px]">
           {/* Column 1: Image */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInLeft}
             className="flex-1 min-w-0"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full min-h-[400px] group">
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full min-h-[250px] sm:min-h-[300px] md:min-h-[400px] group">
               {service.slug === "foam-washing" ? (
                 <video
                   src="/attached_assets/6873163-uhd_2160_3840_25fps_1766779370222.mp4"
@@ -148,13 +157,13 @@ export default function ServiceDetail() {
                   playsInline
                   controls={false}
                   preload="auto"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-[250px] sm:h-[300px] md:h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 >
                   Your browser does not support the video tag.
                 </video>
               ) : (
-                <img 
-                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
+                <img
+                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop"
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -164,7 +173,7 @@ export default function ServiceDetail() {
           </motion.div>
 
           {/* Column 2: What's Included */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
@@ -177,23 +186,28 @@ export default function ServiceDetail() {
             </h2>
             <ul className="space-y-6 flex-grow relative z-10">
               {service.features.map((feature: string, i: number) => (
-                <li key={i} className="flex items-center gap-4 group p-3 bg-zinc-900/80 border-[4px] border-red-600 rounded-2xl relative">
+                <li
+                  key={i}
+                  className="flex items-center gap-4 group p-3 bg-zinc-900/80 border-[4px] border-red-600 rounded-2xl relative"
+                >
                   {/* Inner White Border */}
                   <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
-                  
+
                   <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center relative z-10">
                     <div className="w-5 h-5 rounded-full border-2 border-red-600 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.4)]">
                       <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,1)]" />
                     </div>
                   </div>
-                  <span className="text-white text-lg font-semibold leading-relaxed tracking-tight relative z-10">{feature}</span>
+                  <span className="text-white text-lg font-semibold leading-relaxed tracking-tight relative z-10">
+                    {feature}
+                  </span>
                 </li>
               ))}
             </ul>
           </motion.div>
 
           {/* Column 3: Pricing */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInRight}
@@ -207,14 +221,16 @@ export default function ServiceDetail() {
             <div className="space-y-4 flex-grow relative z-10">
               {service.pricing && service.pricing.length > 0 ? (
                 service.pricing.map((tier, i) => (
-                  <div 
+                  <div
                     key={i}
                     className="flex items-center justify-between px-6 py-5 bg-zinc-900/80 rounded-2xl hover:bg-zinc-800 transition-all duration-300 group relative border-[4px] border-red-600"
                   >
                     {/* Inner White Border */}
                     <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
-                    
-                    <span className="text-white text-sm uppercase font-semibold tracking-widest relative z-10">{tier.carType}</span>
+
+                    <span className="text-white text-sm uppercase font-semibold tracking-widest relative z-10">
+                      {tier.carType}
+                    </span>
                     <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
                       {tier.price}
                     </span>
@@ -222,7 +238,9 @@ export default function ServiceDetail() {
                 ))
               ) : (
                 <div className="flex items-center justify-center h-full">
-                  <p className="text-4xl font-semibold text-white">{displayPrice}</p>
+                  <p className="text-4xl font-semibold text-white">
+                    {displayPrice}
+                  </p>
                 </div>
               )}
             </div>
@@ -230,13 +248,13 @@ export default function ServiceDetail() {
         </div>
 
         {/* Bottom Area: Booking Button */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
           className="max-w-md mx-auto w-full pb-8"
         >
-          <Button 
+          <Button
             onClick={() => setBookingOpen(true)}
             className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold h-14 px-8 rounded-2xl text-lg transition-all hover:scale-[1.05] active:scale-[0.95] shadow-[0_0_30px_-5px_rgba(220,38,38,0.4)] uppercase tracking-[0.2em]"
           >
@@ -268,9 +286,16 @@ export default function ServiceDetail() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white font-medium">Your Name</FormLabel>
+                    <FormLabel className="text-white font-medium">
+                      Your Name
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Full Name" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-name" {...field} />
+                      <Input
+                        placeholder="Full Name"
+                        className="bg-white/5 border-white/10 text-white"
+                        data-testid="input-booking-name"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -282,9 +307,16 @@ export default function ServiceDetail() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white font-medium">Phone</FormLabel>
+                      <FormLabel className="text-white font-medium">
+                        Phone
+                      </FormLabel>
                       <FormControl>
-                        <Input placeholder="+91 00000 00000" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-phone" {...field} />
+                        <Input
+                          placeholder="+91 00000 00000"
+                          className="bg-white/5 border-white/10 text-white"
+                          data-testid="input-booking-phone"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -295,9 +327,17 @@ export default function ServiceDetail() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white font-medium">Email</FormLabel>
+                      <FormLabel className="text-white font-medium">
+                        Email
+                      </FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="email@domain.com" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-email" {...field} />
+                        <Input
+                          type="email"
+                          placeholder="email@domain.com"
+                          className="bg-white/5 border-white/10 text-white"
+                          data-testid="input-booking-email"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -309,9 +349,16 @@ export default function ServiceDetail() {
                 name="date"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white font-medium">Preferred Date</FormLabel>
+                    <FormLabel className="text-white font-medium">
+                      Preferred Date
+                    </FormLabel>
                     <FormControl>
-                      <Input type="date" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-date" {...field} />
+                      <Input
+                        type="date"
+                        className="bg-white/5 border-white/10 text-white"
+                        data-testid="input-booking-date"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -322,15 +369,22 @@ export default function ServiceDetail() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white font-medium">Additional Notes (Optional)</FormLabel>
+                    <FormLabel className="text-white font-medium">
+                      Additional Notes (Optional)
+                    </FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Any specific requirements..." className="bg-white/5 border-white/10 min-h-[80px] text-white" data-testid="input-booking-message" {...field} />
+                      <Textarea
+                        placeholder="Any specific requirements..."
+                        className="bg-white/5 border-white/10 min-h-[80px] text-white"
+                        data-testid="input-booking-message"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button 
+              <Button
                 type="submit"
                 disabled={mutation.isPending}
                 className="w-full bg-primary hover:bg-primary/90 text-white font-semibold h-12 uppercase tracking-widest"
@@ -338,7 +392,8 @@ export default function ServiceDetail() {
               >
                 {mutation.isPending ? (
                   <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />{" "}
+                    Submitting...
                   </>
                 ) : (
                   <>
