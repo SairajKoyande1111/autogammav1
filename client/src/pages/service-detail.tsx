@@ -105,22 +105,22 @@ export default function ServiceDetail() {
     : service.price;
 
   return (
-    <div className="pt-28 pb-20 bg-black min-h-screen">
+    <div className="pt-20 pb-10 bg-black min-h-screen overflow-hidden flex flex-col justify-center">
       <section className="container px-4 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Column - Image */}
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInLeft}
-            className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-square lg:aspect-[4/5]"
+            className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-h-[70vh]"
           >
             <img 
               src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
               alt={service.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
           </motion.div>
 
           {/* Right Column - Content */}
@@ -128,74 +128,72 @@ export default function ServiceDetail() {
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="flex flex-col h-full justify-center"
+            className="flex flex-col h-full"
           >
-            <motion.h1 
-              variants={fadeInUp}
-              className="text-4xl md:text-6xl font-sora font-bold text-white mb-6 tracking-tight uppercase"
-            >
-              {service.title}
-            </motion.h1>
+            <motion.div variants={fadeInUp} className="mb-4">
+              <motion.h1 
+                className="text-3xl md:text-5xl font-sora font-bold text-white mb-2 tracking-tight uppercase leading-none"
+              >
+                {service.title}
+              </motion.h1>
+              <motion.p className="text-base text-white/60 font-light leading-snug">
+                {service.description}
+              </motion.p>
+            </motion.div>
 
-            <motion.p variants={fadeInUp} className="text-xl text-white/70 font-light mb-8 leading-relaxed">
-              {service.description}
-            </motion.p>
-
-            {/* What's Included Section */}
+            {/* What's Included Section - Compact Row */}
             <motion.div 
               variants={fadeInUp}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-8"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-4"
             >
-              <h2 className="text-xl font-sora font-semibold text-white mb-4 uppercase tracking-wider">What's Included</h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <h2 className="text-xs font-sora font-bold text-white/40 mb-3 uppercase tracking-[0.2em]">What's Included</h2>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {service.features.map((feature: string, i: number) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-                      <Check className="w-3.5 h-3.5 text-white" />
-                    </div>
-                    <span className="text-white/80 text-sm font-medium">{feature}</span>
+                  <li key={i} className="flex items-center gap-2">
+                    <Check className="w-3 h-3 text-white/80 shrink-0" />
+                    <span className="text-white/90 text-xs font-medium truncate">{feature}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Pricing Section */}
+            {/* Pricing Section - Compact List */}
             <motion.div 
               variants={fadeInUp}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-8"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-6"
             >
-              <h3 className="text-xl font-sora font-semibold text-white mb-4 uppercase tracking-wider text-center lg:text-left">Pricing</h3>
+              <h3 className="text-xs font-sora font-bold text-white/40 mb-3 uppercase tracking-[0.2em]">Pricing</h3>
               {service.pricing && service.pricing.length > 0 ? (
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 gap-2">
                   {service.pricing.map((tier, i) => (
                     <div 
                       key={i}
-                      className="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-all group"
+                      className="flex items-center justify-between px-3 py-2 bg-white/5 border border-white/5 rounded-lg hover:bg-white/10 transition-all group"
                     >
-                      <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors">{tier.carType}</span>
-                      <span className="text-xl font-bold text-white font-sora">{tier.price}</span>
+                      <span className="text-white/70 text-[10px] uppercase font-bold tracking-wider group-hover:text-white transition-colors">{tier.carType}</span>
+                      <span className="text-lg font-bold text-white font-sora tracking-tighter">{tier.price}</span>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="p-4 bg-white/5 rounded-xl text-center">
-                  <p className="text-3xl font-bold text-white">{displayPrice}</p>
+                <div className="p-2 bg-white/5 rounded-lg text-center">
+                  <p className="text-2xl font-bold text-white">{displayPrice}</p>
                 </div>
               )}
             </motion.div>
 
             {/* Booking Button */}
-            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+            <motion.div variants={fadeInUp} className="mt-auto">
               <Button 
                 onClick={() => setBookingOpen(true)}
-                className="bg-white hover:bg-zinc-200 text-black font-bold h-14 px-10 rounded-xl text-lg transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl uppercase tracking-widest"
+                className="w-full bg-white hover:bg-zinc-200 text-black font-bold h-12 px-10 rounded-xl text-base transition-all hover:scale-[1.01] active:scale-[0.99] shadow-xl uppercase tracking-[0.15em]"
               >
-                <Calendar className="mr-2 h-6 w-6" />
+                <Calendar className="mr-2 h-5 w-5" />
                 BOOK YOUR SLOT
               </Button>
               <Link href="/services">
-                <Button variant="ghost" className="text-white/50 hover:text-white hover:bg-white/5 h-10 px-6 rounded-xl font-medium text-sm transition-colors uppercase tracking-widest">
-                  Back to All Services
+                <Button variant="ghost" className="w-full mt-2 text-white/30 hover:text-white hover:bg-white/5 h-8 px-4 rounded-lg font-medium text-[10px] transition-colors uppercase tracking-[0.2em]">
+                  View All Services
                 </Button>
               </Link>
             </motion.div>
