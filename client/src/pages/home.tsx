@@ -43,6 +43,11 @@ import heroBgImage from "@assets/Black_and_Red_Modern_Car_Dealer_Presentation_(2
 import facebookIcon from "@assets/facebook_1766217005798.png";
 import instagramIcon from "@assets/—Pngtree—instagram_icon_instagram_logo_vector_3584852_1766216113430.png";
 import youtubeIcon from "@assets/youtube_1766216255122.png";
+import ppfAppImage from "@assets/image_1766729172233.png";
+import shieldIcon from "@assets/image_1766729201482.png";
+import rupeeIcon from "@assets/image_1766729223515.png";
+import toolsIcon from "@assets/image_1766729246340.png";
+import starIcon from "@assets/image_1766729264056.png";
 
 import logoPolk from "@assets/image_1765180647538.png";
 import logoHertz from "@assets/image_1765180659355.png";
@@ -367,51 +372,99 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Our Services Catalogue */}
-      <section className="pt-10 pb-24 bg-background relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
-        
-        <div className="container px-2 sm:px-4 mx-auto relative z-10">
+      {/* PPF Hero Section */}
+      <section className="py-20 md:py-32 bg-neutral-900 text-white relative overflow-hidden">
+        <div className="container px-4 mx-auto">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <motion.div variants={fadeInLeft} className="space-y-8">
+              <div className="space-y-6">
+                <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl font-bold leading-tight font-poppins">
+                  <span className="text-white">PROTECT YOUR CAR,</span><br/>
+                  <span className="text-white">PRESERVE ITS</span> <span className="text-primary">SHINE!</span>
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-lg text-white/80 font-poppins">
+                  Guard Your Car's Paint with Our Advanced PPF Technology
+                </motion.p>
+              </div>
+              
+              <motion.div variants={fadeInUp} className="space-y-4 font-poppins">
+                <p className="text-white/90 leading-relaxed">
+                  Paint Protection Film (PPF) is a transparent, urethane film applied to your vehicle's painted surface to protect it from scratches, chips, and other forms of damage caused by road debris, rocks, and harsh weather conditions.
+                </p>
+                <p className="text-white/90 leading-relaxed">
+                  PPF creates a protective barrier between your vehicle's paint and the outside world. When a rock chip or other debris strikes the film, it absorbs the impact, preventing damage to the underlying paint.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            <motion.div variants={fadeInRight} className="relative">
+              <img 
+                src={ppfAppImage} 
+                alt="PPF Application"
+                className="w-full h-auto rounded-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-24 bg-neutral-900 relative">
+        <div className="container px-4 mx-auto">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
             className="text-center mb-16 space-y-4"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-sora font-bold text-white">
-              OUR <span className="text-primary">SERVICES</span>
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-white text-xl font-semibold md:whitespace-nowrap">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
+            <p className="text-primary font-bold text-sm tracking-wider uppercase font-poppins">Benefits of Paint Protection Film</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-poppins">
+              <span>Ultimate Protection</span> <span className="text-primary">for Your Vehicle</span>
+            </h2>
           </motion.div>
 
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            variants={staggerFast}
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
-              { title: "Auto Detailing", desc: "Expert washing, waxing & polish for pristine shine", img: detailingImage, link: "/services" },
-              { title: "Paint Protection", desc: "Shield your paint from damage & weathering", img: ppfImage, link: "/ppf" },
-              { title: "Body Wrap", desc: "Custom vinyl wraps for style & protection", img: heroImage, link: "/services" },
-              { title: "Sun Control Film", desc: "UV protection & interior cooling", img: interiorImage, link: "/services" },
-              { title: "Ceramic Coating", desc: "Long-lasting hydrophobic protection layer", img: ceramicCoatingImage, link: "/services" },
-              { title: "Car Accessories", desc: "Premium add-ons & upgrades for your vehicle", img: galleryImage2, link: "/services" },
-              { title: "Interior Steam Wash", desc: "Deep cleaning for pristine interiors", img: galleryImage4, link: "/services" },
-              { title: "Mechanical", desc: "Professional maintenance & repairs", img: galleryImage3, link: "/services" },
-            ].map((item, i) => (
+              {
+                icon: shieldIcon,
+                title: "Ultimate Protection",
+                desc: "Shield your vehicle's paint from scratches, chips, and other forms of damage caused by road debris, rocks, and harsh weather conditions."
+              },
+              {
+                icon: rupeeIcon,
+                title: "Preserving Resale Value",
+                desc: "Maintain your car's pristine appearance and increase its resale value by protecting its original paint finish."
+              },
+              {
+                icon: toolsIcon,
+                title: "Easy Maintenance",
+                desc: "Repair dirt, grime, and water-making cleaning and maintenance a breeze with our advanced protective layer."
+              },
+              {
+                icon: starIcon,
+                title: "Enhanced Aesthetics",
+                desc: "Enhance your vehicle's shine and gloss, giving it a short-term quality finish that lasts."
+              }
+            ].map((benefit, i) => (
               <motion.div key={i} variants={fadeInUp}>
-                <Link href={item.link} className="group block h-[320px] md:h-[400px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift flex flex-col justify-end">
-                    <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${item.img})` }} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
-                    
-                    <div className="relative z-10 w-full p-3 md:p-8 mt-auto">
-                      <h3 className="text-base md:text-2xl font-sora font-bold text-white mb-1 md:mb-2 line-clamp-2">{item.title}</h3>
-                      <p className="text-xs md:text-sm text-white mb-2 md:mb-3 line-clamp-2">{item.desc}</p>
-                    </div>
-                </Link>
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full space-y-4 hover-lift">
+                  <img src={benefit.icon} alt={benefit.title} className="h-16 w-16" />
+                  <h3 className="text-xl font-bold text-white font-poppins">{benefit.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed font-poppins">{benefit.desc}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
