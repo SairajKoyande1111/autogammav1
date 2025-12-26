@@ -35,29 +35,29 @@ export default function PPF() {
   return (
     <div className="pt-24 pb-20 bg-background min-h-screen">
       {/* Top Section / Hero */}
-      <section className="container px-4 mx-auto mb-20 pt-12">
+      <section className="container px-4 mx-auto mb-12 pt-8">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={stagger}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-gray-400 text-xs tracking-[0.4em] mb-4 uppercase font-poppins"
+            className="text-gray-400 text-[10px] tracking-[0.3em] mb-3 uppercase font-poppins"
           >
             Protect Your Car, Preserve Its Shine!
           </motion.p>
           <motion.h1 
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-poppins font-bold text-white leading-[1.1] uppercase mb-4"
+            className="text-3xl md:text-5xl lg:text-6xl font-poppins font-bold text-white leading-tight uppercase mb-2"
           >
             Guard Your Car's Paint With Our<br />
             Advanced
           </motion.h1>
           <motion.h2
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-poppins font-bold text-primary leading-[1.1] uppercase"
+            className="text-3xl md:text-5xl lg:text-6xl font-poppins font-bold text-primary leading-tight uppercase"
           >
             PPF Technology For A Perfect,<br />
             Glossy Finish
@@ -69,32 +69,27 @@ export default function PPF() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-20"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-12 max-w-6xl mx-auto"
         >
           <motion.div variants={fadeInLeft} className="relative group">
             <img 
               src={ppfAppImage} 
               alt="PPF Application" 
-              className="relative w-full rounded-[2rem] shadow-2xl"
+              className="relative w-full rounded-2xl shadow-xl max-h-[400px] object-cover"
             />
           </motion.div>
           
-          <motion.div variants={fadeInRight} className="space-y-12 pt-8">
-            <div className="space-y-8">
-              <p className="text-gray-400 text-[18px] leading-relaxed font-poppins">
+          <motion.div variants={fadeInRight} className="space-y-6">
+            <div className="space-y-4">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed font-poppins">
                 Paint Protection Film (PPF) is a transparent, urethane film applied 
                 to a vehicle's painted surface to protect it from scratches, chips, 
                 and other forms of damage. This durable film acts as a sacrificial 
                 layer, absorbing the impact of road debris, rocks, and other 
-                environmental factors. PPF not only preserves your vehicle's 
-                original paint but also enhances its appearance by adding a 
-                glossy, protective layer.
+                environmental factors.
               </p>
-              <p className="text-gray-400 text-[18px] leading-relaxed font-poppins">
-                PPF creates a protective barrier between your vehicle's paint and 
-                the outside world. When a rock chip or other debris strikes the 
-                film, it absorbs the impact, preventing damage to the underlying 
-                paint.
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed font-poppins">
+                PPF not only preserves your vehicle's original paint but also enhances its appearance by adding a glossy, protective layer that creates a durable barrier between your vehicle's paint and the outside world.
               </p>
             </div>
           </motion.div>
