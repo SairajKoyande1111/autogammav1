@@ -251,14 +251,14 @@ export default function PPF() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={stagger}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-10"
           >
             <motion.div 
               variants={fadeInUp}
-              className="border border-white/10 bg-[#111111] p-8 rounded-[1.5rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift"
+              className="border border-white/10 bg-[#111111] p-10 rounded-[2rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift shadow-xl"
             >
-               <h3 className="text-xl font-poppins font-bold text-white mb-6 text-center">GARWARE PLUS</h3>
-               <div className="space-y-4">
+               <h3 className="text-2xl font-poppins font-semibold text-white mb-8 text-center uppercase tracking-wide">GARWARE PLUS</h3>
+               <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹62,000" />
                  <PriceRow label="Hatchback" price="₹65,000" />
                  <PriceRow label="Mid Sedans/SUV" price="₹65,000" />
@@ -268,12 +268,12 @@ export default function PPF() {
 
             <motion.div 
               variants={fadeInUp}
-              className="border border-primary bg-white/5 p-8 rounded-[1.5rem] relative overflow-hidden shadow-[0_0_30px_rgba(255,0,0,0.1)] hover-glow"
+              className="border-2 border-primary bg-white/5 p-10 rounded-[2rem] relative overflow-hidden shadow-[0_0_40px_rgba(255,0,0,0.15)] hover-glow scale-105 z-10"
             >
-               <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1">POPULAR</div>
-               <h3 className="text-xl font-poppins font-bold text-white mb-2 text-center">GARWARE PREMIUM</h3>
-               <p className="text-center text-primary text-sm mb-6 font-bold">8 YEAR WARRANTY</p>
-               <div className="space-y-4">
+               <div className="absolute top-0 right-0 bg-primary text-white text-sm font-bold px-4 py-1.5 rounded-bl-xl">POPULAR</div>
+               <h3 className="text-2xl font-poppins font-semibold text-white mb-2 text-center uppercase tracking-wide">GARWARE PREMIUM</h3>
+               <p className="text-center text-primary text-sm mb-8 font-bold tracking-widest">8 YEAR WARRANTY</p>
+               <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹80,000" highlight />
                  <PriceRow label="Hatchback" price="₹85,000" highlight />
                  <PriceRow label="Mid Sedans" price="₹90,000" highlight />
@@ -283,11 +283,11 @@ export default function PPF() {
 
             <motion.div 
               variants={fadeInUp}
-              className="border border-white/10 bg-[#111111] p-8 rounded-[1.5rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift"
+              className="border border-white/10 bg-[#111111] p-10 rounded-[2rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift shadow-xl"
             >
-               <h3 className="text-xl font-poppins font-bold text-white mb-2 text-center">GARWARE MATT</h3>
-               <p className="text-center text-muted-foreground text-sm mb-6 font-poppins">5 YEAR WARRANTY</p>
-               <div className="space-y-4">
+               <h3 className="text-2xl font-poppins font-semibold text-white mb-2 text-center uppercase tracking-wide">GARWARE MATT</h3>
+               <p className="text-center text-white/60 text-sm mb-8 font-poppins tracking-widest">5 YEAR WARRANTY</p>
+               <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹1,05,000" />
                  <PriceRow label="Hatchback" price="₹1,10,000" />
                  <PriceRow label="Mid Sedans" price="₹1,15,000" />
@@ -303,13 +303,13 @@ export default function PPF() {
 
 function PricingCard({ title, items }: { title: string, items: {label: string, price: string}[] }) {
   return (
-    <div className="bg-[#111111] rounded-[1.5rem] p-6 border border-white/5 hover:bg-[#1a1a1a] transition-all duration-300 hover-lift h-full flex flex-col">
-      <h4 className="text-lg font-bold text-white mb-6 border-b border-white/5 pb-4 font-poppins uppercase tracking-wider">{title}</h4>
-      <div className="space-y-4 flex-grow">
+    <div className="bg-[#111111] rounded-[1.5rem] p-8 border border-white/10 hover:bg-[#1a1a1a] transition-all duration-300 hover-lift h-full flex flex-col shadow-lg">
+      <h4 className="text-xl font-semibold text-white mb-8 border-b border-white/10 pb-4 font-poppins uppercase tracking-wider">{title}</h4>
+      <div className="space-y-6 flex-grow">
         {items.map((item, i) => (
-          <div key={i} className="flex justify-between items-center text-sm font-poppins">
-            <span className="text-gray-400">{item.label}</span>
-            <span className="font-bold text-white font-mono">{item.price}</span>
+          <div key={i} className="flex justify-between items-center text-base font-poppins">
+            <span className="text-white/90 font-medium">{item.label}</span>
+            <span className="font-semibold text-white font-mono text-lg">{item.price}</span>
           </div>
         ))}
       </div>
@@ -319,9 +319,9 @@ function PricingCard({ title, items }: { title: string, items: {label: string, p
 
 function PriceRow({ label, price, highlight = false }: { label: string, price: string, highlight?: boolean }) {
   return (
-    <div className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0 last:pb-0 font-poppins">
-      <span className={`${highlight ? 'text-white font-medium' : 'text-gray-400'}`}>{label}</span>
-      <span className={`font-bold font-mono ${highlight ? 'text-primary text-lg' : 'text-white'}`}>{price}</span>
+    <div className="flex justify-between items-center border-b border-white/10 py-3 last:border-0 last:pb-0 font-poppins">
+      <span className={`${highlight ? 'text-white font-semibold' : 'text-white font-medium'} text-base`}>{label}</span>
+      <span className={`font-semibold font-mono text-lg ${highlight ? 'text-primary' : 'text-white'}`}>{price}</span>
     </div>
   );
 }
