@@ -105,32 +105,31 @@ export default function ServiceDetail() {
     : service.price;
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-black">
-      <div className="container px-4 mx-auto max-w-6xl">
-        {/* Header Section */}
+    <div className="min-h-screen pt-24 pb-8 bg-black overflow-hidden flex items-center">
+      <div className="container px-4 mx-auto max-w-7xl">
+        {/* Header - Centered with proper padding */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="text-5xl md:text-7xl font-sora font-bold text-white tracking-tight uppercase py-4">
+          <h1 className="text-4xl md:text-6xl font-sora font-bold text-white tracking-tight uppercase py-2">
             {service.title}
           </h1>
-          <p className="text-lg text-white/60 font-light max-w-2xl mx-auto">
+          <p className="text-sm text-white/40 font-light max-w-xl mx-auto">
             {service.description}
           </p>
         </motion.div>
 
-        {/* Top Grid: Image Left, Features Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          {/* Image Card */}
+        {/* Main Horizontal Content View */}
+        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+          {/* Left: Image Card */}
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={fadeInLeft}
-            className="rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square shadow-2xl"
+            className="flex-1 rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-auto shadow-2xl"
           >
             <img 
               src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
@@ -139,77 +138,56 @@ export default function ServiceDetail() {
             />
           </motion.div>
 
-          {/* Features Card */}
+          {/* Right: Features & Pricing Column */}
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={fadeInRight}
-            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-10 flex flex-col justify-center shadow-xl"
+            className="lg:w-[450px] flex flex-col gap-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full mb-6 w-fit">
-              <span className="text-white text-[10px] font-bold tracking-widest uppercase">PREMIUM BENEFITS</span>
+            {/* Features Card */}
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full mb-4 w-fit">
+                <span className="text-white text-[10px] font-bold tracking-widest uppercase">INCLUSIONS</span>
+              </div>
+              <h2 className="text-2xl font-sora font-semibold text-white mb-4">What's Included</h2>
+              <ul className="space-y-3">
+                {service.features.map((feature: string, i: number) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-white/60 flex-shrink-0" />
+                    <span className="text-white/80 text-sm font-medium">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h2 className="text-3xl font-sora font-semibold text-white mb-6">What's Included</h2>
-            <ul className="grid grid-cols-1 gap-4">
-              {service.features.map((feature: string, i: number) => (
-                <li key={i} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white">
-                    <Check className="w-4 h-4" />
+
+            {/* Pricing Card */}
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-xl flex-1">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-sora font-semibold text-white">Pricing</h3>
+                {service.warranty && (
+                  <span className="text-[10px] text-white/40 font-bold uppercase tracking-widest">{service.warranty}</span>
+                )}
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {service.pricing?.map((tier, i) => (
+                  <div key={i} className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                    <p className="text-[10px] text-white/40 font-bold uppercase mb-1 truncate">{tier.carType}</p>
+                    <p className="text-lg font-bold font-sora text-white">{tier.price}</p>
                   </div>
-                  <span className="text-white/80 font-medium">{feature}</span>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+              
+              {/* Action Button at the bottom of the column */}
+              <Button 
+                onClick={() => setBookingOpen(true)}
+                className="w-full mt-6 bg-white text-black hover:bg-zinc-200 font-bold h-12 rounded-2xl shadow-xl transition-all active:scale-95"
+              >
+                BOOK YOUR SLOT
+              </Button>
+            </div>
           </motion.div>
         </div>
-
-        {/* Pricing Card */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-10 mb-8 shadow-xl"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-            <h3 className="text-3xl font-sora font-semibold text-white">Pricing by Car Type</h3>
-            {service.warranty && (
-              <div className="px-4 py-2 bg-white/10 border border-white/20 rounded-xl">
-                <span className="text-white/40 text-[10px] font-bold tracking-widest uppercase block mb-1">WARRANTY</span>
-                <span className="text-white font-semibold text-sm">{service.warranty}</span>
-              </div>
-            )}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {service.pricing?.map((tier, i) => (
-              <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-2xl text-center group hover:bg-white hover:text-black transition-all duration-300">
-                <p className="text-xs font-bold tracking-wider uppercase mb-2 group-hover:text-black/60 transition-colors text-white/40">{tier.carType}</p>
-                <p className="text-2xl font-bold font-sora">{tier.price}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Book Slot Card */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="bg-gradient-to-r from-zinc-900 to-black rounded-3xl p-10 lg:p-12 text-center border border-white/10 shadow-2xl"
-        >
-          <h2 className="text-4xl font-sora font-bold text-white mb-4 uppercase">Ready to Book?</h2>
-          <p className="text-white/60 mb-8 max-w-xl mx-auto">
-            Experience the ultimate showroom shine for your vehicle. Fast, professional, and reliable.
-          </p>
-          <Button 
-            onClick={() => setBookingOpen(true)}
-            className="bg-white text-black hover:bg-zinc-200 font-bold h-14 px-12 rounded-full text-lg shadow-xl"
-          >
-            BOOK YOUR SLOT
-          </Button>
-        </motion.div>
       </div>
 
       {/* Booking Dialog */}
