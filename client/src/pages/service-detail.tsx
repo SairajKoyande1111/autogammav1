@@ -123,67 +123,71 @@ export default function ServiceDetail() {
         </motion.div>
 
         {/* Main Horizontal Content View */}
-        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
-          {/* Left: Image Card */}
+        <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-stretch">
+          {/* Left: Image Card - Reduced size and centered */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInLeft}
-            className="flex-1 rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-auto shadow-2xl"
+            className="w-full lg:w-1/3 rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square shadow-2xl self-center"
           >
             <img 
               src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
               alt={service.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover opacity-80"
             />
           </motion.div>
 
-          {/* Right: Features & Pricing Column */}
+          {/* Right: Features & Pricing Column - Highlighted */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInRight}
-            className="lg:w-[450px] flex flex-col gap-6"
+            className="flex-1 flex flex-col gap-6"
           >
-            {/* Features Card */}
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full mb-4 w-fit">
-                <span className="text-white text-[10px] font-bold tracking-widest uppercase">INCLUSIONS</span>
+            {/* Features Card - Elevated */}
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-[0_0_50px_rgba(255,255,255,0.05)] transform hover:scale-[1.02] transition-transform duration-300">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-black rounded-full mb-6 w-fit">
+                <span className="text-[10px] font-bold tracking-widest uppercase">INCLUSIONS</span>
               </div>
-              <h2 className="text-2xl font-sora font-semibold text-white mb-4">What's Included</h2>
-              <ul className="space-y-3">
+              <h2 className="text-3xl font-sora font-semibold text-white mb-6">What's Included</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {service.features.map((feature: string, i: number) => (
                   <li key={i} className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-white/60 flex-shrink-0" />
-                    <span className="text-white/80 text-sm font-medium">{feature}</span>
+                    <div className="bg-white/20 p-1.5 rounded-lg">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-white font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Pricing Card */}
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-xl flex-1">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-sora font-semibold text-white">Pricing</h3>
+            {/* Pricing Card - High Contrast */}
+            <div className="bg-gradient-to-br from-white/10 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-xl">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-sora font-semibold text-white">Select Your Tier</h3>
                 {service.warranty && (
-                  <span className="text-[10px] text-white/40 font-bold uppercase tracking-widest">{service.warranty}</span>
+                  <div className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">
+                    <span className="text-[10px] text-white font-bold uppercase tracking-widest">{service.warranty}</span>
+                  </div>
                 )}
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {service.pricing?.map((tier, i) => (
-                  <div key={i} className="p-3 bg-white/5 border border-white/10 rounded-xl">
-                    <p className="text-[10px] text-white/40 font-bold uppercase mb-1 truncate">{tier.carType}</p>
-                    <p className="text-lg font-bold font-sora text-white">{tier.price}</p>
+                  <div key={i} className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white hover:text-black transition-all duration-300 group">
+                    <p className="text-[10px] text-white/40 font-bold uppercase mb-1 truncate group-hover:text-black/60">{tier.carType}</p>
+                    <p className="text-xl font-bold font-sora text-white group-hover:text-black">{tier.price}</p>
                   </div>
                 ))}
               </div>
               
-              {/* Action Button at the bottom of the column */}
+              {/* Massive Action Button */}
               <Button 
                 onClick={() => setBookingOpen(true)}
-                className="w-full mt-6 bg-white text-black hover:bg-zinc-200 font-bold h-12 rounded-2xl shadow-xl transition-all active:scale-95"
+                className="w-full mt-8 bg-white text-black hover:bg-zinc-200 font-bold h-14 rounded-2xl shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all active:scale-95 text-lg"
               >
-                BOOK YOUR SLOT
+                BOOK YOUR SLOT NOW
               </Button>
             </div>
           </motion.div>
