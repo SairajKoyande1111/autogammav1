@@ -1,6 +1,6 @@
-import { useParams, Link } from "wouter";
+import { useParams, Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -22,11 +22,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Loader2, Calendar, Check } from "lucide-react";
+import { Loader2, Calendar, Check, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { bookingFormSchema, type BookingFormData } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
-import { getServiceBySlug } from "@/lib/services-data";
+import { getServiceBySlug, servicesData } from "@/lib/services-data";
+import { Card, CardContent } from "@/components/ui/card";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -49,10 +50,19 @@ const stagger = {
 
 export default function ServiceDetail() {
   const { slug } = useParams();
+  const [location] = useLocation();
   const service = getServiceBySlug(slug || "");
   const [bookingOpen, setBookingOpen] = useState(false);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const { toast } = useToast();
+
+  const recommendations = useMemo(() => {
+    if (!service) return [];
+    return servicesData
+      .filter(s => s.id !== service.id)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3);
+  }, [service]);
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingFormSchema),
@@ -321,28 +331,82 @@ export default function ServiceDetail() {
           </motion.div>
         </div>
 
-        {/* Bottom Area: Booking Button */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="max-w-md mx-auto w-full pb-8"
-        >
-          <Button
-            onClick={() => setBookingOpen(true)}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold h-14 px-8 rounded-2xl text-lg transition-all hover:scale-[1.05] active:scale-[0.95] shadow-[0_0_30px_-5px_rgba(220,38,38,0.4)] uppercase tracking-[0.2em]"
+        {/* Bottom Area: Booking Button & Recommendations */}
+        <div className="max-w-4xl mx-auto w-full pb-20">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            className="max-w-md mx-auto w-full mb-16"
           >
-            <Calendar className="mr-3 h-5 w-5" />
-            BOOK YOUR SLOT
-          </Button>
-          <div className="mt-4 text-center">
-            <Link href="/services">
-              <span className="text-white/20 hover:text-red-500 text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold">
-                View All Premium Services
-              </span>
-            </Link>
-          </div>
-        </motion.div>
+            <Button
+              onClick={() => setBookingOpen(true)}
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold h-14 px-8 rounded-2xl text-lg transition-all hover:scale-[1.05] active:scale-[0.95] shadow-[0_0_30px_-5px_rgba(220,38,38,0.4)] uppercase tracking-[0.2em]"
+            >
+              <Calendar className="mr-3 h-5 w-5" />
+              BOOK YOUR SLOT
+            </Button>
+            <div className="mt-4 text-center">
+              <Link href="/services">
+                <span className="text-white/20 hover:text-red-500 text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold">
+                  View All Premium Services
+                </span>
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Recommended Services */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            className="space-y-8"
+          >
+            <div className="flex items-center gap-4">
+              <div className="h-px flex-grow bg-white/10" />
+              <h3 className="text-[12px] font-bold text-red-500 uppercase tracking-[0.4em] whitespace-nowrap">Recommended For You</h3>
+              <div className="h-px flex-grow bg-white/10" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {recommendations.map((rec, i) => (
+                <Link key={rec.id} href={`/service/${rec.slug}`}>
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="cursor-pointer group"
+                  >
+                    <Card className="bg-zinc-900/50 border-white/10 overflow-hidden hover:border-red-600/50 transition-all duration-300">
+                      <CardContent className="p-0">
+                        <div className="aspect-[16/10] overflow-hidden relative">
+                          <img
+                            src="https://images.unsplash.com/photo-1601362840469-51e4d8d59085?q=80&w=2071&auto=format&fit=crop"
+                            alt={rec.title}
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-all duration-500" />
+                        </div>
+                        <div className="p-5">
+                          <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-2 group-hover:text-red-500 transition-colors">
+                            {rec.title}
+                          </h4>
+                          <p className="text-white/40 text-[10px] leading-relaxed mb-4 line-clamp-2">
+                            {rec.description}
+                          </p>
+                          <div className="flex items-center justify-between">
+                            <span className="text-red-500 text-[10px] font-black tracking-tighter">
+                              STARTING AT {rec.pricing ? rec.pricing[0].price : rec.price}
+                            </span>
+                            <ArrowRight className="w-3 h-3 text-white/20 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Booking Dialog */}
