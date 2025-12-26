@@ -162,13 +162,16 @@ export default function ServiceDetail() {
             </h2>
             <ul className="space-y-6 flex-grow relative z-10">
               {service.features.map((feature: string, i: number) => (
-                <li key={i} className="flex items-start gap-4 group">
-                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                <li key={i} className="flex items-center gap-4 group p-3 bg-zinc-900/80 border-[4px] border-red-600 rounded-2xl relative">
+                  {/* Inner White Border */}
+                  <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
+                  
+                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center relative z-10">
                     <div className="w-5 h-5 rounded-full border-2 border-red-600 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.4)]">
                       <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,1)]" />
                     </div>
                   </div>
-                  <span className="text-white text-lg font-semibold leading-relaxed tracking-tight">{feature}</span>
+                  <span className="text-white text-lg font-semibold leading-relaxed tracking-tight relative z-10">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -191,10 +194,13 @@ export default function ServiceDetail() {
                 service.pricing.map((tier, i) => (
                   <div 
                     key={i}
-                    className="flex items-center justify-between px-6 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-red-600/10 hover:border-red-600/30 transition-all duration-300 group"
+                    className="flex items-center justify-between px-6 py-5 bg-zinc-900/80 rounded-2xl hover:bg-zinc-800 transition-all duration-300 group relative border-[4px] border-red-600"
                   >
-                    <span className="text-white text-sm uppercase font-semibold tracking-widest">{tier.carType}</span>
-                    <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors">
+                    {/* Inner White Border */}
+                    <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
+                    
+                    <span className="text-white text-sm uppercase font-semibold tracking-widest relative z-10">{tier.carType}</span>
+                    <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
                       {tier.price}
                     </span>
                   </div>
