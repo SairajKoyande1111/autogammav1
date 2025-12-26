@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
 import ppfAppImage from "@assets/image_1766730418736.png";
+import shieldIcon from "@assets/image_1766729201482.png";
+import rupeeIcon from "@assets/image_1766729223515.png";
+import toolsIcon from "@assets/image_1766729246340.png";
+import starIcon from "@assets/image_1766729264056.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -40,17 +44,24 @@ export default function PPF() {
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-muted-foreground text-sm uppercase tracking-[0.3em] mb-4"
+            className="text-gray-400 text-xs tracking-[0.4em] mb-4 uppercase font-poppins"
           >
             Protect Your Car, Preserve Its Shine!
           </motion.p>
           <motion.h1 
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-poppins font-bold text-white leading-tight uppercase"
+            className="text-5xl md:text-7xl font-poppins font-bold text-white leading-[1.1] uppercase mb-4"
           >
-            Guard Your Car's Paint with Our Advanced<br />
-            <span className="text-primary">PPF Technology for a Perfect, Glossy Finish</span>
+            Guard Your Car's Paint With Our<br />
+            Advanced
           </motion.h1>
+          <motion.h2
+            variants={fadeInUp}
+            className="text-5xl md:text-7xl font-poppins font-bold text-primary leading-[1.1] uppercase"
+          >
+            PPF Technology For A Perfect,<br />
+            Glossy Finish
+          </motion.h2>
         </motion.div>
 
         <motion.div 
@@ -58,20 +69,19 @@ export default function PPF() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-20"
         >
           <motion.div variants={fadeInLeft} className="relative group">
-            <div className="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[1.5rem]" />
             <img 
               src={ppfAppImage} 
               alt="PPF Application" 
-              className="relative w-full rounded-[1rem] shadow-2xl border border-white/5"
+              className="relative w-full rounded-[2rem] shadow-2xl"
             />
           </motion.div>
           
-          <motion.div variants={fadeInRight} className="space-y-8">
-            <div className="space-y-6">
-              <p className="text-gray-400 text-lg leading-relaxed font-poppins">
+          <motion.div variants={fadeInRight} className="space-y-12 pt-8">
+            <div className="space-y-8">
+              <p className="text-gray-400 text-[18px] leading-relaxed font-poppins">
                 Paint Protection Film (PPF) is a transparent, urethane film applied 
                 to a vehicle's painted surface to protect it from scratches, chips, 
                 and other forms of damage. This durable film acts as a sacrificial 
@@ -80,7 +90,7 @@ export default function PPF() {
                 original paint but also enhances its appearance by adding a 
                 glossy, protective layer.
               </p>
-              <p className="text-gray-400 text-lg leading-relaxed font-poppins">
+              <p className="text-gray-400 text-[18px] leading-relaxed font-poppins">
                 PPF creates a protective barrier between your vehicle's paint and 
                 the outside world. When a rock chip or other debris strikes the 
                 film, it absorbs the impact, preventing damage to the underlying 
@@ -92,7 +102,7 @@ export default function PPF() {
       </section>
 
       {/* Benefits Section */}
-      <section className="container px-4 mx-auto mb-32">
+      <section className="container px-4 mx-auto mb-32 pt-20">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -102,13 +112,13 @@ export default function PPF() {
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-muted-foreground text-sm uppercase tracking-[0.3em] mb-2"
+            className="text-gray-500 text-sm tracking-[0.2em] mb-2 font-poppins"
           >
             Benefits of Paint Protection Film
           </motion.p>
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl md:text-5xl font-poppins font-bold text-white"
+            className="text-4xl md:text-5xl font-poppins font-bold text-white"
           >
             Ultimate Protection <span className="text-primary">for Your Vehicle</span>
           </motion.h2>
@@ -119,67 +129,40 @@ export default function PPF() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {[
             { 
               title: "Ultimate Protection", 
               desc: "Shield your vehicle's paint from scratches, chips, and other forms of damage caused by road debris, rocks, and harsh weather conditions.",
-              icon: (
-                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
-                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              )
+              icon: shieldIcon
             },
             { 
               title: "Preserving Resale Value", 
               desc: "Maintain your car's pristine appearance and increase its resale value by protecting its original paint finish.",
-              icon: (
-                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
-                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <circle cx="12" cy="12" r="7" />
-                    <circle cx="12" cy="12" r="10" strokeDasharray="4 4" />
-                    <path d="M12 8v8M8 12h8" strokeLinecap="round" />
-                  </svg>
-                </div>
-              )
+              icon: rupeeIcon
             },
             { 
               title: "Easy Maintenance", 
               desc: "Repel dirt, grime, and water, making cleaning and maintenance a breeze.",
-              icon: (
-                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
-                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              )
+              icon: toolsIcon
             },
             { 
               title: "Enhanced Aesthetics", 
               desc: "Enhance your vehicle's shine and gloss, giving it a showroom-quality finish that lasts.",
-              icon: (
-                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
-                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              )
+              icon: starIcon
             },
           ].map((benefit, i) => (
             <motion.div 
               key={i} 
               variants={scaleIn}
-              className="bg-[#1a1a1a] border border-white/5 p-6 rounded-[1rem] flex flex-col items-center text-center group hover:bg-[#222222] transition-all duration-300 hover-lift"
+              className="bg-[#2a2a2a] border border-white/5 p-10 rounded-[2rem] flex flex-col items-center text-center group transition-all duration-300 hover:bg-[#333333]"
             >
-              <div className="mb-6">
-                {benefit.icon}
+              <div className="mb-8 p-4 bg-[#1a1a1a] rounded-2xl">
+                <img src={benefit.icon} alt={benefit.title} className="w-14 h-14 object-contain" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-3 font-poppins uppercase tracking-wider leading-tight">{benefit.title}</h3>
-              <p className="text-[13px] text-gray-500 font-poppins leading-relaxed px-2">{benefit.desc}</p>
+              <h3 className="text-xl font-bold text-white mb-6 font-poppins uppercase tracking-wider leading-tight">{benefit.title}</h3>
+              <p className="text-[14px] text-gray-400 font-poppins leading-relaxed">{benefit.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -324,7 +307,7 @@ export default function PPF() {
 function PricingCard({ title, items }: { title: string, items: {label: string, price: string}[] }) {
   return (
     <div className="bg-[#111111] rounded-[1.5rem] p-6 border border-white/5 hover:bg-[#1a1a1a] transition-all duration-300 hover-lift h-full flex flex-col">
-      <h4 className="text-lg font-bold text-white mb-6 border-b border-white/5 pb-4 font-poppins">{title}</h4>
+      <h4 className="text-lg font-bold text-white mb-6 border-b border-white/5 pb-4 font-poppins uppercase tracking-wider">{title}</h4>
       <div className="space-y-4 flex-grow">
         {items.map((item, i) => (
           <div key={i} className="flex justify-between items-center text-sm font-poppins">
