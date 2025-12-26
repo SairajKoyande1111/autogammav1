@@ -161,8 +161,8 @@ export default function ServiceDetail() {
             <ul className="space-y-6 flex-grow relative z-10">
               {service.features.map((feature: string, i: number) => (
                 <li key={i} className="flex items-start gap-4 group">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 group-hover:scale-110 transition-all duration-300">
-                    <Check className="w-4 h-4 text-red-500 group-hover:text-white" />
+                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                    <div className="w-4 h-[2px] bg-red-600 group-hover:w-6 transition-all duration-300 shadow-[0_0_10px_rgba(220,38,38,0.8)]" />
                   </div>
                   <span className="text-white text-lg font-semibold leading-relaxed tracking-tight">{feature}</span>
                 </li>
