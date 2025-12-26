@@ -218,24 +218,40 @@ export default function ServiceDetail() {
               <span className="w-1.5 h-6 bg-red-600 rounded-full block" />
               Pricing
             </h3>
-            <div className="space-y-4 flex-grow relative z-10">
-              {service.pricing && service.pricing.length > 0 ? (
-                service.pricing.map((tier, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between px-6 py-5 bg-zinc-900/80 rounded-2xl hover:bg-zinc-800 transition-all duration-300 group relative border-[4px] border-red-600"
-                  >
-                    {/* Inner White Border */}
-                    <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
-
-                    <span className="text-white text-sm uppercase font-semibold tracking-widest relative z-10">
-                      {tier.carType}
-                    </span>
-                    <span className="text-xl md:text-2xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
-                      {tier.price}
-                    </span>
+            <div className="space-y-4 flex-grow relative z-10 overflow-y-auto max-h-[600px] pr-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-zinc-900">
+              {service.variants && service.variants.length > 0 && (
+                <div className="mb-6 space-y-2">
+                  <h4 className="text-xs font-bold text-red-500 uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">Available Variants</h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {service.variants.map((variant, i) => (
+                      <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-xl p-3 flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+                        <span className="text-white text-[11px] font-medium tracking-wide leading-tight">{variant}</span>
+                      </div>
+                    ))}
                   </div>
-                ))
+                </div>
+              )}
+              {service.pricing && service.pricing.length > 0 ? (
+                <div className="space-y-4">
+                  <h4 className="text-xs font-bold text-red-500 uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">Pricing Details</h4>
+                  {service.pricing.map((tier, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between px-6 py-5 bg-zinc-900/80 rounded-2xl hover:bg-zinc-800 transition-all duration-300 group relative border-[4px] border-red-600"
+                    >
+                      {/* Inner White Border */}
+                      <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
+
+                      <span className="text-white text-xs uppercase font-semibold tracking-widest relative z-10 max-w-[60%]">
+                        {tier.carType}
+                      </span>
+                      <span className="text-xl md:text-2xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
+                        {tier.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               ) : (
                 <div className="flex items-center justify-center h-full">
                   <p className="text-4xl font-semibold text-white">

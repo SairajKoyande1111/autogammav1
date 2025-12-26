@@ -162,19 +162,36 @@ export const servicesData: ServiceData[] = [
     title: "CERAMIC COATING",
     pricing: [
       { carType: "Small Cars", price: "₹11,000" },
-      { carType: "Hatch Back / Small Sedan", price: "₹13,000" },
-      { carType: "Mid-size Sedans / Compact SUV", price: "₹15,000" },
-      { carType: "SUV / MPV", price: "₹18,000" }
+      { carType: "Hatch Back / Small Sedan", price: "₹12,500" },
+      { carType: "Mid-size Sedans / Compact SUV / MUV", price: "₹15,000" },
+      { carType: "SUV / MPV", price: "₹18,000" },
+      { carType: "MAFRA - Small Cars", price: "₹12,500" },
+      { carType: "MAFRA - Hatch Back / Small Sedan", price: "₹15,000" },
+      { carType: "MAFRA - Mid-size Sedan / Compact SUV / MUV", price: "₹18,000" },
+      { carType: "MAFRA - SUV / MPV", price: "₹21,000" },
+      { carType: "MENZA PRO - Small Cars", price: "₹15,000" },
+      { carType: "MENZA PRO - Hatch Back / Small Sedan", price: "₹18,000" },
+      { carType: "MENZA PRO - Mid-size Sedan / Compact SUV / MUV", price: "₹21,000" },
+      { carType: "MENZA PRO - SUV / MPV", price: "₹24,000" },
+      { carType: "KOCH CHEMIE - Small Cars", price: "₹18,000" },
+      { carType: "KOCH CHEMIE - Hatch Back / Small Sedan", price: "₹22,000" },
+      { carType: "KOCH CHEMIE - Mid-size Sedan / Compact SUV / MUV", price: "₹25,000" },
+      { carType: "KOCH CHEMIE - SUV / MPV", price: "₹28,000" }
     ],
-    description: "Ultimate protection with variants and 2-year warranty.",
+    description: "Ultimate protection with professional ceramic coating variants.",
     features: [
       "Washing + Interior Cleaning",
       "Detailing + Paint Sealant Coating",
       "Application of Ceramic Coating",
       "1 Top up coat Free within a year"
     ],
-    variants: ["9H", "MAFRA", "MENZA PRO", "KOCH CHEMIE"],
-    warranty: "2 Year Warranty - Made in India",
+    variants: [
+      "9H (2 Year Warranty - Made in India)",
+      "MAFRA (2 Year Warranty - Made in Italy)",
+      "MENZA PRO (2 Year Warranty - Made in Japan)",
+      "KOCH CHEMIE (2 Year Warranty - Made in Germany)"
+    ],
+    warranty: "2 Year Warranty",
     highlight: true
   },
   {
