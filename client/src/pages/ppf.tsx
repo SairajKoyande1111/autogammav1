@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ppfImage from "@assets/generated_images/paint_protection_film_application.png";
-import shieldIcon from "@assets/generated_images/3d_red_shield_protection_icon.png";
-import dollarIcon from "@assets/generated_images/3d_red_dollar_value_icon.png";
-import sparkleIcon from "@assets/generated_images/3d_red_sparkle_aesthetics_icon.png";
-import clockIcon from "@assets/generated_images/3d_red_clock_maintenance_icon.png";
+import ppfAppImage from "@assets/image_1766729172233.png";
+import shieldIcon from "@assets/image_1766729201482.png";
+import rupeeIcon from "@assets/image_1766729223515.png";
+import toolsIcon from "@assets/image_1766729246340.png";
+import starIcon from "@assets/image_1766729264056.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -53,13 +54,13 @@ export default function PPF() {
           >
             <motion.h1 
               variants={fadeInUp}
-              className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6"
+              className="text-4xl md:text-6xl font-poppins font-bold text-white mb-6"
             >
               PROTECT YOUR CAR,<br/> PRESERVE ITS <span className="text-primary">SHINE!</span>
             </motion.h1>
             <motion.p 
               variants={fadeInUp}
-              className="text-xl text-gray-300"
+              className="text-xl text-gray-300 font-poppins"
             >
               Guard Your Car's Paint with Our Advanced PPF Technology
             </motion.p>
@@ -77,8 +78,8 @@ export default function PPF() {
           className="grid grid-cols-1 md:grid-cols-2 gap-16"
         >
           <motion.div variants={fadeInLeft} className="space-y-6">
-            <h2 className="text-3xl font-orbitron font-bold text-white">What is PPF?</h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <h2 className="text-3xl font-poppins font-bold text-white">What is PPF?</h2>
+            <p className="text-muted-foreground leading-relaxed font-poppins">
               Paint Protection Film (PPF) is a transparent urethane film applied to the painted surfaces of a new or used car in order to protect the paint from stone chips, bug splatters, and minor abrasions. This film is also used on airplanes, RVs, cell phones, electronics, screens, motorcycles and many other areas.
             </p>
             <ul className="space-y-3 mt-4">
@@ -94,7 +95,7 @@ export default function PPF() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-3 text-white"
+                  className="flex items-center gap-3 text-white font-poppins"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full" />
                   {item}
@@ -109,9 +110,9 @@ export default function PPF() {
           >
              {[
                { img: shieldIcon, title: "Ultimate Protection", desc: "Best defense against road debris." },
-               { img: dollarIcon, title: "Resale Value", desc: "Keeps your paint looking brand new." },
-               { img: sparkleIcon, title: "Enhanced Aesthetics", desc: "Adds a deep, glossy wet-look finish." },
-               { img: clockIcon, title: "Easy Maintenance", desc: "Hydrophobic properties make washing easy." },
+               { img: rupeeIcon, title: "Resale Value", desc: "Keeps your paint looking brand new." },
+               { img: starIcon, title: "Enhanced Aesthetics", desc: "Adds a deep, glossy wet-look finish." },
+               { img: toolsIcon, title: "Easy Maintenance", desc: "Hydrophobic properties make washing easy." },
              ].map((benefit, i) => (
                <motion.div 
                  key={i} 
@@ -119,8 +120,8 @@ export default function PPF() {
                  className="bg-white/5 border border-white/10 p-6 rounded-lg hover:border-primary/50 transition-colors hover-lift"
                >
                  <img src={benefit.img} alt={benefit.title} className="w-16 h-16 object-contain mb-4" />
-                 <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
-                 <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                 <h3 className="text-lg font-bold text-white mb-2 font-poppins">{benefit.title}</h3>
+                 <p className="text-sm text-muted-foreground font-poppins">{benefit.desc}</p>
                </motion.div>
              ))}
           </motion.div>
