@@ -1,9 +1,14 @@
-import type { Express } from "express";
+import express, { type Express } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
 import { storage } from "./storage";
 import { contactFormSchema, bookingFormSchema, warrantyFormSchema } from "@shared/schema";
 import { sendEmail, formatContactEmail, formatBookingEmail, formatWarrantyEmail } from "./email";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -24,6 +29,8 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  // Serve attached_assets statically so videos and images are accessible
+  app.use("/attached_assets", express.static(path.resolve(__dirname, "../attached_assets")));
 
   const recipientEmail = process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER || "info@autogamma.in";
 
