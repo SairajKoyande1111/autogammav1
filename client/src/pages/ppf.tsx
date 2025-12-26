@@ -110,13 +110,13 @@ export default function PPF() {
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-gray-500 text-sm tracking-[0.2em] mb-2 font-poppins"
+            className="text-white text-sm tracking-[0.2em] mb-2 font-sora"
           >
             Benefits of Paint Protection Film
           </motion.p>
           <motion.h2 
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-poppins font-bold text-white"
+            className="text-4xl md:text-5xl font-sora font-semibold text-white"
           >
             Ultimate Protection <span className="text-primary">for Your Vehicle</span>
           </motion.h2>
@@ -159,7 +159,7 @@ export default function PPF() {
               <div className="mb-8 p-6 bg-[#1a1a1a] rounded-2xl">
                 <img src={benefit.icon} alt={benefit.title} className="w-16 h-16 object-contain" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 font-poppins uppercase tracking-wider leading-tight">{benefit.title}</h3>
+              <h3 className="text-xl font-semibold text-white mb-2 font-sora uppercase tracking-wider leading-tight">{benefit.title}</h3>
             </motion.div>
           ))}
         </motion.div>
@@ -171,7 +171,7 @@ export default function PPF() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl font-poppins font-bold text-center text-white mb-12 uppercase tracking-widest"
+          className="text-3xl font-sora font-semibold text-center text-white mb-12 uppercase tracking-widest"
         >
           PPF PACKAGES & PRICING
         </motion.h2>
@@ -187,7 +187,7 @@ export default function PPF() {
           >
             <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-8">
               <div className="h-[1px] bg-white/20 flex-grow"></div>
-              <h3 className="text-2xl font-poppins font-bold text-primary uppercase tracking-widest">Elite Package</h3>
+              <h3 className="text-2xl font-sora font-semibold text-primary uppercase tracking-widest">Elite Package</h3>
               <div className="h-[1px] bg-white/20 flex-grow"></div>
             </motion.div>
 
@@ -286,7 +286,7 @@ export default function PPF() {
               className="border border-white/10 bg-[#111111] p-10 rounded-[2rem] relative overflow-hidden group hover:border-primary/50 transition-all hover-lift shadow-xl"
             >
                <h3 className="text-2xl font-sora font-medium text-white mb-2 text-center uppercase tracking-wide">GARWARE MATT</h3>
-               <p className="text-center text-white/60 text-sm mb-8 font-sora tracking-widest">5 YEAR WARRANTY</p>
+               <p className="text-center text-white text-sm mb-8 font-sora tracking-widest">5 YEAR WARRANTY</p>
                <div className="space-y-2">
                  <PriceRow label="Small Cars" price="₹1,05,000" />
                  <PriceRow label="Hatchback" price="₹1,10,000" />

@@ -282,7 +282,7 @@ export default function Home() {
             transition={{ delay: 0 }}
             className="text-center mb-4 md:mb-8 lg:mb-10"
           >
-            <div className="text-white text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Poppins', sans-serif" }}>
+            <div className="text-white text-base md:text-lg lg:text-xl font-medium tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Sora', sans-serif" }}>
               PREMIUM AUTO CARE
             </div>
           </motion.div>
@@ -295,10 +295,10 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6 md:mb-10 lg:mb-12 max-w-4xl"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Sora', sans-serif" }}>
               AUTO DETAILING
             </h1>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Sora', sans-serif" }}>
               DONE TO PERFECTION
             </h1>
           </motion.div>
@@ -311,7 +311,7 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8 md:mb-12 max-w-5xl"
           >
-            <p className="text-base md:text-lg lg:text-xl text-white font-bold md:whitespace-nowrap" style={{ fontFamily: "'Poppins', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
+            <p className="text-base md:text-lg lg:text-xl text-white font-medium md:whitespace-nowrap" style={{ fontFamily: "'Sora', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
           </motion.div>
 
           {/* Buttons Section */}
@@ -324,7 +324,7 @@ export default function Home() {
           >
             <Button 
               asChild 
-              className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 text-base md:text-lg md:px-10 md:py-3 lg:px-12 skew-x-[-15deg] min-h-12"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 text-base md:text-lg md:px-10 md:py-3 lg:px-12 skew-x-[-15deg] min-h-12"
               data-testid="button-hero-consult"
             >
               <Link href="#contact">Book Consultation</Link>
@@ -333,7 +333,7 @@ export default function Home() {
             <Button 
               asChild 
               variant="outline"
-              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-3 text-base md:text-lg md:px-10 md:py-3 lg:px-12 skew-x-[-15deg] min-h-12"
+              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-8 py-3 text-base md:text-lg md:px-10 md:py-3 lg:px-12 skew-x-[-15deg] min-h-12"
               data-testid="button-hero-services"
             >
               <Link href="/services">Explore Services</Link>
@@ -384,10 +384,10 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-16 space-y-4"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-sora font-bold text-white">
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-sora font-semibold text-white">
               OUR <span className="text-primary">SERVICES</span>
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-white text-xl font-semibold md:whitespace-nowrap">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
+            <motion.p variants={fadeInUp} className="text-white text-xl font-medium md:whitespace-nowrap">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
           </motion.div>
 
           <motion.div 
@@ -413,7 +413,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
                     
                     <div className="relative z-10 w-full p-3 md:p-8 mt-auto">
-                      <h3 className="text-base md:text-2xl font-sora font-bold text-white mb-1 md:mb-2 line-clamp-2">{item.title}</h3>
+                      <h3 className="text-base md:text-2xl font-sora font-semibold text-white mb-1 md:mb-2 line-clamp-2">{item.title}</h3>
                       <p className="text-xs md:text-sm text-white mb-2 md:mb-3 line-clamp-2">{item.desc}</p>
                     </div>
                 </Link>
@@ -459,9 +459,9 @@ export default function Home() {
             <motion.div variants={fadeInLeft} className="space-y-8">
               <div className="space-y-4">
                 <motion.div variants={fadeInUp}>
-                  <span className="text-primary text-sm font-bold tracking-wider uppercase font-poppins">Paint Protection Film</span>
+                  <span className="text-primary text-sm font-semibold tracking-wider uppercase font-sora">Paint Protection Film</span>
                 </motion.div>
-                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold font-poppins">
+                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-semibold font-sora">
                   <span className="text-white">DISCOVER</span> <span className="text-primary">PPF</span> <span className="text-white">PROTECTION</span>
                 </motion.h2>
               </div>

@@ -157,7 +157,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     href={link.href}
                     className="relative group cursor-pointer py-3 flex items-center gap-1"
                   >
-                    <span className="text-lg font-semibold tracking-wide transition-colors text-white font-poppins">
+                    <span className="text-lg font-medium tracking-wide transition-colors text-white font-sora">
                       {link.name}
                     </span>
                     {link.submenu && <ChevronDown size={16} className="text-white" />}
