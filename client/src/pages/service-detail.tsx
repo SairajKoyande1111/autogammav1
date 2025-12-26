@@ -116,14 +116,16 @@ export default function ServiceDetail() {
         >
           {service.title}
         </motion.h1>
-        <motion.p
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-red-600 text-lg font-medium max-w-4xl mx-auto whitespace-nowrap overflow-hidden text-ellipsis"
+          className="inline-block bg-red-600 px-4 py-1.5 mt-2"
         >
-          Premium deep cleaning and foam protection for a showroom finish.
-        </motion.p>
+          <p className="text-white text-lg font-medium whitespace-nowrap">
+            Premium deep cleaning and foam protection for a showroom finish.
+          </p>
+        </motion.div>
       </section>
 
       <section className="container px-4 mx-auto max-w-7xl flex-grow flex flex-col">
