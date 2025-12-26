@@ -105,101 +105,180 @@ export default function ServiceDetail() {
     : service.price;
 
   return (
-    <div className="min-h-screen pt-24 pb-8 bg-black overflow-hidden flex items-center">
-      <div className="container px-4 mx-auto max-w-7xl">
-        {/* Header - Centered with proper padding */}
+    <div className="pt-24 pb-20 bg-black">
+      {/* Hero Section */}
+      <section className="container px-4 mx-auto mb-16 text-center">
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={fadeInUp}
-          className="text-center mb-8"
+          variants={stagger}
+          className="max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl md:text-6xl font-sora font-bold text-white tracking-tight uppercase py-2">
+          <motion.h1 
+            variants={fadeInUp}
+            className="text-5xl md:text-8xl font-sora font-bold text-white mb-8 tracking-tight"
+          >
             {service.title}
-          </h1>
-          <p className="text-sm text-white/40 font-light max-w-xl mx-auto">
-            {service.description}
-          </p>
-        </motion.div>
-
-        {/* Main Horizontal Content View */}
-        <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-stretch">
-          {/* Left: Image Card - Reduced size and centered */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInLeft}
-            className="w-full lg:w-1/3 rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square shadow-2xl self-center"
+          </motion.h1>
+          
+          {/* Main Image */}
+          <motion.div 
+            variants={fadeInUp}
+            className="relative rounded-2xl overflow-hidden mb-12 border border-white/10 aspect-[21/9] shadow-2xl"
           >
             <img 
               src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
               alt={service.title}
-              className="w-full h-full object-cover opacity-80"
+              className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </motion.div>
 
-          {/* Right: Features & Pricing Column - Highlighted */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInRight}
-            className="flex-1 flex flex-col gap-6"
-          >
-            {/* Features Card - Elevated */}
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-[0_0_50px_rgba(255,255,255,0.05)] transform hover:scale-[1.02] transition-transform duration-300">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-black rounded-full mb-6 w-fit">
-                <span className="text-[10px] font-bold tracking-widest uppercase">INCLUSIONS</span>
-              </div>
-              <h2 className="text-3xl font-sora font-semibold text-white mb-6">What's Included</h2>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {service.features.map((feature: string, i: number) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="bg-white/20 p-1.5 rounded-lg">
-                      <Check className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-white font-medium">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <motion.p variants={fadeInUp} className="text-2xl text-white/80 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+            {service.description}
+          </motion.p>
+          
+          <motion.div variants={fadeInUp}>
+            <Button 
+              onClick={() => setBookingOpen(true)}
+              className="bg-white hover:bg-white/90 text-black font-bold h-14 px-10 rounded-full text-lg transition-transform hover:scale-105 active:scale-95 shadow-xl"
+              data-testid="button-book-service"
+            >
+              <Calendar className="mr-2 h-6 w-6" />
+              BOOK YOUR SLOT
+            </Button>
+          </motion.div>
+        </motion.div>
+      </section>
 
-            {/* Pricing Card - High Contrast */}
-            <div className="bg-gradient-to-br from-white/10 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-xl">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-sora font-semibold text-white">Select Your Tier</h3>
-                {service.warranty && (
-                  <div className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">
-                    <span className="text-[10px] text-white font-bold uppercase tracking-widest">{service.warranty}</span>
+      {/* Benefits & Features Grid */}
+      <section className="container px-4 mx-auto max-w-6xl mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Features - Modern Minimal Card */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInLeft}
+            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-inner"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8">
+              <span className="text-white text-xs font-bold tracking-widest uppercase">PREMIUM BENEFITS</span>
+            </div>
+            <h2 className="text-3xl font-sora font-semibold text-white mb-8">What's Included</h2>
+            <ul className="grid grid-cols-1 gap-6">
+              {service.features.map((feature: string, i: number) => (
+                <li key={i} className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                    <Check className="w-5 h-5" />
                   </div>
-                )}
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {service.pricing?.map((tier, i) => (
-                  <div key={i} className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white hover:text-black transition-all duration-300 group">
-                    <p className="text-[10px] text-white/40 font-bold uppercase mb-1 truncate group-hover:text-black/60">{tier.carType}</p>
-                    <p className="text-xl font-bold font-sora text-white group-hover:text-black">{tier.price}</p>
-                  </div>
-                ))}
-              </div>
+                  <span className="text-white/90 text-lg font-medium tracking-wide">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Pricing - Elevated Glassmorphism */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInRight}
+            className="relative"
+          >
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl">
+              <h3 className="text-3xl font-sora font-semibold text-white mb-10 text-center">Transparent Pricing</h3>
               
-              {/* Massive Action Button */}
-              <Button 
-                onClick={() => setBookingOpen(true)}
-                className="w-full mt-8 bg-white text-black hover:bg-zinc-200 font-bold h-14 rounded-2xl shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all active:scale-95 text-lg"
-              >
-                BOOK YOUR SLOT NOW
-              </Button>
+              {service.pricing && service.pricing.length > 0 ? (
+                <div className="space-y-4">
+                  {service.pricing.map((tier, i) => (
+                    <div 
+                      key={i}
+                      className="flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group"
+                      data-testid={`pricing-tier-${i}`}
+                    >
+                      <span className="text-white/80 font-medium group-hover:text-white transition-colors">{tier.carType}</span>
+                      <span className="text-3xl font-bold text-white font-sora">{tier.price}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-8 bg-white/10 border border-white/20 rounded-2xl text-center">
+                  <p className="text-4xl font-bold text-white">{displayPrice}</p>
+                </div>
+              )}
+
+              {/* Extras Section */}
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <div className="flex flex-col gap-6">
+                  {service.warranty && (
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <Check className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-white/50 font-bold tracking-widest uppercase">WARRANTY</p>
+                        <p className="text-white font-semibold">{service.warranty}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {service.variants && service.variants.length > 0 && (
+                    <div>
+                      <p className="text-xs text-white/50 font-bold tracking-widest uppercase mb-3">AVAILABLE VARIANTS</p>
+                      <div className="flex flex-wrap gap-2">
+                        {service.variants.map((variant: string, i: number) => (
+                          <Badge key={i} className="bg-white/10 text-white hover:bg-white hover:text-black border-none px-4 py-1.5 rounded-full transition-colors">
+                            {variant}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
-      </div>
+      </section>
+
+      {/* Final Call to Action */}
+      <section className="container px-4 mx-auto max-w-4xl">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="bg-gradient-to-r from-zinc-900 to-black rounded-[2rem] p-12 text-center border border-white/10"
+        >
+          <motion.h2 variants={fadeInUp} className="text-4xl font-sora font-bold text-white mb-6">
+            Ready for a Showroom Shine?
+          </motion.h2>
+          <motion.p variants={fadeInUp} className="text-white/60 mb-10 max-w-xl mx-auto">
+            Book your professional foam wash today and give your vehicle the care it deserves.
+          </motion.p>
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button 
+              onClick={() => setBookingOpen(true)}
+              className="bg-white text-black hover:bg-zinc-200 font-bold h-14 px-12 rounded-full text-lg"
+            >
+              BOOK NOW
+            </Button>
+            <Link href="/services">
+              <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 h-14 px-12 rounded-full font-bold text-lg">
+                EXPLORE ALL
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* Booking Dialog */}
       <Dialog open={bookingOpen} onOpenChange={setBookingOpen}>
         <DialogContent className="sm:max-w-[500px] bg-black/95 border-white/10">
           <DialogHeader>
             <DialogTitle className="text-2xl font-sora font-semibold text-white uppercase">
-              Book <span className="text-white/50">{service.title}</span>
+              Book <span className="text-primary">{service.title}</span>
             </DialogTitle>
           </DialogHeader>
           <Form {...form}>
@@ -209,9 +288,9 @@ export default function ServiceDetail() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white/70 font-medium">Your Name</FormLabel>
+                    <FormLabel className="text-white font-medium">Your Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Full Name" className="bg-white/5 border-white/10 text-white" {...field} />
+                      <Input placeholder="Full Name" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -223,9 +302,9 @@ export default function ServiceDetail() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white/70 font-medium">Phone</FormLabel>
+                      <FormLabel className="text-white font-medium">Phone</FormLabel>
                       <FormControl>
-                        <Input placeholder="+91 00000 00000" className="bg-white/5 border-white/10 text-white" {...field} />
+                        <Input placeholder="+91 00000 00000" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-phone" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -236,9 +315,9 @@ export default function ServiceDetail() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white/70 font-medium">Email</FormLabel>
+                      <FormLabel className="text-white font-medium">Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="email@domain.com" className="bg-white/5 border-white/10 text-white" {...field} />
+                        <Input type="email" placeholder="email@domain.com" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -250,9 +329,22 @@ export default function ServiceDetail() {
                 name="date"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white/70 font-medium">Preferred Date</FormLabel>
+                    <FormLabel className="text-white font-medium">Preferred Date</FormLabel>
                     <FormControl>
-                      <Input type="date" className="bg-white/5 border-white/10 text-white" {...field} />
+                      <Input type="date" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-date" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white font-medium">Additional Notes (Optional)</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Any specific requirements..." className="bg-white/5 border-white/10 min-h-[80px] text-white" data-testid="input-booking-message" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -261,14 +353,17 @@ export default function ServiceDetail() {
               <Button 
                 type="submit"
                 disabled={mutation.isPending}
-                className="w-full bg-white text-black hover:bg-zinc-200 font-bold h-12 uppercase tracking-widest"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-semibold h-12 uppercase tracking-widest"
+                data-testid="button-submit-booking"
               >
                 {mutation.isPending ? (
                   <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Processing...
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...
                   </>
                 ) : (
-                  "Confirm Booking"
+                  <>
+                    <Calendar className="mr-2 h-5 w-5" /> Confirm Booking
+                  </>
                 )}
               </Button>
             </form>
