@@ -120,7 +120,7 @@ export default function ServiceDetail() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-white/60 text-lg font-normal max-w-2xl mx-auto"
+          className="text-red-600 text-lg font-medium max-w-4xl mx-auto whitespace-nowrap overflow-hidden text-ellipsis"
         >
           Premium deep cleaning and foam protection for a showroom finish.
         </motion.p>
