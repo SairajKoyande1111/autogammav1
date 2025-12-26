@@ -373,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* Our Services Catalogue */}
-      <section className="pt-10 pb-24 bg-background relative overflow-hidden">
+      <section id="services" className="pt-10 pb-24 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
         
         <div className="container px-2 sm:px-4 mx-auto relative z-10">
@@ -398,14 +398,14 @@ export default function Home() {
             className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
           >
             {[
-              { title: "Auto Detailing", desc: "Expert washing, waxing & polish for pristine shine", img: detailingImage, link: "/services" },
+              { title: "Auto Detailing", desc: "Expert washing, waxing & polish for pristine shine", img: detailingImage, link: "/service/premium-washing" },
               { title: "Paint Protection", desc: "Shield your paint from damage & weathering", img: ppfImage, link: "/ppf" },
-              { title: "Body Wrap", desc: "Custom vinyl wraps for style & protection", img: heroImage, link: "/services" },
-              { title: "Sun Control Film", desc: "UV protection & interior cooling", img: interiorImage, link: "/services" },
-              { title: "Ceramic Coating", desc: "Long-lasting hydrophobic protection layer", img: ceramicCoatingImage, link: "/services" },
-              { title: "Car Accessories", desc: "Premium add-ons & upgrades for your vehicle", img: galleryImage2, link: "/services" },
-              { title: "Interior Steam Wash", desc: "Deep cleaning for pristine interiors", img: galleryImage4, link: "/services" },
-              { title: "Mechanical", desc: "Professional maintenance & repairs", img: galleryImage3, link: "/services" },
+              { title: "Body Wrap", desc: "Custom vinyl wraps for style & protection", img: heroImage, link: "/service/detailing" },
+              { title: "Sun Control Film", desc: "UV protection & interior cooling", img: interiorImage, link: "/service/sun-control-film" },
+              { title: "Ceramic Coating", desc: "Long-lasting hydrophobic protection layer", img: ceramicCoatingImage, link: "/service/ceramic-coating" },
+              { title: "Car Accessories", desc: "Premium add-ons & upgrades for your vehicle", img: galleryImage2, link: "/service/premium-washing" },
+              { title: "Interior Steam Wash", desc: "Deep cleaning for pristine interiors", img: galleryImage4, link: "/service/interior-steam-cleaning" },
+              { title: "Mechanical", desc: "Professional maintenance & repairs", img: galleryImage3, link: "/service/premium-washing" },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeInUp}>
                 <Link href={item.link} className="group block h-[320px] md:h-[400px] relative overflow-hidden border border-white/10 cursor-pointer hover-lift flex flex-col justify-end">

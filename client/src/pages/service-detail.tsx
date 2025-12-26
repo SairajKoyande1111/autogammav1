@@ -116,18 +116,17 @@ export default function ServiceDetail() {
         >
           <motion.h1 
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-orbitron font-bold text-white mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
+            className="text-5xl md:text-7xl font-sora font-semibold text-white mb-4"
           >
             {service.title}
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-muted-foreground mb-6">
+          <motion.p variants={fadeInUp} className="text-xl text-white font-medium mb-6">
             {service.description}
           </motion.p>
           <motion.div variants={fadeInUp}>
             <Button 
               onClick={() => setBookingOpen(true)}
-              className="bg-primary hover:bg-primary/90 text-white font-bold h-12 px-8 uppercase tracking-widest"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold h-12 px-8 uppercase tracking-widest"
               data-testid="button-book-service"
             >
               <Calendar className="mr-2 h-5 w-5" />
@@ -148,12 +147,12 @@ export default function ServiceDetail() {
             variants={fadeInLeft}
           >
             <div className="bg-white/5 border border-white/10 rounded-lg p-8 h-full">
-              <h2 className="text-2xl font-orbitron font-bold text-white mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>KEY FEATURES</h2>
+              <h2 className="text-2xl font-sora font-semibold text-white mb-6 uppercase">KEY FEATURES</h2>
               <ul className="space-y-4">
                 {service.features.map((feature: string, i: number) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-muted-foreground text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>{feature}</span>
+                    <span className="text-white text-base font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -169,7 +168,7 @@ export default function ServiceDetail() {
             className="space-y-4"
           >
             <div className="bg-white/5 border border-white/10 rounded-lg p-8">
-              <h3 className="text-2xl font-orbitron font-bold text-white mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>PRICING BY CAR TYPE</h3>
+              <h3 className="text-2xl font-sora font-semibold text-white mb-6 uppercase">PRICING BY CAR TYPE</h3>
               
               {service.pricing && service.pricing.length > 0 ? (
                 <div className="space-y-3">
@@ -179,14 +178,14 @@ export default function ServiceDetail() {
                       className="flex items-center justify-between p-4 bg-primary/10 border border-primary/30 rounded-md hover:bg-primary/20 transition-colors"
                       data-testid={`pricing-tier-${i}`}
                     >
-                      <span className="text-muted-foreground font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>{tier.carType}</span>
-                      <span className="text-2xl font-bold text-primary" style={{ fontFamily: 'Poppins, sans-serif' }}>{tier.price}</span>
+                      <span className="text-white font-medium">{tier.carType}</span>
+                      <span className="text-2xl font-semibold text-primary font-mono">{tier.price}</span>
                     </div>
                   ))}
                 </div>
               ) : (
                 <div className="p-4 bg-primary/10 border border-primary/30 rounded-md">
-                  <p className="text-2xl font-bold text-primary" style={{ fontFamily: 'Poppins, sans-serif' }}>{displayPrice}</p>
+                  <p className="text-2xl font-semibold text-primary font-mono">{displayPrice}</p>
                 </div>
               )}
             </div>
@@ -194,18 +193,18 @@ export default function ServiceDetail() {
             {/* Warranty */}
             {service.warranty && (
               <div className="bg-primary/20 border-2 border-primary rounded-lg p-6">
-                <h3 className="text-lg font-orbitron font-bold text-primary mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>WARRANTY</h3>
-                <p className="text-white font-semibold text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>{service.warranty}</p>
+                <h3 className="text-lg font-sora font-semibold text-primary mb-3 uppercase">WARRANTY</h3>
+                <p className="text-white font-semibold text-base">{service.warranty}</p>
               </div>
             )}
 
             {/* Variants */}
             {service.variants && service.variants.length > 0 && (
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                <h3 className="text-lg font-orbitron font-bold text-white mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>VARIANTS</h3>
+                <h3 className="text-lg font-sora font-semibold text-white mb-4 uppercase">VARIANTS</h3>
                 <div className="flex flex-wrap gap-2">
                   {service.variants.map((variant: string, i: number) => (
-                    <Badge key={i} className="bg-primary text-white text-xs" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    <Badge key={i} className="bg-primary text-white text-xs font-semibold uppercase">
                       {variant}
                     </Badge>
                   ))}
@@ -224,19 +223,19 @@ export default function ServiceDetail() {
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeInUp} className="text-3xl font-orbitron font-bold text-white mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <motion.h2 variants={fadeInUp} className="text-3xl font-sora font-semibold text-white mb-6 uppercase">
             Ready to Book This Service?
           </motion.h2>
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => setBookingOpen(true)}
-              className="bg-primary hover:bg-primary/90 text-white font-bold h-12 px-8 uppercase tracking-widest"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold h-12 px-8 uppercase tracking-widest"
             >
               <Calendar className="mr-2 h-5 w-5" />
               Book Now
             </Button>
             <Link href="/services">
-              <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 h-12 px-8 uppercase tracking-widest">
+              <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 h-12 px-8 uppercase tracking-widest font-semibold">
                 View All Services
               </Button>
             </Link>
@@ -248,7 +247,7 @@ export default function ServiceDetail() {
       <Dialog open={bookingOpen} onOpenChange={setBookingOpen}>
         <DialogContent className="sm:max-w-[500px] bg-black/95 border-white/10">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-orbitron text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <DialogTitle className="text-2xl font-sora font-semibold text-white uppercase">
               Book <span className="text-primary">{service.title}</span>
             </DialogTitle>
           </DialogHeader>
@@ -259,9 +258,9 @@ export default function ServiceDetail() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel style={{ fontFamily: 'Poppins, sans-serif' }}>Your Name</FormLabel>
+                    <FormLabel className="text-white font-medium">Your Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Full Name" className="bg-white/5 border-white/10" style={{ fontFamily: 'Poppins, sans-serif' }} data-testid="input-booking-name" {...field} />
+                      <Input placeholder="Full Name" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -273,9 +272,9 @@ export default function ServiceDetail() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ fontFamily: 'Poppins, sans-serif' }}>Phone</FormLabel>
+                      <FormLabel className="text-white font-medium">Phone</FormLabel>
                       <FormControl>
-                        <Input placeholder="+91 00000 00000" className="bg-white/5 border-white/10" style={{ fontFamily: 'Poppins, sans-serif' }} data-testid="input-booking-phone" {...field} />
+                        <Input placeholder="+91 00000 00000" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-phone" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -286,9 +285,9 @@ export default function ServiceDetail() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ fontFamily: 'Poppins, sans-serif' }}>Email</FormLabel>
+                      <FormLabel className="text-white font-medium">Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="email@domain.com" className="bg-white/5 border-white/10" style={{ fontFamily: 'Poppins, sans-serif' }} data-testid="input-booking-email" {...field} />
+                        <Input type="email" placeholder="email@domain.com" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -300,9 +299,9 @@ export default function ServiceDetail() {
                 name="date"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel style={{ fontFamily: 'Poppins, sans-serif' }}>Preferred Date</FormLabel>
+                    <FormLabel className="text-white font-medium">Preferred Date</FormLabel>
                     <FormControl>
-                      <Input type="date" className="bg-white/5 border-white/10" style={{ fontFamily: 'Poppins, sans-serif' }} data-testid="input-booking-date" {...field} />
+                      <Input type="date" className="bg-white/5 border-white/10 text-white" data-testid="input-booking-date" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -313,9 +312,9 @@ export default function ServiceDetail() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel style={{ fontFamily: 'Poppins, sans-serif' }}>Additional Notes (Optional)</FormLabel>
+                    <FormLabel className="text-white font-medium">Additional Notes (Optional)</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Any specific requirements..." className="bg-white/5 border-white/10 min-h-[80px]" style={{ fontFamily: 'Poppins, sans-serif' }} data-testid="input-booking-message" {...field} />
+                      <Textarea placeholder="Any specific requirements..." className="bg-white/5 border-white/10 min-h-[80px] text-white" data-testid="input-booking-message" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -324,7 +323,7 @@ export default function ServiceDetail() {
               <Button 
                 type="submit"
                 disabled={mutation.isPending}
-                className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 uppercase tracking-widest"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-semibold h-12 uppercase tracking-widest"
                 data-testid="button-submit-booking"
               >
                 {mutation.isPending ? (

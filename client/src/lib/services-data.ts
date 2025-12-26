@@ -41,7 +41,12 @@ export const servicesData: ServiceData[] = [
     id: "2",
     slug: "premium-washing",
     title: "PREMIUM WASHING",
-    price: "₹600",
+    pricing: [
+      { carType: "Small Cars", price: "₹600" },
+      { carType: "Hatch Back / Small Sedan", price: "₹700" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹800" },
+      { carType: "SUV / MPV", price: "₹900" }
+    ],
     description: "Enhanced washing service including underbody and interior vacuum.",
     features: [
       "Underbody Wash Tyre & Arches Cleaning",
@@ -54,14 +59,18 @@ export const servicesData: ServiceData[] = [
       "Full Car vacuumed including seats & boots",
       "Laying paper mats"
     ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"],
     highlight: true
   },
   {
     id: "3",
     slug: "interior-cleaning",
     title: "INTERIOR CLEANING",
-    price: "₹2,500",
+    pricing: [
+      { carType: "Small Cars", price: "₹2,500" },
+      { carType: "Hatch Back / Small Sedan", price: "₹3,000" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹3,500" },
+      { carType: "SUV / MPV", price: "₹4,000" }
+    ],
     description: "Deep cleaning for a fresh, hygienic cabin.",
     features: [
       "Washing + Interior Vacuuming",
@@ -73,55 +82,71 @@ export const servicesData: ServiceData[] = [
       "AC Vents Cleaning",
       "Seat belt & Boots Cleaning",
       "Glass Cleaning from inside"
-    ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]
+    ]
   },
   {
     id: "4",
     slug: "interior-steam-cleaning",
     title: "INTERIOR STEAM CLEANING",
-    price: "₹3,500",
+    pricing: [
+      { carType: "Small Cars", price: "₹3,500" },
+      { carType: "Hatch Back / Small Sedan", price: "₹4,000" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹4,500" },
+      { carType: "SUV / MPV", price: "₹5,000" }
+    ],
     description: "The ultimate interior sanitation and detailing package.",
     features: [
       "Washing + Interior Cleaning + AC Duct Cleaning",
       "Steam Cleaning",
       "Sanitization of Car using steam",
       "Leather Waxing"
-    ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]
+    ]
   },
   {
     id: "5",
     slug: "leather-treatment",
     title: "LEATHER TREATMENT",
-    price: "₹5,000",
+    pricing: [
+      { carType: "Small Cars", price: "₹5,000" },
+      { carType: "Hatch Back / Small Sedan", price: "₹5,500" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹6,000" },
+      { carType: "SUV / MPV", price: "₹6,500" }
+    ],
     description: "Restore and protect your premium leather interiors.",
     features: [
       "Washing",
       "Interior Steam Cleaning",
       "Leather Waxing and Conditioning"
-    ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]
+    ]
   },
   {
     id: "6",
     slug: "detailing",
     title: "DETAILING",
-    price: "₹5,000",
+    pricing: [
+      { carType: "Small Cars", price: "₹5,000" },
+      { carType: "Hatch Back / Small Sedan", price: "₹6,000" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹7,000" },
+      { carType: "SUV / MPV", price: "₹8,000" }
+    ],
     description: "Paint correction and restoration for showroom shine.",
     features: [
       "Washing + Interior Cleaning + Decontamination Using Clay Mitt",
       "Masking Multiple stages of compounding, Machine Compounding (rubbing)",
       "Removal of hard water marks & mineral deposits from all edges"
     ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"],
     highlight: true
   },
   {
     id: "7",
     slug: "paint-sealant-coating",
     title: "PAINT SEALANT COATING (TEFLON)",
-    price: "₹5,500",
+    pricing: [
+      { carType: "Small Cars", price: "₹5,500" },
+      { carType: "Hatch Back / Small Sedan", price: "₹6,500" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹7,500" },
+      { carType: "SUV / MPV", price: "₹8,500" }
+    ],
     description: "Premium protection with 1 year warranty included.",
     features: [
       "Washing + Interior Cleaning + Detailing + Glazing and Swirl marks removal using D.A.",
@@ -129,14 +154,18 @@ export const servicesData: ServiceData[] = [
       "Premium external glass cleaning & protection, Alloy protection",
       "1 Year Warranty"
     ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"],
     warranty: "1 Year Warranty"
   },
   {
     id: "8",
     slug: "ceramic-coating",
     title: "CERAMIC COATING",
-    price: "₹11,000",
+    pricing: [
+      { carType: "Small Cars", price: "₹11,000" },
+      { carType: "Hatch Back / Small Sedan", price: "₹13,000" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹15,000" },
+      { carType: "SUV / MPV", price: "₹18,000" }
+    ],
     description: "Ultimate protection with variants and 2-year warranty.",
     features: [
       "Washing + Interior Cleaning",
@@ -145,7 +174,6 @@ export const servicesData: ServiceData[] = [
       "1 Top up coat Free within a year"
     ],
     variants: ["9H", "MAFRA", "MENZA PRO", "KOCH CHEMIE"],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"],
     warranty: "2 Year Warranty - Made in India",
     highlight: true
   },
@@ -153,39 +181,50 @@ export const servicesData: ServiceData[] = [
     id: "9",
     slug: "corrosion-treatment",
     title: "CORROSION TREATMENT",
-    price: "₹3,500",
+    pricing: [
+      { carType: "Small Cars", price: "₹3,500" },
+      { carType: "Hatch Back / Small Sedan", price: "₹4,000" },
+      { carType: "Mid-size Sedans / Compact SUV", price: "₹4,500" },
+      { carType: "SUV / MPV", price: "₹5,000" }
+    ],
     description: "Protect your underbody from rust and corrosion.",
     features: [
       "Washing + Underbody Rubberized Coating",
       "Silencer coating"
-    ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV"]
+    ]
   },
   {
     id: "10",
     slug: "windshield-coating",
     title: "WINDSHIELD COATING",
-    price: "₹2,500 - ₹5,000",
+    pricing: [
+      { carType: "Small Cars", price: "₹2,500" },
+      { carType: "Sedans", price: "₹3,500" },
+      { carType: "SUV / Luxury", price: "₹5,000" }
+    ],
     description: "Premium glass coating protection with water beading.",
     features: [
       "Washing + Machine Compounding (rubbing)",
       "Application of Glass Coating"
-    ],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV", "All Glasses"]
+    ]
   },
   {
     id: "11",
     slug: "sun-control-film",
     title: "SUN CONTROL FILM",
-    price: "₹5,200",
+    pricing: [
+      { carType: "Economy", price: "₹5,200" },
+      { carType: "Standard", price: "₹8,500" },
+      { carType: "Premium", price: "₹12,000" },
+      { carType: "Ceramic", price: "₹18,000" }
+    ],
     description: "Heat rejection film with multiple variants available.",
     features: [
       "Professional Installation",
       "Premium Quality Film",
       "Heat Rejection Technology"
     ],
-    variants: ["Economy (Heat Rejection 20%-30%)", "Standard (Heat Rejection 30%-40%)", "Premium (Heat Rejection 40%-50%)", "Ceramic (Heat Rejection 50%-60%)"],
-    carTypes: ["Small Cars", "Hatch Back / Small Sedan", "Mid-size Sedans / Compact SUV / MUV", "SUV / MPV"]
+    variants: ["Economy (Heat Rejection 20%-30%)", "Standard (Heat Rejection 30%-40%)", "Premium (Heat Rejection 40%-50%)", "Ceramic (Heat Rejection 50%-60%)"]
   }
 ];
 
