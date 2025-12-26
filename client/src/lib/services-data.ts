@@ -236,10 +236,22 @@ export const servicesData: ServiceData[] = [
     slug: "sun-control-film",
     title: "SUN CONTROL FILM",
     pricing: [
-      { carType: "Economy", price: "₹5,200" },
-      { carType: "Standard", price: "₹8,500" },
-      { carType: "Premium", price: "₹12,000" },
-      { carType: "Ceramic", price: "₹18,000" }
+      { carType: "Small Cars", price: "₹5,200" },
+      { carType: "Hatch Back / Small Sedan", price: "₹6,000" },
+      { carType: "Mid-size Sedan / Compact SUV / MUV", price: "₹6,500" },
+      { carType: "SUV / MPV", price: "₹8,400" },
+      { carType: "Standard - Small Cars", price: "₹7,500" },
+      { carType: "Standard - Hatch Back / Small Sedan", price: "₹8,300" },
+      { carType: "Standard - Mid-size Sedan / Compact SUV / MUV", price: "₹9,500" },
+      { carType: "Standard - SUV / MPV", price: "₹12,500" },
+      { carType: "Premium - Small Cars", price: "₹11,500" },
+      { carType: "Premium - Hatch Back / Small Sedan", price: "₹13,000" },
+      { carType: "Premium - Mid-size Sedan / Compact SUV / MUV", price: "₹15,000" },
+      { carType: "Premium - SUV / MPV", price: "₹18,000" },
+      { carType: "Ceramic - Small Cars", price: "₹13,500" },
+      { carType: "Ceramic - Hatch Back / Small Sedan", price: "₹15,500" },
+      { carType: "Ceramic - Mid-size Sedan / Compact SUV / MUV", price: "₹18,000" },
+      { carType: "Ceramic - SUV / MPV", price: "₹21,000" }
     ],
     description: "Heat rejection film with multiple variants available.",
     features: [
@@ -247,7 +259,12 @@ export const servicesData: ServiceData[] = [
       "Premium Quality Film",
       "Heat Rejection Technology"
     ],
-    variants: ["Economy (Heat Rejection 20%-30%)", "Standard (Heat Rejection 30%-40%)", "Premium (Heat Rejection 40%-50%)", "Ceramic (Heat Rejection 50%-60%)"]
+    variants: [
+      "Economy (Heat Rejection 25%-30%)",
+      "Standard (Heat Rejection 30%-40%)",
+      "Premium (Heat Rejection 40%-50%)",
+      "Ceramic (Heat Rejection 50%-60%)"
+    ]
   }
 ];
 

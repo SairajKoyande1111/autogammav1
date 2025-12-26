@@ -207,7 +207,7 @@ export default function ServiceDetail() {
             </ul>
 
             {/* Dynamic Variant Selection Buttons */}
-            {(service.slug === "ceramic-coating" || service.slug === "windshield-coating") && service.variants && (
+            {(service.slug === "ceramic-coating" || service.slug === "windshield-coating" || service.slug === "sun-control-film") && service.variants && (
               <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
                 <p className="text-[10px] font-bold text-red-500 uppercase tracking-[0.2em] mb-4 text-center">Select Treatment Variant</p>
                 <div className="grid grid-cols-2 gap-2">
@@ -217,13 +217,18 @@ export default function ServiceDetail() {
                       variant="outline"
                       size="sm"
                       onClick={() => setSelectedVariantIndex(i)}
-                      className={`h-12 text-xs font-bold tracking-widest uppercase transition-all duration-300 border-2 rounded-xl ${
+                      className={`h-14 flex flex-col items-center justify-center text-center transition-all duration-300 border-2 rounded-xl px-2 ${
                         selectedVariantIndex === i
                           ? "bg-red-600 border-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)] scale-105"
                           : "bg-transparent border-white/10 text-white hover:border-red-600/50"
                       }`}
                     >
-                      {v.split(" (")[0]}
+                      <span className="text-[10px] font-black uppercase tracking-widest">{v.split(" (")[0]}</span>
+                      {v.includes("(") && (
+                        <span className={`text-[8px] font-medium mt-1 leading-none ${selectedVariantIndex === i ? "text-white/90" : "text-white/40"}`}>
+                          ({v.split("(")[1]}
+                        </span>
+                      )}
                     </Button>
                   ))}
                 </div>
@@ -244,12 +249,14 @@ export default function ServiceDetail() {
               Pricing
             </h3>
             <div className="space-y-4 flex-grow relative z-10 overflow-y-auto max-h-[600px] pr-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-zinc-900">
-              {(service.slug === "ceramic-coating" || service.slug === "windshield-coating") ? (
+              {(service.slug === "ceramic-coating" || service.slug === "windshield-coating" || service.slug === "sun-control-film") ? (
                 <div className="space-y-4">
                   <h4 className="text-xs font-bold text-white uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">
                     {service.slug === "ceramic-coating" 
                       ? ["9H (2 Year Warranty - Made in India)", "MAFRA (2 Year Warranty - Made in Italy)", "MENZA PRO (2 Year Warranty - Made in Japan)", "KOCH CHEMIE (2 Year Warranty - Made in Germany)"][selectedVariantIndex]
-                      : ["Front Windshield Only", "All Glasses Coating"][selectedVariantIndex]
+                      : service.slug === "windshield-coating"
+                      ? ["Front Windshield Only", "All Glasses Coating"][selectedVariantIndex]
+                      : ["Economy Grade (Heat Rejection 25%-30%)", "Standard Grade (Heat Rejection 30%-40%)", "Premium Grade (Heat Rejection 40%-50%)", "Ceramic Grade (Heat Rejection 50%-60%)"][selectedVariantIndex]
                     }
                   </h4>
                   {service.pricing?.slice(selectedVariantIndex * 4, (selectedVariantIndex + 1) * 4).map((tier, i) => (
