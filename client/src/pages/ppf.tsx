@@ -158,11 +158,10 @@ export default function PPF() {
               variants={scaleIn}
               className="bg-[#2a2a2a] border border-white/5 p-10 rounded-[2rem] flex flex-col items-center text-center group transition-all duration-300 hover:bg-[#333333]"
             >
-              <div className="mb-8 p-4 bg-[#1a1a1a] rounded-2xl">
-                <img src={benefit.icon} alt={benefit.title} className="w-14 h-14 object-contain" />
+              <div className="mb-8 p-6 bg-[#1a1a1a] rounded-2xl">
+                <img src={benefit.icon} alt={benefit.title} className="w-16 h-16 object-contain" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-6 font-poppins uppercase tracking-wider leading-tight">{benefit.title}</h3>
-              <p className="text-[14px] text-gray-400 font-poppins leading-relaxed">{benefit.desc}</p>
+              <h3 className="text-xl font-bold text-white mb-2 font-poppins uppercase tracking-wider leading-tight">{benefit.title}</h3>
             </motion.div>
           ))}
         </motion.div>
