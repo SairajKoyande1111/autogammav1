@@ -139,11 +139,22 @@ export default function ServiceDetail() {
             className="flex-1 min-w-0"
           >
             <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full min-h-[400px] group">
-              <img 
-                src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
-                alt={service.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              {service.slug === "foam-washing" ? (
+                <video
+                  src="/attached_assets/6873163-uhd_2160_3840_25fps_1766779370222.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              ) : (
+                <img 
+                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
             </div>
           </motion.div>
