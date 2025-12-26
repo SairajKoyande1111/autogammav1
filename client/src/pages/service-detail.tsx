@@ -207,11 +207,11 @@ export default function ServiceDetail() {
             </ul>
 
             {/* Dynamic Variant Selection Buttons */}
-            {service.slug === "ceramic-coating" && service.variants && (
+            {(service.slug === "ceramic-coating" || service.slug === "windshield-coating") && service.variants && (
               <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
                 <p className="text-[10px] font-bold text-red-500 uppercase tracking-[0.2em] mb-4 text-center">Select Treatment Variant</p>
                 <div className="grid grid-cols-2 gap-2">
-                  {["9H", "MAFRA", "MENZA PRO", "KOCH CHEMIE"].map((v, i) => (
+                  {service.variants.map((v, i) => (
                     <Button
                       key={v}
                       variant="outline"
@@ -223,7 +223,7 @@ export default function ServiceDetail() {
                           : "bg-transparent border-white/10 text-white hover:border-red-600/50"
                       }`}
                     >
-                      {v}
+                      {v.split(" (")[0]}
                     </Button>
                   ))}
                 </div>
@@ -244,10 +244,13 @@ export default function ServiceDetail() {
               Pricing
             </h3>
             <div className="space-y-4 flex-grow relative z-10 overflow-y-auto max-h-[600px] pr-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-zinc-900">
-              {service.slug === "ceramic-coating" ? (
+              {(service.slug === "ceramic-coating" || service.slug === "windshield-coating") ? (
                 <div className="space-y-4">
                   <h4 className="text-xs font-bold text-white uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">
-                    {["9H (2 Year Warranty - Made in India)", "MAFRA (2 Year Warranty - Made in Italy)", "MENZA PRO (2 Year Warranty - Made in Japan)", "KOCH CHEMIE (2 Year Warranty - Made in Germany)"][selectedVariantIndex]}
+                    {service.slug === "ceramic-coating" 
+                      ? ["9H (2 Year Warranty - Made in India)", "MAFRA (2 Year Warranty - Made in Italy)", "MENZA PRO (2 Year Warranty - Made in Japan)", "KOCH CHEMIE (2 Year Warranty - Made in Germany)"][selectedVariantIndex]
+                      : ["Front Windshield Only", "All Glasses Coating"][selectedVariantIndex]
+                    }
                   </h4>
                   {service.pricing?.slice(selectedVariantIndex * 4, (selectedVariantIndex + 1) * 4).map((tier, i) => (
                     <motion.div

@@ -216,14 +216,20 @@ export const servicesData: ServiceData[] = [
     title: "WINDSHIELD COATING",
     pricing: [
       { carType: "Small Cars", price: "₹2,500" },
-      { carType: "Sedans", price: "₹3,500" },
-      { carType: "SUV / Luxury", price: "₹5,000" }
+      { carType: "Hatch Back / Small Sedan", price: "₹3,000" },
+      { carType: "Mid-size Sedan / Compact SUV / MUV", price: "₹3,500" },
+      { carType: "SUV / MPV", price: "₹4,000" },
+      { carType: "All Glasses - Small Cars", price: "₹5,000" },
+      { carType: "All Glasses - Hatch Back / Small Sedan", price: "₹5,500" },
+      { carType: "All Glasses - Mid-size Sedan / Compact SUV / MUV", price: "₹6,000" },
+      { carType: "All Glasses - SUV / MPV", price: "₹6,500" }
     ],
     description: "Premium glass coating protection with water beading.",
     features: [
       "Washing + Machine Compounding (rubbing)",
       "Application of Glass Coating"
-    ]
+    ],
+    variants: ["Front Windshield", "All Glasses"]
   },
   {
     id: "11",
