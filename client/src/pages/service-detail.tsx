@@ -217,10 +217,10 @@ export default function ServiceDetail() {
                       variant="outline"
                       size="sm"
                       onClick={() => setSelectedVariantIndex(i)}
-                      className={`h-10 text-[10px] font-bold tracking-widest uppercase transition-all duration-300 border-2 rounded-xl ${
+                      className={`h-12 text-xs font-bold tracking-widest uppercase transition-all duration-300 border-2 rounded-xl ${
                         selectedVariantIndex === i
                           ? "bg-red-600 border-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)] scale-105"
-                          : "bg-transparent border-white/10 text-white/60 hover:border-red-600/50 hover:text-white"
+                          : "bg-transparent border-white/10 text-white hover:border-red-600/50"
                       }`}
                     >
                       {v}
@@ -246,8 +246,8 @@ export default function ServiceDetail() {
             <div className="space-y-4 flex-grow relative z-10 overflow-y-auto max-h-[600px] pr-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-zinc-900">
               {service.slug === "ceramic-coating" ? (
                 <div className="space-y-4">
-                  <h4 className="text-xs font-bold text-red-500 uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">
-                    {["9H (Made in India)", "MAFRA (Made in Italy)", "MENZA PRO (Made in Japan)", "KOCH CHEMIE (Made in Germany)"][selectedVariantIndex]}
+                  <h4 className="text-xs font-bold text-white uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">
+                    {["9H (2 Year Warranty - Made in India)", "MAFRA (2 Year Warranty - Made in Italy)", "MENZA PRO (2 Year Warranty - Made in Japan)", "KOCH CHEMIE (2 Year Warranty - Made in Germany)"][selectedVariantIndex]}
                   </h4>
                   {service.pricing?.slice(selectedVariantIndex * 4, (selectedVariantIndex + 1) * 4).map((tier, i) => (
                     <motion.div
