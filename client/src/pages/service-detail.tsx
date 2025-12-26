@@ -61,7 +61,7 @@ export default function ServiceDetail() {
     return servicesData
       .filter(s => s.id !== service.id)
       .sort(() => 0.5 - Math.random())
-      .slice(0, 3);
+      .slice(0, 4);
   }, [service]);
 
   const form = useForm<BookingFormData>({
@@ -332,12 +332,12 @@ export default function ServiceDetail() {
         </div>
 
         {/* Bottom Area: Booking Button & Recommendations */}
-        <div className="max-w-4xl mx-auto w-full pb-20">
+        <div className="max-w-7xl mx-auto w-full pb-20">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="max-w-md mx-auto w-full mb-16"
+            className="max-w-md mx-auto w-full mb-20"
           >
             <Button
               onClick={() => setBookingOpen(true)}
@@ -348,7 +348,7 @@ export default function ServiceDetail() {
             </Button>
             <div className="mt-4 text-center">
               <Link href="/services">
-                <span className="text-white/20 hover:text-red-500 text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold">
+                <span className="text-white/20 hover:text-red-500 text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold font-orbitron">
                   View All Premium Services
                 </span>
               </Link>
@@ -360,43 +360,58 @@ export default function ServiceDetail() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="space-y-8"
+            className="space-y-12"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <div className="h-px flex-grow bg-white/10" />
-              <h3 className="text-[12px] font-bold text-red-500 uppercase tracking-[0.4em] whitespace-nowrap">Recommended For You</h3>
+              <h3 className="text-[14px] md:text-[16px] font-orbitron font-bold text-red-600 uppercase tracking-[0.5em] whitespace-nowrap">Recommended For You</h3>
               <div className="h-px flex-grow bg-white/10" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {recommendations.map((rec, i) => (
                 <Link key={rec.id} href={`/service/${rec.slug}`}>
                   <motion.div
-                    whileHover={{ y: -5 }}
-                    className="cursor-pointer group"
+                    whileHover={{ y: -10 }}
+                    className="cursor-pointer group h-full"
                   >
-                    <Card className="bg-zinc-900/50 border-white/10 overflow-hidden hover:border-red-600/50 transition-all duration-300">
-                      <CardContent className="p-0">
-                        <div className="aspect-[16/10] overflow-hidden relative">
+                    <Card className="bg-zinc-900/40 border-white/5 overflow-hidden hover:border-red-600/30 transition-all duration-500 h-full flex flex-col shadow-2xl">
+                      <CardContent className="p-0 flex flex-col h-full">
+                        <div className="aspect-[4/3] overflow-hidden relative">
                           <img
-                            src="https://images.unsplash.com/photo-1601362840469-51e4d8d59085?q=80&w=2071&auto=format&fit=crop"
+                            src={rec.slug === "foam-washing" 
+                              ? "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2071&auto=format&fit=crop"
+                              : rec.slug === "ceramic-coating"
+                              ? "https://images.unsplash.com/photo-1601362840469-51e4d8d59085?q=80&w=2071&auto=format&fit=crop"
+                              : rec.slug === "detailing"
+                              ? "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop"
+                              : "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
+                            }
                             alt={rec.title}
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                            className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 group-hover:scale-110"
                           />
-                          <div className="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-all duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
+                          <div className="absolute bottom-4 left-4">
+                             <Badge className="bg-red-600 text-white border-none text-[8px] font-bold font-orbitron">PREMIUM</Badge>
+                          </div>
                         </div>
-                        <div className="p-5">
-                          <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-2 group-hover:text-red-500 transition-colors">
+                        <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
+                          <h4 className="text-white font-orbitron font-bold text-base uppercase tracking-widest mb-3 group-hover:text-red-600 transition-colors leading-tight">
                             {rec.title}
                           </h4>
-                          <p className="text-white/40 text-[10px] leading-relaxed mb-4 line-clamp-2">
+                          <p className="text-white/40 text-[11px] font-medium leading-relaxed mb-6 line-clamp-3 font-rajdhani">
                             {rec.description}
                           </p>
-                          <div className="flex items-center justify-between">
-                            <span className="text-red-500 text-[10px] font-black tracking-tighter">
-                              STARTING AT {rec.pricing ? rec.pricing[0].price : rec.price}
-                            </span>
-                            <ArrowRight className="w-3 h-3 text-white/20 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
+                          <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+                            <div className="flex flex-col">
+                              <span className="text-[10px] text-white/30 uppercase tracking-tighter font-bold">Starting at</span>
+                              <span className="text-red-600 text-lg font-orbitron font-bold tracking-tighter">
+                                {rec.pricing ? rec.pricing[0].price : rec.price}
+                              </span>
+                            </div>
+                            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300">
+                              <ArrowRight className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                            </div>
                           </div>
                         </div>
                       </CardContent>
