@@ -46,7 +46,7 @@ export default function PPF() {
           </motion.p>
           <motion.h1 
             variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white leading-tight"
+            className="text-4xl md:text-6xl font-poppins font-bold text-white leading-tight uppercase"
           >
             Guard Your Car's Paint with Our Advanced<br />
             <span className="text-primary">PPF Technology for a Perfect, Glossy Finish</span>
@@ -61,17 +61,17 @@ export default function PPF() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
           <motion.div variants={fadeInLeft} className="relative group">
-            <div className="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]" />
+            <div className="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[1.5rem]" />
             <img 
               src={ppfAppImage} 
               alt="PPF Application" 
-              className="relative w-full rounded-[1.5rem] shadow-2xl border border-white/5"
+              className="relative w-full rounded-[1rem] shadow-2xl border border-white/5"
             />
           </motion.div>
           
           <motion.div variants={fadeInRight} className="space-y-8">
             <div className="space-y-6">
-              <p className="text-gray-300 text-lg leading-relaxed font-poppins">
+              <p className="text-gray-400 text-lg leading-relaxed font-poppins">
                 Paint Protection Film (PPF) is a transparent, urethane film applied 
                 to a vehicle's painted surface to protect it from scratches, chips, 
                 and other forms of damage. This durable film acts as a sacrificial 
@@ -80,7 +80,7 @@ export default function PPF() {
                 original paint but also enhances its appearance by adding a 
                 glossy, protective layer.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed font-poppins">
+              <p className="text-gray-400 text-lg leading-relaxed font-poppins">
                 PPF creates a protective barrier between your vehicle's paint and 
                 the outside world. When a rock chip or other debris strikes the 
                 film, it absorbs the impact, preventing damage to the underlying 
@@ -102,7 +102,7 @@ export default function PPF() {
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-muted-foreground text-sm uppercase tracking-[0.3em] mb-4"
+            className="text-muted-foreground text-sm uppercase tracking-[0.3em] mb-2"
           >
             Benefits of Paint Protection Film
           </motion.p>
@@ -110,7 +110,7 @@ export default function PPF() {
             variants={fadeInUp}
             className="text-3xl md:text-5xl font-poppins font-bold text-white"
           >
-            Ultimate Protection <span className="text-primary text-glow">for Your Vehicle</span>
+            Ultimate Protection <span className="text-primary">for Your Vehicle</span>
           </motion.h2>
         </motion.div>
 
@@ -119,59 +119,67 @@ export default function PPF() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {[
             { 
               title: "Ultimate Protection", 
               desc: "Shield your vehicle's paint from scratches, chips, and other forms of damage caused by road debris, rocks, and harsh weather conditions.",
               icon: (
-                <svg className="w-12 h-12 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
+                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
+                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               )
             },
             { 
               title: "Preserving Resale Value", 
               desc: "Maintain your car's pristine appearance and increase its resale value by protecting its original paint finish.",
               icon: (
-                <svg className="w-12 h-12 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v8M8 12h8" />
-                  <path d="M12 12l3-3m-6 6l3-3" />
-                </svg>
+                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
+                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="12" cy="12" r="7" />
+                    <circle cx="12" cy="12" r="10" strokeDasharray="4 4" />
+                    <path d="M12 8v8M8 12h8" strokeLinecap="round" />
+                  </svg>
+                </div>
               )
             },
             { 
               title: "Easy Maintenance", 
               desc: "Repel dirt, grime, and water, making cleaning and maintenance a breeze.",
               icon: (
-                <svg className="w-12 h-12 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                </svg>
+                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
+                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               )
             },
             { 
               title: "Enhanced Aesthetics", 
               desc: "Enhance your vehicle's shine and gloss, giving it a showroom-quality finish that lasts.",
               icon: (
-                <svg className="w-12 h-12 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
+                <div className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl border border-white/5">
+                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               )
             },
           ].map((benefit, i) => (
             <motion.div 
               key={i} 
               variants={scaleIn}
-              className="bg-[#222222] border border-white/5 p-8 rounded-[1.5rem] flex flex-col items-center text-center group hover:bg-[#2a2a2a] transition-all duration-300 hover-lift"
+              className="bg-[#1a1a1a] border border-white/5 p-6 rounded-[1rem] flex flex-col items-center text-center group hover:bg-[#222222] transition-all duration-300 hover-lift"
             >
-              <div className="mb-6 p-4 bg-black/20 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-6">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 font-poppins">{benefit.title}</h3>
-              <p className="text-sm text-gray-400 font-poppins leading-relaxed">{benefit.desc}</p>
+              <h3 className="text-lg font-bold text-white mb-3 font-poppins uppercase tracking-wider leading-tight">{benefit.title}</h3>
+              <p className="text-[13px] text-gray-500 font-poppins leading-relaxed px-2">{benefit.desc}</p>
             </motion.div>
           ))}
         </motion.div>
