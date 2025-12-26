@@ -105,100 +105,102 @@ export default function ServiceDetail() {
     : service.price;
 
   return (
-    <div className="pt-20 pb-10 bg-black min-h-screen overflow-hidden flex flex-col justify-center">
+    <div className="pt-24 pb-12 bg-black min-h-screen flex flex-col items-center justify-center">
       <section className="container px-4 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left Column - Image */}
+        {/* Main Content Area - 3 Column Layout */}
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch mb-8">
+          {/* Column 1: Image */}
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInLeft}
-            className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-h-[70vh]"
+            className="flex-1 min-w-0"
           >
-            <img 
-              src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
-              alt={service.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-full aspect-[4/3] lg:aspect-auto">
+              <img 
+                src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" 
+                alt={service.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <h1 className="text-2xl md:text-3xl font-sora font-bold text-white uppercase tracking-tight leading-none">
+                  {service.title}
+                </h1>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right Column - Content */}
-          <motion.div
+          {/* Column 2: What's Included */}
+          <motion.div 
             initial="hidden"
             animate="visible"
-            variants={stagger}
-            className="flex flex-col h-full"
+            variants={fadeInUp}
+            className="flex-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col"
           >
-            <motion.div variants={fadeInUp} className="mb-4">
-              <motion.h1 
-                className="text-3xl md:text-5xl font-sora font-bold text-white mb-2 tracking-tight uppercase leading-none"
-              >
-                {service.title}
-              </motion.h1>
-              <motion.p className="text-base text-white/60 font-light leading-snug">
-                {service.description}
-              </motion.p>
-            </motion.div>
+            <h2 className="text-xs font-sora font-bold text-white/40 mb-4 uppercase tracking-[0.2em] border-b border-white/10 pb-2">What's Included</h2>
+            <ul className="space-y-4 flex-grow">
+              {service.features.map((feature: string, i: number) => (
+                <li key={i} className="flex items-start gap-3 group">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                    <Check className="w-3 h-3" />
+                  </div>
+                  <span className="text-white/80 text-sm font-medium leading-tight">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-            {/* What's Included Section - Compact Row */}
-            <motion.div 
-              variants={fadeInUp}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-4"
-            >
-              <h2 className="text-xs font-sora font-bold text-white/40 mb-3 uppercase tracking-[0.2em]">What's Included</h2>
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
-                {service.features.map((feature: string, i: number) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <Check className="w-3 h-3 text-white/80 shrink-0" />
-                    <span className="text-white/90 text-xs font-medium truncate">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Pricing Section - Compact List */}
-            <motion.div 
-              variants={fadeInUp}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-6"
-            >
-              <h3 className="text-xs font-sora font-bold text-white/40 mb-3 uppercase tracking-[0.2em]">Pricing</h3>
+          {/* Column 3: Pricing */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInRight}
+            className="flex-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col"
+          >
+            <h3 className="text-xs font-sora font-bold text-white/40 mb-4 uppercase tracking-[0.2em] border-b border-white/10 pb-2">Pricing</h3>
+            <div className="space-y-3 flex-grow">
               {service.pricing && service.pricing.length > 0 ? (
-                <div className="grid grid-cols-1 gap-2">
-                  {service.pricing.map((tier, i) => (
-                    <div 
-                      key={i}
-                      className="flex items-center justify-between px-3 py-2 bg-white/5 border border-white/5 rounded-lg hover:bg-white/10 transition-all group"
-                    >
-                      <span className="text-white/70 text-[10px] uppercase font-bold tracking-wider group-hover:text-white transition-colors">{tier.carType}</span>
-                      <span className="text-lg font-bold text-white font-sora tracking-tighter">{tier.price}</span>
-                    </div>
-                  ))}
-                </div>
+                service.pricing.map((tier, i) => (
+                  <div 
+                    key={i}
+                    className="flex items-center justify-between px-4 py-3 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-all group"
+                  >
+                    <span className="text-white/60 text-[10px] uppercase font-bold tracking-wider group-hover:text-white transition-colors">{tier.carType}</span>
+                    <span className="text-xl font-bold text-white font-sora">{tier.price}</span>
+                  </div>
+                ))
               ) : (
-                <div className="p-2 bg-white/5 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-white">{displayPrice}</p>
+                <div className="flex items-center justify-center h-full">
+                  <p className="text-3xl font-bold text-white">{displayPrice}</p>
                 </div>
               )}
-            </motion.div>
-
-            {/* Booking Button */}
-            <motion.div variants={fadeInUp} className="mt-auto">
-              <Button 
-                onClick={() => setBookingOpen(true)}
-                className="w-full bg-white hover:bg-zinc-200 text-black font-bold h-12 px-10 rounded-xl text-base transition-all hover:scale-[1.01] active:scale-[0.99] shadow-xl uppercase tracking-[0.15em]"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                BOOK YOUR SLOT
-              </Button>
-              <Link href="/services">
-                <Button variant="ghost" className="w-full mt-2 text-white/30 hover:text-white hover:bg-white/5 h-8 px-4 rounded-lg font-medium text-[10px] transition-colors uppercase tracking-[0.2em]">
-                  View All Services
-                </Button>
-              </Link>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
+
+        {/* Bottom Area: Booking Button */}
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="max-w-md mx-auto"
+        >
+          <Button 
+            onClick={() => setBookingOpen(true)}
+            className="w-full bg-white hover:bg-zinc-200 text-black font-bold h-16 px-10 rounded-2xl text-xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl uppercase tracking-[0.2em]"
+          >
+            <Calendar className="mr-2 h-6 w-6" />
+            BOOK YOUR SLOT
+          </Button>
+          <div className="mt-4 text-center">
+            <Link href="/services">
+              <span className="text-white/30 hover:text-white text-xs uppercase tracking-widest cursor-pointer transition-colors font-medium">
+                View All Detailing Services
+              </span>
+            </Link>
+          </div>
+        </motion.div>
       </section>
 
       {/* Booking Dialog */}
