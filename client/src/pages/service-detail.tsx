@@ -131,7 +131,7 @@ export default function ServiceDetail() {
           variants={fadeInUp}
           className="inline-block bg-red-600 px-4 py-1.5 mt-2 max-w-[90vw] md:max-w-full"
         >
-          <p className="text-white text-xs sm:text-sm md:text-lg font-medium md:whitespace-nowrap break-words leading-tight">
+          <p className="text-white text-sm sm:text-base md:text-lg font-medium md:whitespace-nowrap break-words leading-tight">
             Premium deep cleaning and foam protection for a showroom finish
           </p>
         </motion.div>
