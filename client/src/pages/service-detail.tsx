@@ -112,7 +112,7 @@ export default function ServiceDetail() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-4xl md:text-5xl font-sora font-semibold text-white uppercase tracking-tight mb-2"
+          className="text-4xl md:text-5xl font-sora font-medium text-white uppercase tracking-tight mb-2"
         >
           {service.title}
         </motion.h1>
@@ -120,7 +120,7 @@ export default function ServiceDetail() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-white/60 text-lg font-medium max-w-2xl mx-auto"
+          className="text-white/60 text-lg font-normal max-w-2xl mx-auto"
         >
           Premium deep cleaning and foam protection for a showroom finish.
         </motion.p>
@@ -151,20 +151,20 @@ export default function ServiceDetail() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)] relative overflow-hidden"
+            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,0,0,0.15)] relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl -mr-16 -mt-16 rounded-full" />
-            <h2 className="text-xl font-sora font-bold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-white rounded-full block" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl -mr-16 -mt-16 rounded-full" />
+            <h2 className="text-xl font-sora font-semibold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
+              <span className="w-1.5 h-6 bg-red-600 rounded-full block" />
               What's Included
             </h2>
             <ul className="space-y-6 flex-grow relative z-10">
               {service.features.map((feature: string, i: number) => (
                 <li key={i} className="flex items-start gap-4 group">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-                    <Check className="w-4 h-4 text-white group-hover:text-black" />
+                  <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 group-hover:scale-110 transition-all duration-300">
+                    <Check className="w-4 h-4 text-red-500 group-hover:text-white" />
                   </div>
-                  <span className="text-white text-lg font-bold leading-relaxed tracking-tight">{feature}</span>
+                  <span className="text-white text-lg font-semibold leading-relaxed tracking-tight">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -175,11 +175,11 @@ export default function ServiceDetail() {
             initial="hidden"
             animate="visible"
             variants={fadeInRight}
-            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)] relative overflow-hidden"
+            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,0,0,0.15)] relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl -mr-16 -mt-16 rounded-full" />
-            <h3 className="text-xl font-sora font-bold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-white rounded-full block" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl -mr-16 -mt-16 rounded-full" />
+            <h3 className="text-xl font-sora font-semibold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
+              <span className="w-1.5 h-6 bg-red-600 rounded-full block" />
               Pricing
             </h3>
             <div className="space-y-4 flex-grow relative z-10">
@@ -187,17 +187,17 @@ export default function ServiceDetail() {
                 service.pricing.map((tier, i) => (
                   <div 
                     key={i}
-                    className="flex items-center justify-between px-6 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
+                    className="flex items-center justify-between px-6 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-red-600/10 hover:border-red-600/30 transition-all duration-300 group"
                   >
-                    <span className="text-white text-sm uppercase font-extrabold tracking-widest">{tier.carType}</span>
-                    <span className="text-3xl font-extrabold text-white font-sora tracking-tighter group-hover:scale-110 transition-transform">
+                    <span className="text-white text-sm uppercase font-semibold tracking-widest">{tier.carType}</span>
+                    <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors">
                       {tier.price}
                     </span>
                   </div>
                 ))
               ) : (
                 <div className="flex items-center justify-center h-full">
-                  <p className="text-4xl font-extrabold text-white">{displayPrice}</p>
+                  <p className="text-4xl font-semibold text-white">{displayPrice}</p>
                 </div>
               )}
             </div>
@@ -213,14 +213,14 @@ export default function ServiceDetail() {
         >
           <Button 
             onClick={() => setBookingOpen(true)}
-            className="w-full bg-white hover:bg-zinc-200 text-black font-extrabold h-14 px-8 rounded-2xl text-lg transition-all hover:scale-[1.05] active:scale-[0.95] shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)] uppercase tracking-[0.2em]"
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold h-14 px-8 rounded-2xl text-lg transition-all hover:scale-[1.05] active:scale-[0.95] shadow-[0_0_30px_-5px_rgba(220,38,38,0.4)] uppercase tracking-[0.2em]"
           >
             <Calendar className="mr-3 h-5 w-5" />
             BOOK YOUR SLOT
           </Button>
           <div className="mt-4 text-center">
             <Link href="/services">
-              <span className="text-white/20 hover:text-white text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold">
+              <span className="text-white/20 hover:text-red-500 text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold">
                 View All Premium Services
               </span>
             </Link>
