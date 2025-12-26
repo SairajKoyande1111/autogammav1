@@ -35,28 +35,28 @@ export default function PPF() {
   return (
     <div className="pt-24 pb-20 bg-background min-h-screen">
       {/* Top Section / Hero */}
-      <section className="container px-4 mx-auto mb-12 pt-8">
+      <section className="container px-4 mx-auto mb-12 pt-16">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={stagger}
-          className="text-center mb-8"
+          className="text-center mb-10"
         >
           <motion.p 
             variants={fadeInUp}
-            className="text-gray-500 text-sm mb-1 font-poppins"
+            className="text-white text-lg font-semibold mb-2 font-poppins"
           >
             Protect Your Car, Preserve Its Shine!
           </motion.p>
           <motion.h1 
             variants={fadeInUp}
-            className="text-2xl md:text-3xl font-poppins font-bold text-white leading-tight mb-1"
+            className="text-2xl md:text-3xl font-poppins font-bold text-white leading-tight mb-1 uppercase"
           >
             Guard Your Car's Paint with Our Advanced
           </motion.h1>
           <motion.h2
             variants={fadeInUp}
-            className="text-2xl md:text-3xl font-poppins font-bold text-primary leading-tight"
+            className="text-2xl md:text-3xl font-poppins font-bold text-primary leading-tight uppercase"
           >
             PPF Technology for a Perfect, Glossy Finish
           </motion.h2>
@@ -79,7 +79,7 @@ export default function PPF() {
           
           <motion.div variants={fadeInRight} className="space-y-6 pt-2">
             <div className="space-y-4">
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins">
+              <p className="text-white text-sm md:text-base leading-relaxed font-poppins font-normal">
                 Paint Protection Film (PPF) is a transparent, urethane film applied 
                 to a vehicle's painted surface to protect it from scratches, chips, 
                 and other forms of damage. This durable film acts as a sacrificial 
@@ -88,7 +88,7 @@ export default function PPF() {
                 original paint but also enhances its appearance by adding a 
                 glossy, protective layer.
               </p>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins">
+              <p className="text-white text-sm md:text-base leading-relaxed font-poppins font-normal">
                 PPF creates a protective barrier between your vehicle's paint and 
                 the outside world. When a rock chip or other debris strikes the 
                 film, it absorbs the impact, preventing damage to the underlying 
