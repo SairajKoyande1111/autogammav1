@@ -231,7 +231,7 @@ export default function ServiceDetail() {
                     <span className="text-white text-sm uppercase font-semibold tracking-widest relative z-10">
                       {tier.carType}
                     </span>
-                    <span className="text-3xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
+                    <span className="text-xl md:text-2xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
                       {tier.price}
                     </span>
                   </div>
