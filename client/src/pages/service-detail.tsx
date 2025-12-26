@@ -364,7 +364,7 @@ export default function ServiceDetail() {
           >
             <div className="flex items-center gap-6">
               <div className="h-px flex-grow bg-white/10" />
-              <h3 className="text-[14px] md:text-[16px] font-orbitron font-bold text-red-600 uppercase tracking-[0.5em] whitespace-nowrap">Recommended For You</h3>
+              <h3 className="text-[20px] font-sora font-bold text-red-600 uppercase tracking-[0.5em] whitespace-nowrap">Recommended For You</h3>
               <div className="h-px flex-grow bg-white/10" />
             </div>
 
@@ -396,16 +396,16 @@ export default function ServiceDetail() {
                           </div>
                         </div>
                         <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
-                          <h4 className="text-white font-orbitron font-bold text-base uppercase tracking-widest mb-3 group-hover:text-red-600 transition-colors leading-tight">
+                          <h4 className="text-white font-sora font-bold text-[20px] uppercase tracking-widest mb-3 group-hover:text-red-600 transition-colors leading-tight">
                             {rec.title}
                           </h4>
-                          <p className="text-white/40 text-[11px] font-medium leading-relaxed mb-6 line-clamp-3 font-rajdhani">
+                          <p className="text-white/40 text-[14px] font-sora font-medium leading-relaxed mb-6 line-clamp-3">
                             {rec.description}
                           </p>
                           <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <div className="flex flex-col">
-                              <span className="text-[10px] text-white/30 uppercase tracking-tighter font-bold">Starting at</span>
-                              <span className="text-red-600 text-lg font-orbitron font-bold tracking-tighter">
+                              <span className="text-[12px] text-white/30 uppercase tracking-tighter font-sora font-bold">Starting at</span>
+                              <span className="text-red-600 text-[20px] font-sora font-bold tracking-tighter">
                                 {rec.pricing ? rec.pricing[0].price : rec.price}
                               </span>
                             </div>
