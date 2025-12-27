@@ -388,18 +388,15 @@ export default function ServiceDetail() {
                               : "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
                             }
                             alt={rec.title}
-                            className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 group-hover:scale-110"
+                            className="w-full h-full object-cover group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
-                          <div className="absolute bottom-4 left-4">
-                             <Badge className="bg-red-600 text-white border-none text-[8px] font-bold font-orbitron">PREMIUM</Badge>
-                          </div>
                         </div>
                         <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
                           <h4 className="text-white font-sora font-bold text-[20px] uppercase tracking-widest mb-3 group-hover:text-red-600 transition-colors leading-tight">
                             {rec.title}
                           </h4>
-                          <p className="text-white/40 text-[14px] font-sora font-medium leading-relaxed mb-6 line-clamp-3">
+                          <p className="text-white text-[14px] font-sora font-medium leading-relaxed mb-6 line-clamp-3">
                             {rec.description}
                           </p>
                           <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
