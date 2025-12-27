@@ -125,7 +125,7 @@ export default function ServiceDetail() {
     : service.price;
 
   return (
-    <div className="pt-24 pb-12 bg-black min-h-screen flex flex-col font-sora text-[16px]">
+    <div className="pt-24 pb-12 bg-background min-h-screen flex flex-col font-sora text-[16px]">
       {/* Centered Header */}
       <section className="container px-4 mx-auto max-w-7xl pt-8 md:pt-16 pb-8 md:pb-12 text-center">
         <motion.h1

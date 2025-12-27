@@ -134,7 +134,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us - You, Your Vehicle & Auto Gamma Section */}
-      <section className="py-24 bg-black relative overflow-hidden">
+      <section className="py-24 bg-background relative overflow-hidden">
         <div className="container px-4 mx-auto relative z-10">
           <motion.div 
             initial="hidden"
