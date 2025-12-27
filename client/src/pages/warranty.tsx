@@ -112,7 +112,7 @@ export default function Warranty() {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="pt-24 pb-20 min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-background">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-1/3 h-full bg-blue-900/10 blur-[100px]" />

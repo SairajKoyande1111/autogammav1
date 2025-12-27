@@ -36,7 +36,7 @@ const staggerFast = {
 
 export default function About() {
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-24 pb-20 bg-background min-h-screen">
       {/* Header */}
       <section className="container px-4 mx-auto mb-20">
         <motion.div 

@@ -17,7 +17,7 @@ const stagger = {
 
 export default function Services() {
   return (
-    <div className="pt-24 pb-20 bg-background">
+    <div className="pt-24 pb-20 bg-background min-h-screen">
       {/* Hero Section */}
       <section className="container px-4 mx-auto mb-20 text-center">
         <motion.div
