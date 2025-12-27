@@ -346,13 +346,6 @@ export default function ServiceDetail() {
               <Calendar className="mr-3 h-5 w-5" />
               BOOK YOUR SLOT
             </Button>
-            <div className="mt-4 text-center">
-              <Link href="/services">
-                <span className="text-white/20 hover:text-red-500 text-[10px] uppercase tracking-[0.3em] cursor-pointer transition-all duration-300 font-bold font-orbitron">
-                  View All Premium Services
-                </span>
-              </Link>
-            </div>
           </motion.div>
 
           {/* Recommended Services */}
