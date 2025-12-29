@@ -49,22 +49,26 @@ import rupeeIcon from "@assets/image_1766729223515.png";
 import toolsIcon from "@assets/image_1766729246340.png";
 import starIcon from "@assets/image_1766729264056.png";
 
-import logoPolk from "@assets/image_1765180647538.png";
-import logoHertz from "@assets/image_1765180659355.png";
-import logoCrosslink from "@assets/image_1765180665333.png";
-import logoKochChemie from "@assets/image_1765180674823.png";
-import logoNippon from "@assets/image_1765180690668.png";
-import logoPioneer from "@assets/image_1765180699887.png";
-import logoBlaupunkt from "@assets/image_1765180711219.png";
-import logoMaxxlink from "@assets/image_1765180720687.png";
-import logoGarware from "@assets/image_1765180761821.png";
-import logoQubo from "@assets/image_1765180776395.png";
-import logoAvery from "@assets/image_1765180796870.png";
-import logoSunkool from "@assets/image_1765180803554.png";
-import logoLlumar from "@assets/image_1765180809382.png";
-import logo3M from "@assets/image_1765180836267.png";
-import logoCardi from "@assets/image_1765180859879.png";
-import logoCerwin from "@assets/image_1765180872400.png";
+import logoSunkool from "@assets/image_1766996045740.png";
+import logoLlumar from "@assets/image_1766996052707.png";
+import logo3M from "@assets/image_1766996063570.png";
+import logoAswatth from "@assets/image_1766996070604.png";
+import logoCardi from "@assets/image_1766996080591.png";
+import logoCerwin from "@assets/image_1766996092788.png";
+import logoBrand7 from "@assets/image_1766996100254.png";
+import logoPolk from "@assets/image_1766996112674.png";
+import logoHertz from "@assets/image_1766996128876.png";
+import logoCrosslink from "@assets/image_1766996150125.png";
+import logoKochChemie from "@assets/image_1766996160076.png";
+import logoNippon from "@assets/image_1766996166388.png";
+import logoPioneer from "@assets/image_1766996178157.png";
+import logoBlaupunkt from "@assets/image_1766996198972.png";
+import logoMaxxlink from "@assets/image_1766996207119.png";
+import logoGarware from "@assets/image_1766996214489.png";
+import logoQubo from "@assets/image_1766996220841.png";
+import logoMirage from "@assets/image_1766996227510.png";
+import logoVKool from "@assets/image_1766996234339.png";
+import logoAvery from "@assets/image_1766996241161.png";
 
 import profile1 from "@assets/stock_images/indian_professional__10ae0555.jpg";
 import profile2 from "@assets/stock_images/indian_professional__b766b1cd.jpg";
@@ -107,6 +111,13 @@ const staggerFast = {
 } as const;
 
 const brandLogos = [
+  { name: "Sunkool", logo: logoSunkool },
+  { name: "Llumar", logo: logoLlumar },
+  { name: "3M", logo: logo3M },
+  { name: "Aswatth", logo: logoAswatth },
+  { name: "Cardi", logo: logoCardi },
+  { name: "Cerwin Vega", logo: logoCerwin },
+  { name: "Brand 7", logo: logoBrand7 },
   { name: "Polk Audio", logo: logoPolk },
   { name: "Hertz", logo: logoHertz },
   { name: "Crosslink Wheels", logo: logoCrosslink },
@@ -117,12 +128,9 @@ const brandLogos = [
   { name: "Maxxlink", logo: logoMaxxlink },
   { name: "Garware", logo: logoGarware },
   { name: "Qubo", logo: logoQubo },
+  { name: "Mirage", logo: logoMirage },
+  { name: "V-Kool", logo: logoVKool },
   { name: "Avery Dennison", logo: logoAvery },
-  { name: "Sunkool", logo: logoSunkool },
-  { name: "Llumar", logo: logoLlumar },
-  { name: "3M", logo: logo3M },
-  { name: "Cardi", logo: logoCardi },
-  { name: "Cerwin Vega", logo: logoCerwin },
 ];
 
 // Carousel Component
