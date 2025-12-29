@@ -274,71 +274,7 @@ export default function Home() {
         {/* No overlay - image displays without tint */}
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
-          {/* Tagline */}
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0 }}
-            className="text-center mb-4 md:mb-8 lg:mb-10"
-          >
-            <div className="text-white text-base md:text-lg lg:text-xl font-medium tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Sora', sans-serif" }}>
-              
-            </div>
-          </motion.div>
-
-          {/* Main Heading */}
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.1 }}
-            className="text-center mb-6 md:mb-10 lg:mb-12 max-w-4xl"
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-2" style={{ color: "#FFFFFF", fontFamily: "'Sora', sans-serif" }}>
-              AUTO DETAILING
-            </h1>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight" style={{ color: "hsl(var(--primary))", fontFamily: "'Sora', sans-serif" }}>
-              DONE TO PERFECTION
-            </h1>
-          </motion.div>
-
-          {/* Description */}
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="text-center mb-8 md:mb-12 max-w-5xl"
-          >
-            <p className="text-base md:text-lg lg:text-xl text-white font-medium md:whitespace-nowrap" style={{ fontFamily: "'Sora', sans-serif" }}>All in One Solution for Your Car PPF, Ceramic Coating & Complete Protection.</p>
-          </motion.div>
-
-          {/* Buttons Section */}
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-          >
-            <Button 
-              asChild 
-              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 text-base md:text-lg md:px-10 md:py-3 lg:px-12 skew-x-[-15deg] min-h-12"
-              data-testid="button-hero-consult"
-            >
-              <Link href="#contact">Book Consultation</Link>
-            </Button>
-            
-            <Button 
-              asChild 
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-8 py-3 text-base md:text-lg md:px-10 md:py-3 lg:px-12 skew-x-[-15deg] min-h-12"
-              data-testid="button-hero-services"
-            >
-              <Link href="/services">Explore Services</Link>
-            </Button>
-          </motion.div>
+          
         </div>
 
         {/* Services Card at Bottom of Hero */}
