@@ -373,17 +373,17 @@ export default function Home() {
 
       {/* Brand Partners Logo Strip */}
       <section className="py-12 relative overflow-hidden" style={{ backgroundColor: "#7e7e7e" }}>
-        <div className="flex animate-marquee-brands">
-          {[...brandLogos, ...brandLogos].map((brand, i) => (
+        <div className="flex w-max animate-marquee-brands">
+          {[...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos].map((brand, i) => (
             <div 
               key={i} 
-              className="flex-shrink-0 mx-6 flex items-center justify-center"
+              className="flex-shrink-0 mx-3 flex items-center justify-center"
               data-testid={`logo-brand-${i}`}
             >
               <img 
                 src={brand.logo} 
                 alt={brand.name} 
-                className="h-16 md:h-20 w-auto object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
               />
             </div>
           ))}
