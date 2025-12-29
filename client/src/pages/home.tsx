@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Brand Partners Logo Strip */}
-      <section className="py-12 bg-neutral-900 relative overflow-hidden">
+      <section className="py-12 relative overflow-hidden" style={{ backgroundColor: "#7e7e7e" }}>
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none" />
         
