@@ -258,7 +258,7 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <section 
-        className="hero-bg relative w-full flex flex-col" 
+        className="hero-bg relative w-full flex flex-col md:h-screen" 
       >
         <div className="relative w-full aspect-video md:absolute md:inset-0 md:h-full md:aspect-auto">
           <video 
@@ -272,7 +272,7 @@ export default function Home() {
         </div>
         
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10 hidden md:flex min-h-[100vh]">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10 hidden md:flex">
           
         </div>
 
