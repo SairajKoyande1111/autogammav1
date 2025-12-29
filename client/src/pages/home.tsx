@@ -327,7 +327,7 @@ export default function Home() {
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-sora font-semibold text-white">
               OUR <span className="text-primary">SERVICES</span>
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-white text-sm md:text-xl font-medium max-w-lg mx-auto leading-relaxed">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
+            <motion.p variants={fadeInUp} className="text-white text-sm md:text-xl font-medium md:max-w-none max-w-lg mx-auto leading-relaxed md:whitespace-nowrap">Complete automotive care solutions tailored to protect, enhance, and maintain your vehicle's pristine condition</motion.p>
           </motion.div>
 
           <motion.div 
