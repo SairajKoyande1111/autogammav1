@@ -283,7 +283,7 @@ export default function Home() {
             className="text-center mb-4 md:mb-8 lg:mb-10"
           >
             <div className="text-white text-base md:text-lg lg:text-xl font-medium tracking-[0.2em] uppercase" style={{ letterSpacing: "0.15em", fontFamily: "'Sora', sans-serif" }}>
-              PREMIUM AUTO CARE
+              
             </div>
           </motion.div>
 
