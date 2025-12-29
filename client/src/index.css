@@ -151,7 +151,7 @@
   }
   
   .animate-marquee-brands {
-    animation: marquee-brands 25s linear infinite;
+    animation: marquee-brands 12s linear infinite;
   }
   
   @keyframes marquee-brands {

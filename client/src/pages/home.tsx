@@ -377,7 +377,7 @@ export default function Home() {
           {[...brandLogos, ...brandLogos].map((brand, i) => (
             <div 
               key={i} 
-              className="flex-shrink-0 mx-8 flex items-center justify-center"
+              className="flex-shrink-0 mx-6 flex items-center justify-center"
               data-testid={`logo-brand-${i}`}
             >
               <img 
