@@ -474,10 +474,10 @@ export default function Home() {
               variants={fadeInUp}
               className="text-center mb-16 space-y-4"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider">
                 <span className="text-primary">TRANSFORMATION</span> <span className="text-white">GALLERY</span>
               </h2>
-              <p className="text-white text-lg max-w-2xl mx-auto font-poppins">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto font-poppins">
                 Witness the stunning transformations we've created for our valued clients. Premium detailing that elevates every vehicle to perfection.
               </p>
             </motion.div>
