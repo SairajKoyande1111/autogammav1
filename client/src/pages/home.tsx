@@ -259,19 +259,15 @@ export default function Home() {
       {/* Hero Section */}
       <section 
         className="hero-bg relative w-full flex flex-col justify-between" 
-        style={{ 
-          height: "auto",
-          minHeight: "100vh"
-        }}
       >
-        <div className="relative w-full aspect-video md:absolute md:inset-0 md:h-full">
+        <div className="relative w-full aspect-video">
           <video 
             src={heroVideo}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover md:object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
         {/* No overlay - image displays without tint */}
