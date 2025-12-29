@@ -518,10 +518,10 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-16 space-y-4"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider">
               <span className="text-primary">CONTACT</span> <span className="text-white">US</span>
             </h2>
-            <p className="text-white text-lg max-w-2xl mx-auto font-poppins">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto font-poppins">
               Ready to give your vehicle the treatment it deserves? Reach out to us for appointments, quotes, or any queries.
             </p>
           </motion.div>
@@ -736,10 +736,10 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-12 space-y-2"
           >
-            <motion.h2 className="text-3xl md:text-5xl font-bold text-white">
+            <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider">
               <span className="text-primary">Customer</span> <span className="text-white">Reviews</span>
             </motion.h2>
-            <motion.p className="text-white text-base">
+            <motion.p className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
               Real testimonials from satisfied clients across India
             </motion.p>
           </motion.div>
