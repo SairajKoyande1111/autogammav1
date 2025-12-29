@@ -259,8 +259,11 @@ export default function Home() {
       {/* Hero Section */}
       <section 
         className="hero-bg relative w-full flex flex-col justify-between" 
+        style={{ 
+          height: "100vh",
+        }}
       >
-        <div className="relative w-full aspect-video">
+        <div className="absolute inset-0 w-full h-full">
           <video 
             src={heroVideo}
             autoPlay
@@ -270,7 +273,7 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         </div>
-        {/* No overlay - image displays without tint */}
+        
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10 hidden md:flex">
           
@@ -290,7 +293,7 @@ export default function Home() {
                   <div key={i} className="flex items-center gap-4 md:gap-8 px-4">
                     <span className="text-primary font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">PAINT PROTECTION FILM</span>
                     <span className="text-white font-bold">|</span>
-                    <span className="text-white font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">SUN CONTROL FILM</span>
+                    <span className="text-white font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-sm lg:text-base">SUN CONTROL FILM</span>
                     <span className="text-white font-bold">|</span>
                     <span className="text-primary font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">BODY WRAP</span>
                     <span className="text-white font-bold">|</span>
