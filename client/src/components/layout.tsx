@@ -108,29 +108,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50">
         {/* Top Bar - Contact & Social */}
         <div className="bg-black">
-          <div className="max-w-[1400px] mx-auto px-6 py-1.5 flex justify-between items-center">
+          <div className="max-w-[1400px] mx-auto px-6 py-1 flex justify-between items-center">
             {/* Contact Info */}
-            <div className="hidden md:flex items-center gap-4 text-white text-base font-medium">
-              <a href="mailto:info@autogamma.in" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Mail size={18} className="text-white" />
+            <div className="hidden md:flex items-center gap-4 text-white text-xs font-medium">
+              <a href="mailto:info@autogamma.in" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                <Mail size={14} className="text-white" />
                 <span>info@autogamma.in</span>
               </a>
               <span className="text-white">|</span>
-              <a href="tel:+919226882024" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Phone size={18} className="text-white" />
+              <a href="tel:+919226882024" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                <Phone size={14} className="text-white" />
                 <span>+91 92268 82024</span>
               </a>
             </div>
             
             {/* Social Media Icons */}
-            <div className="hidden md:flex items-center gap-5">
-              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
+            <div className="hidden md:flex items-center gap-4">
+              <a href="#" className="w-6 h-6 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Facebook">
                 <img src={facebookIcon} alt="Facebook" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
+              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Instagram">
                 <img src={instagramIcon} alt="Instagram" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-11 h-11 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="YouTube">
+              <a href="#" className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="YouTube">
                 <img src={youtubeIcon} alt="YouTube" className="w-full h-full object-contain" />
               </a>
             </div>
@@ -139,31 +139,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Main Navigation Bar */}
         <div className="bg-black border-b border-white/10">
-          <div className="max-w-[1400px] mx-auto px-6 py-2.5 flex justify-between items-center">
+          <div className="max-w-[1400px] mx-auto px-6 py-1 flex justify-between items-center">
             {/* Logo */}
             <Link href="/" className="cursor-pointer shrink-0">
               <img 
                 src={autoGammaLogo} 
                 alt="Auto Gamma" 
-                className="h-12 md:h-13 w-auto object-contain"
+                className="h-10 md:h-11 w-auto object-contain"
               />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-12">
+            <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group">
                   <Link 
                     href={link.href}
-                    className="relative group cursor-pointer py-3 flex items-center gap-1"
+                    className="relative group cursor-pointer py-2 flex items-center gap-1"
                   >
-                    <span className="text-lg font-medium tracking-wide transition-colors text-white font-sora">
+                    <span className="text-sm font-medium tracking-wide transition-colors text-white font-sora">
                       {link.name}
                     </span>
-                    {link.submenu && <ChevronDown size={16} className="text-white" />}
+                    {link.submenu && <ChevronDown size={14} className="text-white" />}
                   </Link>
                   {/* Sliding red underline on hover */}
-                  <span className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-300 ease-out ${
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${
                     location === link.href ? "w-full" : "w-0 group-hover:w-full"
                   }`}></span>
                   
@@ -189,7 +189,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="hidden lg:block">
               <Button 
                 onClick={handleBookNow} 
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-2.5 uppercase tracking-wider text-sm font-poppins -skew-x-12"
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-2 uppercase tracking-wider text-xs font-poppins -skew-x-12"
               >
                 SERVICE ENQUIRY
               </Button>
