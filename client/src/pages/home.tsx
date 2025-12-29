@@ -260,20 +260,23 @@ export default function Home() {
       <section 
         className="hero-bg relative w-full flex flex-col justify-between" 
         style={{ 
-          height: "100vh",
+          height: "auto",
+          minHeight: "100vh"
         }}
       >
-        <video 
-          src={heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="hero-bg-video"
-        />
+        <div className="relative w-full aspect-video md:absolute md:inset-0 md:h-full">
+          <video 
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover md:object-cover"
+          />
+        </div>
         {/* No overlay - image displays without tint */}
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10 hidden md:flex">
           
         </div>
 
@@ -284,24 +287,29 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative z-20 w-full mb-0"
         >
-          <div className="bg-black/90 border-t border-b border-white/10 py-4 md:py-5">
-            <div className="w-full px-4 md:px-8 lg:px-12 overflow-x-auto">
-              <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-4 text-white text-xs md:text-sm lg:text-base font-semibold uppercase tracking-wide whitespace-nowrap">
-                <span className="text-primary shrink-0">PAINT PROTECTION FILM</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="shrink-0">SUN CONTROL FILM</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="text-primary shrink-0">BODY WRAP</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="shrink-0">CERAMIC COATING</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="text-primary shrink-0">STEAM WASH</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="shrink-0">DETAILING</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="text-primary shrink-0">CAR ACCESSORIES</span>
-                <span className="text-white text-xs md:text-sm lg:text-base font-bold shrink-0">|</span>
-                <span className="shrink-0">MECHANICAL</span>
+          <div className="bg-black/90 border-t border-b border-white/10 py-4 md:py-5 overflow-hidden">
+            <div className="w-full px-0">
+              <div className="flex animate-marquee-services whitespace-nowrap">
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="flex items-center gap-4 md:gap-8 px-4">
+                    <span className="text-primary font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">PAINT PROTECTION FILM</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-white font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">SUN CONTROL FILM</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-primary font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">BODY WRAP</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-white font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">CERAMIC COATING</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-primary font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">STEAM WASH</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-white font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">DETAILING</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-primary font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">CAR ACCESSORIES</span>
+                    <span className="text-white font-bold">|</span>
+                    <span className="text-white font-semibold uppercase tracking-wide text-xs md:text-sm lg:text-base">MECHANICAL</span>
+                    <span className="text-white font-bold">|</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

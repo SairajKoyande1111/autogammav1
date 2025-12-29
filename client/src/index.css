@@ -166,6 +166,15 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+
+  .animate-marquee-services {
+    animation: marquee-services 20s linear infinite;
+  }
+
+  @keyframes marquee-services {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
   
   @keyframes rotate-tire {
     0% { transform: rotate(0deg); }
