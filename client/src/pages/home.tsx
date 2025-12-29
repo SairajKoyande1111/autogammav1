@@ -258,12 +258,13 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <section 
-        className="hero-bg relative w-full flex flex-col justify-between" 
+        className="hero-bg relative w-full flex flex-col" 
         style={{ 
-          height: "100vh",
+          height: "auto",
+          minHeight: "100vh"
         }}
       >
-        <div className="absolute inset-0 w-full h-full">
+        <div className="relative w-full aspect-video md:absolute md:inset-0 md:h-full md:aspect-auto">
           <video 
             src={heroVideo}
             autoPlay
@@ -284,7 +285,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-20 w-full mb-0"
+          className="relative z-20 w-full mt-auto md:mt-0"
         >
           <div className="bg-black/90 border-t border-b border-white/10 py-4 md:py-5 overflow-hidden">
             <div className="w-full px-0">
