@@ -259,10 +259,6 @@ export default function Home() {
       {/* Hero Section */}
       <section 
         className="hero-bg relative w-full flex flex-col" 
-        style={{ 
-          height: "auto",
-          minHeight: "100vh"
-        }}
       >
         <div className="relative w-full aspect-video md:absolute md:inset-0 md:h-full md:aspect-auto">
           <video 
@@ -276,7 +272,7 @@ export default function Home() {
         </div>
         
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10 hidden md:flex">
+        <div className="flex-1 flex flex-col items-center justify-center w-full px-4 pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10 hidden md:flex min-h-[100vh]">
           
         </div>
 
@@ -285,7 +281,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-20 w-full mt-auto md:mt-0"
+          className="relative z-20 w-full"
         >
           <div className="bg-black/90 border-t border-b border-white/10 py-4 md:py-5 overflow-hidden">
             <div className="w-full px-0">
