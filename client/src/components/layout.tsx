@@ -145,7 +145,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <img 
                 src={autoGammaLogo} 
                 alt="Auto Gamma" 
-                className="h-10 md:h-11 w-auto object-contain"
+                className="h-8 md:h-9 w-auto object-contain"
               />
             </Link>
 
