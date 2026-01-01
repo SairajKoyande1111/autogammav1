@@ -372,9 +372,9 @@ export default function Home() {
       </section>
 
       {/* Brand Partners Logo Strip */}
-      <section className="py-12 relative overflow-hidden" style={{ backgroundColor: "#7e7e7e" }}>
-        <div className="container mx-auto px-4 mb-8 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tighter uppercase whitespace-nowrap">
+      <section className="py-6 md:py-8 relative overflow-hidden" style={{ backgroundColor: "#7e7e7e" }}>
+        <div className="container mx-auto px-4 mb-4 text-center">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tighter uppercase whitespace-nowrap">
             <span className="text-white">OUR BRAND </span>
             <span className="text-primary">PARTNERS</span>
           </h2>
@@ -389,7 +389,7 @@ export default function Home() {
               <img 
                 src={brand.logo} 
                 alt={brand.name} 
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-8 md:h-10 w-auto object-contain"
               />
             </div>
           ))}
