@@ -375,8 +375,7 @@ export default function Home() {
       <section className="py-6 md:py-8 relative overflow-hidden" style={{ backgroundColor: "#7e7e7e" }}>
         <div className="container mx-auto px-4 mb-4 text-center">
           <h2 className="text-xl md:text-2xl font-bold tracking-tighter uppercase whitespace-nowrap">
-            <span className="text-white">OUR BRAND </span>
-            <span className="text-primary">PARTNERS</span>
+            <span className="text-white">OUR BRAND PARTNERS</span>
           </h2>
         </div>
         <div className="flex w-max animate-marquee-brands">
