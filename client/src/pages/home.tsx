@@ -373,7 +373,13 @@ export default function Home() {
 
       {/* Brand Partners Logo Strip */}
       <section className="py-12 relative overflow-hidden" style={{ backgroundColor: "#7e7e7e" }}>
-        <div className="flex w-max animate-marquee-brands">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tighter uppercase whitespace-nowrap">
+            <span className="text-white">OUR BRAND </span>
+            <span className="text-primary">PARTNERS</span>
+          </h2>
+        </div>
+        <div className="flex w-max animate-marquee-brands opacity-40">
           {[...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos].map((brand, i) => (
             <div 
               key={i} 
