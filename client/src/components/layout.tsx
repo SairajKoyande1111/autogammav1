@@ -316,6 +316,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             </div>
 
+            {/* Services */}
+            <div className="space-y-6">
+              <h4 className="text-lg font-poppins font-bold text-white uppercase">SERVICES</h4>
+              <ul className="space-y-3">
+                {navLinks.find(link => link.name === "SERVICES")?.submenu?.slice(0, 6).map((service) => (
+                  <li key={service.name}>
+                    <Link href={service.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer font-poppins text-sm uppercase">
+                      <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform text-primary" />
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Contact Info */}
             <div className="space-y-6">
               <h4 className="text-lg font-poppins font-bold text-white uppercase">CONTACT US</h4>
@@ -334,37 +349,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
               </ul>
             </div>
-
-            {/* Directions */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-poppins font-bold text-white uppercase">FIND US</h4>
-              <div className="rounded-lg overflow-hidden h-32 border border-white/10">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.123456789!2d73.2585!3d19.1665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA5JzU5LjQiTiA3M8KwMTUnMzAuNiJF!5e0!3m2!1sen!2sin!4v1700000000000"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Auto Gamma Location"
-                />
-              </div>
-              <a 
-                href="https://www.google.com/maps/search/?api=1&query=Shop+no.+16+%26+17+Shreeji+Parasio+Beside+Tulsi+Aangan+Soc+Prasad+Hotel+Road+Badlapur+Maharashtra+421503"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold font-poppins uppercase">
-                  <MapPin className="mr-2 h-4 w-4" /> GET DIRECTIONS
-                </Button>
-              </a>
-            </div>
           </div>
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-poppins">
-            <p>© {new Date().getFullYear()} AUTO GAMMA. ALL RIGHTS RESERVED.</p>
+            <div className="flex flex-col gap-1">
+              <p>© {new Date().getFullYear()} AUTO GAMMA. ALL RIGHTS RESERVED.</p>
+              <p className="text-xs">DEVELOPED BY <a href="https://www.airavatatechnologies.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AIRAVATA TECHNOLOGIES</a></p>
+            </div>
             <div className="flex gap-6 uppercase text-xs font-medium">
               <a href="#" className="hover:text-white">PRIVACY POLICY</a>
               <a href="#" className="hover:text-white">TERMS OF SERVICE</a>
