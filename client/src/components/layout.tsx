@@ -301,18 +301,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3">
                 {navLinks.filter(link => !link.submenu).map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer font-poppins text-sm">
+                    <Link href={link.href} className="text-white hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer font-poppins text-sm uppercase">
                       <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform text-primary" />
                       {link.name}
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group">
-                    <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform text-primary" />
-                    Download Brochure
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -352,12 +346,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white font-poppins">
-            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+            <div className="flex-1"></div>
+            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 flex-1 justify-center">
               <p>© {new Date().getFullYear()} AUTO GAMMA. ALL RIGHTS RESERVED.</p>
               <p className="hidden md:block">|</p>
               <p className="text-xs">DEVELOPED BY <a href="https://www.airavatatechnologies.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors font-bold tracking-wider">AIRAVATA TECHNOLOGIES</a></p>
             </div>
-            <div className="flex gap-6 uppercase text-xs font-medium">
+            <div className="flex gap-6 uppercase text-xs font-medium flex-1 justify-end">
               <a href="#" className="hover:text-primary">PRIVACY POLICY</a>
               <a href="#" className="hover:text-primary">TERMS OF SERVICE</a>
             </div>
