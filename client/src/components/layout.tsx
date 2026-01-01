@@ -320,9 +320,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="space-y-6">
               <h4 className="text-lg font-poppins font-bold text-white uppercase">SERVICES</h4>
               <ul className="space-y-3">
-                {navLinks.find(link => link.name === "SERVICES")?.submenu?.slice(0, 6).map((service) => (
+                {navLinks.find(link => link.name === "SERVICES")?.submenu?.map((service) => (
                   <li key={service.name}>
-                    <Link href={service.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer font-poppins text-sm uppercase">
+                    <Link href={service.href} className="text-white hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer font-poppins text-sm uppercase">
                       <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform text-primary" />
                       {service.name}
                     </Link>
@@ -332,33 +332,34 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:col-span-1">
               <h4 className="text-lg font-poppins font-bold text-white uppercase">CONTACT US</h4>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-muted-foreground">
+                <li className="flex items-start gap-3 text-white">
                   <MapPin className="text-primary shrink-0 mt-1" size={18} />
                   <span>Shop no. 16 & 17, Shreeji Parasio, Beside Tulsi Aangan Soc., Prasad Hotel Road, Badlapur, Maharashtra - 421503</span>
                 </li>
-                <li className="flex items-center gap-3 text-muted-foreground">
+                <li className="flex items-center gap-3 text-white">
                   <Phone className="text-primary shrink-0" size={18} />
-                  <a href="tel:+919226882024" className="hover:text-white">+91 92268 82024</a>
+                  <a href="tel:+919226882024" className="hover:text-primary">+91 92268 82024</a>
                 </li>
-                <li className="flex items-center gap-3 text-muted-foreground">
+                <li className="flex items-center gap-3 text-white">
                   <Mail className="text-primary shrink-0" size={18} />
-                  <a href="mailto:info@autogamma.in" className="hover:text-white">info@autogamma.in</a>
+                  <a href="mailto:info@autogamma.in" className="hover:text-primary">info@autogamma.in</a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-poppins">
-            <div className="flex flex-col gap-1">
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white font-poppins">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
               <p>© {new Date().getFullYear()} AUTO GAMMA. ALL RIGHTS RESERVED.</p>
-              <p className="text-xs">DEVELOPED BY <a href="https://www.airavatatechnologies.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AIRAVATA TECHNOLOGIES</a></p>
+              <p className="hidden md:block">|</p>
+              <p className="text-xs">DEVELOPED BY <a href="https://www.airavatatechnologies.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors font-bold tracking-wider">AIRAVATA TECHNOLOGIES</a></p>
             </div>
             <div className="flex gap-6 uppercase text-xs font-medium">
-              <a href="#" className="hover:text-white">PRIVACY POLICY</a>
-              <a href="#" className="hover:text-white">TERMS OF SERVICE</a>
+              <a href="#" className="hover:text-primary">PRIVACY POLICY</a>
+              <a href="#" className="hover:text-primary">TERMS OF SERVICE</a>
             </div>
           </div>
         </div>
