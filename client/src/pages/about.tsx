@@ -1,8 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import {
-  Shield, Zap, Trophy, Users, Car, Star, CheckCircle2, ArrowRight,
-  Target, Eye, Layers, Heart, Lightbulb, Award, Clock, MapPin
+  Trophy, Users, Car, Star, CheckCircle2, ArrowRight,
+  Target, Eye
 } from "lucide-react";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
 import galleryImage1 from "@assets/stock_images/luxury_car_in_dark_g_18d4fc70.jpg";
@@ -93,6 +93,13 @@ export default function About() {
               variants={stagger}
               className="max-w-2xl"
             >
+              <motion.div variants={fadeInUp} className="mb-5">
+                <img
+                  src={autoGammaLogo}
+                  alt="Auto Gamma"
+                  className="h-16 md:h-20 w-auto object-contain"
+                />
+              </motion.div>
               <motion.h1
                 variants={fadeInUp}
                 className="text-5xl md:text-7xl font-bold text-white font-sora uppercase tracking-wider leading-none mb-6"
@@ -175,7 +182,7 @@ export default function About() {
                   <img
                     src={galleryImage1}
                     alt="Auto Gamma Workshop"
-                    className="w-full h-64 md:h-72 object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-72 md:h-96 object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
@@ -396,41 +403,35 @@ export default function About() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: "01", icon: Clock, title: "Book Your Slot", desc: "Choose your service and schedule a convenient time. We offer flexible slots including weekends." },
-              { step: "02", icon: MapPin, title: "Pickup or Drop-in", desc: "We collect your vehicle from your location for free, or drive it directly to our studio." },
-              { step: "03", icon: Zap, title: "Expert Treatment", desc: "Our skilled technicians apply the finest products with precision techniques tailored to your vehicle." },
-              { step: "04", icon: Award, title: "Delivered to You", desc: "Your vehicle is returned spotless, transformed, and ready to turn heads — right to your doorstep." },
-            ].map(({ step, icon: Icon, title, desc }, i) => (
+              { step: "01", title: "Book Your Slot", desc: "Choose your service and schedule a convenient time. We offer flexible slots including weekends." },
+              { step: "02", title: "Pickup or Drop-in", desc: "We collect your vehicle from your location for free, or drive it directly to our studio." },
+              { step: "03", title: "Expert Treatment", desc: "Our skilled technicians apply the finest products with precision techniques tailored to your vehicle." },
+              { step: "04", title: "Delivered to You", desc: "Your vehicle is returned spotless, transformed, and ready to turn heads — right to your doorstep." },
+            ].map(({ step, title, desc }, i) => (
               <motion.div
                 key={i}
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.15, ease: "easeOut" }}
                 className="group relative bg-white/5 border border-white/10 p-8 hover:border-primary/50 transition-all duration-300 hover-lift"
               >
                 <div className="absolute top-0 left-0 w-full h-0.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                    <Icon className="text-primary group-hover:text-white transition-colors duration-300" size={20} />
-                  </div>
-                  <span className="text-4xl font-bold text-white/8 font-sora group-hover:text-primary/20 transition-colors leading-none">{step}</span>
-                </div>
+                <p className="text-7xl font-bold text-white/5 font-sora group-hover:text-primary/15 transition-colors leading-none mb-6 select-none">
+                  {step}
+                </p>
                 <h3 className="text-lg font-sora font-semibold text-white uppercase tracking-wide mb-3">{title}</h3>
                 <p className="text-white font-poppins text-sm leading-relaxed">{desc}</p>
                 {i < 3 && (
-                  <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-primary/40">
-                    <ArrowRight size={20} />
+                  <div className="hidden lg:flex absolute -right-3 top-12 z-10 text-primary/50">
+                    <ArrowRight size={22} />
                   </div>
                 )}
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -461,23 +462,22 @@ export default function About() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {[
-              { Icon: Shield, color: "from-blue-500/20 to-transparent", iconBg: "bg-blue-500/20 border-blue-500/30", iconColor: "text-blue-400", title: "INTEGRITY", desc: "Honest pricing, genuine products, and transparent communication. We never cut corners on service or relationships." },
-              { Icon: Zap, color: "from-yellow-500/20 to-transparent", iconBg: "bg-yellow-500/20 border-yellow-500/30", iconColor: "text-yellow-400", title: "PRECISION", desc: "Every detail matters. Our technicians follow meticulous processes to deliver flawless results, every single time." },
-              { Icon: Trophy, color: "from-primary/20 to-transparent", iconBg: "bg-primary/20 border-primary/30", iconColor: "text-primary", title: "EXCELLENCE", desc: "We hold ourselves to the highest standards, using only premium products and proven techniques for lasting results." },
-              { Icon: Heart, color: "from-pink-500/20 to-transparent", iconBg: "bg-pink-500/20 border-pink-500/30", iconColor: "text-pink-400", title: "CUSTOMER FIRST", desc: "Your satisfaction is our benchmark. From the first call to final delivery, your experience is our top priority." },
-              { Icon: Layers, color: "from-green-500/20 to-transparent", iconBg: "bg-green-500/20 border-green-500/30", iconColor: "text-green-400", title: "PASSION", desc: "We love cars as much as you do. That genuine passion drives the quality and care we pour into every vehicle." },
-              { Icon: Lightbulb, color: "from-purple-500/20 to-transparent", iconBg: "bg-purple-500/20 border-purple-500/30", iconColor: "text-purple-400", title: "INNOVATION", desc: "We stay ahead with the latest techniques, products, and technologies to offer solutions that set new standards." },
-            ].map(({ Icon, color, iconBg, iconColor, title, desc }, i) => (
+              { title: "INTEGRITY", desc: "Honest pricing, genuine products, and transparent communication. We never cut corners on service or relationships." },
+              { title: "PRECISION", desc: "Every detail matters. Our technicians follow meticulous processes to deliver flawless results, every single time." },
+              { title: "EXCELLENCE", desc: "We hold ourselves to the highest standards, using only premium products and proven techniques for lasting results." },
+              { title: "CUSTOMER FIRST", desc: "Your satisfaction is our benchmark. From the first call to final delivery, your experience is our top priority." },
+              { title: "PASSION", desc: "We love cars as much as you do. That genuine passion drives the quality and care we pour into every vehicle." },
+              { title: "INNOVATION", desc: "We stay ahead with the latest techniques, products, and technologies to offer solutions that set new standards." },
+            ].map(({ title, desc }, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group relative overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 hover-lift"
+                className="group relative overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 hover-lift"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative p-8">
-                  <div className={`w-14 h-14 ${iconBg} border flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={iconColor} size={24} />
-                  </div>
+                  <div className="w-8 h-0.5 bg-primary mb-5 group-hover:w-14 transition-all duration-300" />
                   <h3 className="text-xl font-sora font-semibold text-white uppercase tracking-wide mb-3">{title}</h3>
                   <p className="text-white font-poppins text-sm leading-relaxed">{desc}</p>
                 </div>
