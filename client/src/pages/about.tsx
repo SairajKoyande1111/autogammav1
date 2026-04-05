@@ -67,13 +67,13 @@ export default function About() {
             </motion.p>
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-7xl font-orbitron font-bold text-white leading-none mb-6 uppercase"
+              className="text-5xl md:text-7xl font-bold text-white font-sora uppercase tracking-wider leading-none mb-6"
             >
               ABOUT <span className="text-primary">AUTO GAMMA</span>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 font-poppins text-lg md:text-xl max-w-2xl leading-relaxed"
+              className="text-white max-w-2xl font-poppins text-lg md:text-xl leading-relaxed"
             >
               Badlapur's first and most trusted professional automotive detailing studio — where precision meets passion and every vehicle leaves transformed.
             </motion.p>
@@ -102,7 +102,7 @@ export default function About() {
                 <div className="flex justify-center text-primary">
                   <stat.icon size={36} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">
+                <h3 className="text-4xl md:text-5xl font-bold text-white font-sora">
                   {stat.count}
                 </h3>
                 <p className="text-white/50 font-poppins uppercase tracking-widest text-xs">
@@ -136,10 +136,8 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
               <div className="absolute -bottom-5 -right-5 w-28 h-28 border-b-2 border-r-2 border-primary" />
-
-              {/* Badge */}
               <div className="absolute bottom-8 left-8 bg-primary px-5 py-3">
-                <p className="text-white font-orbitron font-bold text-sm uppercase tracking-wider">
+                <p className="text-white font-sora font-bold text-sm uppercase tracking-wider">
                   Est. Badlapur
                 </p>
                 <p className="text-white/80 font-poppins text-xs mt-0.5">
@@ -154,14 +152,12 @@ export default function About() {
                 <p className="text-primary font-poppins text-sm font-bold tracking-[0.3em] uppercase mb-4">
                   Our Story
                 </p>
-                <h2 className="text-4xl md:text-5xl font-sora font-semibold text-white leading-tight mb-6">
-                  Badlapur's{" "}
-                  <span className="text-primary">First Professional</span>{" "}
-                  Auto Detailing Studio
+                <h2 className="text-4xl md:text-5xl font-bold text-white font-sora uppercase tracking-wider leading-tight mb-6">
+                  BADLAPUR'S <span className="text-primary">FIRST PROFESSIONAL</span> AUTO DETAILING STUDIO
                 </h2>
               </div>
 
-              <div className="space-y-5 text-white/70 font-poppins text-base leading-relaxed">
+              <div className="space-y-5 text-white font-poppins text-base leading-relaxed">
                 <p>
                   Auto Gamma was founded with a singular vision — to bring world-class automotive care to Badlapur. As the region's first dedicated professional detailing studio, we set the benchmark for quality, precision, and customer trust from day one.
                 </p>
@@ -214,7 +210,7 @@ export default function About() {
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl md:text-5xl font-sora font-semibold text-white uppercase tracking-wider"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider"
             >
               MISSION &amp; <span className="text-primary">VISION</span>
             </motion.h2>
@@ -231,13 +227,13 @@ export default function About() {
               {
                 Icon: Target,
                 label: "Our Mission",
-                heading: "Excellence Without Compromise",
+                heading: "EXCELLENCE WITHOUT COMPROMISE",
                 body: "To deliver unmatched automotive care with industry-leading products, trained professionals, and a customer-first approach — ensuring every vehicle we touch reflects our commitment to perfection. We strive to make premium detailing accessible, affordable, and reliable for every vehicle owner.",
               },
               {
                 Icon: Eye,
                 label: "Our Vision",
-                heading: "Setting the Regional Standard",
+                heading: "SETTING THE REGIONAL STANDARD",
                 body: "To be the most respected and sought-after automotive detailing brand in the Badlapur-Kalyan-Thane region — recognized for our integrity, technical expertise, and transformational results. We envision a future where every car owner has access to world-class care, right at their doorstep.",
               },
             ].map(({ Icon, label, heading, body }, i) => (
@@ -255,10 +251,10 @@ export default function About() {
                     {label}
                   </span>
                 </div>
-                <h3 className="text-2xl font-sora font-semibold text-white mb-4">
+                <h3 className="text-2xl font-bold text-white font-sora uppercase tracking-wider mb-4">
                   {heading}
                 </h3>
-                <p className="text-white/60 font-poppins text-base leading-relaxed">
+                <p className="text-white font-poppins text-base leading-relaxed">
                   {body}
                 </p>
               </motion.div>
@@ -286,14 +282,13 @@ export default function About() {
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl md:text-5xl font-sora font-semibold text-white uppercase tracking-wider"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider"
             >
-              YOU, YOUR VEHICLE &amp;{" "}
-              <span className="text-primary">AUTO GAMMA</span>
+              YOU, YOUR VEHICLE &amp; <span className="text-primary">AUTO GAMMA</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-white/60 font-poppins text-lg max-w-2xl mx-auto"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto font-poppins"
             >
               We go beyond detailing — we deliver an experience built on trust, skill, and relentless dedication to your vehicle.
             </motion.p>
@@ -311,29 +306,25 @@ export default function About() {
                 title: "Free Pickup & Drop",
                 img: galleryImage1,
                 highlight: "DOORSTEP SERVICE",
-                description:
-                  "We come to you. Free doorstep pickup and delivery so your schedule stays uninterrupted.",
+                description: "We come to you. Free doorstep pickup and delivery so your schedule stays uninterrupted.",
               },
               {
                 title: "50+ Services",
                 img: detailingImage,
                 highlight: "DIVERSE EXPERTISE",
-                description:
-                  "From ceramic coatings to mechanical work — one studio, every solution your vehicle needs.",
+                description: "From ceramic coatings to mechanical work — one studio, every solution your vehicle needs.",
               },
               {
                 title: "Best Value Pricing",
                 img: galleryImage2,
                 highlight: "NO COMPROMISE",
-                description:
-                  "Premium quality at prices that make sense. We believe world-class care should be accessible.",
+                description: "Premium quality at prices that make sense. We believe world-class care should be accessible.",
               },
               {
                 title: "Expert Crew",
                 img: ppfImage,
                 highlight: "10+ YRS EXPERIENCE",
-                description:
-                  "A trained, passionate team that treats every vehicle with the precision of a craftsman.",
+                description: "A trained, passionate team that treats every vehicle with the precision of a craftsman.",
               },
             ].map((feature, i) => (
               <motion.div key={i} variants={fadeInUp}>
@@ -342,7 +333,7 @@ export default function About() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url(${feature.img})` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 opacity-90 group-hover:opacity-80 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
 
                   <div className="absolute top-4 left-4">
                     <span className="text-[10px] font-poppins font-bold tracking-wider text-white bg-primary px-3 py-1.5">
@@ -351,10 +342,10 @@ export default function About() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-xl font-sora font-semibold text-white mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-2xl font-sora font-semibold text-white mb-2 group-hover:text-primary transition-colors">
                       {feature.title}
                     </h3>
-                    <div className="w-10 h-0.5 bg-primary mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="w-12 h-1 bg-primary mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <p className="text-sm font-poppins text-white/80">
                       {feature.description}
                     </p>
@@ -384,13 +375,13 @@ export default function About() {
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl md:text-5xl font-sora font-semibold text-white uppercase tracking-wider"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider"
             >
               OUR <span className="text-primary">PROCESS</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-white/60 font-poppins text-lg max-w-2xl mx-auto"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto font-poppins"
             >
               A streamlined, transparent approach designed to give you complete confidence from booking to delivery.
             </motion.p>
@@ -431,13 +422,13 @@ export default function About() {
                 className="group relative bg-white/5 border border-white/10 p-8 hover:border-primary/50 transition-all duration-300 hover-lift"
               >
                 <div className="absolute top-0 left-0 w-full h-0.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <p className="text-6xl font-orbitron font-bold text-white/5 group-hover:text-primary/10 transition-colors leading-none mb-4">
+                <p className="text-6xl font-bold text-white/5 font-sora group-hover:text-primary/10 transition-colors leading-none mb-4">
                   {step}
                 </p>
-                <h3 className="text-lg font-sora font-semibold text-white mb-3">
+                <h3 className="text-lg font-sora font-semibold text-white mb-3 uppercase tracking-wide">
                   {title}
                 </h3>
-                <p className="text-white/55 font-poppins text-sm leading-relaxed">
+                <p className="text-white font-poppins text-sm leading-relaxed">
                   {desc}
                 </p>
                 {i < 3 && (
@@ -470,7 +461,7 @@ export default function About() {
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl md:text-5xl font-sora font-semibold text-white uppercase tracking-wider"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider"
             >
               OUR CORE <span className="text-primary">VALUES</span>
             </motion.h2>
@@ -486,47 +477,47 @@ export default function About() {
             {[
               {
                 Icon: Shield,
-                title: "Integrity",
+                title: "INTEGRITY",
                 desc: "Honest pricing, genuine products, and transparent communication. We never cut corners — on service or relationships.",
               },
               {
                 Icon: Zap,
-                title: "Precision",
+                title: "PRECISION",
                 desc: "Every detail matters. Our technicians follow meticulous processes to deliver flawless results, every single time.",
               },
               {
                 Icon: Trophy,
-                title: "Excellence",
+                title: "EXCELLENCE",
                 desc: "We hold ourselves to the highest industry standards — using only premium products and proven techniques for lasting results.",
               },
               {
                 Icon: Users,
-                title: "Customer First",
+                title: "CUSTOMER FIRST",
                 desc: "Your satisfaction is our benchmark. From the first call to final delivery, your experience is our top priority.",
               },
               {
                 Icon: Car,
-                title: "Passion",
+                title: "PASSION",
                 desc: "We love cars as much as you do. That genuine passion drives the quality and care we pour into every vehicle.",
               },
               {
                 Icon: Star,
-                title: "Innovation",
+                title: "INNOVATION",
                 desc: "We stay ahead with the latest techniques, products, and technologies to offer solutions that set new standards.",
               },
             ].map(({ Icon, title, desc }, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group bg-white/5 border border-white/10 p-8 hover:border-primary/50 hover:bg-white/8 transition-all duration-300 hover-lift"
+                className="group bg-white/5 border border-white/10 p-8 hover:border-primary/50 transition-all duration-300 hover-lift"
               >
                 <div className="w-12 h-12 bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Icon className="text-primary" size={22} />
                 </div>
-                <h3 className="text-xl font-sora font-semibold text-white mb-3">
+                <h3 className="text-xl font-sora font-semibold text-white uppercase tracking-wide mb-3">
                   {title}
                 </h3>
-                <p className="text-white/55 font-poppins text-sm leading-relaxed">
+                <p className="text-white font-poppins text-sm leading-relaxed">
                   {desc}
                 </p>
               </motion.div>
@@ -563,14 +554,13 @@ export default function About() {
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl md:text-6xl font-orbitron font-bold text-white leading-tight uppercase"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-sora uppercase tracking-wider leading-tight"
             >
-              LET'S GIVE YOUR CAR THE{" "}
-              <span className="text-primary">TREATMENT IT DESERVES</span>
+              LET'S GIVE YOUR CAR THE <span className="text-primary">TREATMENT IT DESERVES</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-white/70 font-poppins text-lg"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto font-poppins"
             >
               Book a service today and experience the Auto Gamma difference — professional, precise, and unparalleled.
             </motion.p>
@@ -579,12 +569,12 @@ export default function About() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link href="/services">
-                <button className="bg-primary text-white font-poppins font-semibold text-sm uppercase tracking-wider px-10 py-4 -skew-x-6 hover:bg-primary/90 transition-colors">
+                <button className="bg-primary text-white font-poppins font-bold h-11 text-base uppercase tracking-widest px-10 -skew-x-6 hover:bg-primary/90 transition-colors">
                   <span className="skew-x-6 inline-block">Explore Services</span>
                 </button>
               </Link>
               <Link href="/#contact">
-                <button className="border border-white/30 text-white font-poppins font-semibold text-sm uppercase tracking-wider px-10 py-4 -skew-x-6 hover:border-primary hover:text-primary transition-colors">
+                <button className="border border-white/30 text-white font-poppins font-bold h-11 text-base uppercase tracking-widest px-10 -skew-x-6 hover:border-primary hover:text-primary transition-colors">
                   <span className="skew-x-6 inline-block">Contact Us</span>
                 </button>
               </Link>
