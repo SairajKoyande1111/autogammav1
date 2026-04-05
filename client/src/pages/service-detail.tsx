@@ -175,12 +175,6 @@ export default function ServiceDetail() {
             variants={stagger}
             className="max-w-3xl"
           >
-            <motion.p
-              variants={fadeInUp}
-              className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-3"
-            >
-              Auto Gamma Services
-            </motion.p>
             <motion.h1
               variants={fadeInUp}
               className="text-4xl sm:text-5xl md:text-7xl font-bold text-white font-sora uppercase tracking-wider leading-none mb-5"
@@ -215,7 +209,7 @@ export default function ServiceDetail() {
       {/* ── MAIN CONTENT ── */}
       <section className="py-20 bg-background">
         <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:divide-x lg:divide-white/15">
 
             {/* LEFT: What's Included (3/5) */}
             <motion.div
@@ -229,7 +223,7 @@ export default function ServiceDetail() {
                 <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-2">
                   Service Breakdown
                 </p>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white font-sora uppercase tracking-wider">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-sora uppercase tracking-wider">
                   WHAT'S <span className="text-primary">INCLUDED</span>
                 </h2>
                 <div className="w-16 h-0.5 bg-primary mt-3" />
@@ -252,7 +246,7 @@ export default function ServiceDetail() {
                       className="text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
                       size={18}
                     />
-                    <span className="text-white font-poppins text-sm leading-relaxed">
+                    <span className="text-white font-poppins text-base leading-relaxed">
                       {feature}
                     </span>
                   </motion.li>
@@ -310,13 +304,13 @@ export default function ServiceDetail() {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               variants={fadeInRight}
-              className="lg:col-span-2 flex flex-col gap-6"
+              className="lg:col-span-2 flex flex-col gap-6 lg:pl-10"
             >
               <div>
                 <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-2">
                   Transparent Pricing
                 </p>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white font-sora uppercase tracking-wider">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-sora uppercase tracking-wider">
                   PRICING
                 </h2>
                 <div className="w-16 h-0.5 bg-primary mt-3" />
@@ -344,7 +338,7 @@ export default function ServiceDetail() {
                         i % 2 === 0 ? "bg-white/3" : "bg-white/5"
                       }`}
                     >
-                      <span className="text-white/80 font-poppins text-sm group-hover:text-white transition-colors">
+                      <span className="text-white/80 font-poppins text-base group-hover:text-white transition-colors">
                         {tier.carType.split(" - ").pop()}
                       </span>
                       <span className="text-white font-sora font-bold text-xl text-right group-hover:text-primary transition-colors">
