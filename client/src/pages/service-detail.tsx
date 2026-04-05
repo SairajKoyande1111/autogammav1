@@ -173,7 +173,7 @@ export default function ServiceDetail() {
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-3xl"
+            className="w-full text-center"
           >
             <motion.h1
               variants={fadeInUp}
@@ -183,11 +183,11 @@ export default function ServiceDetail() {
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 font-poppins text-base md:text-lg max-w-xl leading-relaxed mb-8"
+              className="text-white/80 font-poppins text-base md:text-lg w-full leading-relaxed mb-8"
             >
               {service.description}
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex items-center gap-4 flex-wrap">
+            <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 flex-wrap">
               <button
                 onClick={() => setBookingOpen(true)}
                 className="bg-primary text-white font-poppins font-bold uppercase tracking-widest px-8 h-12 -skew-x-6 hover:bg-primary/90 transition-colors flex items-center gap-2"
