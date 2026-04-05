@@ -209,7 +209,7 @@ export default function ServiceDetail() {
       {/* ── MAIN CONTENT ── */}
       <section className="py-20 bg-background">
         <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:divide-x lg:divide-white/15">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
             {/* LEFT: What's Included (3/5) */}
             <motion.div
@@ -217,7 +217,7 @@ export default function ServiceDetail() {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               variants={fadeInLeft}
-              className="lg:col-span-3 flex flex-col gap-6"
+              className="lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-white/15 lg:pr-8"
             >
               <div>
                 <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-2">
@@ -226,7 +226,7 @@ export default function ServiceDetail() {
                 <h2 className="text-3xl sm:text-4xl font-bold text-white font-sora uppercase tracking-wider">
                   WHAT'S <span className="text-primary">INCLUDED</span>
                 </h2>
-                <div className="w-16 h-0.5 bg-primary mt-3" />
+                <div className="w-full h-0.5 bg-primary mt-3" />
               </div>
 
               <motion.ul
@@ -313,7 +313,7 @@ export default function ServiceDetail() {
                 <h2 className="text-3xl sm:text-4xl font-bold text-white font-sora uppercase tracking-wider">
                   PRICING
                 </h2>
-                <div className="w-16 h-0.5 bg-primary mt-3" />
+                <div className="w-full h-0.5 bg-primary mt-3" />
               </div>
 
               {service.pricing && service.pricing.length > 0 ? (
@@ -403,7 +403,7 @@ export default function ServiceDetail() {
             >
               RECOMMENDED <span className="text-primary">SERVICES</span>
             </motion.h2>
-            <div className="w-16 h-0.5 bg-primary mt-3" />
+            <div className="w-full h-0.5 bg-primary mt-3" />
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
