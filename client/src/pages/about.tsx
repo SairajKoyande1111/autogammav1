@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import {
-  Trophy, Users, Car, Star, CheckCircle2, ArrowRight,
+  Trophy, Users, Car, Star, CheckCircle2,
   Target, Eye
 } from "lucide-react";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
@@ -114,19 +114,6 @@ export default function About() {
               </motion.p>
             </motion.div>
 
-            {/* Right: Logo — desktop only */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="hidden lg:flex flex-col items-center justify-center flex-shrink-0"
-            >
-              <img
-                src={autoGammaLogo}
-                alt="Auto Gamma Logo"
-                className="w-56 xl:w-72 h-auto object-contain drop-shadow-2xl"
-              />
-            </motion.div>
           </div>
         </div>
       </section>
@@ -371,7 +358,7 @@ export default function About() {
                     <span className="text-[10px] font-poppins font-bold tracking-wider text-white bg-primary px-3 py-1.5">{feature.highlight}</span>
                   </div>
                   <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-2xl font-sora font-semibold text-white mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
+                    <h3 className="text-base font-sora font-semibold text-white mb-2 group-hover:text-primary transition-colors whitespace-nowrap">{feature.title}</h3>
                     <div className="w-12 h-1 bg-primary mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <p className="text-sm font-poppins text-white/80">{feature.description}</p>
                   </div>
@@ -424,11 +411,6 @@ export default function About() {
                 </p>
                 <h3 className="text-lg font-sora font-semibold text-white uppercase tracking-wide mb-3">{title}</h3>
                 <p className="text-white font-poppins text-sm leading-relaxed">{desc}</p>
-                {i < 3 && (
-                  <div className="hidden lg:flex absolute -right-3 top-12 z-10 text-primary/50">
-                    <ArrowRight size={22} />
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
@@ -477,8 +459,8 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative p-8">
-                  <div className="w-8 h-0.5 bg-primary mb-5 group-hover:w-14 transition-all duration-300" />
                   <h3 className="text-xl font-sora font-semibold text-white uppercase tracking-wide mb-3">{title}</h3>
+                  <div className="w-full h-0.5 bg-primary mb-4" />
                   <p className="text-white font-poppins text-sm leading-relaxed">{desc}</p>
                 </div>
               </motion.div>
