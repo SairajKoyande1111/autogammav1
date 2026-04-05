@@ -1,11 +1,9 @@
-import { useParams, Link, useLocation } from "wouter";
+import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -22,12 +20,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Loader2, Calendar, Check, ArrowRight } from "lucide-react";
+import { Loader2, Calendar, CheckCircle2, ArrowRight, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { bookingFormSchema, type BookingFormData } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { getServiceBySlug, servicesData } from "@/lib/services-data";
-import { Card, CardContent } from "@/components/ui/card";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -45,12 +42,11 @@ const fadeInRight = {
 } as const;
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 } as const;
 
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const [location] = useLocation();
   const service = getServiceBySlug(slug || "");
   const [bookingOpen, setBookingOpen] = useState(false);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
@@ -59,7 +55,7 @@ export default function ServiceDetail() {
   const recommendations = useMemo(() => {
     if (!service) return [];
     return servicesData
-      .filter(s => s.id !== service.id)
+      .filter((s) => s.id !== service.id)
       .sort(() => 0.5 - Math.random())
       .slice(0, 4);
   }, [service]);
@@ -104,338 +100,397 @@ export default function ServiceDetail() {
 
   if (!service) {
     return (
-      <div className="pt-24 pb-20">
+      <div className="pt-32 pb-20 bg-background min-h-screen">
         <div className="container px-4 mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="text-4xl font-bold text-white font-sora uppercase tracking-wider mb-6">
             Service Not Found
           </h1>
           <Link href="/services">
-            <Button className="bg-primary hover:bg-primary/90 text-white">
-              Back to Services
-            </Button>
+            <button className="bg-primary text-white font-poppins font-bold h-11 px-10 uppercase tracking-widest -skew-x-6 hover:bg-primary/90 transition-colors">
+              <span className="skew-x-6 inline-block">Back to Services</span>
+            </button>
           </Link>
         </div>
       </div>
     );
   }
 
-  // Get the lowest price for the header
-  const displayPrice = service.pricing
-    ? service.pricing[0].price
-    : service.price;
+  const isVariantService =
+    service.slug === "ceramic-coating" ||
+    service.slug === "windshield-coating" ||
+    service.slug === "sun-control-film";
+
+  const variantLabels: Record<string, string[]> = {
+    "ceramic-coating": [
+      "9H — Made in India",
+      "MAFRA — Made in Italy",
+      "MENZA PRO — Made in Japan",
+      "KOCH CHEMIE — Made in Germany",
+    ],
+    "windshield-coating": ["Front Windshield Only", "All Glasses"],
+    "sun-control-film": [
+      "Economy (25–30% Heat Rejection)",
+      "Standard (30–40% Heat Rejection)",
+      "Premium (40–50% Heat Rejection)",
+      "Ceramic (50–60% Heat Rejection)",
+    ],
+  };
+
+  const currentVariantPricing = isVariantService
+    ? service.pricing?.slice(
+        selectedVariantIndex * 4,
+        (selectedVariantIndex + 1) * 4
+      )
+    : service.pricing;
+
+  const displayPrice = service.pricing ? service.pricing[0].price : service.price;
 
   return (
-    <div className="pt-24 pb-12 bg-background min-h-screen flex flex-col font-sora text-[16px]">
-      {/* Centered Header */}
-      <section className="container px-4 mx-auto max-w-7xl pt-8 md:pt-16 pb-8 md:pb-12 text-center">
-        <motion.h1
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="text-3xl md:text-5xl font-sora font-medium text-white uppercase tracking-tight mb-2"
-        >
-          {service.title}
-        </motion.h1>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="inline-block bg-red-600 px-4 py-1.5 mt-2 max-w-[90vw] md:max-w-full"
-        >
-          <p className="text-white text-sm sm:text-base md:text-lg font-medium md:whitespace-nowrap break-words leading-tight">
-            Premium deep cleaning and foam protection for a showroom finish
-          </p>
-        </motion.div>
+    <div className="bg-background min-h-screen w-full overflow-x-hidden">
+
+      {/* ── HERO ── */}
+      <section className="relative w-full min-h-[55vh] flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          {service.slug === "foam-washing" ? (
+            <video
+              src="/attached_assets/6873163-uhd_2160_3840_25fps_1766779370222.mp4"
+              autoPlay loop muted playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <img
+              src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop"
+              alt={service.title}
+              className="w-full h-full object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+        </div>
+
+        <div className="relative z-10 container px-4 mx-auto pb-14 pt-36">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-3xl"
+          >
+            <motion.p
+              variants={fadeInUp}
+              className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-3"
+            >
+              Auto Gamma Services
+            </motion.p>
+            <motion.h1
+              variants={fadeInUp}
+              className="text-4xl sm:text-5xl md:text-7xl font-bold text-white font-sora uppercase tracking-wider leading-none mb-5"
+            >
+              {service.title}
+            </motion.h1>
+            <motion.p
+              variants={fadeInUp}
+              className="text-white/80 font-poppins text-base md:text-lg max-w-xl leading-relaxed mb-8"
+            >
+              {service.description}
+            </motion.p>
+            <motion.div variants={fadeInUp} className="flex items-center gap-4 flex-wrap">
+              <button
+                onClick={() => setBookingOpen(true)}
+                className="bg-primary text-white font-poppins font-bold uppercase tracking-widest px-8 h-12 -skew-x-6 hover:bg-primary/90 transition-colors flex items-center gap-2"
+              >
+                <span className="skew-x-6 inline-flex items-center gap-2">
+                  <Calendar size={16} /> Book Your Slot
+                </span>
+              </button>
+              <Link href="/services">
+                <button className="border border-white/30 text-white font-poppins font-bold uppercase tracking-widest px-8 h-12 -skew-x-6 hover:border-primary hover:text-primary transition-colors">
+                  <span className="skew-x-6 inline-block">All Services</span>
+                </button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
-      <section className="container px-4 mx-auto max-w-7xl flex-grow flex flex-col">
-        {/* Main Content Area - 3 Vertical Cards side by side */}
-        <div className="flex flex-col lg:flex-row gap-8 items-stretch mb-12 flex-grow min-h-[500px]">
-          {/* Column 1: Image */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInLeft}
-            className="flex-1 min-w-0"
-          >
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full min-h-[250px] sm:min-h-[300px] md:min-h-[400px] group">
-              {service.slug === "foam-washing" ? (
-                <video
-                  src="/attached_assets/6873163-uhd_2160_3840_25fps_1766779370222.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls={false}
-                  preload="auto"
-                  className="w-full h-[250px] sm:h-[300px] md:h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <img
-                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop"
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
-            </div>
-          </motion.div>
+      {/* ── MAIN CONTENT ── */}
+      <section className="py-20 bg-background">
+        <div className="container px-4 mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
-          {/* Column 2: What's Included */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,0,0,0.15)] relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl -mr-16 -mt-16 rounded-full" />
-            <h2 className="text-xl font-sora font-semibold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-red-600 rounded-full block" />
-              What's Included
-            </h2>
-            <ul className="space-y-6 flex-grow relative z-10">
-              {service.features.map((feature: string, i: number) => (
-                <li
-                  key={i}
-                  className="flex items-center gap-4 group p-3 bg-zinc-900/80 border-[4px] border-red-600 rounded-2xl relative"
-                >
-                  {/* Inner White Border */}
-                  <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
-
-                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center relative z-10">
-                    <div className="w-5 h-5 rounded-full border-2 border-red-600 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.4)]">
-                      <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,1)]" />
-                    </div>
-                  </div>
-                  <span className="text-white text-lg font-semibold leading-relaxed tracking-tight relative z-10">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Dynamic Variant Selection Buttons */}
-            {(service.slug === "ceramic-coating" || service.slug === "windshield-coating" || service.slug === "sun-control-film") && service.variants && (
-              <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
-                <p className="text-[10px] font-bold text-red-500 uppercase tracking-[0.2em] mb-4 text-center">Select Treatment Variant</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {service.variants.map((v, i) => (
-                    <Button
-                      key={v}
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setSelectedVariantIndex(i)}
-                      className={`h-14 flex flex-col items-center justify-center text-center transition-all duration-300 border-2 rounded-xl px-2 ${
-                        selectedVariantIndex === i
-                          ? "bg-red-600 border-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)] scale-105"
-                          : "bg-transparent border-white/10 text-white hover:border-red-600/50"
-                      }`}
-                    >
-                      <span className="text-[10px] font-black uppercase tracking-widest">{v.split(" (")[0]}</span>
-                      {v.includes("(") && (
-                        <span className={`text-[8px] font-medium mt-1 leading-none ${selectedVariantIndex === i ? "text-white/90" : "text-white/40"}`}>
-                          ({v.split("(")[1]}
-                        </span>
-                      )}
-                    </Button>
-                  ))}
-                </div>
+            {/* LEFT: What's Included (3/5) */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeInLeft}
+              className="lg:col-span-3 flex flex-col gap-6"
+            >
+              <div>
+                <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-2">
+                  Service Breakdown
+                </p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white font-sora uppercase tracking-wider">
+                  WHAT'S <span className="text-primary">INCLUDED</span>
+                </h2>
+                <div className="w-16 h-0.5 bg-primary mt-3" />
               </div>
-            )}
-          </motion.div>
 
-          {/* Column 3: Pricing */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInRight}
-            className="flex-1 bg-gradient-to-br from-zinc-900/80 to-black border border-white/20 rounded-3xl p-8 flex flex-col shadow-[0_0_50px_-12px_rgba(255,0,0,0.15)] relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl -mr-16 -mt-16 rounded-full" />
-            <h3 className="text-xl font-sora font-semibold text-white mb-8 uppercase tracking-[0.2em] border-b border-white/20 pb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-red-600 rounded-full block" />
-              Pricing
-            </h3>
-            <div className="space-y-4 flex-grow relative z-10 overflow-y-auto max-h-[600px] pr-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-zinc-900">
-              {(service.slug === "ceramic-coating" || service.slug === "windshield-coating" || service.slug === "sun-control-film") ? (
-                <div className="space-y-4">
-                  <h4 className="text-xs font-bold text-white uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">
-                    {service.slug === "ceramic-coating" 
-                      ? ["9H (2 Year Warranty - Made in India)", "MAFRA (2 Year Warranty - Made in Italy)", "MENZA PRO (2 Year Warranty - Made in Japan)", "KOCH CHEMIE (2 Year Warranty - Made in Germany)"][selectedVariantIndex]
-                      : service.slug === "windshield-coating"
-                      ? ["Front Windshield Only", "All Glasses Coating"][selectedVariantIndex]
-                      : ["Economy Grade (Heat Rejection 25%-30%)", "Standard Grade (Heat Rejection 30%-40%)", "Premium Grade (Heat Rejection 40%-50%)", "Ceramic Grade (Heat Rejection 50%-60%)"][selectedVariantIndex]
-                    }
-                  </h4>
-                  {service.pricing?.slice(selectedVariantIndex * 4, (selectedVariantIndex + 1) * 4).map((tier, i) => (
+              <motion.ul
+                variants={stagger}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+              >
+                {service.features.map((feature: string, i: number) => (
+                  <motion.li
+                    key={i}
+                    variants={fadeInUp}
+                    className="flex items-start gap-3 bg-white/5 border border-white/10 px-5 py-4 hover:border-primary/50 hover:bg-white/8 transition-all duration-300 group"
+                  >
+                    <CheckCircle2
+                      className="text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+                      size={18}
+                    />
+                    <span className="text-white font-poppins text-sm leading-relaxed">
+                      {feature}
+                    </span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+
+              {/* Variants for applicable services */}
+              {isVariantService && service.variants && (
+                <div className="mt-2">
+                  <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-3">
+                    Select Variant
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {service.variants.map((v, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setSelectedVariantIndex(i)}
+                        className={`text-left px-5 py-3 border font-poppins text-xs font-semibold uppercase tracking-wide transition-all duration-200 ${
+                          selectedVariantIndex === i
+                            ? "bg-primary border-primary text-white"
+                            : "bg-white/5 border-white/10 text-white/70 hover:border-primary/50 hover:text-white"
+                        }`}
+                      >
+                        {variantLabels[service.slug]?.[i] ?? v.split(" (")[0]}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Non-variant variants list */}
+              {!isVariantService && service.variants && service.variants.length > 0 && (
+                <div className="mt-2">
+                  <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-3">
+                    Available Variants
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {service.variants.map((variant, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3"
+                      >
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0" />
+                        <span className="text-white font-poppins text-xs leading-tight">{variant}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.div>
+
+            {/* RIGHT: Pricing (2/5) */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeInRight}
+              className="lg:col-span-2 flex flex-col gap-6"
+            >
+              <div>
+                <p className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-2">
+                  Transparent Pricing
+                </p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white font-sora uppercase tracking-wider">
+                  PRICING
+                </h2>
+                <div className="w-16 h-0.5 bg-primary mt-3" />
+              </div>
+
+              {service.pricing && service.pricing.length > 0 ? (
+                <div className="flex flex-col gap-0 border border-white/10 overflow-hidden">
+                  {/* Header row */}
+                  <div className="grid grid-cols-2 bg-primary px-5 py-3">
+                    <span className="text-white font-poppins text-xs font-bold uppercase tracking-widest">
+                      Vehicle Type
+                    </span>
+                    <span className="text-white font-poppins text-xs font-bold uppercase tracking-widest text-right">
+                      Price
+                    </span>
+                  </div>
+                  {/* Pricing rows */}
+                  {(currentVariantPricing ?? service.pricing).map((tier, i) => (
                     <motion.div
                       key={`${selectedVariantIndex}-${i}`}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="flex items-center justify-between px-6 py-5 bg-zinc-900/80 rounded-2xl hover:bg-zinc-800 transition-all duration-300 group relative border-[4px] border-red-600"
+                      transition={{ delay: i * 0.07 }}
+                      className={`grid grid-cols-2 items-center px-5 py-4 border-b border-white/10 last:border-b-0 hover:bg-primary/10 transition-colors group ${
+                        i % 2 === 0 ? "bg-white/3" : "bg-white/5"
+                      }`}
                     >
-                      <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
-                      <span className="text-white text-xs uppercase font-semibold tracking-widest relative z-10 max-w-[60%]">
+                      <span className="text-white/80 font-poppins text-sm group-hover:text-white transition-colors">
                         {tier.carType.split(" - ").pop()}
                       </span>
-                      <span className="text-xl md:text-2xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
+                      <span className="text-white font-sora font-bold text-xl text-right group-hover:text-primary transition-colors">
                         {tier.price}
                       </span>
                     </motion.div>
                   ))}
                 </div>
               ) : (
-                <>
-                  {service.variants && service.variants.length > 0 && (
-                    <div className="mb-6 space-y-2">
-                      <h4 className="text-xs font-bold text-red-500 uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">Available Variants</h4>
-                      <div className="grid grid-cols-1 gap-2">
-                        {service.variants.map((variant, i) => (
-                          <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-xl p-3 flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
-                            <span className="text-white text-[11px] font-medium tracking-wide leading-tight">{variant}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  {service.pricing && service.pricing.length > 0 ? (
-                    <div className="space-y-4">
-                      <h4 className="text-xs font-bold text-red-500 uppercase tracking-[0.2em] mb-3 px-1 sticky top-0 bg-black/80 backdrop-blur-sm py-2 z-20">Pricing Details</h4>
-                      {service.pricing.map((tier, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between px-6 py-5 bg-zinc-900/80 rounded-2xl hover:bg-zinc-800 transition-all duration-300 group relative border-[4px] border-red-600"
-                        >
-                          <div className="absolute inset-[2px] border-[1px] border-white rounded-[12px] pointer-events-none" />
-                          <span className="text-white text-xs uppercase font-semibold tracking-widest relative z-10 max-w-[60%]">
-                            {tier.carType}
-                          </span>
-                          <span className="text-xl md:text-2xl font-semibold text-white font-sora tracking-tighter group-hover:text-red-500 transition-colors relative z-10">
-                            {tier.price}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-center h-full">
-                      <p className="text-4xl font-semibold text-white">{displayPrice}</p>
-                    </div>
-                  )}
-                </>
+                <div className="bg-white/5 border border-white/10 px-8 py-10 text-center">
+                  <p className="text-white/50 font-poppins text-xs uppercase tracking-widest mb-2">
+                    Starting from
+                  </p>
+                  <p className="text-5xl font-bold text-white font-sora">{displayPrice}</p>
+                </div>
               )}
-            </div>
-          </motion.div>
-        </div>
 
-        {/* Bottom Area: Booking Button & Recommendations */}
-        <div className="max-w-7xl mx-auto w-full pb-20">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            className="max-w-md mx-auto w-full mb-20"
-          >
-            <Button
-              onClick={() => setBookingOpen(true)}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold h-14 px-8 rounded-2xl text-lg transition-all hover:scale-[1.05] active:scale-[0.95] shadow-[0_0_30px_-5px_rgba(220,38,38,0.4)] uppercase tracking-[0.2em]"
-            >
-              <Calendar className="mr-3 h-5 w-5" />
-              BOOK YOUR SLOT
-            </Button>
-          </motion.div>
+              {/* Book CTA in sidebar */}
+              <button
+                onClick={() => setBookingOpen(true)}
+                className="w-full bg-primary text-white font-poppins font-bold uppercase tracking-widest h-14 text-sm hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 -skew-x-3 mt-2"
+              >
+                <span className="skew-x-3 inline-flex items-center gap-3">
+                  <Calendar size={18} />
+                  Book This Service
+                </span>
+              </button>
 
-          {/* Recommended Services */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            className="space-y-12"
-          >
-            <div className="flex items-center gap-6">
-              <div className="h-px flex-grow bg-white/10" />
-              <h3 className="text-[20px] font-sora font-bold text-red-600 uppercase tracking-[0.5em] whitespace-nowrap">Recommended For You</h3>
-              <div className="h-px flex-grow bg-white/10" />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {recommendations.map((rec, i) => (
-                <Link key={rec.id} href={`/service/${rec.slug}`}>
-                  <motion.div
-                    whileHover={{ y: -10 }}
-                    className="cursor-pointer group h-full"
-                  >
-                    <Card className="bg-zinc-900/40 border-white/5 overflow-hidden hover:border-red-600/30 transition-all duration-500 h-full flex flex-col shadow-2xl">
-                      <CardContent className="p-0 flex flex-col h-full">
-                        <div className="aspect-[4/3] overflow-hidden relative">
-                          <img
-                            src={rec.slug === "foam-washing" 
-                              ? "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2071&auto=format&fit=crop"
-                              : rec.slug === "ceramic-coating"
-                              ? "https://images.unsplash.com/photo-1601362840469-51e4d8d59085?q=80&w=2071&auto=format&fit=crop"
-                              : rec.slug === "detailing"
-                              ? "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop"
-                              : "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
-                            }
-                            alt={rec.title}
-                            className="w-full h-full object-cover group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
-                        </div>
-                        <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
-                          <h4 className="text-white font-sora font-bold text-[20px] uppercase tracking-widest mb-3 group-hover:text-red-600 transition-colors leading-tight">
-                            {rec.title}
-                          </h4>
-                          <p className="text-white text-[14px] font-sora font-medium leading-relaxed mb-6 line-clamp-3">
-                            {rec.description}
-                          </p>
-                          <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                            <div className="flex flex-col">
-                              <span className="text-[12px] text-white/30 uppercase tracking-tighter font-sora font-bold">Starting at</span>
-                              <span className="text-red-600 text-[20px] font-sora font-bold tracking-tighter">
-                                {rec.pricing ? rec.pricing[0].price : rec.price}
-                              </span>
-                            </div>
-                            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300">
-                              <ArrowRight className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
-                            </div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+              {service.warranty && (
+                <div className="flex items-center gap-3 bg-primary/10 border border-primary/30 px-5 py-4">
+                  <CheckCircle2 className="text-primary shrink-0" size={18} />
+                  <p className="text-white font-poppins text-sm">
+                    <span className="text-primary font-semibold">Warranty:</span>{" "}
+                    {service.warranty}
+                  </p>
+                </div>
+              )}
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Booking Dialog */}
+      {/* ── RECOMMENDED SERVICES ── */}
+      <section className="py-20 bg-neutral-900">
+        <div className="container px-4 mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mb-12"
+          >
+            <motion.p
+              variants={fadeInUp}
+              className="text-primary font-poppins text-xs font-bold tracking-[0.3em] uppercase mb-2"
+            >
+              You Might Also Like
+            </motion.p>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-sora uppercase tracking-wider"
+            >
+              RECOMMENDED <span className="text-primary">SERVICES</span>
+            </motion.h2>
+            <div className="w-16 h-0.5 bg-primary mt-3" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {recommendations.map((rec, i) => (
+              <motion.div
+                key={rec.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Link href={`/service/${rec.slug}`}>
+                  <div className="group block border border-white/10 hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden cursor-pointer h-full">
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={
+                          rec.slug === "foam-washing"
+                            ? "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=800"
+                            : rec.slug === "ceramic-coating"
+                            ? "https://images.unsplash.com/photo-1601362840469-51e4d8d59085?q=80&w=800"
+                            : rec.slug === "detailing"
+                            ? "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800"
+                            : "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800"
+                        }
+                        alt={rec.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    </div>
+                    {/* Content */}
+                    <div className="p-5 bg-white/3">
+                      <h4 className="text-white font-sora font-bold text-sm uppercase tracking-wider mb-1 group-hover:text-primary transition-colors">
+                        {rec.title}
+                      </h4>
+                      <p className="text-white/50 font-poppins text-xs leading-relaxed line-clamp-2 mb-4">
+                        {rec.description}
+                      </p>
+                      <div className="flex items-center justify-between border-t border-white/10 pt-3">
+                        <div>
+                          <p className="text-white/40 font-poppins text-[10px] uppercase tracking-widest">From</p>
+                          <p className="text-primary font-sora font-bold text-lg">
+                            {rec.pricing ? rec.pricing[0].price : rec.price}
+                          </p>
+                        </div>
+                        <div className="w-8 h-8 border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                          <ArrowRight className="text-white" size={14} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BOOKING DIALOG ── */}
       <Dialog open={bookingOpen} onOpenChange={setBookingOpen}>
-        <DialogContent className="sm:max-w-[500px] bg-black/95 border-white/10">
+        <DialogContent className="sm:max-w-[500px] bg-black/98 border-white/10">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-sora font-semibold text-white uppercase">
+            <DialogTitle className="text-xl font-sora font-bold text-white uppercase tracking-wider">
               Book <span className="text-primary">{service.title}</span>
             </DialogTitle>
+            <div className="w-12 h-0.5 bg-primary mt-1" />
           </DialogHeader>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-2">
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white font-medium">
-                      Your Name
+                    <FormLabel className="text-white font-poppins text-xs uppercase tracking-widest">
+                      Full Name
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Full Name"
-                        className="bg-white/5 border-white/10 text-white"
+                        placeholder="Your full name"
+                        className="bg-white/5 border-white/10 text-white font-poppins focus:border-primary"
                         data-testid="input-booking-name"
                         {...field}
                       />
@@ -450,13 +505,13 @@ export default function ServiceDetail() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white font-medium">
+                      <FormLabel className="text-white font-poppins text-xs uppercase tracking-widest">
                         Phone
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="+91 00000 00000"
-                          className="bg-white/5 border-white/10 text-white"
+                          className="bg-white/5 border-white/10 text-white font-poppins focus:border-primary"
                           data-testid="input-booking-phone"
                           {...field}
                         />
@@ -470,14 +525,14 @@ export default function ServiceDetail() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white font-medium">
+                      <FormLabel className="text-white font-poppins text-xs uppercase tracking-widest">
                         Email
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="email"
                           placeholder="email@domain.com"
-                          className="bg-white/5 border-white/10 text-white"
+                          className="bg-white/5 border-white/10 text-white font-poppins focus:border-primary"
                           data-testid="input-booking-email"
                           {...field}
                         />
@@ -492,13 +547,13 @@ export default function ServiceDetail() {
                 name="date"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white font-medium">
+                    <FormLabel className="text-white font-poppins text-xs uppercase tracking-widest">
                       Preferred Date
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="date"
-                        className="bg-white/5 border-white/10 text-white"
+                        className="bg-white/5 border-white/10 text-white font-poppins focus:border-primary"
                         data-testid="input-booking-date"
                         {...field}
                       />
@@ -512,13 +567,13 @@ export default function ServiceDetail() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white font-medium">
-                      Additional Notes (Optional)
+                    <FormLabel className="text-white font-poppins text-xs uppercase tracking-widest">
+                      Message (Optional)
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Any specific requirements..."
-                        className="bg-white/5 border-white/10 min-h-[80px] text-white"
+                        placeholder="Tell us about your vehicle..."
+                        className="bg-white/5 border-white/10 text-white font-poppins focus:border-primary min-h-[80px]"
                         data-testid="input-booking-message"
                         {...field}
                       />
@@ -527,23 +582,17 @@ export default function ServiceDetail() {
                   </FormItem>
                 )}
               />
-              <Button
+              <button
                 type="submit"
                 disabled={mutation.isPending}
-                className="w-full bg-primary hover:bg-primary/90 text-white font-semibold h-12 uppercase tracking-widest"
-                data-testid="button-submit-booking"
+                className="w-full bg-primary text-white font-poppins font-bold h-12 uppercase tracking-widest text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 mt-2"
               >
                 {mutation.isPending ? (
-                  <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />{" "}
-                    Submitting...
-                  </>
+                  <><Loader2 className="animate-spin" size={16} /> Submitting...</>
                 ) : (
-                  <>
-                    <Calendar className="mr-2 h-5 w-5" /> Confirm Booking
-                  </>
+                  <><Calendar size={16} /> Confirm Booking</>
                 )}
-              </Button>
+              </button>
             </form>
           </Form>
         </DialogContent>
