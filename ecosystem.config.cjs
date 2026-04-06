@@ -12,11 +12,6 @@ module.exports = {
         NODE_ENV: "production",
         PORT: 3005,
 
-        // ─── Database ───────────────────────────────────────────────────────────
-        // PostgreSQL connection string
-        // Format: postgresql://USER:PASSWORD@HOST:5432/DATABASE_NAME
-        DATABASE_URL: "postgresql://postgres:yourpassword@localhost:5432/autogamma",
-
         // ─── Email (SMTP) ────────────────────────────────────────────────────────
         EMAIL_HOST: "smtp.gmail.com",
         EMAIL_PORT: 587,
