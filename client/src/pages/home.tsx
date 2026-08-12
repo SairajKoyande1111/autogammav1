@@ -16,7 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 
-import heroVideo from "@assets/Untitled_design_(3)_1765178051900.mp4";
+import heroVideo from "@assets/copy_3F782478-1E5B-4E71-A065-C58D821ADA74_(1)_(1)_1786510568554.mov";
 import heroImage from "@assets/generated_images/cinematic_luxury_dark_car_hero_background_with_red_accents.png";
 import tireImage from "@assets/pngegg_1765179057976.png";
 import detailingImage from "@assets/generated_images/car_detailing_polishing_action_shot.png";
